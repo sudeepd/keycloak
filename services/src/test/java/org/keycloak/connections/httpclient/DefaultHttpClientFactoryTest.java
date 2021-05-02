@@ -51,6 +51,7 @@ public class DefaultHttpClientFactoryTest {
 	private static final String TEST_DOMAIN = "keycloak.org";
 
 	@Ignore
+	@Test
 	public void createHttpClientProviderWithDisableTrustManager() throws IOException{
 		Map<String, String> values = new HashMap<>();
 		values.put(DISABLE_TRUST_MANAGER_PROPERTY, "true");
@@ -66,8 +67,8 @@ public class DefaultHttpClientFactoryTest {
 		}
 	}
 
-	//@Test(expected = SSLPeerUnverifiedException.class)
 	@Ignore
+	@Test(expected = SSLPeerUnverifiedException.class)
 	public void createHttpClientProviderWithUnvailableURL() throws IOException {
 		DefaultHttpClientFactory factory = new DefaultHttpClientFactory();
 		factory.init(scope(new HashMap<>()));
