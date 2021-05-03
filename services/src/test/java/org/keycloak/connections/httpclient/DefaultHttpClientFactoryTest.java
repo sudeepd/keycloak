@@ -19,6 +19,7 @@ package org.keycloak.connections.httpclient;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import org.junit.Ignore;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -46,11 +47,11 @@ import org.keycloak.services.util.JsonConfigProvider.JsonScope;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Ignore
 public class DefaultHttpClientFactoryTest {
 	private static final String DISABLE_TRUST_MANAGER_PROPERTY = "disable-trust-manager";
 	private static final String TEST_DOMAIN = "keycloak.org";
 
-	@Ignore
 	@Test
 	public void createHttpClientProviderWithDisableTrustManager() throws IOException{
 		Map<String, String> values = new HashMap<>();
@@ -67,7 +68,6 @@ public class DefaultHttpClientFactoryTest {
 		}
 	}
 
-	@Ignore
 	@Test(expected = SSLPeerUnverifiedException.class)
 	public void createHttpClientProviderWithUnvailableURL() throws IOException {
 		DefaultHttpClientFactory factory = new DefaultHttpClientFactory();
