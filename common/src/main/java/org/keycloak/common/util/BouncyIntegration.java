@@ -17,7 +17,7 @@
 
 package org.keycloak.common.util;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 
 import java.security.Security;
 
@@ -27,7 +27,7 @@ import java.security.Security;
  */
 public class BouncyIntegration {
     static {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
 
     public static void init() {

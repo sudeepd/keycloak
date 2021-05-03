@@ -156,7 +156,7 @@
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
+            <artifactId>bcfips</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>
@@ -166,7 +166,7 @@
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
+            <artifactId>bcpkix-fips</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>
