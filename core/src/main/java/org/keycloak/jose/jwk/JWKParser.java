@@ -17,9 +17,10 @@
 
 package org.keycloak.jose.jwk;
 
-import org.bouncycastle.jce.ECNamedCurveTable;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
+import org.bouncycastle.asn1.x9.ECNamedCurveTable;
+import org.bouncycastle.asn1.x9.X9ECParameters;
+import org.bouncycastle.math.ec.ECCurve;
+import org.bouncycastle.math.field.FiniteField;
 import org.keycloak.common.util.Base64Url;
 import org.keycloak.crypto.KeyType;
 import org.keycloak.util.JsonSerialization;
@@ -27,9 +28,7 @@ import org.keycloak.util.JsonSerialization;
 import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.PublicKey;
-import java.security.spec.ECPoint;
-import java.security.spec.ECPublicKeySpec;
-import java.security.spec.RSAPublicKeySpec;
+import java.security.spec.*;
 
 /**
  * @author <a href="mailto:sthorger@redhat.com">Stian Thorgersen</a>
@@ -78,6 +77,32 @@ public class JWKParser {
         }
     }
 
+    private ECParameterSpec createParameterSpec(String curve) {
+        X9ECParameters params = ECNamedCurveTable.getByName(curve);
+        ECField field ;
+        ECCurve ecCurve = params.getCurve();
+        if (ecCurve instanceof ECCurve.F2m) {
+            ECCurve.F2m f2m = (ECCurve.F2m) ecCurve;
+            field = new ECFieldF2m(f2m.getM(), new int[] { f2m.getK1(), f2m.getK2(), f2m.getK3()});
+        }
+        else
+        if (ecCurve instanceof ECCurve.Fp) {
+            ECCurve.Fp fp = (ECCurve.Fp) ecCurve;
+            field = new ECFieldFp(fp.getQ());
+        }
+        else
+            throw new RuntimeException("Unsupported curve");
+
+
+        EllipticCurve c = new EllipticCurve(field,
+                ecCurve.getA().toBigInteger(),
+                ecCurve.getB().toBigInteger(),
+                params.getSeed());
+        ECPoint point = new ECPoint( params.getG().getXCoord().toBigInteger(), params.getG().getYCoord().toBigInteger());
+        return new ECParameterSpec( c,point, params.getN(), params.getH().intValue());
+
+    }
+
     private PublicKey createECPublicKey() {
         String crv = (String) jwk.getOtherClaims().get(ECPublicJWK.CRV);
         BigInteger x = new BigInteger(1, Base64Url.decode((String) jwk.getOtherClaims().get(ECPublicJWK.X)));
@@ -99,10 +124,9 @@ public class JWKParser {
         }
 
         try {
-            ECNamedCurveParameterSpec spec = ECNamedCurveTable.getParameterSpec(name);
-            ECNamedCurveSpec params = new ECNamedCurveSpec("prime256v1", spec.getCurve(), spec.getG(), spec.getN());
+            ECParameterSpec parameterSpec = createParameterSpec(crv);
             ECPoint point = new ECPoint(x, y);
-            ECPublicKeySpec pubKeySpec = new ECPublicKeySpec(point, params);
+            ECPublicKeySpec pubKeySpec = new ECPublicKeySpec(point, parameterSpec);
 
             KeyFactory kf = KeyFactory.getInstance("ECDSA");
             return kf.generatePublic(pubKeySpec);

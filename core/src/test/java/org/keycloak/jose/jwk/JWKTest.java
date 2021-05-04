@@ -128,7 +128,7 @@ public class JWKTest {
 
     @Test
     public void publicEs256() throws Exception {
-        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        Security.addProvider(new org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider());
 
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC");
         SecureRandom randomGen = SecureRandom.getInstance("SHA1PRNG");

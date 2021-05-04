@@ -19,9 +19,11 @@ package org.keycloak.jose.jwe.alg;
 
 import java.security.Key;
 
-import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.engines.AESWrapEngine;
-import org.bouncycastle.crypto.params.KeyParameter;
+import org.bouncycastle.crypto.KeyUnwrapper;
+import org.bouncycastle.crypto.KeyWrapper;
+import org.bouncycastle.crypto.SymmetricKey;
+import org.bouncycastle.crypto.SymmetricSecretKey;
+import org.bouncycastle.crypto.fips.FipsAES;
 import org.keycloak.jose.jwe.JWEKeyStorage;
 import org.keycloak.jose.jwe.enc.JWEEncryptionProvider;
 
@@ -32,17 +34,31 @@ public class AesKeyWrapAlgorithmProvider implements JWEAlgorithmProvider {
 
     @Override
     public byte[] decodeCek(byte[] encodedCek, Key encryptionKey) throws Exception {
-        Wrapper encrypter = new AESWrapEngine();
-        encrypter.init(false, new KeyParameter(encryptionKey.getEncoded()));
-        return encrypter.unwrap(encodedCek, 0, encodedCek.length);
+        byte[] keyBytes = encryptionKey.getEncoded(); // bytes making up AES key doing the wrapping
+        SymmetricKey aesKey = new SymmetricSecretKey(FipsAES.KW, keyBytes);
+        FipsAES.KeyWrapOperatorFactory factory = new FipsAES.KeyWrapOperatorFactory();
+        KeyUnwrapper unwrapper = factory.createKeyUnwrapper(aesKey, FipsAES.KW);
+        return unwrapper.unwrap(encodedCek, 0, encodedCek.length);
+
+//        Wrapper encrypter = new AESWrapEngine();
+//        encrypter.init(false, new KeyParameter(encryptionKey.getEncoded()));
+//        return encrypter.unwrap(encodedCek, 0, encodedCek.length);
     }
 
     @Override
     public byte[] encodeCek(JWEEncryptionProvider encryptionProvider, JWEKeyStorage keyStorage, Key encryptionKey) throws Exception {
-        Wrapper encrypter = new AESWrapEngine();
-        encrypter.init(true, new KeyParameter(encryptionKey.getEncoded()));
-        byte[] cekBytes = keyStorage.getCekBytes();
-        return encrypter.wrap(cekBytes, 0, cekBytes.length);
+        // Implementation guided by Bouncy Castle user guide
+//        Wrapper encrypter = new AESWrapEngine();
+//        encrypter.init(true, new KeyParameter(encryptionKey.getEncoded()));
+//        byte[] cekBytes = keyStorage.getCekBytes();
+//        return encrypter.wrap(cekBytes, 0, cekBytes.length);
+
+        byte[] inputKeyBytes = keyStorage.getCekBytes(); // bytes making up the key to be wrapped
+        byte[] keyBytes = encryptionKey.getEncoded(); // bytes making up AES key doing the wrapping
+        SymmetricKey aesKey = new SymmetricSecretKey(FipsAES.KW, keyBytes);
+        FipsAES.KeyWrapOperatorFactory factory = new FipsAES.KeyWrapOperatorFactory();
+        KeyWrapper wrapper = factory.createKeyWrapper(aesKey, FipsAES.KW);
+        return wrapper.wrap(inputKeyBytes, 0, inputKeyBytes.length);
     }
 
 
