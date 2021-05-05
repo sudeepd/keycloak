@@ -16,7 +16,7 @@
  */
 package org.keycloak.testsuite.oauth;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Assert;
 import org.junit.Before;
@@ -110,7 +110,7 @@ public class RefreshTokenTest extends AbstractKeycloakTest {
 
     @BeforeClass
     public static void addBouncyCastleProvider() {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
 
     @Before

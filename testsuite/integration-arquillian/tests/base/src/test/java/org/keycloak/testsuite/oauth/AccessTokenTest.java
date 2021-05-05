@@ -25,7 +25,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.hamcrest.collection.IsArrayContaining;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -128,7 +128,7 @@ public class AccessTokenTest extends AbstractKeycloakTest {
 
     @BeforeClass
     public static void addBouncyCastleProvider() {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPA") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
 
     @Before

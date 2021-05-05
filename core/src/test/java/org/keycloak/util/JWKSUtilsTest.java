@@ -40,7 +40,7 @@ public class JWKSUtilsTest {
 
     @Test
     public void publicRs256() throws Exception {
-        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        Security.addProvider(new org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider());
 
         String kidRsa1 = "key1";
         String kidRsa2 = "key2";

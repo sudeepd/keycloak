@@ -17,7 +17,7 @@
 
 package org.keycloak.testsuite.oidc.flows;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleiFipsProvider;
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.BeforeClass;
 import org.junit.Rule;
@@ -62,7 +62,7 @@ public abstract class AbstractOIDCResponseTypeTest extends AbstractTestRealmKeyc
 
     @BeforeClass
     public static void addBouncyCastleProvider() {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
 
     @Rule
