@@ -1,18 +1,21 @@
 package org.keycloak.common.util;
 
+
+
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.junit.Test;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.concurrent.ThreadLocalRandom;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class KeyUtilsTest {
 
     @Test
     public void loadSecretKey() {
+        assertTrue(CryptoServicesRegistrar.isInApprovedOnlyMode());
         byte[] secretBytes = new byte[32];
         ThreadLocalRandom.current().nextBytes(secretBytes);
         SecretKeySpec expected = new SecretKeySpec(secretBytes, "HmacSHA256");

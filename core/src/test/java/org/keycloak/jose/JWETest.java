@@ -126,10 +126,10 @@ public class JWETest {
 
     @Test
     public void testPassword() {
-        byte[] salt = JWEUtils.generateSecret(8);
+        byte[] salt = JWEUtils.generateSecret(16);
         String encodedSalt = Base64.encodeBytes(salt);
-        String jwe = JWE.encryptUTF8("geheim", encodedSalt, PAYLOAD);
-        String decodedContent = JWE.decryptUTF8("geheim", encodedSalt, jwe);
+        String jwe = JWE.encryptUTF8("geheimgeheimgeheimgeheim", encodedSalt, PAYLOAD);
+        String decodedContent = JWE.decryptUTF8("geheimgeheimgeheimgeheim", encodedSalt, jwe);
         Assert.assertEquals(PAYLOAD, decodedContent);
     }
 
@@ -253,6 +253,7 @@ public class JWETest {
 
     @Test
     public void testRSAOAEP256_A128GCM() throws Exception {
+
         testKeyEncryption_ContentEncryptionAesGcm(JWEConstants.RSA_OAEP_256, JWEConstants.A128GCM);
     }
 

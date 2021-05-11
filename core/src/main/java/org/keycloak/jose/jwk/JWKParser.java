@@ -124,11 +124,11 @@ public class JWKParser {
         }
 
         try {
-            ECParameterSpec parameterSpec = createParameterSpec(crv);
+            ECParameterSpec parameterSpec = createParameterSpec(name);
             ECPoint point = new ECPoint(x, y);
             ECPublicKeySpec pubKeySpec = new ECPublicKeySpec(point, parameterSpec);
 
-            KeyFactory kf = KeyFactory.getInstance("ECDSA");
+            KeyFactory kf = KeyFactory.getInstance("ECDSA","BCFIPS");
             return kf.generatePublic(pubKeySpec);
         } catch (Exception e) {
             throw new RuntimeException(e);

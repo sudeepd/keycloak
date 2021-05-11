@@ -116,7 +116,7 @@ public abstract class AesCbcHmacShaEncryptionProvider implements JWEEncryptionPr
 
 
     private byte[] encryptBytes(byte[] contentBytes, byte[] ivBytes, Key aesKey) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BC");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BCFIPS");
         AlgorithmParameterSpec ivParamSpec = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.ENCRYPT_MODE, aesKey, ivParamSpec);
         return cipher.doFinal(contentBytes);
@@ -124,7 +124,7 @@ public abstract class AesCbcHmacShaEncryptionProvider implements JWEEncryptionPr
 
 
     private byte[] decryptBytes(byte[] encryptedBytes, byte[] ivBytes, Key aesKey) throws GeneralSecurityException {
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BC");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding", "BCFIPS");
         AlgorithmParameterSpec ivParamSpec = new IvParameterSpec(ivBytes);
         cipher.init(Cipher.DECRYPT_MODE, aesKey, ivParamSpec);
         return cipher.doFinal(encryptedBytes);

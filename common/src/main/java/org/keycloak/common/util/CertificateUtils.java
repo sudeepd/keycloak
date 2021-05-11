@@ -179,7 +179,7 @@ public class CertificateUtils {
 //            AlgorithmIdentifier sigAlgId = new DefaultSignatureAlgorithmIdentifierFinder().find("SHA256WithRSAEncryption");
 //            AlgorithmIdentifier digAlgId = new DefaultDigestAlgorithmIdentifierFinder().find(sigAlgId);
 
-            JcaContentSignerBuilder signerBuilder = new JcaContentSignerBuilder("SHA384withECDSA")
+            JcaContentSignerBuilder signerBuilder = new JcaContentSignerBuilder("SHA256WithRSAEncryption")
                     .setProvider("BCFIPS");
             return signerBuilder.build(privateKey);
 //            return new BcRSAContentSignerBuilder(sigAlgId, digAlgId)

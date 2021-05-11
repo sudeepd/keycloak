@@ -29,7 +29,8 @@ public class RsaKeyEncryptionJWEAlgorithmProvider extends KeyEncryptionJWEAlgori
 
     @Override
     protected Cipher getCipherProvider() throws Exception {
-        return Cipher.getInstance(jcaAlgorithmName);
+        Cipher instance = Cipher.getInstance(jcaAlgorithmName,"BCFIPS");
+        return instance;
     }
 
 }
