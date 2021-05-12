@@ -38,8 +38,8 @@ public class CertificateValidatorTest {
      */
     @Test
     public void testValidityOfCertificatesSuccess() throws GeneralSecurityException {
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(512);
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA","BCFIPS");
+        kpg.initialize(2048);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate =
             createCertificate("CN=keycloak-test", new Date(),
@@ -64,8 +64,8 @@ public class CertificateValidatorTest {
      */
     @Test
     public void testValidityOfCertificatesNotValidYet() throws GeneralSecurityException {
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(512);
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA","BCFIPS");
+        kpg.initialize(2048);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate =
             createCertificate("CN=keycloak-test", new Date(System.currentTimeMillis() + 1000L * 60),
@@ -91,8 +91,8 @@ public class CertificateValidatorTest {
      */
     @Test
     public void testValidityOfCertificatesHasExpired() throws GeneralSecurityException {
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(512);
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA","BCFIPS");
+        kpg.initialize(2048);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate =
             createCertificate("CN=keycloak-test", new Date(System.currentTimeMillis() - 1000L * 60 * 2),

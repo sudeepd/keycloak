@@ -39,8 +39,9 @@
         <jdbc.mvn.artifactId>h2</jdbc.mvn.artifactId>
         <jdbc.mvn.version>${h2.version}</jdbc.mvn.version>
         <log4j.configuration>file:${project.build.directory}/dependency/log4j.properties</log4j.configuration>
+        <root.dir>${project.basedir}/../..</root.dir>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>org.bouncycastle</groupId>

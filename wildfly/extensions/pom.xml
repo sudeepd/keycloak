@@ -28,7 +28,9 @@
     <name>Keycloak WildFly Extensions</name>
     <description/>
     <packaging>jar</packaging>
-
+    <properties>
+        <root.dir>${project.basedir}/../..</root.dir>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.wildfly.core</groupId>

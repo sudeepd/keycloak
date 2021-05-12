@@ -159,7 +159,7 @@ public class KeyPairVerifierTest {
             System.out.println(ASN1Dump.dumpAsString(p));
         }
         PKCS8EncodedKeySpec spec =
-                new PKCS8EncodedKeySpec(key,"RSA");
+                new PKCS8EncodedKeySpec(key);
         KeyFactory kf = KeyFactory.getInstance("RSA", "BCFIPS");
         PrivateKey pk = kf.generatePrivate(spec);
         Assert.assertNotNull(pk);
