@@ -16,6 +16,7 @@
  */
 package org.keycloak.services.managers;
 
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.keycloak.Config;
 import org.keycloak.common.Version;
 import org.keycloak.common.enums.SslRequired;
@@ -39,6 +40,8 @@ public class ApplianceBootstrap {
 
     public ApplianceBootstrap(KeycloakSession session) {
         this.session = session;
+        boolean fipsMode = CryptoServicesRegistrar.isInApprovedOnlyMode();
+        ServicesLogger.LOGGER.fipsMode(fipsMode ? "True" : "False");
     }
 
     public boolean isNewInstall() {

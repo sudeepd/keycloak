@@ -459,4 +459,9 @@ public interface ServicesLogger extends BasicLogger {
     @Message(id=104, value="Not creating user %s. It already exists.")
     void notCreatingExistingUser(String userName);
 
+
+    @LogMessage(level = INFO)
+    @Message(id=105, value="FIPS isInApprovedMode is set to %s")
+    void fipsMode(String mode);
+
 }
