@@ -201,11 +201,11 @@
         </license>
     </licenses>
 
-    <scm>
-        <connection>scm:git:git://github.com/keycloak/keycloak.git</connection>
-        <developerConnection>scm:git:git@github.com:keycloak/keycloak.git</developerConnection>
-        <url>https://github.com/keycloak/keycloak/tree/master/</url>
-    </scm>
+<!--    <scm>-->
+<!--        <connection>scm:git:git://github.com/keycloak/keycloak.git</connection>-->
+<!--        <developerConnection>scm:git:git@github.com:keycloak/keycloak.git</developerConnection>-->
+<!--        <url>https://github.com/keycloak/keycloak/tree/master/</url>-->
+<!--    </scm>-->
 
     <distributionManagement>
         <repository>

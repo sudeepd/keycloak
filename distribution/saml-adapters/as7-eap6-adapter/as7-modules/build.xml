@@ -37,8 +37,8 @@
             <maven-resource group="org.keycloak" artifact="keycloak-common"/>
         </module-def>
         <module-def name="org.bouncycastle">
-            <maven-resource group="org.bouncycastle" artifact="bcprov-jdk15on"/>
-            <maven-resource group="org.bouncycastle" artifact="bcpkix-jdk15on"/>
+            <maven-resource group="org.bouncycastle" artifact="bcfips"/>
+            <maven-resource group="org.bouncycastle" artifact="bcpkix-fips"/>
         </module-def>
 
         <!-- subsystems -->
