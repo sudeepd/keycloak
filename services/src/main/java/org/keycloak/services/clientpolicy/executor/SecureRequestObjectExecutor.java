@@ -31,13 +31,12 @@ import org.keycloak.protocol.oidc.OIDCLoginProtocol;
 import org.keycloak.protocol.oidc.endpoints.request.AuthorizationEndpointRequest;
 import org.keycloak.protocol.oidc.endpoints.request.AuthzEndpointRequestParser;
 import org.keycloak.protocol.oidc.utils.OIDCResponseType;
+import org.keycloak.representations.idm.ClientPolicyExecutorConfigurationRepresentation;
 import org.keycloak.services.Urls;
 import org.keycloak.services.clientpolicy.ClientPolicyContext;
 import org.keycloak.services.clientpolicy.ClientPolicyException;
 import org.keycloak.services.clientpolicy.context.AuthorizationRequestContext;
-import org.keycloak.services.clientpolicy.executor.PKCEEnforceExecutor.Configuration;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -59,8 +58,20 @@ public class SecureRequestObjectExecutor implements ClientPolicyExecutorProvider
     }
 
     @Override
-    public void setupConfiguration(Configuration config) {
-        this.configuration = config;
+    public void setupConfiguration(SecureRequestObjectExecutor.Configuration config) {
+        if (config == null) {
+            configuration = new Configuration();
+            configuration.setVerifyNbf(Boolean.TRUE);
+            configuration.setAvailablePeriod(DEFAULT_AVAILABLE_PERIOD);
+        } else {
+            configuration = config;
+            if (config.isVerifyNbf() == null) {
+                configuration.setVerifyNbf(Boolean.TRUE);
+            }
+            if (config.getAvailablePeriod() == null) {
+                configuration.setAvailablePeriod(DEFAULT_AVAILABLE_PERIOD);
+            }
+        }
     }
 
     @Override
@@ -68,10 +79,11 @@ public class SecureRequestObjectExecutor implements ClientPolicyExecutorProvider
         return Configuration.class;
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Configuration extends ClientPolicyExecutorConfiguration {
+    public static class Configuration extends ClientPolicyExecutorConfigurationRepresentation {
         @JsonProperty("available-period")
         protected Integer availablePeriod;
+        @JsonProperty("verify-nbf")
+        protected Boolean verifyNbf;
 
         public Integer getAvailablePeriod() {
             return availablePeriod;
@@ -79,6 +91,14 @@ public class SecureRequestObjectExecutor implements ClientPolicyExecutorProvider
 
         public void setAvailablePeriod(Integer availablePeriod) {
             this.availablePeriod = availablePeriod;
+        }
+
+        public Boolean isVerifyNbf() {
+            return verifyNbf;
+        }
+
+        public void setVerifyNbf(Boolean verifyNbf) {
+            this.verifyNbf = verifyNbf;
         }
     }
 
@@ -150,24 +170,28 @@ public class SecureRequestObjectExecutor implements ClientPolicyExecutorProvider
             throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Request Expired");
         }
 
-        // check whether "nbf" claim exists
-        if (requestObject.get("nbf") == null) {
-            logger.trace("nbf claim not incuded.");
-            throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Missing parameter : nbf");
-        }
+        // "nbf" check is not needed for FAPI-RW ID2 security profile
+        // while needed for FAPI 1.0 Advanced security profile
+        if (Optional.ofNullable(configuration.isVerifyNbf()).orElse(Boolean.FALSE).booleanValue()) {
+            // check whether "nbf" claim exists
+            if (requestObject.get("nbf") == null) {
+                logger.trace("nbf claim not incuded.");
+                throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Missing parameter : nbf");
+            }
 
-        // check whether request object not yet being processed
-        long nbf = requestObject.get("nbf").asLong();
-        if (Time.currentTime() < nbf) { // TODO: Time.currentTime() is int while nbf is long...
-            logger.trace("request object not yet being processed.");
-            throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Request not yet being processed");
-        }
+            // check whether request object not yet being processed
+            long nbf = requestObject.get("nbf").asLong();
+            if (Time.currentTime() < nbf) { // TODO: Time.currentTime() is int while nbf is long...
+                logger.trace("request object not yet being processed.");
+                throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Request not yet being processed");
+            }
 
-        // check whether request object's available period is short
-        int availablePeriod = Optional.ofNullable(configuration.getAvailablePeriod()).orElse(DEFAULT_AVAILABLE_PERIOD).intValue();
-        if (exp - nbf > availablePeriod) {
-            logger.trace("request object's available period is long.");
-            throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Request's available period is long");
+            // check whether request object's available period is short
+            int availablePeriod = Optional.ofNullable(configuration.getAvailablePeriod()).orElse(DEFAULT_AVAILABLE_PERIOD).intValue();
+            if (exp - nbf > availablePeriod) {
+                logger.trace("request object's available period is long.");
+                throw new ClientPolicyException(INVALID_REQUEST_OBJECT, "Request's available period is long");
+            }
         }
 
         // check whether "aud" claim exists

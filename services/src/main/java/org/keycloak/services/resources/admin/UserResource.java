@@ -72,10 +72,9 @@ import org.keycloak.services.resources.account.AccountFormService;
 import org.keycloak.services.resources.admin.permissions.AdminPermissionEvaluator;
 import org.keycloak.services.validation.Validation;
 import org.keycloak.storage.ReadOnlyException;
-import org.keycloak.userprofile.utils.UserUpdateHelper;
-import org.keycloak.userprofile.validation.AttributeValidationResult;
-import org.keycloak.userprofile.validation.UserProfileValidationResult;
-import org.keycloak.userprofile.validation.ValidationResult;
+import org.keycloak.userprofile.ValidationException;
+import org.keycloak.userprofile.UserProfile;
+import org.keycloak.userprofile.UserProfileProvider;
 import org.keycloak.utils.ProfileHelper;
 
 import javax.ws.rs.BadRequestException;
@@ -99,7 +98,6 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -114,7 +112,7 @@ import java.util.stream.Stream;
 
 import static org.keycloak.models.ImpersonationSessionNote.IMPERSONATOR_ID;
 import static org.keycloak.models.ImpersonationSessionNote.IMPERSONATOR_USERNAME;
-import static org.keycloak.userprofile.profile.UserProfileContextFactory.forUserResource;
+import static org.keycloak.userprofile.UserProfileContext.USER_API;
 
 /**
  * Base resource for managing users
@@ -162,19 +160,30 @@ public class UserResource {
         auth.users().requireManage(user);
         try {
 
+            boolean wasPermanentlyLockedOut = false;
             if (rep.isEnabled() != null && rep.isEnabled()) {
                 UserLoginFailureModel failureModel = session.loginFailures().getUserLoginFailure(realm, user.getId());
                 if (failureModel != null) {
                     failureModel.clearFailures();
                 }
+                wasPermanentlyLockedOut = session.getProvider(BruteForceProtector.class).isPermanentlyLockedOut(session, realm, user);
             }
 
-            Response response = validateUserProfile(user, rep, session);
+            UserProfile profile = session.getProvider(UserProfileProvider.class).create(USER_API, rep.toAttributes(), user);
+
+            Response response = validateUserProfile(profile);
             if (response != null) {
                 return response;
             }
-            updateUserFromRep(user, rep, session, true);
+            profile.update(rep.getAttributes() != null);
+            updateUserFromRep(profile, user, rep, session, true);
             RepresentationToModel.createCredentials(rep, session, realm, user, true);
+
+            // we need to do it here as the attributes would be overwritten by what is in the rep
+            if (wasPermanentlyLockedOut) {
+                session.getProvider(BruteForceProtector.class).cleanUpPermanentLockout(session, realm, user);
+            }
+
             adminEvent.operation(OperationType.UPDATE).resourcePath(session.getContext().getUri()).representation(rep).success();
 
             if (session.getTransactionManager().isActive()) {
@@ -196,25 +205,25 @@ public class UserResource {
         }
     }
 
-    public static Response validateUserProfile(UserModel user, UserRepresentation rep, KeycloakSession session) {
-        UserProfileValidationResult result = forUserResource(user, rep, session).validate();
-        if (!result.getErrors().isEmpty()) {
-            for (AttributeValidationResult attrValidation : result.getErrors()) {
-                StringBuilder s = new StringBuilder("Failed to update attribute " + attrValidation.getField() + ": ");
-                for (ValidationResult valResult : attrValidation.getFailedValidations()) {
-                    s.append(valResult.getErrorType() + ", ");
-                }
+    public static Response validateUserProfile(UserProfile profile) {
+        try {
+            profile.validate();
+        } catch (ValidationException pve) {
+            for (ValidationException.Error error : pve.getErrors()) {
+                StringBuilder s = new StringBuilder("Failed to update attribute " + error.getAttribute() + ": ");
+
+                s.append(error.getMessage()).append(", ");
+
                 logger.warn(s);
             }
             return ErrorResponse.error("Could not update user! See server log for more details", Response.Status.BAD_REQUEST);
-        } else {
-            return null;
         }
+
+        return null;
     }
 
-    public static void updateUserFromRep(UserModel user, UserRepresentation rep, KeycloakSession session, boolean isUpdateExistingUser) {
+    public static void updateUserFromRep(UserProfile profile, UserModel user, UserRepresentation rep, KeycloakSession session, boolean isUpdateExistingUser) {
         boolean removeMissingRequiredActions = isUpdateExistingUser;
-        UserUpdateHelper.updateUserResource(session, user, rep, rep.getAttributes() != null);
 
         if (rep.isEnabled() != null) user.setEnabled(rep.isEnabled());
         if (rep.isEmailVerified() != null) user.setEmailVerified(rep.isEmailVerified());
@@ -291,9 +300,10 @@ public class UserResource {
         RealmModel authenticatedRealm = auth.adminAuth().getRealm();
         // if same realm logout before impersonation
         boolean sameRealm = false;
-        if (authenticatedRealm.getId().equals(realm.getId())) {
+        String sessionState = auth.adminAuth().getToken().getSessionState();
+        if (authenticatedRealm.getId().equals(realm.getId()) && sessionState != null) {
             sameRealm = true;
-            UserSessionModel userSession = session.sessions().getUserSession(authenticatedRealm, auth.adminAuth().getToken().getSessionState());
+            UserSessionModel userSession = session.sessions().getUserSession(authenticatedRealm, sessionState);
             AuthenticationManager.expireIdentityCookie(realm, session.getContext().getUri(), clientConnection);
             AuthenticationManager.expireRememberMeCookie(realm, session.getContext().getUri(), clientConnection);
             AuthenticationManager.backchannelLogout(session, authenticatedRealm, userSession, session.getContext().getUri(), clientConnection, headers, true);
@@ -774,7 +784,7 @@ public class UserResource {
             lifespan = realm.getActionTokenGeneratedByAdminLifespan();
         }
         int expiration = Time.currentTime() + lifespan;
-        ExecuteActionsActionToken token = new ExecuteActionsActionToken(user.getId(), expiration, actions, redirectUri, clientId);
+        ExecuteActionsActionToken token = new ExecuteActionsActionToken(user.getId(), user.getEmail(), expiration, actions, redirectUri, clientId);
 
         try {
             UriBuilder builder = LoginActionsService.actionTokenProcessor(session.getContext().getUri());

@@ -25,11 +25,34 @@ import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
 
 import javax.persistence.EntityManager;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import static org.keycloak.models.jpa.JpaRealmProviderFactory.PROVIDER_ID;
+import static org.keycloak.models.jpa.JpaRealmProviderFactory.PROVIDER_PRIORITY;
 
 public class JpaClientProviderFactory implements ClientProviderFactory {
 
+    private Set<String> clientSearchableAttributes = null;
+
+    private static final List<String> REQUIRED_SEARCHABLE_ATTRIBUTES = Arrays.asList(
+      "saml_idp_initiated_sso_url_name"
+    );
+
     @Override
     public void init(Config.Scope config) {
+        String[] searchableAttrsArr = config.getArray("searchableAttributes");
+        if (searchableAttrsArr == null) {
+            String s = System.getProperty("keycloak.client.searchableAttributes");
+            searchableAttrsArr = s == null ? null : s.split("\\s*,\\s*");
+        }
+        HashSet<String> s = new HashSet<>(REQUIRED_SEARCHABLE_ATTRIBUTES);
+        if (searchableAttrsArr != null) {
+            s.addAll(Arrays.asList(searchableAttrsArr));
+        }
+        clientSearchableAttributes = Collections.unmodifiableSet(s);
     }
 
     @Override
@@ -39,17 +62,22 @@ public class JpaClientProviderFactory implements ClientProviderFactory {
 
     @Override
     public String getId() {
-        return "jpa";
+        return PROVIDER_ID;
     }
 
     @Override
     public ClientProvider create(KeycloakSession session) {
         EntityManager em = session.getProvider(JpaConnectionProvider.class).getEntityManager();
-        return new JpaRealmProvider(session, em);
+        return new JpaRealmProvider(session, em, clientSearchableAttributes);
     }
 
     @Override
     public void close() {
+    }
+
+    @Override
+    public int order() {
+        return PROVIDER_PRIORITY;
     }
 
 }

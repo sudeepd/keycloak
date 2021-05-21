@@ -1181,6 +1181,7 @@ public class RepresentationToModel {
         realm.setWebAuthnPolicyPasswordless(webAuthnPolicy);
 
         updateCibaSettings(rep, realm);
+        session.clientPolicy().updateRealmModelFromRepresentation(realm, rep);
 
         if (rep.getSmtpServer() != null) {
             Map<String, String> config = new HashMap(rep.getSmtpServer());
@@ -2085,7 +2086,7 @@ public class RepresentationToModel {
             model.setAuthenticatorConfig(config.getId());
         }
         model.setAuthenticator(rep.getAuthenticator());
-        model.setAuthenticatorFlow(rep.isAutheticatorFlow());
+        model.setAuthenticatorFlow(rep.isAuthenticatorFlow());
         if (rep.getFlowAlias() != null) {
             AuthenticationFlowModel flow = realm.getFlowByAlias(rep.getFlowAlias());
             model.setFlowId(flow.getId());
@@ -2111,7 +2112,7 @@ public class RepresentationToModel {
         model.setAuthenticator(rep.getAuthenticator());
         model.setPriority(rep.getPriority());
         model.setParentFlow(rep.getParentFlow());
-        model.setAuthenticatorFlow(rep.isAutheticatorFlow());
+        model.setAuthenticatorFlow(rep.isAuthenticatorFlow());
         model.setRequirement(AuthenticationExecutionModel.Requirement.valueOf(rep.getRequirement()));
 
         if (rep.getAuthenticatorConfig() != null) {

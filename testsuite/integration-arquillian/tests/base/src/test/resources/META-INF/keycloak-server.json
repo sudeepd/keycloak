@@ -36,8 +36,8 @@
         "event-queue": {}
     },
 
-    "serverInfo": {
-        "provider": "${keycloak.serverInfo.provider:jpa}",
+    "deploymentState": {
+        "provider": "${keycloak.deploymentState.provider:jpa}",
         "map": {
             "resourcesVersionSeed": "1JZ379bzyOCFA"
         }
@@ -80,9 +80,11 @@
     },
 
     "mapStorage": {
-        "provider": "${keycloak.mapStorage.provider:concurrenthashmap}",
+        "provider": "${keycloak.mapStorage.provider:}",
         "concurrenthashmap": {
-            "dir": "${project.build.directory:target}"
+            "dir": "${project.build.directory:target}",
+            "keyType.realms": "string",
+            "keyType.authz-resource-servers": "string"
         }
     },
 
