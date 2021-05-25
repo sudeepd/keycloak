@@ -26,7 +26,6 @@ import static org.keycloak.testsuite.cli.KcAdmExec.execute;
 @AuthServerContainerExclude({AuthServer.REMOTE, AuthServer.QUARKUS})
 public class KcAdmSessionTest extends AbstractAdmCliTest {
 
-    static Class<? extends List<ObjectNode>> LIST_OF_JSON = new ArrayList<ObjectNode>() {}.getClass();
 
     @Test
     public void test() throws IOException {
@@ -69,7 +68,7 @@ public class KcAdmSessionTest extends AbstractAdmCliTest {
             exe = execute("get-roles --config '" + configFile.getName() + "'");
 
             assertExitCodeAndStdErrSize(exe, 0, 0);
-            List<ObjectNode> roles = loadJson(exe.stdout(), LIST_OF_JSON);
+            List<ObjectNode> roles = Arrays.asList(loadJson(exe.stdout(), ObjectNode[].class));
             Assert.assertThat("expected three realm roles available", roles.size(), equalTo(3));
 
             // create realm role
@@ -84,7 +83,7 @@ public class KcAdmSessionTest extends AbstractAdmCliTest {
             exe = execute("get-roles --config '" + configFile.getName() + "'");
 
             assertExitCodeAndStdErrSize(exe, 0, 0);
-            roles = loadJson(exe.stdout(), LIST_OF_JSON);
+            roles = Arrays.asList(loadJson(exe.stdout(), ObjectNode[].class));
             Assert.assertThat("expected four realm roles available", roles.size(), equalTo(4));
 
             // create client
@@ -104,7 +103,7 @@ public class KcAdmSessionTest extends AbstractAdmCliTest {
             exe = execute("get-roles --config '" + configFile.getName() + "' --cclientid testclient");
 
             assertExitCodeAndStdErrSize(exe, 0, 0);
-            roles = loadJson(exe.stdout(), LIST_OF_JSON);
+            roles = Arrays.asList(loadJson(exe.stdout(), ObjectNode[].class));
             Assert.assertThat("expected one role", roles.size(), equalTo(1));
             Assert.assertEquals("clientrole", roles.get(0).get("name").asText());
 
