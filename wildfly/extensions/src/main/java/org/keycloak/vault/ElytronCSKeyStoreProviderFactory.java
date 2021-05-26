@@ -93,8 +93,11 @@ public class ElytronCSKeyStoreProviderFactory extends AbstractVaultProviderFacto
         CredentialStore credentialStore;
         try {
             credentialStore = CredentialStore.getInstance(KeyStoreCredentialStore.KEY_STORE_CREDENTIAL_STORE);
-            credentialStore.initialize(attributes, new CredentialStore.CredentialSourceProtectionParameter(
-                    this.getCredentialSource(this.credentialStoreSecret)));
+            CredentialSource credentialSource = this.getCredentialSource(this.credentialStoreSecret);
+            CredentialStore.CredentialSourceProtectionParameter cspp = new CredentialStore.CredentialSourceProtectionParameter(
+                    credentialSource);
+
+            credentialStore.initialize(attributes, cspp);
         } catch (NoSuchAlgorithmException | CredentialStoreException e) {
             logger.debug("Error instantiating credential store", e);
             return null;

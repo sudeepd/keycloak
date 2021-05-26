@@ -32,13 +32,12 @@ import org.bouncycastle.cert.X509ExtensionUtils;
 import org.bouncycastle.cert.X509v1CertificateBuilder;
 import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
-import org.bouncycastle.crypto.util.PrivateKeyFactory;
+import org.bouncycastle.cert.jcajce.JcaX509ExtensionUtils;
+import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.operator.bc.BcDigestCalculatorProvider;
-import org.bouncycastle.operator.bc.BcRSAContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 
 import java.math.BigInteger;
@@ -76,6 +75,7 @@ public class CertificateUtils {
     public static X509Certificate generateV3Certificate(KeyPair keyPair, PrivateKey caPrivateKey, X509Certificate caCert,
             String subject) throws Exception {
         try {
+
             X500Name subjectDN = new X500Name("CN=" + subject);
 
             // Serial Number
@@ -92,17 +92,21 @@ public class CertificateUtils {
             X509v3CertificateBuilder certGen = new X509v3CertificateBuilder(new X500Name(caCert.getSubjectDN().getName()),
                     serialNumber, notBefore, notAfter, subjectDN, subjPubKeyInfo);
 
-            DigestCalculator digCalc = new BcDigestCalculatorProvider()
-                    .get(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1));
-            X509ExtensionUtils x509ExtensionUtils = new X509ExtensionUtils(digCalc);
+//            DigestCalculator digCalc = new BcDigestCalculatorProvider()
+//                    .get(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1));
+
+
+            JcaX509ExtensionUtils extUtils = new JcaX509ExtensionUtils();
+
+//            X509ExtensionUtils x509ExtensionUtils = new X509ExtensionUtils(digCalc);
 
             // Subject Key Identifier
             certGen.addExtension(Extension.subjectKeyIdentifier, false,
-                    x509ExtensionUtils.createSubjectKeyIdentifier(subjPubKeyInfo));
+                    extUtils.createSubjectKeyIdentifier(subjPubKeyInfo));
 
             // Authority Key Identifier
             certGen.addExtension(Extension.authorityKeyIdentifier, false,
-                    x509ExtensionUtils.createAuthorityKeyIdentifier(subjPubKeyInfo));
+                    extUtils.createAuthorityKeyIdentifier(subjPubKeyInfo));
 
             // Key Usage
             certGen.addExtension(Extension.keyUsage, false, new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign
@@ -123,6 +127,8 @@ public class CertificateUtils {
 
             // Certificate
             return new JcaX509CertificateConverter().setProvider("BC").getCertificate(certGen.build(sigGen));
+
+
         } catch (Exception e) {
             throw new RuntimeException("Error creating X509v3Certificate.", e);
         }
@@ -170,11 +176,14 @@ public class CertificateUtils {
      */
     public static ContentSigner createSigner(PrivateKey privateKey) {
         try {
-            AlgorithmIdentifier sigAlgId = new DefaultSignatureAlgorithmIdentifierFinder().find("SHA256WithRSAEncryption");
-            AlgorithmIdentifier digAlgId = new DefaultDigestAlgorithmIdentifierFinder().find(sigAlgId);
+//            AlgorithmIdentifier sigAlgId = new DefaultSignatureAlgorithmIdentifierFinder().find("SHA256WithRSAEncryption");
+//            AlgorithmIdentifier digAlgId = new DefaultDigestAlgorithmIdentifierFinder().find(sigAlgId);
 
-            return new BcRSAContentSignerBuilder(sigAlgId, digAlgId)
-                    .build(PrivateKeyFactory.createKey(privateKey.getEncoded()));
+            JcaContentSignerBuilder signerBuilder = new JcaContentSignerBuilder("SHA256WithRSAEncryption")
+                    .setProvider("BCFIPS");
+            return signerBuilder.build(privateKey);
+//            return new BcRSAContentSignerBuilder(sigAlgId, digAlgId)
+//                    .build(PrivateKeyFactory.createKey(privateKey.getEncoded()));
         } catch (Exception e) {
             throw new RuntimeException("Could not create content signer.", e);
         }

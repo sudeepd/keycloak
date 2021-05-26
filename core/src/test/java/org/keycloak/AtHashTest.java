@@ -17,7 +17,7 @@
 
 package org.keycloak;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.Assert;
 import org.junit.Test;
 import org.keycloak.crypto.Algorithm;
@@ -33,7 +33,7 @@ import java.security.Security;
 public class AtHashTest {
 
     static {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
 
     @Test

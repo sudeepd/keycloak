@@ -133,7 +133,7 @@ public class JWE {
                 throw new IllegalStateException("Header must be set");
             }
             if (content == null) {
-                throw new IllegalStateException("Content must be set");
+                 throw new IllegalStateException("Content must be set");
             }
 
             if (algorithmProvider == null) {

@@ -17,7 +17,7 @@
 
 package org.keycloak.test;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.keycloak.common.util.PemUtils;
 
 import java.security.KeyPair;
@@ -31,7 +31,7 @@ import java.security.Security;
  */
 public class RealmKeyGenerator {
     static {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
     public static void main(String[] args) throws Exception {
         KeyPair keyPair = null;

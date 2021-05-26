@@ -31,17 +31,18 @@
     <description />
 
     <properties>
+        <root.dir>${project.basedir}/..</root.dir>
         <version.swagger.doclet>1.1.2</version.swagger.doclet>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
+            <artifactId>bcfips</artifactId>
         </dependency>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
+            <artifactId>bcpkix-fips</artifactId>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>

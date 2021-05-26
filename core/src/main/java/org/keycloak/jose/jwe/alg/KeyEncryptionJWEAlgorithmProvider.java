@@ -29,16 +29,16 @@ public abstract class KeyEncryptionJWEAlgorithmProvider implements JWEAlgorithmP
     @Override
     public byte[] decodeCek(byte[] encodedCek, Key privateKey) throws Exception {
         Cipher cipher = getCipherProvider();
-        cipher.init(Cipher.DECRYPT_MODE, privateKey);
-        return cipher.doFinal(encodedCek);
+        cipher.init(Cipher.UNWRAP_MODE, privateKey);
+        return cipher.unwrap(encodedCek,"AES",Cipher.SECRET_KEY).getEncoded();
     }
 
     @Override
     public byte[] encodeCek(JWEEncryptionProvider encryptionProvider, JWEKeyStorage keyStorage, Key publicKey) throws Exception {
         Cipher cipher = getCipherProvider();
-        cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-        byte[] cekBytes = keyStorage.getCekBytes();
-        return cipher.doFinal(cekBytes); 
+        cipher.init(Cipher.WRAP_MODE, publicKey);
+//        byte[] cekBytes = keyStorage.getCekBytes();
+        return cipher.wrap(keyStorage.getCEKKey(JWEKeyStorage.KeyUse.ENCRYPTION,false));
     }
 
     protected abstract Cipher getCipherProvider() throws Exception;

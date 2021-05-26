@@ -22,8 +22,8 @@
         <details>The keycloak adapter core stuff</details>
         <bundle dependency="true">mvn:org.apache.httpcomponents/httpclient-osgi/${apache.httpcomponents.fuse.version}</bundle>
         <bundle dependency="true">mvn:org.apache.httpcomponents/httpcore-osgi/${apache.httpcomponents.httpcore.fuse.version}</bundle>
-        <bundle dependency="true">mvn:org.bouncycastle/bcprov-jdk15on/${bouncycastle.version}</bundle>
-        <bundle dependency="true">mvn:org.bouncycastle/bcpkix-jdk15on/${bouncycastle.version}</bundle>
+        <bundle dependency="true">mvn:org.bouncycastle/bcfips/${bouncycastle.fips.version}</bundle>
+        <bundle dependency="true">mvn:org.bouncycastle/bcpkix-fips/${bouncycastle.pkixfips.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>

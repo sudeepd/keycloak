@@ -48,6 +48,7 @@
         "./misc/scripts/upgrade-wildfly/upgrade-keycloak-to-wildfly-tag.py" script too to ensure
         the script continues to work
         -->
+        <root.dir>${project.basedir}</root.dir>
 
         <product.rhsso.version>7.4.0.GA</product.rhsso.version>
 
@@ -67,7 +68,8 @@
         <apache.httpcomponents.httpcore.version>4.4.14</apache.httpcomponents.httpcore.version>
         <apache.mime4j.version>0.6</apache.mime4j.version>
         <jboss.dmr.version>1.5.1.Final</jboss.dmr.version>
-        <bouncycastle.version>1.68</bouncycastle.version>
+        <bouncycastle.fips.version>1.0.2.1</bouncycastle.fips.version>
+        <bouncycastle.pkixfips.version>1.0.5</bouncycastle.pkixfips.version>
         <cxf.version>3.3.10</cxf.version>
         <cxf.jetty.version>3.3.10</cxf.jetty.version>
         <cxf.jaxrs.version>3.3.10</cxf.jaxrs.version>
@@ -205,11 +207,11 @@
         </license>
     </licenses>
 
-    <scm>
-        <connection>scm:git:git://github.com/keycloak/keycloak.git</connection>
-        <developerConnection>scm:git:git@github.com:keycloak/keycloak.git</developerConnection>
-        <url>https://github.com/keycloak/keycloak/tree/master/</url>
-    </scm>
+<!--    <scm>-->
+<!--        <connection>scm:git:git://github.com/keycloak/keycloak.git</connection>-->
+<!--        <developerConnection>scm:git:git@github.com:keycloak/keycloak.git</developerConnection>-->
+<!--        <url>https://github.com/keycloak/keycloak/tree/master/</url>-->
+<!--    </scm>-->
 
     <distributionManagement>
         <repository>
@@ -318,13 +320,13 @@
             </dependency>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk15on</artifactId>
-                <version>${bouncycastle.version}</version>
+                <artifactId>bcfips</artifactId>
+                <version>${bouncycastle.fips.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
-                <artifactId>bcpkix-jdk15on</artifactId>
-                <version>${bouncycastle.version}</version>
+                <artifactId>bcpkix-fips</artifactId>
+                <version>${bouncycastle.pkixfips.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.ua-parser</groupId>
@@ -1601,7 +1603,8 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <forkMode>once</forkMode>
-                        <argLine>-Djava.awt.headless=true ${surefire.memory.settings}</argLine>
+                        <argLine>-Djava.security.properties==${root.dir}/kc.java.security -Dorg.bouncycastle.fips.approved_only=true  -Djava.awt.headless=true ${surefire.memory.settings}</argLine>
+<!--                        <argLine>-Djava.awt.headless=true ${surefire.memory.settings}</argLine>-->
                         <runOrder>alphabetical</runOrder>
                     </configuration>
                 </plugin>

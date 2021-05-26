@@ -10,11 +10,13 @@
     <artifactId>keycloak-model-map</artifactId>
     <name>Keycloak Model Naive Map</name>
     <description/>
-
+    <properties>
+        <root.dir>${project.basedir}/../..</root.dir>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
+            <artifactId>bcfips</artifactId>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>

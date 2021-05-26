@@ -3,23 +3,23 @@
   <dependencies>
     <dependency>
       <groupId>org.bouncycastle</groupId>
-      <artifactId>bcpkix-jdk15on</artifactId>
-      <version>1.65.0.redhat-00001</version>
+      <artifactId>bcpkix-fips</artifactId>
+      <version>1.0.5.redhat-00001</version>
       <licenses>
         <license>
           <name>MIT License</name>
-          <url>https://raw.githubusercontent.com/bcgit/bc-java/r1rv65/LICENSE.html</url>
+          <url>https://www.bouncycastle.org/licence.html</url>
         </license>
       </licenses>
     </dependency>
     <dependency>
       <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
-      <version>1.65.0.redhat-00001</version>
+      <artifactId>bcfips</artifactId>
+      <version>1.0.2.1</version>
       <licenses>
         <license>
           <name>MIT License</name>
-          <url>https://raw.githubusercontent.com/bcgit/bc-java/r1rv65/LICENSE.html</url>
+          <url>https://www.bouncycastle.org/licence.html</url>
         </license>
       </licenses>
     </dependency>

@@ -48,10 +48,12 @@ import org.bouncycastle.cert.ocsp.*;
 import org.bouncycastle.cert.ocsp.jcajce.JcaCertificateID;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.DigestCalculator;
+import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.bc.BcDigestCalculatorProvider;
+
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
 
+import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.keycloak.common.util.BouncyIntegration;
 import org.keycloak.connections.httpclient.HttpClientProvider;
 import org.keycloak.models.KeycloakSession;
@@ -206,13 +208,13 @@ public final class OCSPUtils {
         if (responderURIs == null || responderURIs.size() == 0)
             throw new IllegalArgumentException("Need at least one responder");
         try {
-            DigestCalculator digCalc = new BcDigestCalculatorProvider()
-                    .get(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1));
+            DigestCalculatorProvider digCalcProv = new JcaDigestCalculatorProviderBuilder()
+                    .setProvider("BCFIPS").build();
 
-            JcaCertificateID certificateID = new JcaCertificateID(digCalc, issuerCertificate, cert.getSerialNumber());
+            JcaCertificateID certificateID = new JcaCertificateID(digCalcProv.get(CertificateID.HASH_SHA1), issuerCertificate, cert.getSerialNumber());
 
             // Create a nounce extension to protect against replay attacks
-            SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+            SecureRandom random = SecureRandom.getInstance("DEFAULT","BCFIPS");
             BigInteger nounce = BigInteger.valueOf(Math.abs(random.nextInt()));
 
             DEROctetString derString = new DEROctetString(nounce.toByteArray());

@@ -24,10 +24,9 @@ import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.X509v1CertificateBuilder;
-import org.bouncycastle.crypto.util.PrivateKeyFactory;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
-import org.bouncycastle.operator.bc.BcRSAContentSignerBuilder;
+import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
@@ -53,6 +52,7 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PublicKey;
+import java.security.PrivateKey;
 import java.security.Security;
 import java.security.SignatureException;
 import java.util.Date;
@@ -71,8 +71,19 @@ public class RSAVerifierTest {
     private AccessToken token;
 
     static {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
+
+    public static ContentSigner createSigner(PrivateKey privateKey) {
+        try {
+            JcaContentSignerBuilder signerBuilder = new JcaContentSignerBuilder("SHA256WithRSAEncryption")
+                    .setProvider("BCFIPS");
+            return signerBuilder.build(privateKey);
+        } catch (Exception e) {
+            throw new RuntimeException("Could not create content signer.", e);
+        }
+    }
+    
 
     public static X509Certificate generateTestCertificate(String subject, String issuer, KeyPair pair)
         throws CertificateException, InvalidKeyException, IOException,
@@ -97,8 +108,7 @@ public class RSAVerifierTest {
         AlgorithmIdentifier digAlgId = new DefaultDigestAlgorithmIdentifierFinder()
             .find(sigAlgId);
 
-        ContentSigner signer = new BcRSAContentSignerBuilder(sigAlgId, digAlgId)
-            .build(PrivateKeyFactory.createKey(pair.getPrivate().getEncoded()));
+        ContentSigner signer = createSigner(pair.getPrivate());
 
         X509CertificateHolder holder = builder.build(signer);
 

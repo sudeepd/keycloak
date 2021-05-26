@@ -1,5 +1,6 @@
 package org.keycloak.common.util;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.security.NoSuchAlgorithmException;
@@ -8,6 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PemUtilsTest {
 
+    @Ignore
     @Test
     public void testGenerateThumbprintBytesSha1() throws NoSuchAlgorithmException {
         String[] test = new String[] {"abcdefg"};
@@ -22,6 +24,8 @@ public class PemUtilsTest {
         assertEquals(32, digest.length);
     }
 
+    // SHA 1 is not valid for FIPS 140-2
+    @Ignore
     @Test
     public void testGenerateThumbprintSha1() throws NoSuchAlgorithmException {
         String[] test = new String[] {"abcdefg"};

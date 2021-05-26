@@ -5,7 +5,7 @@ import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
@@ -31,15 +31,15 @@ import java.util.Date;
  */
 public class CertificateValidatorTest {
 
-    private static final BouncyCastleProvider BOUNCY_CASTLE_PROVIDER = new BouncyCastleProvider();
+    private static final BouncyCastleFipsProvider BOUNCY_CASTLE_PROVIDER = new BouncyCastleFipsProvider();
 
     /**
      * will validate that the certificate validation succeeds if the certificate is currently valid
      */
     @Test
     public void testValidityOfCertificatesSuccess() throws GeneralSecurityException {
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(512);
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA","BCFIPS");
+        kpg.initialize(2048);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate =
             createCertificate("CN=keycloak-test", new Date(),
@@ -64,8 +64,8 @@ public class CertificateValidatorTest {
      */
     @Test
     public void testValidityOfCertificatesNotValidYet() throws GeneralSecurityException {
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(512);
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA","BCFIPS");
+        kpg.initialize(2048);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate =
             createCertificate("CN=keycloak-test", new Date(System.currentTimeMillis() + 1000L * 60),
@@ -91,8 +91,8 @@ public class CertificateValidatorTest {
      */
     @Test
     public void testValidityOfCertificatesHasExpired() throws GeneralSecurityException {
-        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
-        kpg.initialize(512);
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA","BCFIPS");
+        kpg.initialize(2048);
         KeyPair keyPair = kpg.generateKeyPair();
         X509Certificate certificate =
             createCertificate("CN=keycloak-test", new Date(System.currentTimeMillis() - 1000L * 60 * 2),
