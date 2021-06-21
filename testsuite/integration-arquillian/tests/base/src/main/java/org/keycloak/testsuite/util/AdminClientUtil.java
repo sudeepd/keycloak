@@ -109,8 +109,8 @@ public class AdminClientUtil {
         ResteasyClientBuilder resteasyClientBuilder = new ResteasyClientBuilder();
 
         if ("true".equals(System.getProperty("auth.server.ssl.required"))) {
-            File trustore = new File(PROJECT_BUILD_DIRECTORY, "dependency/keystore/keycloak.truststore");
-            resteasyClientBuilder.sslContext(getSSLContextWithTrustore(trustore, "secret"));
+            File trustore = new File(PROJECT_BUILD_DIRECTORY, "dependency/keystore/keycloak.truststore.bcfks");
+            resteasyClientBuilder.sslContext(getSSLContextWithTrustore(trustore, "averylongpassword"));
 
             System.setProperty("javax.net.ssl.trustStore", trustore.getAbsolutePath());
         }

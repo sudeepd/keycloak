@@ -38,7 +38,8 @@ public class KeystoreUtil {
 
     public enum KeystoreFormat {
         JKS,
-        PKCS12
+        PKCS12,
+        BCFKS
     }
 
     public static KeyStore loadKeyStore(String filename, String password) throws Exception {
@@ -68,12 +69,7 @@ public class KeystoreUtil {
         InputStream stream = FindFile.findFile(keystoreFile);
 
         try {
-            KeyStore keyStore = null;
-            if (format == KeystoreFormat.JKS) {
-                keyStore = KeyStore.getInstance(format.toString());
-            } else {
-                keyStore = KeyStore.getInstance(format.toString(), "BC");
-            }
+            KeyStore keyStore = KeyStore.getInstance(format.toString());
 
             keyStore.load(stream, storePassword.toCharArray());
             PrivateKey privateKey = (PrivateKey) keyStore.getKey(keyAlias, keyPassword.toCharArray());

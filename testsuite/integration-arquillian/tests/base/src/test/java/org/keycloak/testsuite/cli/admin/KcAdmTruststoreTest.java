@@ -25,7 +25,7 @@ public class KcAdmTruststoreTest extends AbstractAdmCliTest {
     @Test
     public void testTruststore() throws IOException {
 
-        File truststore = new File("src/test/resources/keystore/keycloak.truststore");
+        File truststore = new File("src/test/resources/keystore/keycloak.truststore.bcfks");
 
         KcAdmExec exe = execute("config truststore --no-config '" + truststore.getAbsolutePath() + "'");
 

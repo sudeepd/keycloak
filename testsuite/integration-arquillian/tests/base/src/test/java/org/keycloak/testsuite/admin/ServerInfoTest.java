@@ -18,6 +18,7 @@
 package org.keycloak.testsuite.admin;
 
 import org.junit.Test;
+import org.keycloak.admin.client.resource.ServerInfoResource;
 import org.keycloak.common.Version;
 import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.representations.info.ProviderRepresentation;
@@ -39,8 +40,9 @@ import org.keycloak.testsuite.arquillian.annotation.AuthServerContainerExclude.A
 public class ServerInfoTest extends AbstractKeycloakTest {
 
     @Test
-    public void testServerInfo() {
-        ServerInfoRepresentation info = adminClient.serverInfo().getInfo();
+    public void testServerInfo() throws Exception {
+        ServerInfoResource resource = adminClient.serverInfo();
+        ServerInfoRepresentation info = resource.getInfo();
         assertNotNull(info);
 
         assertNotNull(info.getProviders());

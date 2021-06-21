@@ -101,6 +101,12 @@ import static org.keycloak.testsuite.util.ServerURLs.removeDefaultPorts;
 @RunWith(KcArquillian.class)
 @RunAsClient
 public abstract class AbstractKeycloakTest {
+    protected void printBanner(String message) {
+        System.out.println("------------------");
+        System.out.println(message);
+        System.out.println("------------------");
+    }
+
     protected static final String ENGLISH_LOCALE_NAME = "English";
 
     protected Logger log = Logger.getLogger(this.getClass());
@@ -152,6 +158,7 @@ public abstract class AbstractKeycloakTest {
 
     @Before
     public void beforeAbstractKeycloakTest() throws Exception {
+        printBanner("beforeAbstractKeycloakTest");
         adminClient = testContext.getAdminClient();
         if (adminClient == null || adminClient.isClosed()) {
             reconnectAdminClient();
@@ -181,7 +188,7 @@ public abstract class AbstractKeycloakTest {
         }
 
         oauth.init(driver);
-
+        printBanner("done AbstractKeycloakTest");
     }
 
     public void reconnectAdminClient() throws Exception {

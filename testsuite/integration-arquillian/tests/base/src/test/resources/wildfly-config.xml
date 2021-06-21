@@ -39,9 +39,9 @@
 <configuration>
     <authentication-client xmlns="urn:elytron:client:1.4">
         <key-stores>
-            <key-store name="client-side-truststore" type="JKS">
+            <key-store name="client-side-truststore" type="BCFKS">
                 <file name="${client.truststore:}"/>
-                <key-store-clear-password password="${client.truststore.passphrase:secret}"/>
+                <key-store-clear-password password="${client.truststore.passphrase:averylongpassword}"/>
             </key-store>
         </key-stores>
         <ssl-contexts>

@@ -15,6 +15,8 @@ import javax.xml.crypto.dsig.keyinfo.X509Data;
 import org.hamcrest.Matcher;
 import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.*;
 import org.keycloak.adapters.saml.config.parsers.KeycloakSamlAdapterV1QNames;
 import org.keycloak.common.util.MultivaluedHashMap;
@@ -67,7 +69,7 @@ public class HttpAdapterUtilsTest {
         assertThat(x509data, notNullValue());
         x509certificate = getContent(x509data.getContent(), X509Certificate.class);
         assertThat(x509certificate, notNullValue());
-        assertThat(x509certificate.getSigAlgName(), equalTo("SHA256withRSA"));
+        assertThat(x509certificate.getSigAlgName(), equalToIgnoringCase("SHA256withRSA"));
 
         ki = res.get(KeycloakSamlAdapterV1QNames.ATTR_SIGNING.getQName().getLocalPart()).get(1);
         assertThat(ki.getContent().size(), equalTo(2));
@@ -81,7 +83,7 @@ public class HttpAdapterUtilsTest {
         assertThat(x509data, notNullValue());
         x509certificate = getContent(x509data.getContent(), X509Certificate.class);
         assertThat(x509certificate, notNullValue());
-        assertThat(x509certificate.getSigAlgName(), equalTo("SHA256withRSA"));
+        assertThat(x509certificate.getSigAlgName(), equalToIgnoringCase("SHA256withRSA"));
 
     }
 

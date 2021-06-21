@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0'?>
 <!--
   ~ Copyright 2016 Red Hat, Inc. and/or its affiliates
   ~ and other contributors as indicated by the @author tags.
   ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ Licensed under the Apache License, Version 2.0 (the License);
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
@@ -27,7 +27,7 @@
 
     <artifactId>keycloak-saml-wildfly-subsystem</artifactId>
     <name>Keycloak Wildfly SAML Adapter Subsystem</name>
-    <description/>
+    <description />
     <packaging>jar</packaging>
 
     <build>
@@ -71,8 +71,7 @@
         <dependency>
             <groupId>org.jboss.logging</groupId>
             <artifactId>jboss-logging-annotations</artifactId>
-            <!-- This is a compile-time dependency of this project, but is not needed at compile or runtime by other
-            projects that depend on this project.-->
+            
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -80,8 +79,7 @@
         <dependency>
             <groupId>org.jboss.logging</groupId>
             <artifactId>jboss-logging-processor</artifactId>
-            <!-- This is a compile-time dependency of this project, but is not needed at compile or runtime by other
-            projects that depend on this project.-->
+            
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -107,4 +105,4 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-</project>
+<properties><root.dir>${project.basedir}/../../../..</root.dir></properties></project>

@@ -187,8 +187,8 @@
 
     "truststore": {
         "file": {
-            "file": "${keycloak.truststore.file:target/dependency/keystore/keycloak.truststore}",
-            "password": "${keycloak.truststore.password:secret}",
+            "file": "${keycloak.truststore.file:target/dependency/keystore/keycloak.truststore.bcfks}",
+            "password": "${keycloak.truststore.password:averylongpassword}",
             "hostname-verification-policy": "${keycloak.truststore.policy:WILDCARD}",
             "disabled": "${keycloak.truststore.disabled:false}"
         }

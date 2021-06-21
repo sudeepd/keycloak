@@ -81,8 +81,9 @@ public class JWTClientCredentialsProvider implements ClientCredentialsProvider {
             throw new RuntimeException("Missing parameter client-keystore-file in configuration of jwt for client " + deployment.getResourceName());
         }
 
+        // use BCFKS as the default format for keystore for fips
         String clientKeystoreType = (String) cfg.get("client-keystore-type");
-        KeystoreUtil.KeystoreFormat clientKeystoreFormat = clientKeystoreType==null ? KeystoreUtil.KeystoreFormat.JKS : Enum.valueOf(KeystoreUtil.KeystoreFormat.class, clientKeystoreType.toUpperCase());
+        KeystoreUtil.KeystoreFormat clientKeystoreFormat = clientKeystoreType==null ? KeystoreUtil.KeystoreFormat.BCFKS : Enum.valueOf(KeystoreUtil.KeystoreFormat.class, clientKeystoreType.toUpperCase());
 
         String clientKeystorePassword =  (String) cfg.get("client-keystore-password");
         if (clientKeystorePassword == null) {

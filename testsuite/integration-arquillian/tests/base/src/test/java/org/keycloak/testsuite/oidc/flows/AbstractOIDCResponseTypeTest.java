@@ -17,7 +17,7 @@
 
 package org.keycloak.testsuite.oidc.flows;
 
-import org.bouncycastle.jcajce.provider.BouncyCastleiFipsProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.BeforeClass;
 import org.junit.Rule;

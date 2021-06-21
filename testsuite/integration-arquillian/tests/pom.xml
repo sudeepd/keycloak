@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 ~ Copyright 2016 Red Hat, Inc. and/or its affiliates
 ~ and other contributors as indicated by the @author tags.
@@ -70,10 +70,10 @@
         <auth.server.memory.settings>-Xms64m -Xmx512m</auth.server.memory.settings>
         <auth.server.config.property.name>serverConfig</auth.server.config.property.name>
         <auth.server.adapter.impl.class>org.jboss.as.arquillian.container.managed.ManagedDeployableContainer</auth.server.adapter.impl.class>
-        <auth.server.truststore>${auth.server.config.dir}/keycloak.truststore</auth.server.truststore>
-        <auth.server.truststore.password>secret</auth.server.truststore.password>
-        <auth.server.keystore>${auth.server.config.dir}/keycloak.jks</auth.server.keystore>
-        <auth.server.keystore.password>secret</auth.server.keystore.password>
+        <auth.server.truststore>${auth.server.config.dir}/keycloak.truststore.bcfks</auth.server.truststore>
+        <auth.server.truststore.password>averylongpassword</auth.server.truststore.password>
+        <auth.server.keystore>${auth.server.config.dir}/keycloak.bcfks</auth.server.keystore>
+        <auth.server.keystore.password>averylongpassword</auth.server.keystore.password>
         <auth.server.jvm.args.extra/>
 
         <auth.server.jboss.artifactId>integration-arquillian-servers-auth-server-${auth.server}</auth.server.jboss.artifactId>
@@ -118,8 +118,8 @@
         <app.server.memory.Xmx>512m</app.server.memory.Xmx>
         <app.server.memory.settings>-Xms${app.server.memory.Xms} -Xmx${app.server.memory.Xmx} -XX:MetaspaceSize=${surefire.memory.metaspace} -XX:MaxMetaspaceSize=${surefire.memory.metaspace.max}</app.server.memory.settings>
         <app.server.ssl.required>false</app.server.ssl.required>
-        <app.server.truststore>${app.server.keystore.dir}/keycloak.truststore</app.server.truststore>
-        <app.server.truststore.password>secret</app.server.truststore.password>
+        <app.server.truststore>${app.server.keystore.dir}/keycloak.truststore.bcfks</app.server.truststore>
+        <app.server.truststore.password>averylongpassword</app.server.truststore.password>
         <app.server.keystore>${app.server.keystore.dir}/adapter.jks</app.server.keystore>
         <app.server.keystore.password>secret</app.server.keystore.password>
         <app.server.jvm.args.extra/>
@@ -135,10 +135,10 @@
         <cache.server.console.output>true</cache.server.console.output>
 
         <dependency.keystore.root>${project.build.directory}/dependency/keystore</dependency.keystore.root>
-        <dependency.truststore>${dependency.keystore.root}/keycloak.truststore</dependency.truststore>
-        <dependency.truststore.password>secret</dependency.truststore.password>
-        <dependency.keystore>${dependency.keystore.root}/keycloak.jks</dependency.keystore>
-        <dependency.keystore.password>secret</dependency.keystore.password>
+        <dependency.truststore>${dependency.keystore.root}/keycloak.truststore.bcfks</dependency.truststore>
+        <dependency.truststore.password>averylongpassword</dependency.truststore.password>
+        <dependency.keystore>${dependency.keystore.root}/keycloak.bcfks</dependency.keystore>
+        <dependency.keystore.password>averylongpassword</dependency.keystore.password>
 
         <keycloak.connectionsInfinispan.remoteStoreServer>localhost</keycloak.connectionsInfinispan.remoteStoreServer>
         <keycloak.connectionsInfinispan.remoteStorePort>12232</keycloak.connectionsInfinispan.remoteStorePort>
@@ -220,8 +220,8 @@
         <client.certificate.keystore.passphrase>secret</client.certificate.keystore.passphrase>
         <client.key.file>${auth.server.config.dir}/client.key</client.key.file>
         <client.key.passphrase>secret</client.key.passphrase>
-        <client.truststore>${auth.server.config.dir}/keycloak.truststore</client.truststore>
-        <client.truststore.passphrase>secret</client.truststore.passphrase>
+        <client.truststore>${auth.server.config.dir}/keycloak.truststore.bcfks</client.truststore>
+        <client.truststore.passphrase>averylongpassword</client.truststore.passphrase>
 
         <!-- KEYCLOAK-6771 Certificate Bound Token -->
         <hok.client.certificate.keystore>${auth.server.config.dir}/other_client.jks</hok.client.certificate.keystore>
@@ -274,7 +274,7 @@
                                         <outputDirectory>${containers.home}/auth-server-undertow</outputDirectory>
                                     </artifactItem>
                                 </artifactItems>
-                                <includes>*.jks,*.crt,*.truststore,*.crl,*.key,certs/clients/*</includes>
+                                <includes>*.bcfks,*.jks,*.crt,*.truststore,*.crl,*.key,certs/clients/*</includes>
                                 <skip>${auth.server.undertow.skip.unpack}</skip>
                             </configuration>
                         </execution>
@@ -1778,8 +1778,13 @@
 
                 <dependency>
                     <groupId>org.bouncycastle</groupId>
-                    <artifactId>bcfips</artifactId>
+                    <artifactId>bc-fips</artifactId>
                 </dependency>
+                <dependency>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>bctls-fips</artifactId>
+                </dependency>
+
                 <dependency>
                     <groupId>org.bouncycastle</groupId>
                     <artifactId>bcpkix-fips</artifactId>
@@ -2014,7 +2019,7 @@
                 </property>
             </activation>
             <properties>
-                <tomcat.javax.net.ssl.properties>-Djavax.net.ssl.trustStore=${app.server.home}/lib/keycloak.truststore -Djavax.net.ssl.trustStorePassword=secret</tomcat.javax.net.ssl.properties>
+                <tomcat.javax.net.ssl.properties>-Djavax.net.ssl.trustStore=${app.server.home}/lib/keycloak.truststore.bcfks -Djavax.net.ssl.trustStorePassword=averylongpassword</tomcat.javax.net.ssl.properties>
             </properties>
         </profile>
     </profiles>

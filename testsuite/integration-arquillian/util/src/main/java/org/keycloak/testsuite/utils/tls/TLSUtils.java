@@ -9,6 +9,7 @@ import javax.net.ssl.X509TrustManager;
 import java.io.FileInputStream;
 import java.nio.file.Paths;
 import java.security.KeyStore;
+import java.security.Security;
 import java.security.cert.X509Certificate;
 
 public class TLSUtils {
@@ -28,31 +29,42 @@ public class TLSUtils {
       }
    };
 
+   private static void printBanner(String message) {
+      System.out.println("------------------");
+      System.out.println(message);
+      System.out.println("------------------");
+   }
+
    public static SSLContext initializeTLS() {
       try {
          String keystorePath = System.getProperty("dependency.keystore");;
          if (keystorePath == null) {
-            keystorePath = Paths.get(TLSUtils.class.getResource("/keycloak.jks").toURI()).toAbsolutePath().toString(); // when executed directly from IDE without Maven
+            keystorePath = Paths.get(TLSUtils.class.getResource("/keycloak.bcfks").toURI()).toAbsolutePath().toString(); // when executed directly from IDE without Maven
          }
 
-         KeyStore keystore = KeyStore.getInstance("jks");
+         printBanner(Security.getProvider("BCFIPS") != null ? "BCFIPS" : "Non fips");
+         printBanner("Initializing TLS with keystore " + keystorePath);
+
+         KeyStore keystore = KeyStore.getInstance("bcfks");
          try (FileInputStream is = new FileInputStream(keystorePath)) {
-            keystore.load(is, "secret".toCharArray());
+            keystore.load(is, "averylongpassword".toCharArray());
          }
          KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-         keyManagerFactory.init(keystore, "secret".toCharArray());
+         keyManagerFactory.init(keystore, "averylongpassword".toCharArray());
          KeyManager[] keyManagers = keyManagerFactory.getKeyManagers();
 
          String truststorePath = System.getProperty("dependency.truststore");;
          if (truststorePath == null) {
-            truststorePath = Paths.get(TLSUtils.class.getResource("/keycloak.truststore").toURI()).toAbsolutePath().toString(); // when executed directly from IDE without Maven
+            truststorePath = Paths.get(TLSUtils.class.getResource("/keycloak.truststore.bcfks").toURI()).toAbsolutePath().toString(); // when executed directly from IDE without Maven
          }
+
+         printBanner("Initializing TLS with truststore" + truststorePath);
 
          // Essentially, this is REQUEST CLIENT AUTH behavior. It doesn't fail if the client doesn't have a cert.
          // However it will challenge him to send it.
-         KeyStore truststore = KeyStore.getInstance("jks");
+         KeyStore truststore = KeyStore.getInstance("bcfks");
          try (FileInputStream is = new FileInputStream(truststorePath)) {
-            truststore.load(is, "secret".toCharArray());
+            truststore.load(is, "averylongpassword".toCharArray());
          }
          TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
          trustManagerFactory.init(truststore);
@@ -71,3 +83,4 @@ public class TLSUtils {
       }
    }
 }
+

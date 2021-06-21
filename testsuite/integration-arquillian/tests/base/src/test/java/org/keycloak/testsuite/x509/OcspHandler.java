@@ -23,6 +23,8 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.security.GeneralSecurityException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.util.Date;
@@ -48,16 +50,13 @@ import org.bouncycastle.cert.ocsp.OCSPRespBuilder;
 import org.bouncycastle.cert.ocsp.Req;
 import org.bouncycastle.cert.ocsp.RespID;
 import org.bouncycastle.cert.ocsp.RevokedStatus;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.util.PrivateKeyFactory;
-import org.bouncycastle.crypto.util.PublicKeyFactory;
-import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;
+import org.bouncycastle.cert.ocsp.jcajce.JcaBasicOCSPRespBuilder;
 import org.bouncycastle.openssl.PEMKeyPair;
 import org.bouncycastle.openssl.PEMParser;
 import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.operator.DigestCalculator;
+import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.bc.BcRSAContentSignerBuilder;
+import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
 import io.undertow.io.Sender;
@@ -65,6 +64,7 @@ import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HeaderMap;
 import io.undertow.util.Headers;
+import org.keycloak.common.util.DerUtils;
 
 final class OcspHandler implements HttpHandler {
 
@@ -80,11 +80,11 @@ final class OcspHandler implements HttpHandler {
     private static final Map<BigInteger, CertificateStatus> REVOKED_CERTIFICATES_STATUS = ImmutableMap
             .of(BigInteger.valueOf(4105), new RevokedStatus(new Date(1472169600000L), CRLReason.unspecified));
 
-    private final SubjectPublicKeyInfo subjectPublicKeyInfo;
+    private final PublicKey publicKey;
 
     private final X509CertificateHolder[] chain;
 
-    private final AsymmetricKeyParameter privateKey;
+    private final PrivateKey privateKey;
 
     public OcspHandler(String responderCertPath, String responderKeyPath)
             throws OperatorCreationException, GeneralSecurityException, IOException {
@@ -93,15 +93,14 @@ final class OcspHandler implements HttpHandler {
 
         chain = new X509CertificateHolder[] {new X509CertificateHolder(certificate.getEncoded())};
 
-        final AsymmetricKeyParameter publicKey = PublicKeyFactory.createKey(certificate.getPublicKey().getEncoded());
-
-        subjectPublicKeyInfo = SubjectPublicKeyInfoFactory.createSubjectPublicKeyInfo(publicKey);
+        publicKey = certificate.getPublicKey();
 
         final InputStream keyPairStream = X509OCSPResponderTest.class.getResourceAsStream(responderKeyPath);
 
         try (final PEMParser keyPairReader = new PEMParser(new InputStreamReader(keyPairStream))) {
             final PEMKeyPair keyPairPem = (PEMKeyPair) keyPairReader.readObject();
-            privateKey = PrivateKeyFactory.createKey(keyPairPem.getPrivateKeyInfo());
+            privateKey = DerUtils.decodePrivateKey(keyPairPem.getPrivateKeyInfo().getEncoded());
+
         }
     }
 
@@ -122,10 +121,14 @@ final class OcspHandler implements HttpHandler {
 
         final Extension nonce = request.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
 
-        final DigestCalculator sha1Calculator = new JcaDigestCalculatorProviderBuilder().build()
-                .get(AlgorithmIdentifier.getInstance(RespID.HASH_SHA1));
+        DigestCalculatorProvider digCalcProv = new JcaDigestCalculatorProviderBuilder()
+                .setProvider("BCFIPS").build();
+        BasicOCSPRespBuilder responseBuilder = new JcaBasicOCSPRespBuilder(
+                publicKey, digCalcProv.get(RespID.HASH_SHA1));
 
-        final BasicOCSPRespBuilder responseBuilder = new BasicOCSPRespBuilder(subjectPublicKeyInfo, sha1Calculator);
+
+
+//        final BasicOCSPRespBuilder responseBuilder = new BasicOCSPRespBuilder(subjectPublicKeyInfo, sha1Calculator);
 
         if (nonce != null) {
             responseBuilder.setResponseExtensions(new Extensions(nonce));
@@ -138,9 +141,16 @@ final class OcspHandler implements HttpHandler {
             responseBuilder.addResponse(certId, REVOKED_CERTIFICATES_STATUS.get(certificateSerialNumber));
         }
 
-        final ContentSigner contentSigner = new BcRSAContentSignerBuilder(
-                new AlgorithmIdentifier(PKCSObjectIdentifiers.sha256WithRSAEncryption),
-                new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256)).build(privateKey);
+
+        // Fips content signer doesnt seem to need the digest
+        ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
+                .setProvider("BCFIPS").build(privateKey);
+
+        // Content signer needs signature algo id , digest algo id and a private key
+        // Here we have sha256withrsa for signature algo
+//        final ContentSigner contentSigner = new BcRSAContentSignerBuilder(
+//                new AlgorithmIdentifier(PKCSObjectIdentifiers.sha256WithRSAEncryption),
+//                new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256)).build(privateKey);
 
         final OCSPResp response = new OCSPRespBuilder().build(OCSPResp.SUCCESSFUL,
                 responseBuilder.build(contentSigner, chain, new Date()));

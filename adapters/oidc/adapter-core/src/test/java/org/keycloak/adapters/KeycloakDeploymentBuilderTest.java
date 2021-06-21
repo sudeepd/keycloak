@@ -29,6 +29,8 @@ import org.keycloak.common.enums.SslRequired;
 import org.keycloak.common.util.PemUtils;
 import org.keycloak.enums.TokenStore;
 
+import java.security.KeyStore;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -91,6 +93,9 @@ public class KeycloakDeploymentBuilderTest {
 
     @Test
     public void loadJwtCredentials() {
+        // Our fips mode keystore is bcfks
+//        assertEquals(KeyStore.getDefaultType(),"pkcs12");
+        assertEquals(KeyStore.getDefaultType(),"bcfks");
         KeycloakDeployment deployment = KeycloakDeploymentBuilder.build(getClass().getResourceAsStream("/keycloak-jwt.json"));
         assertEquals(JWTClientCredentialsProvider.PROVIDER_ID, deployment.getClientAuthenticator().getId());
     }

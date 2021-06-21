@@ -22,9 +22,15 @@ import static org.keycloak.configuration.MicroProfileConfigProvider.NS_KEYCLOAK_
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
+import org.bouncycastle.crypto.EntropySourceProvider;
+import org.bouncycastle.crypto.fips.FipsDRBG;
+import org.bouncycastle.crypto.util.BasicEntropySourceProvider;
+import org.bouncycastle.util.Strings;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 import org.eclipse.microprofile.config.spi.ConfigSourceProvider;
 import org.jboss.logging.Logger;

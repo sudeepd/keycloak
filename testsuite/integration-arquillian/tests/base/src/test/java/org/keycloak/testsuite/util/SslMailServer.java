@@ -51,9 +51,9 @@ public class SslMailServer {
 
     private static final Logger log = Logger.getLogger(MailServer.class);
 
-    public static final String PRIVATE_KEY = "keystore/keycloak.jks";
+    public static final String PRIVATE_KEY = "keystore/keycloak.bcfks";
 
-    public static final String TRUSTED_CERTIFICATE = "keystore/keycloak.truststore";
+    public static final String TRUSTED_CERTIFICATE = "keystore/keycloak.truststore.bcfks";
 
     //private key tested with invalid certificate
     public static final String INVALID_KEY = "keystore/email_invalid.jks";

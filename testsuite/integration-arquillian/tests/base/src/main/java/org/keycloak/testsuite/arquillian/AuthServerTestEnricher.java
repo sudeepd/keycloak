@@ -436,6 +436,7 @@ public class AuthServerTestEnricher {
 
         try {
             startContainerEvent.fire(new StartContainer(suiteContext.getAuthServerInfo().getArquillianContainer()));
+            log.debug("Done starting auth server before suite");
         } catch (Exception e) {
             // It is expected that server startup fails with migration-mode-manual
             if (e instanceof LifecycleException && handleManualMigration()) {
@@ -802,8 +803,8 @@ public class AuthServerTestEnricher {
 
         if(!operations.exists(Address.coreService("management").and("security-realm", "UndertowRealm"))) {
             client.execute("/core-service=management/security-realm=UndertowRealm:add()");
-            client.execute("/core-service=management/security-realm=UndertowRealm/server-identity=ssl:add(keystore-relative-to=jboss.server.config.dir,keystore-password=secret,keystore-path=keycloak.jks");
-            client.execute("/core-service=management/security-realm=UndertowRealm/authentication=truststore:add(keystore-relative-to=jboss.server.config.dir,keystore-password=secret,keystore-path=keycloak.truststore");
+            client.execute("/core-service=management/security-realm=UndertowRealm/server-identity=ssl:add(keystore-relative-to=jboss.server.config.dir,keystore-password=secret,keystore-path=keycloak.bcfks");
+            client.execute("/core-service=management/security-realm=UndertowRealm/authentication=truststore:add(keystore-relative-to=jboss.server.config.dir,keystore-password=secret,keystore-path=keycloak.truststore.bcfks");
 
             client.apply(new RemoveUndertowListener.Builder(UndertowListenerType.HTTPS_LISTENER, "https")
                   .forDefaultServer());

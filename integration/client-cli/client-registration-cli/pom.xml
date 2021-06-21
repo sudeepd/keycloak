@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
   ~ Copyright 2016 Red Hat, Inc. and/or its affiliates
   ~ and other contributors as indicated by the @author tags.
@@ -87,7 +87,13 @@
                                     </includes>
                                 </filter>
                                 <filter>
-                                    <artifact>org.bouncycastle:bcfips</artifact>
+                                    <artifact>org.bouncycastle:bc-fips</artifact>
+                                    <includes>
+                                        <include>**/**</include>
+                                    </includes>
+				</filter>
+		                <filter>
+                                    <artifact>org.bouncycastle:bctls-fips</artifact>
                                     <includes>
                                         <include>**/**</include>
                                     </includes>

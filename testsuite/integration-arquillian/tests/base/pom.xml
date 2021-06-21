@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 ~ Copyright 2016 Red Hat, Inc. and/or its affiliates
 ~ and other contributors as indicated by the @author tags.
@@ -44,6 +44,7 @@
         <mvel.version>2.4.0.Final</mvel.version>
         <systemrules.version>1.19.0</systemrules.version>
         <common.resources>${basedir}/../../servers/auth-server/jboss/common</common.resources>
+        <root.dir>${project.basedir}/../../../..</root.dir>
     </properties>
     
     <dependencies>
@@ -52,10 +53,26 @@
             <artifactId>keycloak-util-embedded-ldap</artifactId>
             <exclusions>
                 <exclusion>
-                    <groupId>bouncycastle</groupId>
-                    <artifactId>bcprov-jdk15</artifactId>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>bcprov-jdk15on</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bc-fips</artifactId>
+            <version>${bouncycastle.fips.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bctls-fips</artifactId>
+            <version>${bouncycastle.tlsfips.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-fips</artifactId>
+            <version>${bouncycastle.pkixfips.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-configuration</groupId>
@@ -414,8 +431,8 @@
                                         <resource>
                                             <directory>${common.resources}/keystore</directory>
                                             <includes>
-                                                <include>keycloak.jks</include>
-                                                <include>keycloak.truststore</include>
+                                                <include>keycloak.bcfks</include>
+                                                <include>keycloak.truststore.bcfks</include>
                                                 <include>client.jks</include>
                                                 <include>client-ca.jks</include>
                                                 <include>test-user-cert-intermediary-ca.jks</include>

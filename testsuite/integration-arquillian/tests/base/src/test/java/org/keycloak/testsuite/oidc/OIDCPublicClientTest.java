@@ -21,7 +21,7 @@ package org.keycloak.testsuite.oidc;
 import java.security.Security;
 import java.util.List;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -59,7 +59,7 @@ public class OIDCPublicClientTest extends AbstractKeycloakTest {
 
     @BeforeClass
     public static void addBouncyCastleProvider() {
-        if (Security.getProvider("BC") == null) Security.addProvider(new BouncyCastleProvider());
+        if (Security.getProvider("BCFIPS") == null) Security.addProvider(new BouncyCastleFipsProvider());
     }
 
     @Before

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
 ~ Copyright 2019 Red Hat, Inc. and/or its affiliates
 ~ and other contributors as indicated by the @author tags.
@@ -32,6 +32,7 @@
 
     <properties>
         <maven.version>3.3.9</maven.version>
+        <root.dir>${project.basedir}/../..</root.dir>
     </properties>
 
     <dependencies>
@@ -55,6 +56,16 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bc-fips</artifactId>
+            <version>${bouncycastle.fips.version}</version>
+        </dependency>
+       <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bctls-fips</artifactId>
+            <version>${bouncycastle.tlsfips.version}</version>
         </dependency>
 
         <dependency>

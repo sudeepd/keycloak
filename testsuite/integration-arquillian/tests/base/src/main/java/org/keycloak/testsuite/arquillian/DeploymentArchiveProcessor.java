@@ -157,7 +157,7 @@ public class DeploymentArchiveProcessor implements ApplicationArchiveProcessor {
 
                 archive.add(new StringAsset(IOUtil.documentToString(doc)), adapterConfigPath);
 
-                ((WebArchive) archive).addAsResource(new File(DeploymentArchiveProcessor.class.getResource("/keystore/keycloak.truststore").getFile()));
+                ((WebArchive) archive).addAsResource(new File(DeploymentArchiveProcessor.class.getResource("/keystore/keycloak.truststore.bcfks").getFile()));
 
                 // For running SAML tests it is necessary to have few dependencies on app-server side.
                 // Few of them are not in adapter zip so we need to add them manually here

@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0'?>
+<!--
+  ~ Copyright 2016 Red Hat, Inc. and/or its affiliates
+  ~ and other contributors as indicated by the @author tags.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the License);
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -18,7 +34,7 @@
         <keycloak.connectionsJpa.driver>org.h2.Driver</keycloak.connectionsJpa.driver>
         <keycloak.connectionsJpa.database>keycloak</keycloak.connectionsJpa.database>
         <keycloak.connectionsJpa.user>sa</keycloak.connectionsJpa.user>
-        <keycloak.connectionsJpa.password></keycloak.connectionsJpa.password>
+        <keycloak.connectionsJpa.password />
         <keycloak.connectionsJpa.url>jdbc:h2:mem:test;MVCC=TRUE;DB_CLOSE_DELAY=-1</keycloak.connectionsJpa.url>
         <jdbc.mvn.groupId>com.h2database</jdbc.mvn.groupId>
         <jdbc.mvn.artifactId>h2</jdbc.mvn.artifactId>
@@ -26,7 +42,7 @@
         <log4j.configuration>file:${project.build.directory}/dependency/log4j.properties</log4j.configuration>
         <jacoco.skip>true</jacoco.skip>
         <keycloak.profile.feature.map_storage>disabled</keycloak.profile.feature.map_storage>
-    </properties>
+    <root.dir>${project.basedir}/..</root.dir></properties>
     
     <dependencies>
         <dependency>
@@ -127,15 +143,14 @@
                 <configuration>
                     <argLine>@{argLine}</argLine>
                     <systemPropertyVariables>
-                        <!-- keycloak.model.parameters lists parameter classes from 
-                             org.keycloak.model.parameters package and determine enabled providers -->
+                        
                         <keycloak.model.parameters>${keycloak.model.parameters}</keycloak.model.parameters>
                         <keycloak.connectionsJpa.default.driver>${keycloak.connectionsJpa.driver}</keycloak.connectionsJpa.default.driver>
                         <keycloak.connectionsJpa.default.database>${keycloak.connectionsJpa.database}</keycloak.connectionsJpa.default.database>
                         <keycloak.connectionsJpa.default.user>${keycloak.connectionsJpa.user}</keycloak.connectionsJpa.default.user>
                         <keycloak.connectionsJpa.default.password>${keycloak.connectionsJpa.password}</keycloak.connectionsJpa.default.password>
                         <keycloak.connectionsJpa.default.url>${keycloak.connectionsJpa.url}</keycloak.connectionsJpa.default.url>
-                        <log4j.configuration>file:${project.build.directory}/test-classes/log4j.properties</log4j.configuration> <!-- for the logging to properly work with tests in the 'other' module -->
+                        <log4j.configuration>file:${project.build.directory}/test-classes/log4j.properties</log4j.configuration> 
                         <keycloak.profile.feature.map_storage>${keycloak.profile.feature.map_storage}</keycloak.profile.feature.map_storage>
                     </systemPropertyVariables>
                 </configuration>
@@ -152,8 +167,8 @@
                         <configuration>
                             <target>
                                 <delete>
-                                    <fileset dir="${project.build.directory}" includes="map-*.json"/>
-                                    <fileset dir="${project.build.directory}" includes="map/**/*.json"/>
+                                    <fileset dir="${project.build.directory}" includes="map-*.json" />
+                                    <fileset dir="${project.build.directory}" includes="map/**/*.json" />
                                 </delete>
                             </target>
                         </configuration>

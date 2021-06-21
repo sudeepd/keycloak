@@ -1,23 +1,21 @@
-<?xml version="1.0"?>
+<?xml version='1.0'?>
 <!--
-~ Copyright 2016 Red Hat, Inc. and/or its affiliates
-~ and other contributors as indicated by the @author tags.
-~
-~ Licensed under the Apache License, Version 2.0 (the "License");
-~ you may not use this file except in compliance with the License.
-~ You may obtain a copy of the License at
-~
-~ http://www.apache.org/licenses/LICENSE-2.0
-~
-~ Unless required by applicable law or agreed to in writing, software
-~ distributed under the License is distributed on an "AS IS" BASIS,
-~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-~ See the License for the specific language governing permissions and
-~ limitations under the License.
--->
-
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ~ Copyright 2016 Red Hat, Inc. and/or its affiliates
+  ~ and other contributors as indicated by the @author tags.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the License);
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -43,12 +41,8 @@
         <migrated.version>1.8.1</migrated.version>
         <master.version>${project.version}</master.version>
 
-        <!-- example how to test 'product' config migration
-        <jbossHome>${project.build.directory}/rh-sso-7.1</jbossHome>
-        <migrated.version>1.9.8.Final-redhat-1</migrated.version>
-        <master.version>3.3.0.CR2-redhat-1</master.version>
-        -->
-    </properties>
+        
+    <root.dir>${project.basedir}/..</root.dir></properties>
 
     <dependencies>
         <dependency>
@@ -150,34 +144,19 @@
                             <skip>${skip.rename.configs}</skip>
                             <target>
                                 <echo>For migration from versions above 2.1.0 there is no keycloak-server.json supported.</echo>
-                                <move file="${jbossHome}/standalone/configuration/keycloak-server-${migrated.version}.json"
-                                      tofile="${jbossHome}/standalone/configuration/keycloak-server.json"
-                                      verbose="true"
-                                      failonerror="false"/>
-                                <move file="${jbossHome}/domain/configuration/keycloak-server-${migrated.version}.json"
-                                      tofile="${jbossHome}/domain/configuration/keycloak-server.json"
-                                      verbose="true"
-                                      failonerror="false"/>
-                                <move file="${jbossHome}/standalone/configuration/standalone-${migrated.version}.xml"
-                                      tofile="${jbossHome}/standalone/configuration/standalone.xml"
-                                      verbose="true"/>
-                                <move file="${jbossHome}/standalone/configuration/standalone-ha-${migrated.version}.xml"
-                                      tofile="${jbossHome}/standalone/configuration/standalone-ha.xml"
-                                      verbose="true"/>
-                                <move file="${jbossHome}/domain/configuration/domain-${migrated.version}.xml"
-                                      tofile="${jbossHome}/domain/configuration/domain.xml"
-                                      verbose="true"/>
-                                <move file="${jbossHome}/domain/configuration/host-master-${migrated.version}.xml"
-                                      tofile="${jbossHome}/domain/configuration/host-master.xml"
-                                      verbose="true"/>
+                                <move file="${jbossHome}/standalone/configuration/keycloak-server-${migrated.version}.json" tofile="${jbossHome}/standalone/configuration/keycloak-server.json" verbose="true" failonerror="false" />
+                                <move file="${jbossHome}/domain/configuration/keycloak-server-${migrated.version}.json" tofile="${jbossHome}/domain/configuration/keycloak-server.json" verbose="true" failonerror="false" />
+                                <move file="${jbossHome}/standalone/configuration/standalone-${migrated.version}.xml" tofile="${jbossHome}/standalone/configuration/standalone.xml" verbose="true" />
+                                <move file="${jbossHome}/standalone/configuration/standalone-ha-${migrated.version}.xml" tofile="${jbossHome}/standalone/configuration/standalone-ha.xml" verbose="true" />
+                                <move file="${jbossHome}/domain/configuration/domain-${migrated.version}.xml" tofile="${jbossHome}/domain/configuration/domain.xml" verbose="true" />
+                                <move file="${jbossHome}/domain/configuration/host-master-${migrated.version}.xml" tofile="${jbossHome}/domain/configuration/host-master.xml" verbose="true" />
                             </target>
                         </configuration>
                     </execution>
                     <execution>
-                        <!-- KEYCLOAK-17156: Remove com.sun.net.ssl.internal.ssl.Provider.isFIPS() illegal reflective access warnings
-                                             possibly present in "master-standalone*.txt" and "migrated-standalone*.txt" files -->
+                        
                         <id>remove-illegal-reflective-access-warnings-from-txt-files</id>
-                        <!-- Needs to be called after 'process-test-resources' phase, but before the 'test' phase itself! -->
+                        
                         <phase>process-test-classes</phase>
                         <goals>
                             <goal>run</goal>
@@ -187,21 +166,21 @@
                             <target>
                                 <copy todir="${project.build.directory}">
                                     <fileset dir="${project.build.directory}">
-                                        <include name="**/master-standalone*.txt"/>
-                                        <include name="**/migrated-standalone*.txt"/>
+                                        <include name="**/master-standalone*.txt" />
+                                        <include name="**/migrated-standalone*.txt" />
                                     </fileset>
-                                    <mapper type="glob" from="*" to="*.unfiltered"/>
+                                    <mapper type="glob" from="*" to="*.unfiltered" />
                                 </copy>
                                 <move todir="${project.build.directory}" overwrite="true">
                                     <fileset dir="${project.build.directory}">
-                                        <include name="**/*.unfiltered"/>
+                                        <include name="**/*.unfiltered" />
                                     </fileset>
                                     <filterchain>
                                         <linecontains negate="true">
-                                            <contains value="WARNING:"/>
+                                            <contains value="WARNING:" />
                                         </linecontains>
                                     </filterchain>
-                                    <mapper type="regexp" from="^(.*)\.unfiltered$" to="\1"/>
+                                    <mapper type="regexp" from="^(.*)\.unfiltered$" to="\1" />
                                 </move>
                             </target>
                         </configuration>

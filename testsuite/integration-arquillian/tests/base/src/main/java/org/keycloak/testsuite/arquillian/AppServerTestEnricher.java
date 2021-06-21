@@ -224,7 +224,7 @@ public class AppServerTestEnricher {
             client.execute("/core-service=management/security-realm=UndertowRealm/server-identity=ssl:add(keystore-relative-to=jboss.server.config.dir,keystore-password=secret,keystore-path=adapter.jks");
         }
 
-        client.execute("/system-property=javax.net.ssl.trustStore:add(value=${jboss.server.config.dir}/keycloak.truststore)");
+        client.execute("/system-property=javax.net.ssl.trustStore:add(value=${jboss.server.config.dir}/keycloak.truststore.bcfks)");
         client.execute("/system-property=javax.net.ssl.trustStorePassword:add(value=secret)");
 
         if (AppServerTestEnricher.isEAP6AppServer()) {
