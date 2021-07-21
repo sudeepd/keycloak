@@ -233,7 +233,7 @@ public class KeycloakOnUndertow implements DeployableContainer<KeycloakOnUnderto
         try {
             session.getTransactionManager().begin();
             if (new ApplianceBootstrap(session).isNoMasterUser()) {
-                new ApplianceBootstrap(session).createMasterRealmUser("admin", "averylongpassword");
+                new ApplianceBootstrap(session).createMasterRealmUser("admin", "admin");
             }
             session.getTransactionManager().commit();
         } finally {

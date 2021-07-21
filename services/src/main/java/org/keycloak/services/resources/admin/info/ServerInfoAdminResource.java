@@ -80,12 +80,6 @@ public class ServerInfoAdminResource {
     @Context
     private KeycloakSession session;
 
-    private void printBanner(String message) {
-        System.out.println("########################");
-        System.out.println(message);
-        System.out.println("########################");
-    }
-
     /**
      * Get themes, social providers, auth providers, and event listeners available on this server
      *
@@ -95,7 +89,6 @@ public class ServerInfoAdminResource {
     @NoCache
     @Produces(MediaType.APPLICATION_JSON)
     public ServerInfoRepresentation getInfo() {
-        printBanner("REST ENDPOINT FOR GETINFO");
         ServerInfoRepresentation info = new ServerInfoRepresentation();
         info.setSystemInfo(SystemInfoRepresentation.create(session.getKeycloakSessionFactory().getServerStartupTimestamp()));
         info.setMemoryInfo(MemoryInfoRepresentation.create());
@@ -110,7 +103,6 @@ public class ServerInfoAdminResource {
         setClientInstallations(info);
         setPasswordPolicies(info);
         info.setEnums(ENUMS);
-        printBanner("DONE WIHT REST ENDPOINT FOR GETINFO");
         return info;
     }
 

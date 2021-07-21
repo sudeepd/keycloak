@@ -82,9 +82,6 @@ public class PasswordCredentialProvider implements CredentialProvider<PasswordCr
         if (hash == null) {
             return false;
         }
-        System.out.println("#########################");
-        System.out.println(password);
-        System.out.println("#########################");
 
         PasswordCredentialModel credentialModel = hash.encodedCredential(password, policy.getHashIterations());
         credentialModel.setCreatedDate(Time.currentTimeMillis());

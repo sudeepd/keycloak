@@ -192,10 +192,8 @@ public abstract class AbstractBaseBrokerTest extends AbstractKeycloakTest {
 
     @Before
     public void beforeBrokerTest() {
-        printBanner("Before broker test");
         importRealm(bc.createConsumerRealm());
         importRealm(bc.createProviderRealm());
-        printBanner("Done broker test");
     }
 
     @After

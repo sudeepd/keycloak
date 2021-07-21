@@ -216,8 +216,8 @@
         <skip.copy.auth.crossdc.nodes>true</skip.copy.auth.crossdc.nodes>
         <client.certificate.ca.path>${auth.server.config.dir}/ca.crt</client.certificate.ca.path>
         <client.certificate.file>${auth.server.config.dir}/client.crt</client.certificate.file>
-        <client.certificate.keystore>${auth.server.config.dir}/client.jks</client.certificate.keystore>
-        <client.certificate.keystore.passphrase>secret</client.certificate.keystore.passphrase>
+        <client.certificate.keystore>${auth.server.config.dir}/client.bcfks</client.certificate.keystore>
+        <client.certificate.keystore.passphrase>averylongpassword</client.certificate.keystore.passphrase>
         <client.key.file>${auth.server.config.dir}/client.key</client.key.file>
         <client.key.passphrase>secret</client.key.passphrase>
         <client.truststore>${auth.server.config.dir}/keycloak.truststore.bcfks</client.truststore>

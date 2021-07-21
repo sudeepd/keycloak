@@ -18,10 +18,16 @@
 package org.keycloak.common.util;
 
 
+import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
+import org.bouncycastle.openssl.PEMKeyPair;
+import org.bouncycastle.openssl.PEMParser;
+import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.security.*;
 import java.security.cert.Certificate;
@@ -55,9 +61,9 @@ public final class PemUtils {
         }
 
         try {
-            byte[] der = pemToDer(cert);
-            ByteArrayInputStream bis = new ByteArrayInputStream(der);
-            return DerUtils.decodeCertificate(bis);
+            PEMParser parser = new PEMParser(new StringReader(cert));
+            X509CertificateHolder certHolder = (X509CertificateHolder)parser.readObject();
+            return new JcaX509CertificateConverter().getCertificate(certHolder);
         } catch (Exception e) {
             throw new PemException(e);
         }
@@ -111,7 +117,7 @@ public final class PemUtils {
      * @throws Exception
      */
     public static String encodeKey(Key key) {
-        return encode(key);
+        return java.util.Base64.getEncoder().encodeToString(key.getEncoded());
     }
 
     /**
@@ -128,15 +134,13 @@ public final class PemUtils {
         if (obj == null) {
             return null;
         }
-
         try {
             StringWriter writer = new StringWriter();
             JcaPEMWriter pemWriter = new JcaPEMWriter(writer);
             pemWriter.writeObject(obj);
             pemWriter.flush();
             pemWriter.close();
-            String s = writer.toString();
-            return PemUtils.removeBeginEnd(s);
+            return writer.toString();
         } catch (Exception e) {
             throw new PemException(e);
         }

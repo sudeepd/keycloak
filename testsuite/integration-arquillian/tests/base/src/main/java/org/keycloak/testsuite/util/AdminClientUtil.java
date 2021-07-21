@@ -113,6 +113,7 @@ public class AdminClientUtil {
             resteasyClientBuilder.sslContext(getSSLContextWithTrustore(trustore, "averylongpassword"));
 
             System.setProperty("javax.net.ssl.trustStore", trustore.getAbsolutePath());
+            System.setProperty("javax.net.ssl.trustStorePassword", "averylongpassword");
         }
 
         // We need to ignore unknown JSON properties e.g. in the adapter configuration representation

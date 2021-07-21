@@ -71,6 +71,7 @@ public class IOUtil {
 
     public static RealmRepresentation loadRealm(File realmFile) {
         try {
+            log.info("LOADING REALM " + realmFile);
             return loadRealm(new FileInputStream(realmFile));
         } catch (FileNotFoundException ex) {
             throw new IllegalStateException("Test realm file not found: " + realmFile, ex);

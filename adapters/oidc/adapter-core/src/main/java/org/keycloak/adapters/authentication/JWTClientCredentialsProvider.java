@@ -83,6 +83,7 @@ public class JWTClientCredentialsProvider implements ClientCredentialsProvider {
 
         // use BCFKS as the default format for keystore for fips
         String clientKeystoreType = (String) cfg.get("client-keystore-type");
+        //TODO SD : Fips specific
         KeystoreUtil.KeystoreFormat clientKeystoreFormat = clientKeystoreType==null ? KeystoreUtil.KeystoreFormat.BCFKS : Enum.valueOf(KeystoreUtil.KeystoreFormat.class, clientKeystoreType.toUpperCase());
 
         String clientKeystorePassword =  (String) cfg.get("client-keystore-password");

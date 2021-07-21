@@ -17,6 +17,7 @@
 
 package org.keycloak.credential.hash;
 
+import org.keycloak.common.FipsApprovedMode;
 import org.keycloak.common.util.Base64;
 import org.keycloak.models.PasswordPolicy;
 import org.keycloak.models.credential.PasswordCredentialModel;
@@ -102,7 +103,9 @@ public class Pbkdf2PasswordHashProvider implements PasswordHashProvider {
     public void close() {
     }
 
-    private String encodedCredential(String rawPassword, int iterations, byte[] salt, int derivedKeySize) {
+    private String encodedCredential(String input, int iterations, byte[] salt, int derivedKeySize) {
+        String rawPassword = FipsApprovedMode.pbkdfPad(input);
+
         KeySpec spec = new PBEKeySpec(rawPassword.toCharArray(), salt, iterations, derivedKeySize);
 
         try {

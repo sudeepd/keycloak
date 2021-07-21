@@ -95,6 +95,7 @@ public class KeycloakDeploymentBuilderTest {
     public void loadJwtCredentials() {
         // Our fips mode keystore is bcfks
 //        assertEquals(KeyStore.getDefaultType(),"pkcs12");
+        //TODO SD : Fips specific
         assertEquals(KeyStore.getDefaultType(),"bcfks");
         KeycloakDeployment deployment = KeycloakDeploymentBuilder.build(getClass().getResourceAsStream("/keycloak-jwt.json"));
         assertEquals(JWTClientCredentialsProvider.PROVIDER_ID, deployment.getClientAuthenticator().getId());

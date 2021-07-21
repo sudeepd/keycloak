@@ -7,12 +7,12 @@
   "bearer-only" : true,
   "credentials": {
     "jwt": {
-      "client-key-password": "password",
-      "client-keystore-file": "classpath:keystore.jks",
-      "client-keystore-password": "password",
+      "client-key-password": "averylongpassword",
+      "client-keystore-file": "classpath:keystore.bcfks",
+      "client-keystore-password": "averylongpassword",
       "client-key-alias": "secure-portal",
       "token-timeout": 10,
-      "client-keystore-type": "jks"
+      "client-keystore-type": "bcfks"
     }
   },
   "policy-enforcer": {
