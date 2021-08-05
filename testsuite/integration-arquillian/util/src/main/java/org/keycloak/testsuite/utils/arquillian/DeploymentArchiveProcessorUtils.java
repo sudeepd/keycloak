@@ -25,6 +25,8 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.jboss.arquillian.test.spi.TestClass;
 import org.jboss.logging.Logger;
 import org.jboss.shrinkwrap.api.Archive;
@@ -70,7 +72,7 @@ public class DeploymentArchiveProcessorUtils {
     public static final String JBOSS_DEPLOYMENT_XML_PATH = "/WEB-INF/jboss-deployment-structure.xml";
     public static final String SAML_ADAPTER_CONFIG_PATH_TENANT1 = "/WEB-INF/classes/tenant1-keycloak-saml.xml";
     public static final String SAML_ADAPTER_CONFIG_PATH_TENANT2 = "/WEB-INF/classes/tenant2-keycloak-saml.xml";
-    public static final String TRUSTSTORE_PASSWORD = "secret";
+    public static final String TRUSTSTORE_PASSWORD = "averylongpassword";
     public static final Collection<String> SAML_CONFIGS = Arrays.asList(SAML_ADAPTER_CONFIG_PATH,
             SAML_ADAPTER_CONFIG_PATH_TENANT1, SAML_ADAPTER_CONFIG_PATH_TENANT2);
 
@@ -211,19 +213,21 @@ public class DeploymentArchiveProcessorUtils {
             }
 
             if (AUTH_SERVER_SSL_REQUIRED) {
-                String trustStorePathInDeployment = "keycloak.truststore";
+
+                String trustStorePath = CryptoServicesRegistrar.isInApprovedOnlyMode() ? "keycloak.truststore.bcfks" :"keycloak.truststore";
+                String trustStorePathInDeployment = trustStorePath;
                 if (adapterConfigPath.contains("WEB-INF")) {
                     // This is a Java adapter, we can use classpath
-                    trustStorePathInDeployment = "classpath:keycloak.truststore";
+                    trustStorePathInDeployment = "classpath:" + trustStorePath;
                 }
                 adapterConfig.setTruststore(trustStorePathInDeployment);
                 adapterConfig.setTruststorePassword(TRUSTSTORE_PASSWORD);
 
-                String truststoreUrl = System.getProperty("dependency.keystore.root", "") + "/keycloak.truststore";
+                String truststoreUrl = System.getProperty("dependency.keystore.root", "") + "/" +  trustStorePath;
                 File truststore = new File(truststoreUrl);
 
                 if (!truststore.exists()) {
-                    truststore = new File(DeploymentArchiveProcessorUtils.class.getResource("/keystore/keycloak.truststore").getFile());
+                    truststore = new File(DeploymentArchiveProcessorUtils.class.getResource("/keystore/" + trustStorePath).getFile());
                 }
 
                 ((WebArchive) archive).addAsResource(truststore);

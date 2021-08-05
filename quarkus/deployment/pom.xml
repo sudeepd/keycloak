@@ -125,6 +125,8 @@
                 <configuration>
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <javax.net.ssl.trustStorePassword>averylongpassword</javax.net.ssl.trustStorePassword>
+                        <javax.net.ssl.trustStore>classpath:keycloak.truststore.bcfks</javax.net.ssl.trustStore>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

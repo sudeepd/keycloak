@@ -18,13 +18,19 @@
 package org.keycloak.adapters.saml;
 
 import java.io.InputStream;
+import java.security.Security;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.junit.Before;
 import org.junit.Test;
+import org.keycloak.adapters.cloned.SniSSLSocketFactory;
 import org.keycloak.adapters.saml.config.parsers.DeploymentBuilder;
 import org.keycloak.adapters.saml.config.parsers.ResourceLoader;
+
+import javax.net.ssl.SSLContext;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -35,9 +41,17 @@ import static org.junit.Assert.assertNotNull;
  * @author <a href="mailto:sguilhen@redhat.com">Stefan Guilhen</a>
  */
 public class PropertiesBasedRoleMapperTest {
+    @Before
+    public void beforeTest() {
+        System.setProperty("javax.net.ssl.trustStorePassword","averylongpassword");
+        System.setProperty("javax.net.ssl.trustStore","classpath:keycloak.truststore.bcfks");
+    }
 
     @Test
     public void testPropertiesBasedRoleMapper() throws Exception {
+        final SSLContext tlsContext = SSLContext.getInstance("TLS","BCJSSE");
+        tlsContext.init(null, null, null);
+
         InputStream is = getClass().getResourceAsStream("config/parsers/keycloak-saml-with-role-mappings-provider.xml");
         SamlDeployment deployment = new DeploymentBuilder().build(is, new ResourceLoader() {
             @Override
@@ -49,6 +63,7 @@ public class PropertiesBasedRoleMapperTest {
         RoleMappingsProvider provider = deployment.getRoleMappingsProvider();
 
         // if provider was properly configured we should be able to see the mappings as specified in the properties file.
+
         final Set<String> samlRoles = new HashSet<>(Arrays.asList(new String[]{"samlRoleA", "samlRoleB", "samlRoleC"}));
         final Set<String> mappedRoles = provider.map("kc-user", samlRoles);
 

@@ -5,100 +5,138 @@
     "sslRequired": "external",
     "registrationAllowed": true,
     "resetPasswordAllowed": true,
-    "privateKey": "MIICXAIBAAKBgQCrVrCuTtArbgaZzL1hvh0xtL5mc7o0NqPVnYXkLvgcwiC3BjLGw1tGEGoJaXDuSaRllobm53JBhjx33UNv+5z/UMG4kytBWxheNVKnL6GgqlNabMaFfPLPCF8kAgKnsi79NMo+n6KnSY8YeUmec/p2vjO2NjsSAVcWEQMVhJ31LwIDAQABAoGAfmO8gVhyBxdqlxmIuglbz8bcjQbhXJLR2EoS8ngTXmN1bo2L90M0mUKSdc7qF10LgETBzqL8jYlQIbt+e6TH8fcEpKCjUlyq0Mf/vVbfZSNaVycY13nTzo27iPyWQHK5NLuJzn1xvxxrUeXI6A2WFpGEBLbHjwpx5WQG9A+2scECQQDvdn9NE75HPTVPxBqsEd2z10TKkl9CZxu10Qby3iQQmWLEJ9LNmy3acvKrE3gMiYNWb6xHPKiIqOR1as7L24aTAkEAtyvQOlCvr5kAjVqrEKXalj0Tzewjweuxc0pskvArTI2Oo070h65GpoIKLc9jf+UA69cRtquwP93aZKtW06U8dQJAF2Y44ks/mK5+eyDqik3koCI08qaC8HYq2wVl7G2QkJ6sbAaILtcvD92ToOvyGyeE0flvmDZxMYlvaZnaQ0lcSQJBAKZU6umJi3/xeEbkJqMfeLclD27XGEFoPeNrmdx0q10Azp4NfJAY+Z8KRyQCR2BEG+oNitBOZ+YXF9KCpH3cdmECQHEigJhYg+ykOvr1aiZUMFT72HU0jnmQe2FVekuG+LJUt2Tm7GtMjTFoGpf0JwrVuZN39fOYAlo+nTixgeW7X8Y=",
-    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrVrCuTtArbgaZzL1hvh0xtL5mc7o0NqPVnYXkLvgcwiC3BjLGw1tGEGoJaXDuSaRllobm53JBhjx33UNv+5z/UMG4kytBWxheNVKnL6GgqlNabMaFfPLPCF8kAgKnsi79NMo+n6KnSY8YeUmec/p2vjO2NjsSAVcWEQMVhJ31LwIDAQAB",
-    "requiredCredentials": [ "password" ],
+    "privateKey": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDBGYuO7kuxJgLBj2SuyJ1QwSaaPVTfIq+v03i7YJVa6e5EekdhFS16YE8CZKhf+LQjn4fJcDNWEZuynRlpYaCXlav9wRO31P6YCyL7RiAxJTuDyO/Umy0uRPs1WQ69WDVoxwzOb6mXvpjfME2El6aPxbIZxNiRdlzcXc4cGtbTdvAG+B04HaZyOKl+TtB3c86cSHOw4xz+SeuuR2CdktwA9cTAHEL5RAf2LWwf9R3JsH5tAvHScxBIVL6URAjTrAxzCkg/h6ZYInGzRoaiL5z8OQhm9XJz6dTlGWo4atuZweey79b5YSTjVOjJ0APIfrce/fEkuHuKy4/0iukFeoT5AgMBAAECggEAEAyWe9e0dNHK8tl/LcPAx4B2O+WTE0Snw35ZD4HUiAzfX9Ol8Ry4fe5ZQsKo9+kM19UfjQ+FRMcL4MmL3iVeGps3A00z3ViXnH14d9f5PvxwOODPhiUrmSfklSeEwRn+vmmk19eSCemufQZfuwB7uIFe7yNcOKLUzwAA7HcSmdqopbln3sLVshjCUHOZIzesiigvOGx4w820BBiCE6HcIdO7RDD7ChfjpuRBR2tFGIzTeAlyQ/eRrdZnVryLr006QMGQuTxc5MXlnHqjmIH2Vb7XWmR3zSFe8EraIJeIu4fYtv/uVov/CuIOwdGkx0H4pgnyyypWBTnjgzqGQLhRMQKBgQD3tXN6rTQcRR8/PJJsptVhADAdiTcp9GTBHWYZlg3ZWAJI7IkDuqS+sgXzkwlP2k+HSTS7X9S9dx2or+VSXNLEb5JiGXmpJeSdlGZQ4SW0vwfbw+d/1TauGWE+sLltTKXVN84xysAJgQWrEpqKj0zhIs3TCzlnYz3Vh5yFy+RUPQKBgQDHkCoWkt5tOnjxghSsD17ZztG6L5T1VCFtOBNSlZk7EpwcAB4112rND1UZKL3o66to7ecDe2o4DlssBY5lcj893NghDAN0kM/ho3JG/ty/yYVYAWN5wlEECGd0Qzt/K6qnVPxEA5wxAkmGMWLAekCM/wbcY/uRkRG2PLWLQYyzbQKBgQDh8Q5OPaIkjx/7TEK6/EnxWnyI1FoO2K72PtycRfSH5PDgl3A6iIowrq0jCWEbByQ3YBzLNJQV5YqWDSr9P1G4f5RkCpygHsIyweO5rkP4Y67FVCHaxh5EGz5KMmRQP/ObUnWvkSItCRSkgCmabS9Qw7A96iUIGsuR80pf+CRieQKBgFhMFCM6xoljtsF8wbLDdj8+wBL2HJ1TpRqTFhGTOWImwMWu068U6h9i6k8gdK6LH6Nkp7MltwCocXSP3MpL+2levo4Yp6q6rA/05oo9F+UPwB0JOD9WV8xF/6g0Wy3QX0h8VMWvJzuT/H4QedYaAVehOyLmZhepLUIJqHW+AggdAoGAcSWOD6I7RywCP9fLzPFO5wkaT5TfvyKukDCqt3sykWoIG5nQ1fvIQkF60BKMrnCpYdXIHidR0ulusr82eZF/PuAwjO9wM8UqWmOCWxQJtJPxBH4EQgC3oXZgorFcydtZ7XPqkBPJFa0bzLsPgRXeLVic2LwFFsqwTL6KuU+G7oM=",
+    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwRmLju5LsSYCwY9krsidUMEmmj1U3yKvr9N4u2CVWunuRHpHYRUtemBPAmSoX/i0I5+HyXAzVhGbsp0ZaWGgl5Wr/cETt9T+mAsi+0YgMSU7g8jv1JstLkT7NVkOvVg1aMcMzm+pl76Y3zBNhJemj8WyGcTYkXZc3F3OHBrW03bwBvgdOB2mcjipfk7Qd3POnEhzsOMc/knrrkdgnZLcAPXEwBxC+UQH9i1sH/UdybB+bQLx0nMQSFS+lEQI06wMcwpIP4emWCJxs0aGoi+c/DkIZvVyc+nU5RlqOGrbmcHnsu/W+WEk41ToydADyH63Hv3xJLh7isuP9IrpBXqE+QIDAQAB",
+    "requiredCredentials": [
+        "password"
+    ],
     "passwordPolicy": "hashIterations(1)",
-    "defaultRoles": [ "user" ],
+    "defaultRoles": [
+        "user"
+    ],
     "smtpServer": {
         "from": "auto@keycloak.org",
         "host": "localhost",
-        "port":"3025"
+        "port": "3025"
     },
-    "eventsEnabled" : true,
-    "eventsListeners" : [ "jboss-logging" ],
-    "enabledEventTypes" : [ ],
-    "users" : [
+    "eventsEnabled": true,
+    "eventsListeners": [
+        "jboss-logging"
+    ],
+    "enabledEventTypes": [],
+    "users": [
         {
-            "username" : "bburke",
+            "username": "bburke",
             "enabled": true,
-            "email" : "bburke@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "email": "bburke@redhat.com",
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ],
-            "attributes" : {
+            "attributes": {
                 "phone": "617"
             },
-            "realmRoles": ["manager", "user"],
+            "realmRoles": [
+                "manager",
+                "user"
+            ],
             "applicationRoles": {
-                "http://localhost:8280/employee/": [ "employee" ],
-                "http://localhost:8280/employee2/": [ "empl.oyee", "employee" ],
-                "http://localhost:8280/employee-role-mapping/": ["employee"]
+                "http://localhost:8280/employee/": [
+                    "employee"
+                ],
+                "http://localhost:8280/employee2/": [
+                    "empl.oyee",
+                    "employee"
+                ],
+                "http://localhost:8280/employee-role-mapping/": [
+                    "employee"
+                ]
             }
         },
         {
-            "username" : "bburke-additional-domain",
+            "username": "bburke-additional-domain",
             "enabled": true,
-            "email" : "bburke@redhat.com.additional.domain",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "email": "bburke@redhat.com.additional.domain",
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ],
-            "attributes" : {
+            "attributes": {
                 "phone": "617"
             },
-            "realmRoles": ["manager", "user"],
+            "realmRoles": [
+                "manager",
+                "user"
+            ],
             "applicationRoles": {
-                "http://localhost:8280/employee/": [ "employee" ],
-                "http://localhost:8280/employee2/": [ "employee" ]
+                "http://localhost:8280/employee/": [
+                    "employee"
+                ],
+                "http://localhost:8280/employee2/": [
+                    "employee"
+                ]
             }
         },
         {
-            "username" : "unauthorized",
+            "username": "unauthorized",
             "enabled": true,
-            "email" : "unauthorized@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "email": "unauthorized@redhat.com",
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ]
         },
         {
-            "username" : "topGroupUser",
+            "username": "topGroupUser",
             "enabled": true,
-            "email" : "top@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "email": "top@redhat.com",
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ],
             "groups": [
                 "/top"
             ]
         },
         {
-            "username" : "level2GroupUser",
+            "username": "level2GroupUser",
             "enabled": true,
-            "email" : "level2@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "email": "level2@redhat.com",
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ],
             "groups": [
                 "/top/level2"
             ]
         },
         {
-            "username" : "pedroigor",
+            "username": "pedroigor",
             "enabled": true,
-            "email" : "psilva@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "email": "psilva@redhat.com",
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ],
-            "attributes" : {
+            "attributes": {
                 "phone": "617"
             },
-            "realmRoles": ["manager", "user"]
+            "realmRoles": [
+                "manager",
+                "user"
+            ]
         }
     ],
     "clients": [
@@ -325,7 +363,7 @@
                 "saml.signature.algorithm": "RSA_SHA256",
                 "saml.client.signature": "true",
                 "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name" : "sales-post-sig-email",
+                "saml_idp_initiated_sso_url_name": "sales-post-sig-email",
                 "saml.signing.certificate": "MIIB1DCCAT0CBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA1RvGu8RjemSJA23nnMksoHA37MqY1DDTxOECY4rPAd9egr7GUNIXE0y1MokaR5R2crNpN8RIRwR8phQtQDjXL82c6W+NLQISxztarQJ7rdNJIYwHY0d5ri1XRpDP8zAuxubPYiMAVYcDkIcvlbBpwh/dRM5I2eElRK+eSiaMkCUCAwEAATANBgkqhkiG9w0BAQsFAAOBgQCLms6htnPaY69k1ntm9a5jgwSn/K61cdai8R8B0ccY7zvinn9AfRD7fiROQpFyY29wKn8WCLrJ86NBXfgFUGyR5nLNHVy3FghE36N2oHy53uichieMxffE6vhkKJ4P8ChfJMMOZlmCPsQPDvjoAghHt4mriFiQgRdPgIy/zDjSNw=="
             }
         },
@@ -388,8 +426,7 @@
             "protocol": "saml",
             "fullScopeAllowed": true,
             "baseUrl": "http://localhost:8080/sales-post-enc-sign-assertions-only",
-            "redirectUris": [
-            ],
+            "redirectUris": [],
             "attributes": {
                 "saml.server.signature": "false",
                 "saml.assertion.signature": "true",
@@ -586,7 +623,7 @@
             "adminUrl": "http://localhost:8080/employee2",
             "attributes": {
                 "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name" : "employee2"
+                "saml_idp_initiated_sso_url_name": "employee2"
             },
             "protocolMappers": [
                 {
@@ -731,7 +768,7 @@
             "adminUrl": "http://localhost:8080/employee-role-mapping",
             "attributes": {
                 "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name" : "employee-role-mapping"
+                "saml_idp_initiated_sso_url_name": "employee-role-mapping"
             },
             "protocolMappers": [
                 {
@@ -771,29 +808,34 @@
             ]
         }
     ],
-    "groups" : [
+    "groups": [
         {
             "name": "top",
             "attributes": {
-                "topAttribute": ["true"]
-
+                "topAttribute": [
+                    "true"
+                ]
             },
-            "realmRoles": ["manager"],
+            "realmRoles": [
+                "manager"
+            ],
             "subGroups": [
                 {
                     "name": "level2",
-                    "realmRoles": ["user"],
+                    "realmRoles": [
+                        "user"
+                    ],
                     "attributes": {
-                        "level2Attribute": ["true"]
-
+                        "level2Attribute": [
+                            "true"
+                        ]
                     }
                 }
             ]
         }
     ],
-
-    "roles" : {
-        "realm" : [
+    "roles": {
+        "realm": [
             {
                 "name": "manager",
                 "description": "Have Manager privileges"
@@ -807,14 +849,14 @@
                 "description": "Role with dots in the name"
             }
         ],
-        "application" : {
-            "http://localhost:8280/employee/" : [
+        "application": {
+            "http://localhost:8280/employee/": [
                 {
                     "name": "employee",
                     "description": "Have Employee privileges"
                 }
             ],
-            "http://localhost:8280/employee2/" : [
+            "http://localhost:8280/employee2/": [
                 {
                     "name": "employee",
                     "description": "Have Employee privileges"
@@ -824,7 +866,7 @@
                     "description": "Have Employee privileges with dots"
                 }
             ],
-            "http://localhost:8280/employee-role-mapping/" : [
+            "http://localhost:8280/employee-role-mapping/": [
                 {
                     "name": "employee",
                     "description": "Have Employee privileges"
@@ -834,7 +876,6 @@
                     "description": "Have Supervisor privileges"
                 }
             ]
-
         }
     }
 }

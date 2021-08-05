@@ -2,6 +2,7 @@ package org.keycloak.testsuite.dballocator.client;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.keycloak.testsuite.dballocator.client.data.AllocationResult;
 import org.keycloak.testsuite.dballocator.client.data.EraseResult;
@@ -19,6 +20,11 @@ import java.util.concurrent.TimeUnit;
 
 
 public class DBAllocatorServiceClientTest {
+    @BeforeClass
+    public static void beforeTest() {
+        System.setProperty("javax.net.ssl.trustStorePassword","averylongpassword");
+        System.setProperty("javax.net.ssl.trustStore","classpath:keycloak.truststore.bcfks");
+    }
 
     @Test
     public void testSuccessfulAllocation() throws Exception {

@@ -3,6 +3,8 @@ package test.org.keycloak.quarkus;
 import org.hamcrest.Matchers;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -10,12 +12,12 @@ import io.quarkus.test.QuarkusUnitTest;
 import io.restassured.RestAssured;
 
 public class StartupTest {
-
     @RegisterExtension
     static final QuarkusUnitTest test = new QuarkusUnitTest()
             .setArchiveProducer(() -> ShrinkWrap.create(JavaArchive.class)
                     .addAsResource("application.properties", "application.properties")
-                    .addAsResource("keycloak.properties", "META-INF/keycloak.properties"));
+                    .addAsResource("keycloak.properties", "META-INF/keycloak.properties")
+                    .addAsResource("keycloak.truststore.bcfks", "keycloak.truststore.bcfks"));
 
     @Test
     public void testWelcomePage() throws InterruptedException {

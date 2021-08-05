@@ -6,28 +6,36 @@
     "accessCodeLifespanUserAction": 6000,
     "sslRequired": "external",
     "registrationAllowed": false,
-    "privateKey": "MIICXAIBAAKBgQCrVrCuTtArbgaZzL1hvh0xtL5mc7o0NqPVnYXkLvgcwiC3BjLGw1tGEGoJaXDuSaRllobm53JBhjx33UNv+5z/UMG4kytBWxheNVKnL6GgqlNabMaFfPLPCF8kAgKnsi79NMo+n6KnSY8YeUmec/p2vjO2NjsSAVcWEQMVhJ31LwIDAQABAoGAfmO8gVhyBxdqlxmIuglbz8bcjQbhXJLR2EoS8ngTXmN1bo2L90M0mUKSdc7qF10LgETBzqL8jYlQIbt+e6TH8fcEpKCjUlyq0Mf/vVbfZSNaVycY13nTzo27iPyWQHK5NLuJzn1xvxxrUeXI6A2WFpGEBLbHjwpx5WQG9A+2scECQQDvdn9NE75HPTVPxBqsEd2z10TKkl9CZxu10Qby3iQQmWLEJ9LNmy3acvKrE3gMiYNWb6xHPKiIqOR1as7L24aTAkEAtyvQOlCvr5kAjVqrEKXalj0Tzewjweuxc0pskvArTI2Oo070h65GpoIKLc9jf+UA69cRtquwP93aZKtW06U8dQJAF2Y44ks/mK5+eyDqik3koCI08qaC8HYq2wVl7G2QkJ6sbAaILtcvD92ToOvyGyeE0flvmDZxMYlvaZnaQ0lcSQJBAKZU6umJi3/xeEbkJqMfeLclD27XGEFoPeNrmdx0q10Azp4NfJAY+Z8KRyQCR2BEG+oNitBOZ+YXF9KCpH3cdmECQHEigJhYg+ykOvr1aiZUMFT72HU0jnmQe2FVekuG+LJUt2Tm7GtMjTFoGpf0JwrVuZN39fOYAlo+nTixgeW7X8Y=",
-    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrVrCuTtArbgaZzL1hvh0xtL5mc7o0NqPVnYXkLvgcwiC3BjLGw1tGEGoJaXDuSaRllobm53JBhjx33UNv+5z/UMG4kytBWxheNVKnL6GgqlNabMaFfPLPCF8kAgKnsi79NMo+n6KnSY8YeUmec/p2vjO2NjsSAVcWEQMVhJ31LwIDAQAB",
-    "requiredCredentials": [ "password" ],
-    "users" : [
+    "privateKey": "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDBGYuO7kuxJgLBj2SuyJ1QwSaaPVTfIq+v03i7YJVa6e5EekdhFS16YE8CZKhf+LQjn4fJcDNWEZuynRlpYaCXlav9wRO31P6YCyL7RiAxJTuDyO/Umy0uRPs1WQ69WDVoxwzOb6mXvpjfME2El6aPxbIZxNiRdlzcXc4cGtbTdvAG+B04HaZyOKl+TtB3c86cSHOw4xz+SeuuR2CdktwA9cTAHEL5RAf2LWwf9R3JsH5tAvHScxBIVL6URAjTrAxzCkg/h6ZYInGzRoaiL5z8OQhm9XJz6dTlGWo4atuZweey79b5YSTjVOjJ0APIfrce/fEkuHuKy4/0iukFeoT5AgMBAAECggEAEAyWe9e0dNHK8tl/LcPAx4B2O+WTE0Snw35ZD4HUiAzfX9Ol8Ry4fe5ZQsKo9+kM19UfjQ+FRMcL4MmL3iVeGps3A00z3ViXnH14d9f5PvxwOODPhiUrmSfklSeEwRn+vmmk19eSCemufQZfuwB7uIFe7yNcOKLUzwAA7HcSmdqopbln3sLVshjCUHOZIzesiigvOGx4w820BBiCE6HcIdO7RDD7ChfjpuRBR2tFGIzTeAlyQ/eRrdZnVryLr006QMGQuTxc5MXlnHqjmIH2Vb7XWmR3zSFe8EraIJeIu4fYtv/uVov/CuIOwdGkx0H4pgnyyypWBTnjgzqGQLhRMQKBgQD3tXN6rTQcRR8/PJJsptVhADAdiTcp9GTBHWYZlg3ZWAJI7IkDuqS+sgXzkwlP2k+HSTS7X9S9dx2or+VSXNLEb5JiGXmpJeSdlGZQ4SW0vwfbw+d/1TauGWE+sLltTKXVN84xysAJgQWrEpqKj0zhIs3TCzlnYz3Vh5yFy+RUPQKBgQDHkCoWkt5tOnjxghSsD17ZztG6L5T1VCFtOBNSlZk7EpwcAB4112rND1UZKL3o66to7ecDe2o4DlssBY5lcj893NghDAN0kM/ho3JG/ty/yYVYAWN5wlEECGd0Qzt/K6qnVPxEA5wxAkmGMWLAekCM/wbcY/uRkRG2PLWLQYyzbQKBgQDh8Q5OPaIkjx/7TEK6/EnxWnyI1FoO2K72PtycRfSH5PDgl3A6iIowrq0jCWEbByQ3YBzLNJQV5YqWDSr9P1G4f5RkCpygHsIyweO5rkP4Y67FVCHaxh5EGz5KMmRQP/ObUnWvkSItCRSkgCmabS9Qw7A96iUIGsuR80pf+CRieQKBgFhMFCM6xoljtsF8wbLDdj8+wBL2HJ1TpRqTFhGTOWImwMWu068U6h9i6k8gdK6LH6Nkp7MltwCocXSP3MpL+2levo4Yp6q6rA/05oo9F+UPwB0JOD9WV8xF/6g0Wy3QX0h8VMWvJzuT/H4QedYaAVehOyLmZhepLUIJqHW+AggdAoGAcSWOD6I7RywCP9fLzPFO5wkaT5TfvyKukDCqt3sykWoIG5nQ1fvIQkF60BKMrnCpYdXIHidR0ulusr82eZF/PuAwjO9wM8UqWmOCWxQJtJPxBH4EQgC3oXZgorFcydtZ7XPqkBPJFa0bzLsPgRXeLVic2LwFFsqwTL6KuU+G7oM=",
+    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwRmLju5LsSYCwY9krsidUMEmmj1U3yKvr9N4u2CVWunuRHpHYRUtemBPAmSoX/i0I5+HyXAzVhGbsp0ZaWGgl5Wr/cETt9T+mAsi+0YgMSU7g8jv1JstLkT7NVkOvVg1aMcMzm+pl76Y3zBNhJemj8WyGcTYkXZc3F3OHBrW03bwBvgdOB2mcjipfk7Qd3POnEhzsOMc/knrrkdgnZLcAPXEwBxC+UQH9i1sH/UdybB+bQLx0nMQSFS+lEQI06wMcwpIP4emWCJxs0aGoi+c/DkIZvVyc+nU5RlqOGrbmcHnsu/W+WEk41ToydADyH63Hv3xJLh7isuP9IrpBXqE+QIDAQAB",
+    "requiredCredentials": [
+        "password"
+    ],
+    "users": [
         {
-            "username" : "bburke@redhat.com",
+            "username": "bburke@redhat.com",
             "enabled": true,
-            "email" : "bburke@redhat.com",
+            "email": "bburke@redhat.com",
             "firstName": "Bill",
             "lastName": "Burke",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
+            "credentials": [
+                {
+                    "type": "password",
+                    "value": "password"
+                }
             ],
-            "realmRoles": [ "user" ],
+            "realmRoles": [
+                "user"
+            ],
             "applicationRoles": {
-                "account": [ "manage-account" ]
+                "account": [
+                    "manage-account"
+                ]
             }
         }
     ],
-    "roles" : {
-        "realm" : [
+    "roles": {
+        "realm": [
             {
                 "name": "user",
                 "description": "User privileges"
@@ -41,17 +49,22 @@
     "scopeMappings": [
         {
             "client": "third-party",
-            "roles": ["user"]
+            "roles": [
+                "user"
+            ]
         },
         {
             "client": "customer-portal",
-            "roles": ["user"]
+            "roles": [
+                "user"
+            ]
         },
         {
             "client": "product-portal",
-            "roles": ["user"]
+            "roles": [
+                "user"
+            ]
         }
-
     ],
     "applications": [
         {

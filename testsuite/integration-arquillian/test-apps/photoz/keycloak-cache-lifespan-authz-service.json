@@ -1,80 +1,90 @@
 {
-  "realm": "photoz",
-  "realm-public-key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrVrCuTtArbgaZzL1hvh0xtL5mc7o0NqPVnYXkLvgcwiC3BjLGw1tGEGoJaXDuSaRllobm53JBhjx33UNv+5z/UMG4kytBWxheNVKnL6GgqlNabMaFfPLPCF8kAgKnsi79NMo+n6KnSY8YeUmec/p2vjO2NjsSAVcWEQMVhJ31LwIDAQAB",
-  "auth-server-url": "http://localhost:8180/auth",
-  "ssl-required": "external",
-  "resource": "photoz-restful-api",
-  "bearer-only" : true,
-  "credentials": {
-    "jwt": {
-      "client-key-password": "password",
-      "client-keystore-file": "classpath:keystore.jks",
-      "client-keystore-password": "password",
-      "client-key-alias": "secure-portal",
-      "token-timeout": 10,
-      "client-keystore-type": "jks"
-    }
-  },
-  "policy-enforcer": {
-    "enforcement-mode": "PERMISSIVE",
-    "user-managed-access": {},
-    "path-cache": {
-      "lifespan": 10000
+    "realm": "photoz",
+    "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwRmLju5LsSYCwY9krsidUMEmmj1U3yKvr9N4u2CVWunuRHpHYRUtemBPAmSoX/i0I5+HyXAzVhGbsp0ZaWGgl5Wr/cETt9T+mAsi+0YgMSU7g8jv1JstLkT7NVkOvVg1aMcMzm+pl76Y3zBNhJemj8WyGcTYkXZc3F3OHBrW03bwBvgdOB2mcjipfk7Qd3POnEhzsOMc/knrrkdgnZLcAPXEwBxC+UQH9i1sH/UdybB+bQLx0nMQSFS+lEQI06wMcwpIP4emWCJxs0aGoi+c/DkIZvVyc+nU5RlqOGrbmcHnsu/W+WEk41ToydADyH63Hv3xJLh7isuP9IrpBXqE+QIDAQAB",
+    "auth-server-url": "http://localhost:8180/auth",
+    "ssl-required": "external",
+    "resource": "photoz-restful-api",
+    "bearer-only": true,
+    "credentials": {
+        "jwt": {
+            "client-key-password": "averylongpassword",
+            "client-keystore-file": "classpath:keystore.bcfks",
+            "client-keystore-password": "averylongpassword",
+            "client-key-alias": "secure-portal",
+            "token-timeout": 10,
+            "client-keystore-type": "bcfks"
+        }
     },
-    "paths": [
-      {
-        "name" : "Album Resource",
-        "path" : "/album",
-        "methods" : [
-          {
-            "method": "GET",
-            "scopes-enforcement-mode" : "DISABLED"
-          }
+    "policy-enforcer": {
+        "enforcement-mode": "PERMISSIVE",
+        "user-managed-access": {},
+        "path-cache": {
+            "lifespan": 10000
+        },
+        "paths": [
+            {
+                "name": "Album Resource",
+                "path": "/album",
+                "methods": [
+                    {
+                        "method": "GET",
+                        "scopes-enforcement-mode": "DISABLED"
+                    }
+                ]
+            },
+            {
+                "name": "Album Resource",
+                "path": "/album/{id}/",
+                "methods": [
+                    {
+                        "method": "DELETE",
+                        "scopes": [
+                            "album:delete"
+                        ]
+                    },
+                    {
+                        "method": "GET",
+                        "scopes": [
+                            "album:view"
+                        ]
+                    }
+                ]
+            },
+            {
+                "path": "/profile"
+            },
+            {
+                "name": "Admin Resources",
+                "path": "/admin/*"
+            },
+            {
+                "name": "Scope Protected Resource",
+                "path": "/scope-any",
+                "methods": [
+                    {
+                        "method": "GET",
+                        "scopes": [
+                            "scope-a",
+                            "scope-b"
+                        ],
+                        "scopes-enforcement-mode": "ANY"
+                    }
+                ]
+            },
+            {
+                "name": "Scope Protected Resource",
+                "path": "/scope-all",
+                "methods": [
+                    {
+                        "method": "GET",
+                        "scopes": [
+                            "scope-a",
+                            "scope-b"
+                        ],
+                        "scopes-enforcement-mode": "ALL"
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "name" : "Album Resource",
-        "path" : "/album/{id}/",
-        "methods" : [
-          {
-            "method": "DELETE",
-            "scopes" : ["album:delete"]
-          },
-          {
-            "method": "GET",
-            "scopes" : ["album:view"]
-          }
-        ]
-      },
-      {
-        "path" : "/profile"
-      },
-      {
-        "name" : "Admin Resources",
-        "path" : "/admin/*"
-      },
-      {
-        "name" : "Scope Protected Resource",
-        "path" : "/scope-any",
-        "methods": [
-          {
-            "method": "GET",
-            "scopes": ["scope-a", "scope-b"],
-            "scopes-enforcement-mode": "ANY"
-          }
-        ]
-      },
-      {
-        "name" : "Scope Protected Resource",
-        "path" : "/scope-all",
-        "methods": [
-          {
-            "method": "GET",
-            "scopes": ["scope-a", "scope-b"],
-            "scopes-enforcement-mode": "ALL"
-          }
-        ]
-      }
-    ]
-  }
+    }
 }

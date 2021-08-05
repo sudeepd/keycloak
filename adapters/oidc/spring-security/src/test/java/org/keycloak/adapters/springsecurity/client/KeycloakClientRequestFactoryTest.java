@@ -19,6 +19,7 @@ package org.keycloak.adapters.springsecurity.client;
 
 import org.apache.http.client.methods.HttpUriRequest;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.keycloak.KeycloakSecurityContext;
 import org.keycloak.adapters.OidcKeycloakAccount;
@@ -61,8 +62,15 @@ public class KeycloakClientRequestFactoryTest {
 
     private String bearerTokenString;
 
+    @BeforeClass
+    public static void beforeTests() {
+        System.setProperty("javax.net.ssl.trustStorePassword","averylongpassword");
+        System.setProperty("javax.net.ssl.trustStore","classpath:keycloak.truststore.bcfks");
+    }
+
     @Before
     public void setUp() throws Exception {
+
         MockitoAnnotations.initMocks(this);
         bearerTokenString = UUID.randomUUID().toString();
 
