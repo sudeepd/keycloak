@@ -49,7 +49,9 @@ public class TLSUtils {
          try (FileInputStream is = new FileInputStream(keystorePath)) {
             keystore.load(is, "averylongpassword".toCharArray());
          }
-         KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+//         KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+         KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("PKIX","BCJSSE");
+
          keyManagerFactory.init(keystore, "averylongpassword".toCharArray());
          KeyManager[] keyManagers = keyManagerFactory.getKeyManagers();
 

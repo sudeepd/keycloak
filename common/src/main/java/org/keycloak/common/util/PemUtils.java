@@ -63,6 +63,12 @@ public final class PemUtils {
         try {
             PEMParser parser = new PEMParser(new StringReader(cert));
             X509CertificateHolder certHolder = (X509CertificateHolder)parser.readObject();
+            // We seem to get certs either as properly formatted PEM or , at times
+            // Just the base64 encoded string without any markers. So, if PEM parse fails, we also try the
+            // direct route
+            if (certHolder == null) {
+                return DerUtils.decodeCertificate(new ByteArrayInputStream(Base64.decode(cert)));
+            }
             return new JcaX509CertificateConverter().getCertificate(certHolder);
         } catch (Exception e) {
             throw new PemException(e);
