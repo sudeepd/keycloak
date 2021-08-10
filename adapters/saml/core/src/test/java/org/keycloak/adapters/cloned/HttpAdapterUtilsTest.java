@@ -6,14 +6,22 @@
 package org.keycloak.adapters.cloned;
 
 import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.security.*;
 import java.security.cert.X509Certificate;
+import java.util.Base64;
 import java.util.List;
 import javax.xml.crypto.XMLStructure;
 import javax.xml.crypto.dsig.keyinfo.KeyInfo;
 import javax.xml.crypto.dsig.keyinfo.KeyName;
 import javax.xml.crypto.dsig.keyinfo.X509Data;
+
+import org.apache.jcp.xml.dsig.internal.dom.XMLDSigRI;
+import org.bouncycastle.util.encoders.Base64Encoder;
 import org.hamcrest.Matcher;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalToIgnoringCase;
@@ -39,7 +47,21 @@ public class HttpAdapterUtilsTest {
     }
 
     @Test
+    public void generateBouncyCastleKeyPair() throws Exception {
+        KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+        generator.initialize(2048);
+
+        KeyPair keyPair = generator.generateKeyPair();
+
+        System.out.println(new String(Base64.getEncoder().encode(keyPair.getPublic().getEncoded()), StandardCharsets.UTF_8));
+        System.out.println(new String(Base64.getEncoder().encode(keyPair.getPrivate().getEncoded()), StandardCharsets.UTF_8));
+    }
+
+    @Test
     public void testExtractKeysFromSamlDescriptor() throws ParsingException {
+        for (Provider provider : Security.getProviders()) {
+            System.out.println(provider.getName() + ": " + provider.getInfo());
+        }
         InputStream xmlStream = HttpAdapterUtilsTest.class.getResourceAsStream("saml-descriptor-valid.xml");
         MultivaluedHashMap<String, KeyInfo> res = HttpAdapterUtils.extractKeysFromSamlDescriptor(xmlStream);
 
