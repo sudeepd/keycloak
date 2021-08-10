@@ -25,7 +25,7 @@
         forceAuthentication="false">
         <Keys>
             <Key signing="true" encryption="true">
-                <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
+                <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
                     <PrivateKey alias="http://localhost:8080/sales-post-enc/" password="averylongpassword"/>
                     <Certificate alias="http://localhost:8080/sales-post-enc/"/>
                 </KeyStore>
@@ -55,7 +55,7 @@
                     />
             <Keys>
                 <Key signing="true" >
-                    <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
+                    <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
                         <Certificate alias="demo"/>
                     </KeyStore>
                 </Key>

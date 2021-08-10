@@ -32,7 +32,7 @@
                     <PrivateKeyPem>my_key.pem</PrivateKeyPem>
                     <PublicKeyPem>my_key.pub</PublicKeyPem>
                     <CertificatePem>cert.cer</CertificatePem>
-                    <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword" file="test" alias="test" type="jks">
+                    <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword" file="test" alias="test" type="bcfks">
                         <PrivateKey alias="http://localhost:8080/sales-post-enc/" password="averylongpassword"/>
                         <Certificate alias="http://localhost:8080/sales-post-enc/"/>
                     </KeyStore>
@@ -70,7 +70,7 @@
                         redirectBindingUrl="http://localhost:8080/auth/realms/saml-demo/protocol/saml"/>
                 <Keys>
                     <Key signing="true">
-                        <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
+                        <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
                             <Certificate alias="saml-demo"/>
                         </KeyStore>
                     </Key>

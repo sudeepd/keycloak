@@ -85,5 +85,5 @@ quarkus/data/*.db
 
 # Misc
 ######
-./testsuite/integration-arquillian/tests/base/test.sh
+testsuite/integration-arquillian/tests/base/test.sh
 
