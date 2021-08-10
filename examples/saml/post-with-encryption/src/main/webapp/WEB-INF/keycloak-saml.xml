@@ -25,8 +25,8 @@
         forceAuthentication="false">
         <Keys>
             <Key signing="true" encryption="true">
-                <KeyStore resource="/WEB-INF/keystore.jks" password="store123">
-                    <PrivateKey alias="http://localhost:8080/sales-post-enc/" password="test123"/>
+                <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
+                    <PrivateKey alias="http://localhost:8080/sales-post-enc/" password="averylongpassword"/>
                     <Certificate alias="http://localhost:8080/sales-post-enc/"/>
                 </KeyStore>
             </Key>
@@ -54,7 +54,7 @@
                     />
             <Keys>
                 <Key signing="true" >
-                    <KeyStore resource="/WEB-INF/keystore.jks" password="store123">
+                    <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
                         <Certificate alias="saml-demo"/>
                     </KeyStore>
                 </Key>
