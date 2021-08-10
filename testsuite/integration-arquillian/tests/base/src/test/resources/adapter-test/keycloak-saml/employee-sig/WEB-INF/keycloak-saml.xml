@@ -25,8 +25,8 @@
         forceAuthentication="false">
         <Keys>
             <Key signing="true" >
-                <KeyStore resource="/WEB-INF/keystore.jks" password="store123">
-                    <PrivateKey alias="http://localhost:8080/employee-sig/" password="test123"/>
+                <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
+                    <PrivateKey alias="http://localhost:8080/employee-sig/" password="averylongpassword"/>
                     <Certificate alias="http://localhost:8080/employee-sig/"/>
                 </KeyStore>
             </Key>
@@ -53,7 +53,7 @@
                     />
             <Keys>
                 <Key signing="true">
-                    <KeyStore resource="/WEB-INF/keystore.jks" password="store123">
+                    <KeyStore resource="/WEB-INF/keystore.jks" password="averylongpassword">
                         <Certificate alias="demo"/>
                     </KeyStore>
                 </Key>

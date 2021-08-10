@@ -63,7 +63,7 @@
 security.provider.1=org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider C:DEFRND[HMACSHA256];ENABLE{ALL};
 security.provider.2=org.bouncycastle.jsse.provider.BouncyCastleJsseProvider fips:BCFIPS
 security.provider.3=com.sun.net.ssl.internal.ssl.Provider BCFIPS
-security.provider.4=SunJSSE
+security.provider.4=ApacheXMLDSig
 security.provider.5=XMLDSig
 #security.provider.3=sun.security.provider.Sun
 
@@ -320,7 +320,10 @@ security.overridePropertiesFile=true
 # Determines the default key and trust manager factory algorithms for
 # the javax.net.ssl package.
 #
-ssl.KeyManagerFactory.algorithm=SunX509
+
+#ssl.KeyManagerFactory.algorithm=SunX509
+# For BounyCastle
+ssl.KeyManagerFactory.algorithm=PKIX
 ssl.TrustManagerFactory.algorithm=PKIX
 
 #
