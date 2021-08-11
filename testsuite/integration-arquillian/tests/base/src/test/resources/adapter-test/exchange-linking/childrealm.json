@@ -7,23 +7,19 @@
     "accessCodeLifespanUserAction": 6000,
     "sslRequired": "external",
     "registrationAllowed": false,
-    "privateKey": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIJExKiReMoAGjR/enaZ4gCnyLBhftYsvt2ymwQZw+WG+A/0esZ0IMlctP4k6HVhiDPevFQLSexV0stHnpIBTgxVAtqHQ+u4OFrQNOPz/wkW9diO5QXroMNp9s2U5lx5nejD0QT6KaBZ77NBwkCzidjQxo0hU2qGKaH7r3kuwc+J3RXRClzbJW6Xt6SjwkoG8tYH8N1EaVapDciXGdeHLZLssbLjtE/r8Pjc9egpDokMTEwMq6kmArawuN6tYcWvsC2ITM+LbOk0y6eZo8br5FQsbQb3kHQQG/5MKAqBcLac0x82l+fiYobkQzqRTu0ozwegE/xqMJHSPctkcdr5j3AgMBAAECggEAKMZ8ZJMZoSTYMJPw+MKj3JNGXGyZY1vFgGguTiKP2oPZ88YOrCk9Y6MBEP1iUmBQDi0HY+CS6+X53anHTJ+koUaR1zuCs2UwnoNpMP/h3vlCXyQOqYEjFmnqgRqkxkesKZMYvcH7trV+dl9ffFhs6GxcIt7qQ4B61juws8/TGvOPabmZaGa02lXeRbXgrfgi6IyiYd+MEUZABqBY6OofPpLK7NcHuJBTFalFGn4tr1AVAK8kR15bgVsUJcDnlQxQnhYvODnpOCQGKbgOSIPd3LjxJ5EUovMb75M0UIUiM2Z0BOOJ7Gfj2u4G6ePHPwEZwu4ixod4GMc0d0qAD0THwQKBgQD1jkmOtt0kt5XkSAt5Qe+nkmY9tl1QQyD7wkJajD25Mx68weZ5FBX7ykinK5oqfxvH6J2OfXJIq7oYoAEBaNYWRtxLKP4RiyIjFQI7z7N6TuLtUrG499kpl31YrlPOBrUdqWO78gbkLZqlJI84tLM6f/iLXf4rLWEBehiDZOYbMwKBgQDQp4Yt/kanrYoH3aZ7Bwb3JEQhd1TzPOwlWDz5vxwyz0jHpSskNkbfEmqHr4wPB8sbhbPITt4Uvkyuz3I9zzUGR5a8WvIugQCcRLbezBiOCUODle7oBDahCoKkMKInHClFBR5ZV1wagXZ7Kx5wpo8gDUR1Bo1w84Xjhq5++KfrLQKBgQDf3YyqE4ShSM3ahOQQ9E/s0cdsU6nW1pxnab7cliZfhX9sTsozcGBqYQzDezjdrWxCYIvjr/JU1lqewKCqDE3BmXCVBRY8IEBLA4g5xy21P94axt1H6I2PIZEhHC1DE1JjbF6Epi4qMHlgPWhlJjiQCMMrK9Hgw0pA8nMOtxohiQKBgCTOuJvadEpWEbhrgFfJmI/2ZNJmg6TZBWtdEnyYGvhXmqYlW+PqczwcupAvBo0MOeckAd//EawlGc/opmWC7P6rmEqn3HsZpKrscDoDVP2RYsiOpXNmcuCbwwoFzkUJ8bnMOltWTtgaKHV32MnUiAEGdiISwta/DsphUtzxLmYNAoGBANmW1Jccs9RdMEVJgWkTU8iazA/S0EDJ9S2qW5ClEFsM08YVrzJEANvq3HhERBQPPtXkn2m67luQ3VyOUgn5PqWe+A3UyCCtoEt08BneguJHXGniCLe9mnHA41IfY1bowor8HmD5DA7MC/7GHg6NVT1sydKvZ29QioaruN9EUuQ+",
-    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyCRMSokXjKABo0f3p2meIAp8iwYX7WLL7dspsEGcPlhvgP9HrGdCDJXLT+JOh1YYgz3rxUC0nsVdLLR56SAU4MVQLah0PruDha0DTj8/8JFvXYjuUF66DDafbNlOZceZ3ow9EE+imgWe+zQcJAs4nY0MaNIVNqhimh+695LsHPid0V0Qpc2yVul7eko8JKBvLWB/DdRGlWqQ3IlxnXhy2S7LGy47RP6/D43PXoKQ6JDExMDKupJgK2sLjerWHFr7AtiEzPi2zpNMunmaPG6+RULG0G95B0EBv+TCgKgXC2nNMfNpfn4mKG5EM6kU7tKM8HoBP8ajCR0j3LZHHa+Y9wIDAQAB",
-    "requiredCredentials": [
-        "password"
-    ],
-    "users": [
+    "privateKey": "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",
+    "publicKey": "MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAs2njo0TT4UkMcp2Cq+6wcyEVZsyLJ+3bIG5pBPwzik3jUEPG3r7SlPJyx/x6wXUNDvI/x4Q7CKEh6Xm1oLXGStyHQWiFX9VuyTe4aR5VMWC6maezK2YsWVkXY0OGCi96J85qWHRGnIloaCKXr0vfyVsGmrAwnCmRj/aUiQTwZB54lQt0t9wgrT944vvCVoyAiThmIlMNdL87LNwjj5t50kKmPccCl7bjo4IvakDMhpJbvJbz7WWldoBWa7hlU8EmGpUhB3Q2pNqnUQBVKeYu67kfA9uLto6XK/UTpwVcIugveS5v8f/5ZhWM6oGNfam8JiJhD7zP3GYfSTpcYGDKrLnqdE7+bOxzYSXVqTS0dO2J20qr0J2qnykI+y/dpCiZDlhq0AChe142QkxA9zDbSmH89Oy6oJvdBnycSTNv2EzameRakxZyDI3Jc2zrc9e/76i3HPO1RK6ZItieEqg4sa/RUGbO3eaq8rdKUwrxGLuxighO11uZ5KcdOhW9PixFAgMBAAE=",
+    "requiredCredentials": [ "password" ],
+    "users" : [
         {
-            "username": "bburke@redhat.com",
+            "username" : "bburke@redhat.com",
             "enabled": true,
-            "email": "bburke@redhat.com",
+            "email" : "bburke@redhat.com",
             "firstName": "Bill",
             "lastName": "Burke",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
+            "credentials" : [
+                { "type" : "password",
+                    "value" : "password" }
             ]
         }
     ],

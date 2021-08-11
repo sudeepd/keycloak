@@ -1,1246 +1,1145 @@
 {
-    "id": "test",
-    "realm": "test",
-    "enabled": true,
-    "sslRequired": "external",
-    "registrationAllowed": true,
-    "resetPasswordAllowed": true,
-    "editUsernameAllowed": true,
-    "privateKey": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIJExKiReMoAGjR/enaZ4gCnyLBhftYsvt2ymwQZw+WG+A/0esZ0IMlctP4k6HVhiDPevFQLSexV0stHnpIBTgxVAtqHQ+u4OFrQNOPz/wkW9diO5QXroMNp9s2U5lx5nejD0QT6KaBZ77NBwkCzidjQxo0hU2qGKaH7r3kuwc+J3RXRClzbJW6Xt6SjwkoG8tYH8N1EaVapDciXGdeHLZLssbLjtE/r8Pjc9egpDokMTEwMq6kmArawuN6tYcWvsC2ITM+LbOk0y6eZo8br5FQsbQb3kHQQG/5MKAqBcLac0x82l+fiYobkQzqRTu0ozwegE/xqMJHSPctkcdr5j3AgMBAAECggEAKMZ8ZJMZoSTYMJPw+MKj3JNGXGyZY1vFgGguTiKP2oPZ88YOrCk9Y6MBEP1iUmBQDi0HY+CS6+X53anHTJ+koUaR1zuCs2UwnoNpMP/h3vlCXyQOqYEjFmnqgRqkxkesKZMYvcH7trV+dl9ffFhs6GxcIt7qQ4B61juws8/TGvOPabmZaGa02lXeRbXgrfgi6IyiYd+MEUZABqBY6OofPpLK7NcHuJBTFalFGn4tr1AVAK8kR15bgVsUJcDnlQxQnhYvODnpOCQGKbgOSIPd3LjxJ5EUovMb75M0UIUiM2Z0BOOJ7Gfj2u4G6ePHPwEZwu4ixod4GMc0d0qAD0THwQKBgQD1jkmOtt0kt5XkSAt5Qe+nkmY9tl1QQyD7wkJajD25Mx68weZ5FBX7ykinK5oqfxvH6J2OfXJIq7oYoAEBaNYWRtxLKP4RiyIjFQI7z7N6TuLtUrG499kpl31YrlPOBrUdqWO78gbkLZqlJI84tLM6f/iLXf4rLWEBehiDZOYbMwKBgQDQp4Yt/kanrYoH3aZ7Bwb3JEQhd1TzPOwlWDz5vxwyz0jHpSskNkbfEmqHr4wPB8sbhbPITt4Uvkyuz3I9zzUGR5a8WvIugQCcRLbezBiOCUODle7oBDahCoKkMKInHClFBR5ZV1wagXZ7Kx5wpo8gDUR1Bo1w84Xjhq5++KfrLQKBgQDf3YyqE4ShSM3ahOQQ9E/s0cdsU6nW1pxnab7cliZfhX9sTsozcGBqYQzDezjdrWxCYIvjr/JU1lqewKCqDE3BmXCVBRY8IEBLA4g5xy21P94axt1H6I2PIZEhHC1DE1JjbF6Epi4qMHlgPWhlJjiQCMMrK9Hgw0pA8nMOtxohiQKBgCTOuJvadEpWEbhrgFfJmI/2ZNJmg6TZBWtdEnyYGvhXmqYlW+PqczwcupAvBo0MOeckAd//EawlGc/opmWC7P6rmEqn3HsZpKrscDoDVP2RYsiOpXNmcuCbwwoFzkUJ8bnMOltWTtgaKHV32MnUiAEGdiISwta/DsphUtzxLmYNAoGBANmW1Jccs9RdMEVJgWkTU8iazA/S0EDJ9S2qW5ClEFsM08YVrzJEANvq3HhERBQPPtXkn2m67luQ3VyOUgn5PqWe+A3UyCCtoEt08BneguJHXGniCLe9mnHA41IfY1bowor8HmD5DA7MC/7GHg6NVT1sydKvZ29QioaruN9EUuQ+",
-    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyCRMSokXjKABo0f3p2meIAp8iwYX7WLL7dspsEGcPlhvgP9HrGdCDJXLT+JOh1YYgz3rxUC0nsVdLLR56SAU4MVQLah0PruDha0DTj8/8JFvXYjuUF66DDafbNlOZceZ3ow9EE+imgWe+zQcJAs4nY0MaNIVNqhimh+695LsHPid0V0Qpc2yVul7eko8JKBvLWB/DdRGlWqQ3IlxnXhy2S7LGy47RP6/D43PXoKQ6JDExMDKupJgK2sLjerWHFr7AtiEzPi2zpNMunmaPG6+RULG0G95B0EBv+TCgKgXC2nNMfNpfn4mKG5EM6kU7tKM8HoBP8ajCR0j3LZHHa+Y9wIDAQAB",
-    "requiredCredentials": [
-        "password"
-    ],
-    "defaultRoles": [
-        "user"
-    ],
-    "webAuthnPolicySignatureAlgorithms": [
-        "ES256",
-        "RS256",
-        "RS1"
-    ],
-    "webAuthnPolicyAttestationConveyancePreference": "not specified",
-    "webAuthnPolicyAuthenticatorAttachment": "not specified",
-    "webAuthnPolicyRequireResidentKey": "not specified",
-    "webAuthnPolicyUserVerificationRequirement": "not specified",
-    "webAuthnPolicyRpEntityName": "keycloak-webauthn-2FA",
-    "webAuthnPolicyCreateTimeout": 60,
-    "webAuthnPolicyAvoidSameAuthenticatorRegister": true,
-    "webAuthnPolicyAcceptableAaguids": [
-        "00000000-0000-0000-0000-000000000000",
-        "6d44ba9b-f6ec-2e49-b930-0c8fe920cb73"
-    ],
-    "smtpServer": {
-        "from": "auto@keycloak.org",
-        "host": "localhost",
-        "port": "3025",
-        "fromDisplayName": "Keycloak SSO",
-        "replyTo": "reply-to@keycloak.org",
-        "replyToDisplayName": "Keycloak no-reply",
-        "envelopeFrom": "auto+bounces@keycloak.org"
+  "id": "test",
+  "realm": "test",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed" : true,
+  "privateKey": "MIIG/gIBADANBgkqhkiG9w0BAQEFAASCBugwggbkAgEAAoIBgQCzaeOjRNPhSQxynYKr7rBzIRVmzIsn7dsgbmkE/DOKTeNQQ8bevtKU8nLH/HrBdQ0O8j/HhDsIoSHpebWgtcZK3IdBaIVf1W7JN7hpHlUxYLqZp7MrZixZWRdjQ4YKL3onzmpYdEaciWhoIpevS9/JWwaasDCcKZGP9pSJBPBkHniVC3S33CCtP3ji+8JWjICJOGYiUw10vzss3COPm3nSQqY9xwKXtuOjgi9qQMyGklu8lvPtZaV2gFZruGVTwSYalSEHdDak2qdRAFUp5i7ruR8D24u2jpcr9ROnBVwi6C95Lm/x//lmFYzqgY19qbwmImEPvM/cZh9JOlxgYMqsuep0Tv5s7HNhJdWpNLR07YnbSqvQnaqfKQj7L92kKJkOWGrQAKF7XjZCTED3MNtKYfz07Lqgm90GfJxJM2/YTNqZ5FqTFnIMjclzbOtz17/vqLcc87VErpki2J4SqDixr9FQZs7d5qryt0pTCvEYu7GKCE7XW5nkpx06Fb0+LEUCAwEAAQKCAYBIBUXAEK0NTomUqO3/nr1uOeWhcpKZ4L2J80htG+CEsGeDnPGEEQ3vhLPW299bMWWgjlZT/RzFhgla8+SZMt76xjP1acPAiKkEVT3N1MNWIwJFFDC0RzueUkk1K7Hu/MgImq/N+j8uL2qeAuTpFYgsCEJKblfVGEq6g710k2r8hc7Z5dNgyxjC8yvP0khc/eHLM7ysIrLQHsPeajBMQZlRcjfRrMW5qU0QIf5upLx1eOMifWZF8fvN6g7HByqFyI6YhzCAP5CzThhKslstxZhy6fm8BVk/YTzK6aiJpOYDggm7dC2F45LclQmo0a2sRxBRr5pkcW1NANzRb6wC8ciTUV0EmhA2odJTTcveJ7yaCU4+aUzXHlhmX/avMLJLEX3zR+d4JWB5msLtG8pdPv7vSThDK5dQm+xMAHpLYuDsTtLH4zgl6+TRHRIHtnTLZRdGNGxdM4mrq45Tpb2lC5PWqKfhvFeE+meYNA+JxYRCxl7ADR0XKLjOsuDHrb+9U4ECgcEA/xiFhdoGxeJb07WqdlKbnZUPa2bTHQOUW+v6+9EbIiBwLvPZxfyhD4arBdyr1OiTZlRUcUR336ZEskmIAfRatPt7GOc43sBJ2YN67J95OGye5Dh1It9oIHU2wrFzMMYPo8jD2xq0P2I39laqd0r5k7Q1Zx1VUph/GL49jdcQIJa+UU1ceaivw0gaMV9Xv1/pJjSDH7wgZT4CJ2M4T2iu/E1Gdy7sUBitFCLcar+729O+4DKcvNzC7TEYACJwuDwJAoHBALQMsTsma1F0qNIAnbMkCbSkTr+9G0OJadd8KN4kGp7ZIkwAMRs58o01Lkgtjn/grnG5nRpJnlZehv+Z8Cx3nPPfIKJzISK5SiMEBYiVv97VxLS/+bhqijlWUQqv1ZIPCTHU3s+3y9kMVggW1W3JCaB9rKdsWaAwKLiRCmzDSOCfWV36cRtzzeof7+cBlWZKlXrowQg7weBIwGeWZF+NnCLzKE9PYfARXNs8WRDDlCFweg4GdK31hJI5V/3n3G61XQKBwHMrCv1HVc95RqPqXK9W1FLsvS1sGtv6hbyKaaHO4kUiCAPqq+MrDzwHPKdE3X8eEY4dfJI2qzgZxOIJOJJJU7pp30V6/r3yamT9az3xMbU7tPCsXJYF7ujYgoSbwLnAcccsGOCOydnj6ggZUJTTEKKStZl8MM09dAQjv36OHgXYiMwD9UAn3FJ59vlbZi5MiuJoytpFAQs0V5yYuw9+36Gg8bNVR/NRcLKqmoDHV3UDwCVQNFs///E+POuyoNlMoQKBwQCN1PnAKLGdhxJ963JO7fKfVFecfzF88EBqOSpQY4x82XtE91m3otxJFD2TKh/46FtCxv7U+G08iFY7/13NCaSgD4K7tYnCuseF8eMSBzUQKsE7yYbEGVktdat9ianp1uJdWNz0MErqfec/lA0o4Jcu0BE0CgxIPee2DLtzlhpQp/ZUK7bx8zWgWuw2w26XF+XM3pFBFSHStjyq3TPQedMnTPjSESyLWoIVSeK3a/nCpcHgToGXj7KRJY8FOqLQqxkCgcEA+IlOpFIKNmzt0m+jk1XexidQcpktLN6YaUy/P+dSuwQXIhxB5SNRWcodeMIbPhSGNrvZ2Tt6nCyEY0WQRcDgoDsTtV5veDVaHaPtMpRbw5rqKzR8ccTRw4KVPCMajyKsQzm2n6tIgBrvI9AUob5JOUv7T5jln978+TDVAl3xVjd8MM59KfyRx00clSqTeb+bJwH1F8GI7teX2ITmVmuhsjwyYUD3wVPGuoim4JmzCnlOxXJ2oEXUq2soxQF+fPje",
+  "publicKey": "MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAs2njo0TT4UkMcp2Cq+6wcyEVZsyLJ+3bIG5pBPwzik3jUEPG3r7SlPJyx/x6wXUNDvI/x4Q7CKEh6Xm1oLXGStyHQWiFX9VuyTe4aR5VMWC6maezK2YsWVkXY0OGCi96J85qWHRGnIloaCKXr0vfyVsGmrAwnCmRj/aUiQTwZB54lQt0t9wgrT944vvCVoyAiThmIlMNdL87LNwjj5t50kKmPccCl7bjo4IvakDMhpJbvJbz7WWldoBWa7hlU8EmGpUhB3Q2pNqnUQBVKeYu67kfA9uLto6XK/UTpwVcIugveS5v8f/5ZhWM6oGNfam8JiJhD7zP3GYfSTpcYGDKrLnqdE7+bOxzYSXVqTS0dO2J20qr0J2qnykI+y/dpCiZDlhq0AChe142QkxA9zDbSmH89Oy6oJvdBnycSTNv2EzameRakxZyDI3Jc2zrc9e/76i3HPO1RK6ZItieEqg4sa/RUGbO3eaq8rdKUwrxGLuxighO11uZ5KcdOhW9PixFAgMBAAE=",
+  "requiredCredentials": [ "password" ],
+  "defaultRoles": [ "user" ],
+  "webAuthnPolicySignatureAlgorithms": [
+    "ES256",
+    "RS256",
+    "RS1"
+  ],
+  "webAuthnPolicyAttestationConveyancePreference": "not specified",
+  "webAuthnPolicyAuthenticatorAttachment": "not specified",
+  "webAuthnPolicyRequireResidentKey": "not specified",
+  "webAuthnPolicyUserVerificationRequirement": "not specified",
+  "webAuthnPolicyRpEntityName": "keycloak-webauthn-2FA",
+  "webAuthnPolicyCreateTimeout": 60,
+  "webAuthnPolicyAvoidSameAuthenticatorRegister": true,
+  "webAuthnPolicyAcceptableAaguids": [
+    "00000000-0000-0000-0000-000000000000",
+    "6d44ba9b-f6ec-2e49-b930-0c8fe920cb73"
+  ],
+  "smtpServer": {
+    "from": "auto@keycloak.org",
+    "host": "localhost",
+    "port":"3025",
+    "fromDisplayName": "Keycloak SSO",
+    "replyTo":"reply-to@keycloak.org",
+    "replyToDisplayName": "Keycloak no-reply",
+    "envelopeFrom": "auto+bounces@keycloak.org"
+  },
+  "users" : [
+    {
+      "username" : "test-user@localhost",
+      "enabled": true,
+      "email" : "test-user@localhost",
+      "firstName": "Tom",
+      "lastName": "Brady",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "realmRoles": ["user", "offline_access"],
+      "clientRoles": {
+        "test-app": [ "customer-user" ],
+        "account": [ "view-profile", "manage-account" ]
+      }
     },
-    "users": [
-        {
-            "username": "test-user@localhost",
-            "enabled": true,
-            "email": "test-user@localhost",
-            "firstName": "Tom",
-            "lastName": "Brady",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "realmRoles": [
-                "user",
-                "offline_access"
-            ],
-            "clientRoles": {
-                "test-app": [
-                    "customer-user"
-                ],
-                "account": [
-                    "view-profile",
-                    "manage-account"
-                ]
-            }
-        },
-        {
-            "username": "john-doh@localhost",
-            "enabled": true,
-            "email": "john-doh@localhost",
-            "firstName": "John",
-            "lastName": "Doh",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "realmRoles": [
-                "user"
-            ],
-            "clientRoles": {
-                "test-app": [
-                    "customer-user"
-                ],
-                "account": [
-                    "view-profile",
-                    "manage-account"
-                ]
-            }
-        },
-        {
-            "username": "keycloak-user@localhost",
-            "enabled": true,
-            "email": "keycloak-user@localhost",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "realmRoles": [
-                "user"
-            ],
-            "clientRoles": {
-                "test-app": [
-                    "customer-user"
-                ],
-                "account": [
-                    "view-profile",
-                    "manage-account"
-                ]
-            }
-        },
-        {
-            "username": "topGroupUser",
-            "enabled": true,
-            "email": "top@redhat.com",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "groups": [
-                "/topGroup"
-            ]
-        },
-        {
-            "username": "level2GroupUser",
-            "enabled": true,
-            "email": "level2@redhat.com",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "groups": [
-                "/topGroup/level2group"
-            ]
-        },
-        {
-            "username": "roleRichUser",
-            "enabled": true,
-            "email": "rich.roles@redhat.com",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "groups": [
-                "/roleRichGroup/level2group"
-            ],
-            "clientRoles": {
-                "test-app-scope": [
-                    "test-app-allowed-by-scope",
-                    "test-app-disallowed-by-scope"
-                ]
-            }
-        },
-        {
-            "username": "non-duplicate-email-user",
-            "enabled": true,
-            "email": "non-duplicate-email-user@localhost",
-            "firstName": "Brian",
-            "lastName": "Cohen",
-            "credentials": [
-                {
-                    "type": "password",
-                    "value": "password"
-                }
-            ],
-            "realmRoles": [
-                "user",
-                "offline_access"
-            ],
-            "clientRoles": {
-                "test-app": [
-                    "customer-user"
-                ],
-                "account": [
-                    "view-profile",
-                    "manage-account"
-                ]
-            }
-        }
-    ],
-    "scopeMappings": [
-        {
-            "client": "third-party",
-            "roles": [
-                "user"
-            ]
-        },
-        {
-            "client": "test-app",
-            "roles": [
-                "user"
-            ]
-        },
-        {
-            "client": "test-app-scope",
-            "roles": [
-                "user",
-                "admin"
-            ]
-        }
-    ],
-    "clients": [
-        {
-            "clientId": "test-app",
-            "enabled": true,
-            "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
-            "redirectUris": [
-                "http://localhost:8180/auth/realms/master/app/auth/*",
-                "https://localhost:8543/auth/realms/master/app/auth/*"
-            ],
-            "adminUrl": "http://localhost:8180/auth/realms/master/app/admin",
-            "secret": "password"
-        },
-        {
-            "clientId": "root-url-client",
-            "enabled": true,
-            "rootUrl": "http://localhost:8180/foo/bar",
-            "adminUrl": "http://localhost:8180/foo/bar",
-            "baseUrl": "/baz",
-            "redirectUris": [
-                "http://localhost:8180/foo/bar/*",
-                "https://localhost:8543/foo/bar/*"
-            ],
-            "secret": "password"
-        },
-        {
-            "clientId": "test-app-scope",
-            "enabled": true,
-            "redirectUris": [
-                "http://localhost:8180/auth/realms/master/app/*",
-                "https://localhost:8543/auth/realms/master/app/*"
-            ],
-            "secret": "password",
-            "fullScopeAllowed": "false"
-        },
-        {
-            "clientId": "third-party",
-            "enabled": true,
-            "consentRequired": true,
-            "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
-            "redirectUris": [
-                "http://localhost:8180/auth/realms/master/app/*",
-                "https://localhost:8543/auth/realms/master/app/*"
-            ],
-            "secret": "password"
-        },
-        {
-            "clientId": "test-app-authz",
-            "enabled": true,
-            "baseUrl": "/test-app-authz",
-            "adminUrl": "/test-app-authz",
-            "bearerOnly": false,
-            "authorizationSettings": {
-                "allowRemoteResourceManagement": true,
-                "policyEnforcementMode": "ENFORCING",
-                "resources": [
-                    {
-                        "name": "Admin Resource",
-                        "uri": "/protected/admin/*",
-                        "type": "http://test-app-authz/protected/admin",
-                        "scopes": [
-                            {
-                                "name": "admin-access"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Protected Resource",
-                        "uri": "/*",
-                        "type": "http://test-app-authz/protected/resource",
-                        "scopes": [
-                            {
-                                "name": "resource-access"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Premium Resource",
-                        "uri": "/protected/premium/*",
-                        "type": "urn:test-app-authz:protected:resource",
-                        "scopes": [
-                            {
-                                "name": "premium-access"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Main Page",
-                        "type": "urn:test-app-authz:protected:resource",
-                        "scopes": [
-                            {
-                                "name": "urn:test-app-authz:page:main:actionForAdmin"
-                            },
-                            {
-                                "name": "urn:test-app-authz:page:main:actionForUser"
-                            },
-                            {
-                                "name": "urn:test-app-authz:page:main:actionForPremiumUser"
-                            }
-                        ]
-                    }
-                ],
-                "policies": [
-                    {
-                        "name": "Any Admin Policy",
-                        "description": "Defines that adminsitrators can do something",
-                        "type": "role",
-                        "config": {
-                            "roles": "[{\"id\":\"admin\"}]"
-                        }
-                    },
-                    {
-                        "name": "Any User Policy",
-                        "description": "Defines that any user can do something",
-                        "type": "role",
-                        "config": {
-                            "roles": "[{\"id\":\"user\"}]"
-                        }
-                    },
-                    {
-                        "name": "Only Premium User Policy",
-                        "description": "Defines that only premium users can do something",
-                        "type": "role",
-                        "logic": "POSITIVE",
-                        "config": {
-                            "roles": "[{\"id\":\"customer-user-premium\"}]"
-                        }
-                    },
-                    {
-                        "name": "All Users Policy",
-                        "description": "Defines that all users can do something",
-                        "type": "aggregate",
-                        "decisionStrategy": "AFFIRMATIVE",
-                        "config": {
-                            "applyPolicies": "[\"Any User Policy\",\"Any Admin Policy\",\"Only Premium User Policy\"]"
-                        }
-                    },
-                    {
-                        "name": "Premium Resource Permission",
-                        "description": "A policy that defines access to premium resources",
-                        "type": "resource",
-                        "decisionStrategy": "UNANIMOUS",
-                        "config": {
-                            "resources": "[\"Premium Resource\"]",
-                            "applyPolicies": "[\"Only Premium User Policy\"]"
-                        }
-                    },
-                    {
-                        "name": "Administrative Resource Permission",
-                        "description": "A policy that defines access to administrative resources",
-                        "type": "resource",
-                        "decisionStrategy": "UNANIMOUS",
-                        "config": {
-                            "resources": "[\"Admin Resource\"]",
-                            "applyPolicies": "[\"Any Admin Policy\"]"
-                        }
-                    },
-                    {
-                        "name": "Protected Resource Permission",
-                        "description": "A policy that defines access to any protected resource",
-                        "type": "resource",
-                        "decisionStrategy": "AFFIRMATIVE",
-                        "config": {
-                            "resources": "[\"Protected Resource\"]",
-                            "applyPolicies": "[\"All Users Policy\"]"
-                        }
-                    },
-                    {
-                        "name": "Action 1 on Main Page Resource Permission",
-                        "description": "A policy that defines access to action 1 on the main page",
-                        "type": "scope",
-                        "decisionStrategy": "AFFIRMATIVE",
-                        "config": {
-                            "scopes": "[\"urn:test-app-authz:page:main:actionForAdmin\"]",
-                            "applyPolicies": "[\"Any Admin Policy\"]"
-                        }
-                    },
-                    {
-                        "name": "Action 2 on Main Page Resource Permission",
-                        "description": "A policy that defines access to action 2 on the main page",
-                        "type": "scope",
-                        "decisionStrategy": "AFFIRMATIVE",
-                        "config": {
-                            "scopes": "[\"urn:test-app-authz:page:main:actionForUser\"]",
-                            "applyPolicies": "[\"Any User Policy\"]"
-                        }
-                    },
-                    {
-                        "name": "Action 3 on Main Page Resource Permission",
-                        "description": "A policy that defines access to action 3 on the main page",
-                        "type": "scope",
-                        "decisionStrategy": "AFFIRMATIVE",
-                        "config": {
-                            "scopes": "[\"urn:test-app-authz:page:main:actionForPremiumUser\"]",
-                            "applyPolicies": "[\"Only Premium User Policy\"]"
-                        }
-                    }
-                ]
-            },
-            "redirectUris": [
-                "/test-app-authz/*"
-            ],
-            "secret": "secret"
-        },
-        {
-            "clientId": "named-test-app",
-            "name": "My Named Test App",
-            "enabled": true,
-            "baseUrl": "http://localhost:8180/namedapp/base",
-            "redirectUris": [
-                "http://localhost:8180/namedapp/base/*",
-                "https://localhost:8543/namedapp/base/*"
-            ],
-            "adminUrl": "http://localhost:8180/namedapp/base/admin",
-            "secret": "password"
-        },
-        {
-            "clientId": "var-named-test-app",
-            "name": "Test App Named - ${client_account}",
-            "enabled": true,
-            "baseUrl": "http://localhost:8180/varnamedapp/base",
-            "redirectUris": [
-                "http://localhost:8180/varnamedapp/base/*",
-                "https://localhost:8543/varnamedapp/base/*"
-            ],
-            "adminUrl": "http://localhost:8180/varnamedapp/base/admin",
-            "secret": "password"
-        },
-        {
-            "clientId": "direct-grant",
-            "enabled": true,
-            "directAccessGrantsEnabled": true,
-            "secret": "password",
-            "webOrigins": [
-                "http://localtest.me:8180"
-            ]
-        }
-    ],
-    "roles": {
-        "realm": [
-            {
-                "name": "user",
-                "description": "Have User privileges"
-            },
-            {
-                "name": "admin",
-                "description": "Have Administrator privileges"
-            },
-            {
-                "name": "customer-user-premium",
-                "description": "Have User Premium privileges"
-            },
-            {
-                "name": "sample-realm-role",
-                "description": "Sample realm role"
-            },
-            {
-                "name": "attribute-role",
-                "description": "has attributes assigned",
-                "attributes": {
-                    "hello": [
-                        "world",
-                        "keycloak"
-                    ]
-                }
-            },
-            {
-                "name": "realm-composite-role",
-                "description": "Realm composite role containing client role",
-                "composite": true,
-                "composites": {
-                    "realm": [
-                        "sample-realm-role"
-                    ],
-                    "client": {
-                        "test-app": [
-                            "sample-client-role"
-                        ],
-                        "account": [
-                            "view-profile"
-                        ]
-                    }
-                }
-            }
-        ],
-        "client": {
-            "test-app": [
-                {
-                    "name": "customer-user",
-                    "description": "Have Customer User privileges"
-                },
-                {
-                    "name": "customer-admin",
-                    "description": "Have Customer Admin privileges"
-                },
-                {
-                    "name": "sample-client-role",
-                    "description": "Sample client role"
-                },
-                {
-                    "name": "customer-admin-composite-role",
-                    "description": "Have Customer Admin privileges via composite role",
-                    "composite": true,
-                    "composites": {
-                        "realm": [
-                            "customer-user-premium"
-                        ],
-                        "client": {
-                            "test-app": [
-                                "customer-admin"
-                            ]
-                        }
-                    }
-                }
-            ],
-            "test-app-scope": [
-                {
-                    "name": "test-app-allowed-by-scope",
-                    "description": "Role allowed by scope in test-app-scope"
-                },
-                {
-                    "name": "test-app-disallowed-by-scope",
-                    "description": "Role disallowed by scope in test-app-scope"
-                }
-            ]
-        }
+    {
+      "username" : "john-doh@localhost",
+      "enabled": true,
+      "email" : "john-doh@localhost",
+      "firstName": "John",
+      "lastName": "Doh",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "realmRoles": ["user"],
+      "clientRoles": {
+        "test-app": [ "customer-user" ],
+        "account": [ "view-profile", "manage-account" ]
+      }
     },
-    "groups": [
-        {
-            "name": "topGroup",
-            "attributes": {
-                "topAttribute": [
-                    "true"
-                ]
-            },
-            "realmRoles": [
-                "user"
-            ],
-            "subGroups": [
-                {
-                    "name": "level2group",
-                    "realmRoles": [
-                        "admin"
-                    ],
-                    "clientRoles": {
-                        "test-app": [
-                            "customer-user"
-                        ]
-                    },
-                    "attributes": {
-                        "level2Attribute": [
-                            "true"
-                        ]
-                    }
-                },
-                {
-                    "name": "level2group2",
-                    "realmRoles": [
-                        "admin"
-                    ],
-                    "clientRoles": {
-                        "test-app": [
-                            "customer-user"
-                        ]
-                    },
-                    "attributes": {
-                        "level2Attribute": [
-                            "true"
-                        ]
-                    }
-                }
+    {
+      "username" : "keycloak-user@localhost",
+      "enabled": true,
+      "email" : "keycloak-user@localhost",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "realmRoles": ["user"],
+      "clientRoles": {
+        "test-app": [ "customer-user" ],
+        "account": [ "view-profile", "manage-account" ]
+      }
+    },
+    {
+      "username" : "topGroupUser",
+      "enabled": true,
+      "email" : "top@redhat.com",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "groups": [
+        "/topGroup"
+      ]
+    },
+    {
+      "username" : "level2GroupUser",
+      "enabled": true,
+      "email" : "level2@redhat.com",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "groups": [
+        "/topGroup/level2group"
+      ]
+    },
+    {
+      "username" : "roleRichUser",
+      "enabled": true,
+      "email" : "rich.roles@redhat.com",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "groups": [
+        "/roleRichGroup/level2group"
+      ],
+      "clientRoles": {
+        "test-app-scope": [ "test-app-allowed-by-scope", "test-app-disallowed-by-scope" ]
+      }
+    },
+    {
+      "username" : "non-duplicate-email-user",
+      "enabled": true,
+      "email" : "non-duplicate-email-user@localhost",
+      "firstName": "Brian",
+      "lastName": "Cohen",
+      "credentials" : [
+        { "type" : "password",
+          "value" : "password" }
+      ],
+      "realmRoles": ["user", "offline_access"],
+      "clientRoles": {
+        "test-app": [ "customer-user" ],
+        "account": [ "view-profile", "manage-account" ]
+      }
+    }
+  ],
+  "scopeMappings": [
+    {
+      "client": "third-party",
+      "roles": ["user"]
+    },
+    {
+      "client": "test-app",
+      "roles": ["user"]
+    },
+    {
+      "client": "test-app-scope",
+      "roles": ["user", "admin"]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "test-app",
+      "enabled": true,
+      "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+      "redirectUris": [
+        "http://localhost:8180/auth/realms/master/app/auth/*",
+        "https://localhost:8543/auth/realms/master/app/auth/*"
+      ],
+      "adminUrl": "http://localhost:8180/auth/realms/master/app/admin",
+      "secret": "password"
+    },
+    {
+      "clientId": "root-url-client",
+      "enabled": true,
+      "rootUrl": "http://localhost:8180/foo/bar",
+      "adminUrl": "http://localhost:8180/foo/bar",
+      "baseUrl": "/baz",
+      "redirectUris": [
+        "http://localhost:8180/foo/bar/*",
+        "https://localhost:8543/foo/bar/*"
+      ],
+      "secret": "password"
+    },
+    {
+      "clientId" : "test-app-scope",
+      "enabled": true,
+
+      "redirectUris": [
+        "http://localhost:8180/auth/realms/master/app/*",
+        "https://localhost:8543/auth/realms/master/app/*"
+      ],
+      "secret": "password",
+      "fullScopeAllowed": "false"
+    },
+    {
+      "clientId" : "third-party",
+      "enabled": true,
+      "consentRequired": true,
+
+      "baseUrl": "http://localhost:8180/auth/realms/master/app/auth",
+      "redirectUris": [
+        "http://localhost:8180/auth/realms/master/app/*",
+        "https://localhost:8543/auth/realms/master/app/*"
+      ],
+      "secret": "password"
+    },
+    {
+      "clientId": "test-app-authz",
+      "enabled": true,
+      "baseUrl": "/test-app-authz",
+      "adminUrl": "/test-app-authz",
+      "bearerOnly": false,
+      "authorizationSettings": {
+        "allowRemoteResourceManagement": true,
+        "policyEnforcementMode": "ENFORCING",
+        "resources": [
+          {
+            "name": "Admin Resource",
+            "uri": "/protected/admin/*",
+            "type": "http://test-app-authz/protected/admin",
+            "scopes": [
+              {
+                "name": "admin-access"
+              }
             ]
-        },
-        {
-            "name": "roleRichGroup",
-            "attributes": {
-                "topAttribute": [
-                    "true"
-                ]
-            },
-            "realmRoles": [
-                "user",
-                "realm-composite-role"
-            ],
-            "clientRoles": {
-                "account": [
-                    "manage-account"
-                ]
-            },
-            "subGroups": [
-                {
-                    "name": "level2group",
-                    "realmRoles": [
-                        "admin"
-                    ],
-                    "clientRoles": {
-                        "test-app": [
-                            "customer-user",
-                            "customer-admin-composite-role"
-                        ]
-                    },
-                    "attributes": {
-                        "level2Attribute": [
-                            "true"
-                        ]
-                    }
-                },
-                {
-                    "name": "level2group2",
-                    "realmRoles": [
-                        "admin"
-                    ],
-                    "clientRoles": {
-                        "test-app": [
-                            "customer-user"
-                        ]
-                    },
-                    "attributes": {
-                        "level2Attribute": [
-                            "true"
-                        ]
-                    }
-                }
+          },
+          {
+            "name": "Protected Resource",
+            "uri": "/*",
+            "type": "http://test-app-authz/protected/resource",
+            "scopes": [
+              {
+                "name": "resource-access"
+              }
             ]
-        }
-    ],
-    "clientScopeMappings": {
-        "test-app": [
-            {
-                "client": "third-party",
-                "roles": [
-                    "customer-user"
-                ]
-            },
-            {
-                "client": "test-app-scope",
-                "roles": [
-                    "customer-admin-composite-role"
-                ]
-            }
+          },
+          {
+            "name": "Premium Resource",
+            "uri": "/protected/premium/*",
+            "type": "urn:test-app-authz:protected:resource",
+            "scopes": [
+              {
+                "name": "premium-access"
+              }
+            ]
+          },
+          {
+            "name": "Main Page",
+            "type": "urn:test-app-authz:protected:resource",
+            "scopes": [
+              {
+                "name": "urn:test-app-authz:page:main:actionForAdmin"
+              },
+              {
+                "name": "urn:test-app-authz:page:main:actionForUser"
+              },
+              {
+                "name": "urn:test-app-authz:page:main:actionForPremiumUser"
+              }
+            ]
+          }
         ],
-        "test-app-scope": [
-            {
-                "client": "test-app-scope",
-                "roles": [
-                    "test-app-allowed-by-scope"
-                ]
+        "policies": [
+          {
+            "name": "Any Admin Policy",
+            "description": "Defines that adminsitrators can do something",
+            "type": "role",
+            "config": {
+              "roles": "[{\"id\":\"admin\"}]"
             }
+          },
+          {
+            "name": "Any User Policy",
+            "description": "Defines that any user can do something",
+            "type": "role",
+            "config": {
+              "roles": "[{\"id\":\"user\"}]"
+            }
+          },
+          {
+            "name": "Only Premium User Policy",
+            "description": "Defines that only premium users can do something",
+            "type": "role",
+            "logic": "POSITIVE",
+            "config": {
+              "roles": "[{\"id\":\"customer-user-premium\"}]"
+            }
+          },
+          {
+            "name": "All Users Policy",
+            "description": "Defines that all users can do something",
+            "type": "aggregate",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "applyPolicies": "[\"Any User Policy\",\"Any Admin Policy\",\"Only Premium User Policy\"]"
+            }
+          },
+          {
+            "name": "Premium Resource Permission",
+            "description": "A policy that defines access to premium resources",
+            "type": "resource",
+            "decisionStrategy": "UNANIMOUS",
+            "config": {
+              "resources": "[\"Premium Resource\"]",
+              "applyPolicies": "[\"Only Premium User Policy\"]"
+            }
+          },
+          {
+            "name": "Administrative Resource Permission",
+            "description": "A policy that defines access to administrative resources",
+            "type": "resource",
+            "decisionStrategy": "UNANIMOUS",
+            "config": {
+              "resources": "[\"Admin Resource\"]",
+              "applyPolicies": "[\"Any Admin Policy\"]"
+            }
+          },
+          {
+            "name": "Protected Resource Permission",
+            "description": "A policy that defines access to any protected resource",
+            "type": "resource",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "resources": "[\"Protected Resource\"]",
+              "applyPolicies": "[\"All Users Policy\"]"
+            }
+          },
+          {
+            "name": "Action 1 on Main Page Resource Permission",
+            "description": "A policy that defines access to action 1 on the main page",
+            "type": "scope",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "scopes": "[\"urn:test-app-authz:page:main:actionForAdmin\"]",
+              "applyPolicies": "[\"Any Admin Policy\"]"
+            }
+          },
+          {
+            "name": "Action 2 on Main Page Resource Permission",
+            "description": "A policy that defines access to action 2 on the main page",
+            "type": "scope",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "scopes": "[\"urn:test-app-authz:page:main:actionForUser\"]",
+              "applyPolicies": "[\"Any User Policy\"]"
+            }
+          },
+          {
+            "name": "Action 3 on Main Page Resource Permission",
+            "description": "A policy that defines access to action 3 on the main page",
+            "type": "scope",
+            "decisionStrategy": "AFFIRMATIVE",
+            "config": {
+              "scopes": "[\"urn:test-app-authz:page:main:actionForPremiumUser\"]",
+              "applyPolicies": "[\"Only Premium User Policy\"]"
+            }
+          }
         ]
+      },
+      "redirectUris": [
+        "/test-app-authz/*"
+      ],
+      "secret": "secret"
     },
-    "authenticationFlows": [
-        {
-            "alias": "browser-webauthn",
-            "description": "browser based authentication",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": false,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "auth-cookie",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "auth-spnego",
-                    "requirement": "DISABLED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "identity-provider-redirector",
-                    "requirement": "DISABLED",
-                    "priority": 25,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "requirement": "ALTERNATIVE",
-                    "priority": 30,
-                    "flowAlias": "browser-webauthn-forms",
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": true
-                }
-            ]
-        },
-        {
-            "alias": "browser-webauthn-forms",
-            "description": "Username, password, otp and other auth forms.",
-            "providerId": "basic-flow",
-            "topLevel": false,
-            "builtIn": false,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "auth-username-password-form",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "auth-otp-form",
-                    "requirement": "DISABLED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "webauthn-authenticator",
-                    "requirement": "REQUIRED",
-                    "priority": 21,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "browser-webauthn-passwordless",
-            "description": "browser based authentication",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": false,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "auth-cookie",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "requirement": "ALTERNATIVE",
-                    "priority": 30,
-                    "flowAlias": "browser-webauthn-passwordless-forms",
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": true
-                }
-            ]
-        },
-        {
-            "alias": "browser-webauthn-passwordless-forms",
-            "description": "Username, password, otp and other auth forms.",
-            "providerId": "basic-flow",
-            "topLevel": false,
-            "builtIn": false,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "auth-username-password-form",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "webauthn-authenticator",
-                    "requirement": "REQUIRED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "webauthn-authenticator-passwordless",
-                    "requirement": "REQUIRED",
-                    "priority": 30,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "Handle Existing Account",
-            "description": "Handle what to do if there is existing account with same email/username like authenticated identity provider",
-            "providerId": "basic-flow",
-            "topLevel": false,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "idp-confirm-link",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "idp-email-verification",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "requirement": "ALTERNATIVE",
-                    "priority": 30,
-                    "flowAlias": "Verify Existing Account by Re-authentication",
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": true
-                }
-            ]
-        },
-        {
-            "alias": "Verify Existing Account by Re-authentication",
-            "description": "Reauthentication of existing account",
-            "providerId": "basic-flow",
-            "topLevel": false,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "idp-username-password-form",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "auth-otp-form",
-                    "requirement": "OPTIONAL",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "browser",
-            "description": "browser based authentication",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "auth-cookie",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "auth-spnego",
-                    "requirement": "DISABLED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "identity-provider-redirector",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 25,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "requirement": "ALTERNATIVE",
-                    "priority": 30,
-                    "flowAlias": "forms",
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": true
-                }
-            ]
-        },
-        {
-            "alias": "clients",
-            "description": "Base authentication for clients",
-            "providerId": "client-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "client-secret",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "client-jwt",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "client-secret-jwt",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 30,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "client-x509",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 40,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "direct grant",
-            "description": "OpenID Connect Resource Owner Grant",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "direct-grant-validate-username",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "direct-grant-validate-password",
-                    "requirement": "REQUIRED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "direct-grant-validate-otp",
-                    "requirement": "OPTIONAL",
-                    "priority": 30,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "docker auth",
-            "description": "Used by Docker clients to authenticate against the IDP",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "docker-http-basic-authenticator",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "first broker login",
-            "description": "Actions taken after first broker login with identity provider account, which is not yet linked to any Keycloak account",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticatorConfig": "review profile config",
-                    "authenticator": "idp-review-profile",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticatorConfig": "create unique user config",
-                    "authenticator": "idp-create-user-if-unique",
-                    "requirement": "ALTERNATIVE",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "requirement": "ALTERNATIVE",
-                    "priority": 30,
-                    "flowAlias": "Handle Existing Account",
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": true
-                }
-            ]
-        },
-        {
-            "alias": "forms",
-            "description": "Username, password, otp and other auth forms.",
-            "providerId": "basic-flow",
-            "topLevel": false,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "auth-username-password-form",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "auth-otp-form",
-                    "requirement": "OPTIONAL",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "http challenge",
-            "description": "An authentication flow based on challenge-response HTTP Authentication Schemes",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "no-cookie-redirect",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "basic-auth",
-                    "requirement": "REQUIRED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "basic-auth-otp",
-                    "requirement": "DISABLED",
-                    "priority": 30,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "auth-spnego",
-                    "requirement": "DISABLED",
-                    "priority": 40,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "registration",
-            "description": "registration flow",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "registration-page-form",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "flowAlias": "registration form",
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": true
-                }
-            ]
-        },
-        {
-            "alias": "registration form",
-            "description": "registration form",
-            "providerId": "form-flow",
-            "topLevel": false,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "registration-user-creation",
-                    "requirement": "REQUIRED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "registration-profile-action",
-                    "requirement": "REQUIRED",
-                    "priority": 40,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "registration-password-action",
-                    "requirement": "REQUIRED",
-                    "priority": 50,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "registration-recaptcha-action",
-                    "requirement": "DISABLED",
-                    "priority": 60,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "reset credentials",
-            "description": "Reset credentials for a user if they forgot their password or something",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "reset-credentials-choose-user",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "reset-credential-email",
-                    "requirement": "REQUIRED",
-                    "priority": 20,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "reset-password",
-                    "requirement": "REQUIRED",
-                    "priority": 30,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                },
-                {
-                    "authenticator": "reset-otp",
-                    "requirement": "OPTIONAL",
-                    "priority": 40,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
-        },
-        {
-            "alias": "saml ecp",
-            "description": "SAML ECP Profile Authentication Flow",
-            "providerId": "basic-flow",
-            "topLevel": true,
-            "builtIn": true,
-            "authenticationExecutions": [
-                {
-                    "authenticator": "http-basic-authenticator",
-                    "requirement": "REQUIRED",
-                    "priority": 10,
-                    "userSetupAllowed": false,
-                    "autheticatorFlow": false
-                }
-            ]
+    {
+      "clientId": "named-test-app",
+      "name": "My Named Test App",
+      "enabled": true,
+      "baseUrl": "http://localhost:8180/namedapp/base",
+      "redirectUris": [
+        "http://localhost:8180/namedapp/base/*",
+        "https://localhost:8543/namedapp/base/*"
+      ],
+      "adminUrl": "http://localhost:8180/namedapp/base/admin",
+      "secret": "password"
+    },
+    {
+      "clientId": "var-named-test-app",
+      "name": "Test App Named - ${client_account}",
+      "enabled": true,
+      "baseUrl": "http://localhost:8180/varnamedapp/base",
+      "redirectUris": [
+        "http://localhost:8180/varnamedapp/base/*",
+        "https://localhost:8543/varnamedapp/base/*"
+      ],
+      "adminUrl": "http://localhost:8180/varnamedapp/base/admin",
+      "secret": "password"
+    },
+    {
+      "clientId": "direct-grant",
+      "enabled": true,
+      "directAccessGrantsEnabled": true,
+      "secret": "password",
+      "webOrigins": [ "http://localtest.me:8180" ]
+    }
+  ],
+  "roles" : {
+    "realm" : [
+      {
+        "name": "user",
+        "description": "Have User privileges"
+      },
+      {
+        "name": "admin",
+        "description": "Have Administrator privileges"
+      },
+      {
+        "name": "customer-user-premium",
+        "description": "Have User Premium privileges"
+      },
+      {
+        "name": "sample-realm-role",
+        "description": "Sample realm role"
+      },
+      {
+        "name": "attribute-role",
+        "description": "has attributes assigned",
+        "attributes": {
+          "hello": [
+            "world",
+            "keycloak"
+          ]
         }
+      },
+      {
+        "name": "realm-composite-role",
+        "description": "Realm composite role containing client role",
+        "composite" : true,
+        "composites" : {
+          "realm" : [ "sample-realm-role" ],
+          "client" : {
+            "test-app" : [ "sample-client-role" ],
+            "account" : [ "view-profile" ]
+          }
+        }
+      }
     ],
-    "authenticatorConfig": [
+    "client" : {
+      "test-app" : [
         {
-            "alias": "create unique user config",
-            "config": {
-                "require.password.update.after.registration": "false"
+          "name": "customer-user",
+          "description": "Have Customer User privileges"
+        },
+        {
+          "name": "customer-admin",
+          "description": "Have Customer Admin privileges"
+        },
+        {
+          "name": "sample-client-role",
+          "description": "Sample client role"
+        },
+        {
+          "name": "customer-admin-composite-role",
+          "description": "Have Customer Admin privileges via composite role",
+          "composite" : true,
+          "composites" : {
+            "realm" : [ "customer-user-premium" ],
+            "client" : {
+              "test-app" : [ "customer-admin" ]
             }
-        },
-        {
-            "alias": "review profile config",
-            "config": {
-                "update.profile.on.first.login": "missing"
-            }
+          }
         }
-    ],
-    "requiredActions": [
+      ],
+      "test-app-scope" : [
         {
-            "alias": "CONFIGURE_TOTP",
-            "name": "Configure OTP",
-            "providerId": "CONFIGURE_TOTP",
-            "enabled": true,
-            "defaultAction": false,
-            "priority": 10,
-            "config": {}
+          "name": "test-app-allowed-by-scope",
+          "description": "Role allowed by scope in test-app-scope"
         },
         {
-            "alias": "terms_and_conditions",
-            "name": "Terms and Conditions",
-            "providerId": "terms_and_conditions",
-            "enabled": false,
-            "defaultAction": false,
-            "priority": 20,
-            "config": {}
-        },
-        {
-            "alias": "UPDATE_PASSWORD",
-            "name": "Update Password",
-            "providerId": "UPDATE_PASSWORD",
-            "enabled": true,
-            "defaultAction": false,
-            "priority": 30,
-            "config": {}
-        },
-        {
-            "alias": "UPDATE_PROFILE",
-            "name": "Update Profile",
-            "providerId": "UPDATE_PROFILE",
-            "enabled": true,
-            "defaultAction": false,
-            "priority": 40,
-            "config": {}
-        },
-        {
-            "alias": "VERIFY_EMAIL",
-            "name": "Verify Email",
-            "providerId": "VERIFY_EMAIL",
-            "enabled": true,
-            "defaultAction": false,
-            "priority": 50,
-            "config": {}
-        },
-        {
-            "alias": "webauthn-register",
-            "name": "Webauthn Register",
-            "providerId": "webauthn-register",
-            "enabled": true,
-            "defaultAction": true,
-            "priority": 51,
-            "config": {}
-        },
-        {
-            "alias": "webauthn-register-passwordless",
-            "name": "Webauthn Register Passwordless",
-            "providerId": "webauthn-register-passwordless",
-            "enabled": true,
-            "defaultAction": false,
-            "priority": 52,
-            "config": {}
+          "name": "test-app-disallowed-by-scope",
+          "description": "Role disallowed by scope in test-app-scope"
         }
+      ]
+    }
+
+  },
+  "groups" : [
+    {
+      "name": "topGroup",
+      "attributes": {
+        "topAttribute": ["true"]
+
+      },
+      "realmRoles": ["user"],
+
+      "subGroups": [
+        {
+          "name": "level2group",
+          "realmRoles": ["admin"],
+          "clientRoles": {
+            "test-app": ["customer-user"]
+          },
+          "attributes": {
+            "level2Attribute": ["true"]
+
+          }
+        },
+        {
+          "name": "level2group2",
+          "realmRoles": ["admin"],
+          "clientRoles": {
+            "test-app": ["customer-user"]
+          },
+          "attributes": {
+            "level2Attribute": ["true"]
+
+          }
+        }
+      ]
+    },
+    {
+      "name": "roleRichGroup",
+      "attributes": {
+        "topAttribute": ["true"]
+
+      },
+      "realmRoles": ["user", "realm-composite-role"],
+      "clientRoles": {
+        "account": ["manage-account"]
+      },
+
+      "subGroups": [
+        {
+          "name": "level2group",
+          "realmRoles": ["admin"],
+          "clientRoles": {
+            "test-app": ["customer-user", "customer-admin-composite-role"]
+          },
+          "attributes": {
+            "level2Attribute": ["true"]
+
+          }
+        },
+        {
+          "name": "level2group2",
+          "realmRoles": ["admin"],
+          "clientRoles": {
+            "test-app": ["customer-user"]
+          },
+          "attributes": {
+            "level2Attribute": ["true"]
+
+          }
+        }
+      ]
+    }
+  ],
+
+
+  "clientScopeMappings": {
+    "test-app": [
+      {
+        "client": "third-party",
+        "roles": ["customer-user"]
+      },
+      {
+        "client": "test-app-scope",
+        "roles": ["customer-admin-composite-role"]
+      }
     ],
-    "browserFlow": "browser-webauthn",
-    "internationalizationEnabled": true,
-    "supportedLocales": [
-        "en",
-        "de"
-    ],
-    "defaultLocale": "en",
-    "eventsListeners": [
-        "jboss-logging",
-        "event-queue"
+    "test-app-scope": [
+      {
+        "client": "test-app-scope",
+        "roles": ["test-app-allowed-by-scope"]
+      }
     ]
+  },
+
+  "authenticationFlows": [
+    {
+      "alias": "browser-webauthn",
+      "description": "browser based authentication",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-cookie",
+          "requirement": "ALTERNATIVE",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "auth-spnego",
+          "requirement": "DISABLED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "identity-provider-redirector",
+          "requirement": "DISABLED",
+          "priority": 25,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "flowAlias": "browser-webauthn-forms",
+          "userSetupAllowed": false,
+          "autheticatorFlow": true
+        }
+      ]
+    },
+    {
+      "alias": "browser-webauthn-forms",
+      "description": "Username, password, otp and other auth forms.",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-username-password-form",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "auth-otp-form",
+          "requirement": "DISABLED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "webauthn-authenticator",
+          "requirement": "REQUIRED",
+          "priority": 21,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "browser-webauthn-passwordless",
+      "description": "browser based authentication",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-cookie",
+          "requirement": "ALTERNATIVE",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "flowAlias": "browser-webauthn-passwordless-forms",
+          "userSetupAllowed": false,
+          "autheticatorFlow": true
+        }
+      ]
+    },
+    {
+      "alias": "browser-webauthn-passwordless-forms",
+      "description": "Username, password, otp and other auth forms.",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-username-password-form",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "webauthn-authenticator",
+          "requirement": "REQUIRED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "webauthn-authenticator-passwordless",
+          "requirement": "REQUIRED",
+          "priority": 30,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "Handle Existing Account",
+      "description": "Handle what to do if there is existing account with same email/username like authenticated identity provider",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "idp-confirm-link",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "idp-email-verification",
+          "requirement": "ALTERNATIVE",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "flowAlias": "Verify Existing Account by Re-authentication",
+          "userSetupAllowed": false,
+          "autheticatorFlow": true
+        }
+      ]
+    },
+    {
+      "alias": "Verify Existing Account by Re-authentication",
+      "description": "Reauthentication of existing account",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "idp-username-password-form",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "auth-otp-form",
+          "requirement": "OPTIONAL",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "browser",
+      "description": "browser based authentication",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-cookie",
+          "requirement": "ALTERNATIVE",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "auth-spnego",
+          "requirement": "DISABLED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "identity-provider-redirector",
+          "requirement": "ALTERNATIVE",
+          "priority": 25,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "flowAlias": "forms",
+          "userSetupAllowed": false,
+          "autheticatorFlow": true
+        }
+      ]
+    },
+    {
+      "alias": "clients",
+      "description": "Base authentication for clients",
+      "providerId": "client-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "client-secret",
+          "requirement": "ALTERNATIVE",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "client-jwt",
+          "requirement": "ALTERNATIVE",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "client-secret-jwt",
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "client-x509",
+          "requirement": "ALTERNATIVE",
+          "priority": 40,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "direct grant",
+      "description": "OpenID Connect Resource Owner Grant",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "direct-grant-validate-username",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "direct-grant-validate-password",
+          "requirement": "REQUIRED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "direct-grant-validate-otp",
+          "requirement": "OPTIONAL",
+          "priority": 30,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "docker auth",
+      "description": "Used by Docker clients to authenticate against the IDP",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "docker-http-basic-authenticator",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "first broker login",
+      "description": "Actions taken after first broker login with identity provider account, which is not yet linked to any Keycloak account",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticatorConfig": "review profile config",
+          "authenticator": "idp-review-profile",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticatorConfig": "create unique user config",
+          "authenticator": "idp-create-user-if-unique",
+          "requirement": "ALTERNATIVE",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "flowAlias": "Handle Existing Account",
+          "userSetupAllowed": false,
+          "autheticatorFlow": true
+        }
+      ]
+    },
+    {
+      "alias": "forms",
+      "description": "Username, password, otp and other auth forms.",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-username-password-form",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "auth-otp-form",
+          "requirement": "OPTIONAL",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "http challenge",
+      "description": "An authentication flow based on challenge-response HTTP Authentication Schemes",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "no-cookie-redirect",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "basic-auth",
+          "requirement": "REQUIRED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "basic-auth-otp",
+          "requirement": "DISABLED",
+          "priority": 30,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "auth-spnego",
+          "requirement": "DISABLED",
+          "priority": 40,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "registration",
+      "description": "registration flow",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "registration-page-form",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "flowAlias": "registration form",
+          "userSetupAllowed": false,
+          "autheticatorFlow": true
+        }
+      ]
+    },
+    {
+      "alias": "registration form",
+      "description": "registration form",
+      "providerId": "form-flow",
+      "topLevel": false,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "registration-user-creation",
+          "requirement": "REQUIRED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "registration-profile-action",
+          "requirement": "REQUIRED",
+          "priority": 40,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "registration-password-action",
+          "requirement": "REQUIRED",
+          "priority": 50,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "registration-recaptcha-action",
+          "requirement": "DISABLED",
+          "priority": 60,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "reset credentials",
+      "description": "Reset credentials for a user if they forgot their password or something",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "reset-credentials-choose-user",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "reset-credential-email",
+          "requirement": "REQUIRED",
+          "priority": 20,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "reset-password",
+          "requirement": "REQUIRED",
+          "priority": 30,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        },
+        {
+          "authenticator": "reset-otp",
+          "requirement": "OPTIONAL",
+          "priority": 40,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    },
+    {
+      "alias": "saml ecp",
+      "description": "SAML ECP Profile Authentication Flow",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": true,
+      "authenticationExecutions": [
+        {
+          "authenticator": "http-basic-authenticator",
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "userSetupAllowed": false,
+          "autheticatorFlow": false
+        }
+      ]
+    }
+  ],
+  "authenticatorConfig": [
+    {
+      "alias": "create unique user config",
+      "config": {
+        "require.password.update.after.registration": "false"
+      }
+    },
+    {
+      "alias": "review profile config",
+      "config": {
+        "update.profile.on.first.login": "missing"
+      }
+    }
+  ],
+
+
+  "requiredActions": [
+    {
+      "alias": "CONFIGURE_TOTP",
+      "name": "Configure OTP",
+      "providerId": "CONFIGURE_TOTP",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 10,
+      "config": {}
+    },
+    {
+      "alias": "terms_and_conditions",
+      "name": "Terms and Conditions",
+      "providerId": "terms_and_conditions",
+      "enabled": false,
+      "defaultAction": false,
+      "priority": 20,
+      "config": {}
+    },
+    {
+      "alias": "UPDATE_PASSWORD",
+      "name": "Update Password",
+      "providerId": "UPDATE_PASSWORD",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 30,
+      "config": {}
+    },
+    {
+      "alias": "UPDATE_PROFILE",
+      "name": "Update Profile",
+      "providerId": "UPDATE_PROFILE",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 40,
+      "config": {}
+    },
+    {
+      "alias": "VERIFY_EMAIL",
+      "name": "Verify Email",
+      "providerId": "VERIFY_EMAIL",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 50,
+      "config": {}
+    },
+    {
+      "alias": "webauthn-register",
+      "name": "Webauthn Register",
+      "providerId": "webauthn-register",
+      "enabled": true,
+      "defaultAction": true,
+      "priority": 51,
+      "config": {}
+    },
+    {
+      "alias": "webauthn-register-passwordless",
+      "name": "Webauthn Register Passwordless",
+      "providerId": "webauthn-register-passwordless",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 52,
+      "config": {}
+    }
+  ],
+  "browserFlow": "browser-webauthn",
+
+  "internationalizationEnabled": true,
+  "supportedLocales": ["en", "de"],
+  "defaultLocale": "en",
+  "eventsListeners": ["jboss-logging", "event-queue"]
 }
