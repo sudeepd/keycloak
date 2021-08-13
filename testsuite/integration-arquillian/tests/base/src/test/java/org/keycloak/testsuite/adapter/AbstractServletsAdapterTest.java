@@ -85,6 +85,11 @@ public abstract class AbstractServletsAdapterTest extends AbstractAdapterTest {
             deployment.addAsWebInfResource(keystore, "classes/keystore.jks");
         }
 
+        URL bcfksKeyStore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.new.bcfks");
+        if (bcfksKeyStore != null) {
+            deployment.addAsWebInfResource(bcfksKeyStore, "classes/keystore.new.bcfks");
+        }
+
         if (keycloakJSON != null) {
             deployment.addAsWebInfResource(keycloakJSON, "keycloak.json");
         }
@@ -148,6 +153,11 @@ public abstract class AbstractServletsAdapterTest extends AbstractAdapterTest {
         URL keystore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.jks");
         if (keystore != null) {
             deployment.addAsWebInfResource(keystore, "keystore.jks");
+        }
+
+        URL bcfksNewKeyStore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.new.bcfks");
+        if (bcfksNewKeyStore != null) {
+            deployment.addAsWebInfResource(bcfksNewKeyStore, "keystore.new.bcfks");
         }
 
         URL bcfksKeyStore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.bcfks");
