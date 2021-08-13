@@ -150,6 +150,11 @@ public abstract class AbstractServletsAdapterTest extends AbstractAdapterTest {
             deployment.addAsWebInfResource(keystore, "keystore.jks");
         }
 
+        URL bcfksNewKeyStore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.new.bcfks");
+        if (bcfksNewKeyStore != null) {
+            deployment.addAsWebInfResource(bcfksNewKeyStore, "keystore.new.bcfks");
+        }
+
         URL bcfksKeyStore = AbstractServletsAdapterTest.class.getResource(webInfPath + "keystore.bcfks");
         if (bcfksKeyStore != null) {
             deployment.addAsWebInfResource(bcfksKeyStore, "keystore.bcfks");
