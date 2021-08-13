@@ -26,7 +26,7 @@
         forceAuthentication="false">
         <Keys>
             <Key signing="true" >
-                <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
+                <KeyStore resource="/WEB-INF/keystore.new.bcfks" password="averylongpassword">
                     <PrivateKey alias="http://localhost:8080/sales-post-sig/" password="averylongpassword"/>
                     <Certificate alias="http://localhost:8080/sales-post-sig/"/>
                 </KeyStore>
