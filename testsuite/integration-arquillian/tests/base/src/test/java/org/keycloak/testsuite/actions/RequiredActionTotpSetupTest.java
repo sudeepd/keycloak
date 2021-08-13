@@ -458,7 +458,7 @@ public class RequiredActionTotpSetupTest extends AbstractTestRealmKeycloakTest {
                     .otpDigits(8)
                     .otpPeriod(30)
                     .otpType(OTPCredentialModel.TOTP)
-                    .otpAlgorithm(HmacOTP.HMAC_SHA1)
+                    .otpAlgorithm(HmacOTP.HMAC_SHA256)
                     .otpInitialCounter(0);
         adminClient.realm("test").update(realmRep);
 
@@ -470,7 +470,7 @@ public class RequiredActionTotpSetupTest extends AbstractTestRealmKeycloakTest {
 
         String totpSecret = totpPage.getTotpSecret();
 
-        TimeBasedOTP timeBased = new TimeBasedOTP(HmacOTP.HMAC_SHA1, 8, 30, 1);
+        TimeBasedOTP timeBased = new TimeBasedOTP(HmacOTP.HMAC_SHA256, 8, 30, 1);
         totpPage.configure(timeBased.generateTOTP(totpSecret));
 
         String sessionId = events.expectRequiredAction(EventType.UPDATE_TOTP).assertEvent()
@@ -510,7 +510,7 @@ public class RequiredActionTotpSetupTest extends AbstractTestRealmKeycloakTest {
                     .otpDigits(6)
                     .otpPeriod(30)
                     .otpType(OTPCredentialModel.HOTP)
-                    .otpAlgorithm(HmacOTP.HMAC_SHA1)
+                    .otpAlgorithm(HmacOTP.HMAC_SHA256)
                     .otpInitialCounter(0);
         adminClient.realm("test").update(realmRep);
 
@@ -522,7 +522,7 @@ public class RequiredActionTotpSetupTest extends AbstractTestRealmKeycloakTest {
 
         String totpSecret = totpPage.getTotpSecret();
 
-        HmacOTP otpgen = new HmacOTP(6, HmacOTP.HMAC_SHA1, 1);
+        HmacOTP otpgen = new HmacOTP(6, HmacOTP.HMAC_SHA256, 1);
         totpPage.configure(otpgen.generateHOTP(totpSecret, 0));
         String uri = driver.getCurrentUrl();
         String sessionId = events.expectRequiredAction(EventType.UPDATE_TOTP).assertEvent()
@@ -556,7 +556,7 @@ public class RequiredActionTotpSetupTest extends AbstractTestRealmKeycloakTest {
                     .otpDigits(6)
                     .otpPeriod(30)
                     .otpType(OTPCredentialModel.HOTP)
-                    .otpAlgorithm(HmacOTP.HMAC_SHA1)
+                    .otpAlgorithm(HmacOTP.HMAC_SHA256)
                     .otpInitialCounter(0);
         adminClient.realm("test").update(realmRep);
 
@@ -577,7 +577,7 @@ public class RequiredActionTotpSetupTest extends AbstractTestRealmKeycloakTest {
                 .otpDigits(6)
                 .otpPeriod(30)
                 .otpType(OTPCredentialModel.TOTP)
-                .otpAlgorithm(HmacOTP.HMAC_SHA1)
+                .otpAlgorithm(HmacOTP.HMAC_SHA256)
                 .otpInitialCounter(0);
         adminClient.realm("test").update(realmRep);
 

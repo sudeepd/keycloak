@@ -30,11 +30,11 @@ public class HmacTest {
 
     @Test
     public void testHmac() {
-        HmacOTP hmacOTP = new HmacOTP(6, HmacOTP.HMAC_SHA1, 10);
+        HmacOTP hmacOTP = new HmacOTP(6, HmacOTP.HMAC_SHA256, 10);
         String secret = "JNSVMMTEKZCUGSKJIVGHMNSQOZBDA5JT";
         String decoded = new String(Base32.decode(secret));
         System.out.println(hmacOTP.generateHOTP(decoded, 0));
-        System.out.println(hmacOTP.validateHOTP("550233", decoded, 0));
-        Assert.assertEquals(1, hmacOTP.validateHOTP("550233", decoded, 0));
+        System.out.println(hmacOTP.validateHOTP("504758", decoded, 0));
+        Assert.assertEquals(1, hmacOTP.validateHOTP("504758", decoded, 0));
     }
 }

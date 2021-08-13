@@ -157,13 +157,13 @@ public class UserBuilder {
 
     public UserBuilder totpSecret(String totpSecret) {
         CredentialRepresentation credential = ModelToRepresentation.toRepresentation(
-                OTPCredentialModel.createTOTP(totpSecret, 6, 30, HmacOTP.HMAC_SHA1));
+                OTPCredentialModel.createTOTP(totpSecret, 6, 30, HmacOTP.HMAC_SHA256));
         return secret(credential);
     }
 
     public UserBuilder hotpSecret(String hotpSecret) {
         CredentialRepresentation credential = ModelToRepresentation.toRepresentation(
-                OTPCredentialModel.createHOTP(hotpSecret, 6, 0, HmacOTP.HMAC_SHA1));
+                OTPCredentialModel.createHOTP(hotpSecret, 6, 0, HmacOTP.HMAC_SHA256));
         return secret(credential);
     }
 
