@@ -46,6 +46,7 @@ import java.net.MalformedURLException;
  */
 public class LoginHotpTest extends AbstractTestRealmKeycloakTest {
 
+    private static String OTP_SECRET = "aVeryLongHotpSecret";
     public static OTPPolicy policy;
 
     @Override
@@ -56,7 +57,7 @@ public class LoginHotpTest extends AbstractTestRealmKeycloakTest {
         testRealm.setOtpPolicyDigits(6);
         UserRepresentation user = RealmRepUtil.findUser(testRealm, "test-user@localhost");
         UserBuilder.edit(user)
-                   .hotpSecret("hotpSecret")
+                   .hotpSecret(OTP_SECRET)
                    .otpEnabled();
     }
 
@@ -141,7 +142,7 @@ public class LoginHotpTest extends AbstractTestRealmKeycloakTest {
 
         Assert.assertTrue("expecting totpPage got: " + driver.getCurrentUrl(), loginTotpPage.isCurrent());
 
-        loginTotpPage.login(otp.generateHOTP("hotpSecret", counter++));
+        loginTotpPage.login(otp.generateHOTP(OTP_SECRET, counter++));
 
         appPage.assertCurrent();
 

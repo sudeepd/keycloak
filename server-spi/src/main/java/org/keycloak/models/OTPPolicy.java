@@ -67,7 +67,7 @@ public class OTPPolicy implements Serializable {
         this.period = period;
     }
 
-    public static OTPPolicy DEFAULT_POLICY = new OTPPolicy(OTPCredentialModel.TOTP, HmacOTP.HMAC_SHA1, 0, 6, 1, 30);
+    public static OTPPolicy DEFAULT_POLICY = new OTPPolicy(OTPCredentialModel.TOTP, HmacOTP.HMAC_SHA256, 0, 6, 1, 30);
 
     public String getAlgorithmKey() {
         return algToKeyUriAlg.containsKey(algorithm) ? algToKeyUriAlg.get(algorithm) : algorithm;
