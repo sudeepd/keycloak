@@ -54,12 +54,13 @@ import static org.keycloak.testsuite.auth.page.AuthRealm.TEST;
  * @author Stan Silvert ssilvert@redhat.com (C) 2016 Red Hat Inc.
  */
 public class LoginTotpTest extends AbstractTestRealmKeycloakTest {
+    private static final String TOTP_SECRET = "aVeryLongTotpSecret";
 
     @Override
     public void configureTestRealm(RealmRepresentation testRealm) {
         UserRepresentation user = RealmRepUtil.findUser(testRealm, "test-user@localhost");
         UserBuilder.edit(user)
-                   .totpSecret("totpSecret")
+                   .totpSecret(TOTP_SECRET)
                    .otpEnabled();
     }
 
@@ -132,7 +133,7 @@ public class LoginTotpTest extends AbstractTestRealmKeycloakTest {
 
         Assert.assertTrue(loginTotpPage.isCurrent());
 
-        loginTotpPage.login(totp.generateTOTP("totpSecret"));
+        loginTotpPage.login(totp.generateTOTP(TOTP_SECRET));
 
         Assert.assertEquals(RequestType.AUTH_RESPONSE, appPage.getRequestType());
 
@@ -152,7 +153,7 @@ public class LoginTotpTest extends AbstractTestRealmKeycloakTest {
 
         System.out.println(driver.getPageSource());
 
-        loginTotpPage.login(totp.generateTOTP("totpSecret"));
+        loginTotpPage.login(totp.generateTOTP(TOTP_SECRET));
 
         Assert.assertEquals(RequestType.AUTH_RESPONSE, appPage.getRequestType());
 
@@ -213,13 +214,13 @@ public class LoginTotpTest extends AbstractTestRealmKeycloakTest {
 
             // Compatibility between "otp" and "totp"
             Response response = exchangeUrl.request()
-                    .post(Entity.form(form.param("otp", totp.generateTOTP("totpSecret"))));
+                    .post(Entity.form(form.param("otp", totp.generateTOTP(TOTP_SECRET))));
 
             Assert.assertEquals(200, response.getStatus());
             response.close();
 
             response = exchangeUrl.request()
-                    .post(Entity.form(form.param("totp", totp.generateTOTP("totpSecret"))));
+                    .post(Entity.form(form.param("totp", totp.generateTOTP(TOTP_SECRET))));
 
             Assert.assertEquals(200, response.getStatus());
             response.close();
