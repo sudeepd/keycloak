@@ -25,7 +25,7 @@
         forceAuthentication="false">
         <Keys>
             <Key signing="true" >
-                <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
+                <KeyStore resource="/WEB-INF/keystore.new.bcfks" password="averylongpassword">
                     <PrivateKey alias="http://localhost:8080/employee-sig/" password="averylongpassword"/>
                     <Certificate alias="http://localhost:8080/employee-sig/"/>
                 </KeyStore>
@@ -51,7 +51,7 @@
                     responseBinding="POST"
                     postBindingUrl="http://localhost:8080/auth/realms/demo/protocol/saml"
                     />
-            <HttpClient truststore="classpath:keycloak.truststore.bcfks" truststorePassword="secret" />
+            <HttpClient truststore="classpath:keycloak.truststore.bcfks" truststorePassword="averylongpassword" />
         </IDP>
      </SP>
 </keycloak-saml-adapter>
