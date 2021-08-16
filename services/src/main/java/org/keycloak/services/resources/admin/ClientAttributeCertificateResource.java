@@ -228,7 +228,7 @@ public class ClientAttributeCertificateResource {
         try {
             KeyStore keyStore = null;
             if (keystoreFormat.equals("JKS")) keyStore = KeyStore.getInstance("JKS");
-            else keyStore = KeyStore.getInstance(keystoreFormat, "BC");
+            else keyStore = KeyStore.getInstance(keystoreFormat, "BCFIPS");
             keyStore.load(inputParts.get(0).getBody(InputStream.class, null), storePassword);
             try {
                 privateKey = (PrivateKey)keyStore.getKey(keyAlias, keyPassword);
@@ -332,7 +332,7 @@ public class ClientAttributeCertificateResource {
             String format = config.getFormat();
             KeyStore keyStore;
             if (format.equals("JKS")) keyStore = KeyStore.getInstance("JKS");
-            else keyStore = KeyStore.getInstance(format, "BC");
+            else keyStore = KeyStore.getInstance(format, "BCFIPS");
             keyStore.load(null, null);
             String keyAlias = config.getKeyAlias();
             if (keyAlias == null) keyAlias = client.getClientId();

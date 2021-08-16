@@ -31,10 +31,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.OAuthErrorException;
 import org.keycloak.adapters.AdapterUtils;
@@ -53,7 +50,6 @@ import org.keycloak.crypto.SignatureSignerContext;
 import org.keycloak.events.Details;
 import org.keycloak.events.Errors;
 import org.keycloak.events.EventType;
-import org.keycloak.jose.jwe.JWEException;
 import org.keycloak.jose.jws.JWSBuilder;
 import org.keycloak.models.utils.KeycloakModelUtils;
 import org.keycloak.protocol.oidc.OIDCAdvancedConfigWrapper;
@@ -87,7 +83,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.security.KeyFactory;
@@ -119,9 +114,12 @@ import org.keycloak.testsuite.arquillian.annotation.AuthServerContainerExclude.A
  */
 @AuthServerContainerExclude(AuthServer.REMOTE)
 public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
-    private static final String CERTIFICATE = "MIICqTCCAZECBgFT0Ngs/DANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1zZWN1cmUtcG9ydGFsMB4XDTE2MDQwMTA4MDA0MVoXDTI2MDQwMTA4MDIyMVowGDEWMBQGA1UEAwwNc2VjdXJlLXBvcnRhbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJa4GixpmzP511AmI0eLPLORyJwXS8908MUvdG3hmh8jMOIhe28XjIFeZSY09vFxh22F2SUMjxU/B2Hw4PDJUkebuNR7rXhOIYCJAo6eEZzjSBY/wngFtfm74zJ/eLCobBtDvIld7jobdHTfE1Oz9+GzvtG0k7cm7ubrLT0J4I1UsFZj3b//3wa+O0vNaTwHC1Jz/m59VbtXqyO4xEzIdl416cnGCmEmk5qd5h1de2UoLi/CTad8HftIJhzN1qhlySzW/9Ha70aYlDH2hiibDsXDTrNaMdaaLik7I8Rv/nIbggysG863PKZo8wknDe62QctH5VYSSktiy4gjSJkGh7ECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZnnx+AHQ8txugGcFK8gWjildDgk+v31fBHBDvmLQaSzsUaIOJaK4wnlwUI+VfR46HmBXhjlDCobFLUptd+kz0G7xapcIn3b5jLrySUUD7L+LAp1vNOQU4mKhTGS3IEvNB73D3GH9rQ+M3KEcoN3f99fNKqKsUdxbmZqGf4VOQ57PUfLBw4PJJGlROPosBc7ivPRyeYnKekhoCTynq30BAD1FA1BA8ppcY4ZVGADPTAgMJxpglpFY9LiqCwdLAGW1ttnsyIJ7DpT+kybhhk7c+MU7gyQdv8xPnMR0bSCB9hndowgBn5oZ393aMscwMNCzwJ0aWBs1sUyn3X0RIsu9Jg==";
-    private static final String PRIVATE_KEY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDBGYuO7kuxJgLBj2SuyJ1QwSaaPVTfIq+v03i7YJVa6e5EekdhFS16YE8CZKhf+LQjn4fJcDNWEZuynRlpYaCXlav9wRO31P6YCyL7RiAxJTuDyO/Umy0uRPs1WQ69WDVoxwzOb6mXvpjfME2El6aPxbIZxNiRdlzcXc4cGtbTdvAG+B04HaZyOKl+TtB3c86cSHOw4xz+SeuuR2CdktwA9cTAHEL5RAf2LWwf9R3JsH5tAvHScxBIVL6URAjTrAxzCkg/h6ZYInGzRoaiL5z8OQhm9XJz6dTlGWo4atuZweey79b5YSTjVOjJ0APIfrce/fEkuHuKy4/0iukFeoT5AgMBAAECggEAEAyWe9e0dNHK8tl/LcPAx4B2O+WTE0Snw35ZD4HUiAzfX9Ol8Ry4fe5ZQsKo9+kM19UfjQ+FRMcL4MmL3iVeGps3A00z3ViXnH14d9f5PvxwOODPhiUrmSfklSeEwRn+vmmk19eSCemufQZfuwB7uIFe7yNcOKLUzwAA7HcSmdqopbln3sLVshjCUHOZIzesiigvOGx4w820BBiCE6HcIdO7RDD7ChfjpuRBR2tFGIzTeAlyQ/eRrdZnVryLr006QMGQuTxc5MXlnHqjmIH2Vb7XWmR3zSFe8EraIJeIu4fYtv/uVov/CuIOwdGkx0H4pgnyyypWBTnjgzqGQLhRMQKBgQD3tXN6rTQcRR8/PJJsptVhADAdiTcp9GTBHWYZlg3ZWAJI7IkDuqS+sgXzkwlP2k+HSTS7X9S9dx2or+VSXNLEb5JiGXmpJeSdlGZQ4SW0vwfbw+d/1TauGWE+sLltTKXVN84xysAJgQWrEpqKj0zhIs3TCzlnYz3Vh5yFy+RUPQKBgQDHkCoWkt5tOnjxghSsD17ZztG6L5T1VCFtOBNSlZk7EpwcAB4112rND1UZKL3o66to7ecDe2o4DlssBY5lcj893NghDAN0kM/ho3JG/ty/yYVYAWN5wlEECGd0Qzt/K6qnVPxEA5wxAkmGMWLAekCM/wbcY/uRkRG2PLWLQYyzbQKBgQDh8Q5OPaIkjx/7TEK6/EnxWnyI1FoO2K72PtycRfSH5PDgl3A6iIowrq0jCWEbByQ3YBzLNJQV5YqWDSr9P1G4f5RkCpygHsIyweO5rkP4Y67FVCHaxh5EGz5KMmRQP/ObUnWvkSItCRSkgCmabS9Qw7A96iUIGsuR80pf+CRieQKBgFhMFCM6xoljtsF8wbLDdj8+wBL2HJ1TpRqTFhGTOWImwMWu068U6h9i6k8gdK6LH6Nkp7MltwCocXSP3MpL+2levo4Yp6q6rA/05oo9F+UPwB0JOD9WV8xF/6g0Wy3QX0h8VMWvJzuT/H4QedYaAVehOyLmZhepLUIJqHW+AggdAoGAcSWOD6I7RywCP9fLzPFO5wkaT5TfvyKukDCqt3sykWoIG5nQ1fvIQkF60BKMrnCpYdXIHidR0ulusr82eZF/PuAwjO9wM8UqWmOCWxQJtJPxBH4EQgC3oXZgorFcydtZ7XPqkBPJFa0bzLsPgRXeLVic2LwFFsqwTL6KuU+G7oM=";
-    private static final String PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwRmLju5LsSYCwY9krsidUMEmmj1U3yKvr9N4u2CVWunuRHpHYRUtemBPAmSoX/i0I5+HyXAzVhGbsp0ZaWGgl5Wr/cETt9T+mAsi+0YgMSU7g8jv1JstLkT7NVkOvVg1aMcMzm+pl76Y3zBNhJemj8WyGcTYkXZc3F3OHBrW03bwBvgdOB2mcjipfk7Qd3POnEhzsOMc/knrrkdgnZLcAPXEwBxC+UQH9i1sH/UdybB+bQLx0nMQSFS+lEQI06wMcwpIP4emWCJxs0aGoi+c/DkIZvVyc+nU5RlqOGrbmcHnsu/W+WEk41ToydADyH63Hv3xJLh7isuP9IrpBXqE+QIDAQAB";
+
+    private static final String CLIENT1_CERTIFICATE = "MIICqTCCAZECBgFT0Ngs/DANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1zZWN1cmUtcG9ydGFsMB4XDTE2MDQwMTA4MDA0MVoXDTI2MDQwMTA4MDIyMVowGDEWMBQGA1UEAwwNc2VjdXJlLXBvcnRhbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIUjjgv+V3s96O+Za9002Lp/trtGuHBeaeVL9dFKMKzO2MPqdRmHB4PqNlDdd28Rwf5Xn6iWdFpyUKOnI/yXDLhdcuFpR0sMNK/C9Lt+hSpPFLuzDqgtPgDotlMxiHIWDOZ7g9/gPYNXbNvjv8nSiyqoguoCQiiafW90bPHsiVLdP7ZIUwCcfi1qQm7FhxRJ1NiW5dvUkuCnnWEf0XR+Wzc5eC9EgB0taLFiPsSEIlWMm5xlahYyXkPdNOqZjiRnrTWm5Y4uk8ZcsD/KbPTf/7t7cQXipVaswgjdYi1kK2/zRwOhg1QwWFX/qmvdd+fLxV0R6VqRDhn7Qep2cxwMxLsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEALIG+E4CUaIdKYhENAfFR7X4cH1MkNCbNG46rgt/8WcHexW3GDQ5GG7psuvU1qIZCPr9mohcLvYdlncCdHCtxiRcNJVtPoXkcyyZKQ7Y7c+md9ukrQlpwCM+8rTtJDGrC10W9Ndce8kM1f/ePY5pshJ4doRBDx1wrZQyC/Ee9GazzuO/JlUSFvnq3TapQrkckbB70/csU9UU9Gi9JFlyvFot7+43coee5Q31+JQR4ZHt269T+mN8cMGkydmCUcpv2mIXA1F7VMuH7PMGtInqY4eDKw13OuLIi8rFdWvD//c/kdEaiaWhbFyMs54kVtMTkXdZPqT7GKDIOf/n1O71vzw==";
+    private static final String CLIENT2_CERTIFICATE = "MIICqTCCAZECBgFT0Ngs/DANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1zZWN1cmUtcG9ydGFsMB4XDTE2MDQwMTA4MDA0MVoXDTI2MDQwMTA4MDIyMVowGDEWMBQGA1UEAwwNc2VjdXJlLXBvcnRhbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMMw3PaBffWxgS2PYSDDBp6As+cNvv9kt2C4f/RDAGmvSIHPFev9kuQiKs3Oaws3ZsV4JG3qHEuYgnh9W4vfe3DwNwtD1bjL5FYBhPBFTw0lAQECYxaBHnkjHwUKp957FqdSPPICm3LjmTcEdlH+9dpp9xHCMbbiNiWDzWI1xSxC8Fs2d0hwz1sd+Q4QeTBPIBWcPM+ICZtNG5MN+ORfayu4X+Me5d0tXG2fQO//rAevk1i5IFjKZuOjTwyKB5SJIY4b8QTeg0g/50IU7Ht00Pxw6CK02dHS+FvXHasZlD3ckomqCDjStTBWdhJo5dST0CbOqalkkpLlCCbGA1yEQRsCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAZzf1xW+JVnJ/zuLOIrm7ZdNYtkahT8VBKT8wlMsm7jb7jLWiN9nlkoMqaQrAltHAHGBidYONxHox7vQrRdoMGOkvmXG1uoMKotnfBL/EsAI3C7s6i/p+3h0lNFuzjVegzx4klQyF2HdWJLABaWgMl+sTz23J0P1Zpo0Pr+/VAom46cHGc0UNtaU4JNuCRoSy8zKcI0pgwJ12bIVr+aePR7V4kxSmtD5pQPXu7uba2CITWE1FkUqDuEDT/2DT1rbib/XpHvx8a1d66Ds66czak1Oc+hUj4U3ek7NvOXCNOY1jl8CTJc/HojF8PkcUc7eyCl3lyduHmKAq8OV9DXD1BA==";
+
+    private static final String PRIVATE_KEY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCFI44L/ld7PejvmWvdNNi6f7a7RrhwXmnlS/XRSjCsztjD6nUZhweD6jZQ3XdvEcH+V5+olnRaclCjpyP8lwy4XXLhaUdLDDSvwvS7foUqTxS7sw6oLT4A6LZTMYhyFgzme4Pf4D2DV2zb47/J0osqqILqAkIomn1vdGzx7IlS3T+2SFMAnH4takJuxYcUSdTYluXb1JLgp51hH9F0fls3OXgvRIAdLWixYj7EhCJVjJucZWoWMl5D3TTqmY4kZ601puWOLpPGXLA/ymz03/+7e3EF4qVWrMII3WItZCtv80cDoYNUMFhV/6pr3Xfny8VdEelakQ4Z+0HqdnMcDMS7AgMBAAECggEAdvkiwkzyV8snEJUE8pN66I2f+RJlVuTHtIOAkxm9DW95/PjS05D6gkMVboW5aKNxu5sJrVlleD2XGecOHXXNhCLdudieQM4Tdsy8bZ/N19T7LhAAFQD4208ZPpaQ24Ig3QWa/sAft/Kz8HtAs1VVzzTuZ7bE8Au9848Sm81HmaeOq4JM58PNuHlTqEYVy4udl1BsIraEblHwNcTaku+hrSLVwwyBVpZDmZVKDQ3cbRDlkXxgkRqwB4lQIaU8WAnjJJ8awpJRww4NDMeaq8vMCsmYWBbpRqHQKCp50FO6ObMnoXB9vMZHTCmTTxx/kE/Oz0WXCRrXQhMDiHhDOUGe4QKBgQDxMVlarjZuIdpmajQ1VUSiW0gOXVyLmbbGvvJTpMx+uwYoUWKzMI9a4pwrknxK+bQ/0f2+VWkIdn4lV8Qae97X/BUH/oTSVjpzPi4lNXi3gXVAk3mP2fJGtLSL3MMQhGA7ia8P1mWb868cR1Oa1WD3txtLida9EA90HYNpnTDRXwKBgQCNUABvlDompvldPlkzUJzpLc/MEADsYZzdGrK6DG2zlYRF5Fd00hOhyP/vVzRVn6oL34S9XyKb/tA+Xk1tGIjaneg+qpXkGuT8xV8MuG7+aRrBbSaU+24GRkhETT95dMY30OrrK/Gj13qTCRrtFbUIFnGLX8zvyEoYIdczu6a+JQKBgQDhwu+AkdEhBU8IziBQS6AS2J5506nsgdUz80egQ4GmnikFVCiu0aVdzP+hSVxOUa0Gj+iTYB8QbNlm2uAUah4MzUhiUzrAJzZO6MUIzyRPoD3AVEpU/AxrYnoc8Gcl7sKk+BuFF4nEkDQ4pAr9wv0g4aQK8Nqv3XiZl4aKNTicwQKBgCpkvsy6jjt8SkET7FS9sWUu7jEM+AnyOsoGMWopQlvm1hjVqPsN7v/ROh7GbZfmX3BSbRMW0F42MqkTR20cOCpFxx/Ns0wMWXgPijVZu0qto2413aZCS76sJRAAkLNSOgkSrvdAZqy9fzNPPvmzUm0LtqKWaffhgYD93f7SI/LVAoGAded5aklVxD0uTfgOdItksr5bWxMrzEtMlLLLdTQXziv6Kvxu+w/0RClkjQ3HcOq8Xj9keYrZx9LEZIqbhWFl8bQtgKq1KZocStkloskDzEkQuSQQqP9lSqRn7jOFjtEzDJm2ZdzG9pH+nNFlnBtNDi55kopQiwrYBodOxIIYMyo=";
+    private static final String PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhSOOC/5Xez3o75lr3TTYun+2u0a4cF5p5Uv10UowrM7Yw+p1GYcHg+o2UN13bxHB/lefqJZ0WnJQo6cj/JcMuF1y4WlHSww0r8L0u36FKk8Uu7MOqC0+AOi2UzGIchYM5nuD3+A9g1ds2+O/ydKLKqiC6gJCKJp9b3Rs8eyJUt0/tkhTAJx+LWpCbsWHFEnU2Jbl29SS4KedYR/RdH5bNzl4L0SAHS1osWI+xIQiVYybnGVqFjJeQ9006pmOJGetNablji6TxlywP8ps9N//u3txBeKlVqzCCN1iLWQrb/NHA6GDVDBYVf+qa91358vFXRHpWpEOGftB6nZzHAzEuwIDAQAB";
 
     @Rule
     public AssertEvents events = new AssertEvents(this);
@@ -151,7 +149,7 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
         app1 = ClientBuilder.create()
                 .id(KeycloakModelUtils.generateId())
                 .clientId("client1")
-                .attribute(JWTClientAuthenticator.CERTIFICATE_ATTR, CERTIFICATE)
+                .attribute(JWTClientAuthenticator.CERTIFICATE_ATTR, CLIENT1_CERTIFICATE)
                 .attribute(OIDCConfigAttributes.USE_REFRESH_TOKEN_FOR_CLIENT_CREDENTIALS_GRANT, "true")
                 .authenticatorType(JWTClientAuthenticator.PROVIDER_ID)
                 .serviceAccountsEnabled(true)
@@ -165,7 +163,7 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
                 .directAccessGrants()
                 .serviceAccountsEnabled(true)
                 .redirectUris(OAuthClient.APP_ROOT + "/auth")
-                .attribute(JWTClientAuthenticator.CERTIFICATE_ATTR, CERTIFICATE)
+                .attribute(JWTClientAuthenticator.CERTIFICATE_ATTR, CLIENT2_CERTIFICATE)
                 .authenticatorType(JWTClientAuthenticator.PROVIDER_ID)
                 .build();
 
@@ -321,7 +319,6 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
             clientRep = clientResource.toRepresentation();
             OIDCAdvancedConfigWrapper.fromClientRepresentation(clientRep).setTokenEndpointAuthSigningAlg(Algorithm.ES256);
             clientResource.update(clientRep);
-
             testCodeToTokenRequestSuccess(Algorithm.ES256);
         } catch (Exception e) {
             Assert.fail();
@@ -475,12 +472,24 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
         }
     }
 
-    @Test
+
+    @Ignore
+    public void testClientWithGeneratedKeysBCFKS() throws Exception {
+        testClientWithGeneratedKeys("BCFKS");
+    }
+
+    /**
+     * JKS is not valid in FIPS approved mode, hence ignore test case
+     */
+    @Ignore
     public void testClientWithGeneratedKeysJKS() throws Exception {
         testClientWithGeneratedKeys("JKS");
     }
 
-    @Test
+    /**
+     * PKCS12 is not valid in FIPS approved mode, hence ignore test case
+     */
+    @Ignore
     public void testClientWithGeneratedKeysPKCS12() throws Exception {
         testClientWithGeneratedKeys("PKCS12");
     }
@@ -549,14 +558,22 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
                 .assertEvent();
     }
 
-    @Test
+    @Ignore
     public void testUploadKeystoreJKS() throws Exception {
         testUploadKeystore("JKS", "client-auth-test/keystore-client1.jks", "clientkey", "storepass");
     }
 
     @Test
+    public void testUploadKeystoreBCFKS() throws Exception {
+        testUploadKeystore("BCFKS", "client-auth-test/keystore-client1.bcfks", "clientkey", "averylongpassword");
+    }
+
+    /**
+     * PKCS12 is not valid in fips mode
+     */
+    @Ignore
     public void testUploadKeystorePKCS12() throws Exception {
-        testUploadKeystore("PKCS12", "client-auth-test/keystore-client2.p12", "clientkey", "pwd2");
+        testUploadKeystore("PKCS12", "client-auth-test/keystore-client2.p12", "clientkey", "averylongpassword");
     }
 
     @Test
@@ -933,9 +950,10 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
 
     private static void assertCertificate(ClientRepresentation client, String certOld, String pem) {
         pem = PemUtils.removeBeginEnd(pem);
-        final String certNew = client.getAttributes().get(JWTClientAuthenticator.CERTIFICATE_ATTR);
-        assertNotEquals("The old and new certificates shouldn't match", certOld, certNew);
-        assertEquals("Certificates don't match", pem, certNew);
+        String cert = PemUtils.removeBeginEnd(client.getAttributes().get(JWTClientAuthenticator.CERTIFICATE_ATTR));
+
+        assertNotEquals("The old and new certificates shouldn't match", certOld, cert);
+        assertEquals("Certificates don't match", pem, cert);
     }
 
     @Test
@@ -1192,7 +1210,7 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
     }
 
     private static KeyStore getKeystore(InputStream is, String storePassword, String format) throws Exception {
-        KeyStore keyStore = format.equals("JKS") ? KeyStore.getInstance(format) : KeyStore.getInstance(format, "BC");
+        KeyStore keyStore = format.equals("JKS") ? KeyStore.getInstance(format) : KeyStore.getInstance(format, "BCFIPS");
         keyStore.load(is, storePassword.toCharArray());
         return keyStore;
     }
@@ -1234,14 +1252,14 @@ public class ClientAuthSignedJWTTest extends AbstractKeycloakTest {
     private static PrivateKey decodePrivateKey(byte[] der, String algorithm) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException {
         PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(der);
         String keyAlg = getKeyAlgorithmFromJwaAlgorithm(algorithm);
-        KeyFactory kf = KeyFactory.getInstance(keyAlg, "BC");
+        KeyFactory kf = KeyFactory.getInstance(keyAlg);
         return kf.generatePrivate(spec);
     }
 
     private static PublicKey decodePublicKey(byte[] der, String algorithm) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException {
         X509EncodedKeySpec spec = new X509EncodedKeySpec(der);
         String keyAlg = getKeyAlgorithmFromJwaAlgorithm(algorithm);
-        KeyFactory kf = KeyFactory.getInstance(keyAlg, "BC");
+        KeyFactory kf = KeyFactory.getInstance(keyAlg);
         return kf.generatePublic(spec);
     }
 
