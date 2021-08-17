@@ -19,6 +19,7 @@ package org.keycloak.testsuite.util;
 
 import org.jboss.logging.Logger;
 import org.subethamail.smtp.server.SMTPServer;
+import org.subethamail.smtp.server.Session;
 
 import javax.mail.internet.MimeMessage;
 import javax.net.ssl.KeyManagerFactory;
@@ -56,7 +57,7 @@ public class SslMailServer {
     public static final String TRUSTED_CERTIFICATE = "keystore/keycloak.truststore.bcfks";
 
     //private key tested with invalid certificate
-    public static final String INVALID_KEY = "keystore/email_invalid.jks";
+    public static final String INVALID_KEY = "keystore/email_invalid.bcfks";
 
     private static MessageHandlerFactoryImpl messageHandlerFactory = new MessageHandlerFactoryImpl();
 
@@ -96,9 +97,9 @@ public class SslMailServer {
         InputStream keyStoreIS = null;
         try {
             keyStoreIS = new FileInputStream(privateKey);
-            char[] keyStorePassphrase = "secret".toCharArray();
+            char[] keyStorePassphrase = "averylongpassword".toCharArray();
             KeyStore ksKeys = null;
-            ksKeys = KeyStore.getInstance("JKS");
+            ksKeys = KeyStore.getInstance("BCFKS");
             ksKeys.load(keyStoreIS, keyStorePassphrase);
 
             // KeyManager decides which key material to use.
@@ -107,9 +108,8 @@ public class SslMailServer {
 
             // Trust store for client authentication.
             InputStream trustStoreIS = new FileInputStream(String.valueOf(MailServer.class.getClassLoader().getResource(TRUSTED_CERTIFICATE).getFile()));
-            char[] trustStorePassphrase = "secret".toCharArray();
-            KeyStore ksTrust = KeyStore.getInstance("JKS");
-            ksTrust.load(trustStoreIS, trustStorePassphrase);
+            KeyStore ksTrust = KeyStore.getInstance("BCFKS");
+            ksTrust.load(trustStoreIS, keyStorePassphrase);
 
             // TrustManager decides which certificate authorities to use.
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
