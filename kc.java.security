@@ -63,8 +63,9 @@
 security.provider.1=org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider C:DEFRND[HMACSHA256];ENABLE{ALL};
 security.provider.2=org.bouncycastle.jsse.provider.BouncyCastleJsseProvider fips:BCFIPS
 security.provider.3=com.sun.net.ssl.internal.ssl.Provider BCFIPS
-security.provider.4=ApacheXMLDSig
-security.provider.5=XMLDSig
+security.provider.4=SunJGSS
+security.provider.5=ApacheXMLDSig
+security.provider.6=XMLDSig
 #security.provider.3=sun.security.provider.Sun
 
 

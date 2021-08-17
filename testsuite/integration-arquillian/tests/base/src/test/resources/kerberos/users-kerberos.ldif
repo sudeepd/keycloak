@@ -18,7 +18,7 @@ objectClass: krb5kdcentry
 cn: KDC Service
 sn: Service
 uid: krbtgt
-userPassword: secret
+userPassword: secretlongerpassword
 krb5PrincipalName: krbtgt/KEYCLOAK.ORG@KEYCLOAK.ORG
 krb5KeyVersionNumber: 0
 
@@ -32,7 +32,7 @@ objectClass: krb5kdcentry
 cn: KDC Service
 sn: Service
 uid: krbtgt2
-userPassword: secret
+userPassword: secretlongerpassword
 krb5PrincipalName: krbtgt/KEYCLOAK.ORG@KC2.COM
 krb5KeyVersionNumber: 0
 
@@ -45,7 +45,7 @@ objectClass: krb5kdcentry
 cn: LDAP
 sn: Service
 uid: ldap
-userPassword: randall
+userPassword: randalllongerpassword
 krb5PrincipalName: ${ldapSaslPrincipal}
 krb5KeyVersionNumber: 0
 
@@ -58,7 +58,7 @@ objectClass: krb5kdcentry
 cn: HTTP
 sn: Service
 uid: HTTP
-userPassword: httppwd
+userPassword: httppwdlongerpassword
 krb5PrincipalName: HTTP/${hostname}@KEYCLOAK.ORG
 krb5KeyVersionNumber: 0
 
@@ -72,7 +72,7 @@ cn: Horatio
 sn: Nelson
 mail: hnelson@keycloak.org
 uid: hnelson
-userPassword: secret
+userPassword: secretlongerpassword
 krb5PrincipalName: hnelson@KEYCLOAK.ORG
 krb5KeyVersionNumber: 0
 
@@ -86,7 +86,7 @@ cn: Java
 sn: Duke
 mail: jduke@keycloak.org
 uid: jduke
-userPassword: theduke
+userPassword: thedukelongerpassword
 krb5PrincipalName: jduke@KEYCLOAK.ORG
 krb5KeyVersionNumber: 0
 
@@ -100,7 +100,7 @@ cn: My
 sn: Duke
 mail: MyDuke@keycloak.org
 uid: MyDuke
-userPassword: theduke
+userPassword: thedukelongerpassword
 krb5PrincipalName: MyDuke@KEYCLOAK.ORG
 krb5KeyVersionNumber: 0
 
@@ -113,6 +113,6 @@ objectClass: krb5kdcentry
 cn: gsstestserver
 sn: Service
 uid: gsstestserver
-userPassword: gsstestpwd
+userPassword: gsstestpwdlonger
 krb5PrincipalName: gsstestserver/xxx@KEYCLOAK.ORG
 krb5KeyVersionNumber: 0
