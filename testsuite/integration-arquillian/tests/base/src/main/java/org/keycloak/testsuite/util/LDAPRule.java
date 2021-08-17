@@ -59,7 +59,7 @@ public class LDAPRule extends ExternalResource {
 
     private static final String PROPERTY_KEYSTORE_FILE = "keystoreFile";
 
-    private static final String PRIVATE_KEY = "dependency/keystore/keycloak.jks";
+    private static final String PRIVATE_KEY = "dependency/keystore/keycloak.bcfks";
 
     private static final String PROPERTY_CERTIFICATE_PASSWORD = "certificatePassword";
 
@@ -182,7 +182,7 @@ public class LDAPRule extends ExternalResource {
     protected LDAPEmbeddedServer createServer() {
         defaultProperties.setProperty(LDAPEmbeddedServer.PROPERTY_DSF, LDAPEmbeddedServer.DSF_INMEMORY);
         defaultProperties.setProperty(LDAPEmbeddedServer.PROPERTY_LDIF_FILE, "classpath:ldap/users.ldif");
-        defaultProperties.setProperty(PROPERTY_CERTIFICATE_PASSWORD, "secret");
+        defaultProperties.setProperty(PROPERTY_CERTIFICATE_PASSWORD, "averylongpassword");
         defaultProperties.setProperty(PROPERTY_KEYSTORE_FILE, new File(PROJECT_BUILD_DIRECTORY, PRIVATE_KEY).getAbsolutePath());
 
         return new LDAPEmbeddedServer(defaultProperties);
