@@ -92,7 +92,7 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
             the login page (username/password) and return status 200. It should not return 401 with "Kerberos unsupported" page as that
             would display some strange dialogs in the web browser on windows - see KEYCLOAK-12424
             */
-            Response spnegoResponse = spnegoLogin("hnelson", "secret");
+            Response spnegoResponse = spnegoLogin("hnelson", "secretlongerpassword");
 
             Assert.assertEquals(200, spnegoResponse.getStatus());
             String context = spnegoResponse.readEntity(String.class);
@@ -112,7 +112,7 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
     public void spnegoLoginWithRequiredKerberosAuthExecutionTest() {
         AuthenticationExecutionModel.Requirement oldRequirement = updateKerberosAuthExecutionRequirement(
                 AuthenticationExecutionModel.Requirement.REQUIRED);
-        Response response = spnegoLogin("hnelson", "secret");
+        Response response = spnegoLogin("hnelson", "secretlongerpassword");
         updateKerberosAuthExecutionRequirement(oldRequirement);
 
         Assert.assertEquals(302, response.getStatus());
@@ -122,7 +122,7 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
     // KEYCLOAK-2102
     @Test
     public void spnegoCaseInsensitiveTest() throws Exception {
-        assertSuccessfulSpnegoLogin(getKerberosRule().isCaseSensitiveLogin() ? "MyDuke" : "myduke", "myduke", "theduke");
+        assertSuccessfulSpnegoLogin(getKerberosRule().isCaseSensitiveLogin() ? "MyDuke" : "myduke", "myduke", "thedukelongerpassword");
     }
 
 
@@ -134,15 +134,15 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
         // Login with username/password from kerberos
         changePasswordPage.open();
         loginPage.assertCurrent();
-        loginPage.login("jduke", "theduke");
+        loginPage.login("jduke", "thedukelongerpassword");
         changePasswordPage.assertCurrent();
 
         // Bad existing password
-        changePasswordPage.changePassword("theduke-invalid", "newPass", "newPass");
+        changePasswordPage.changePassword("theduke-invalidpassword", "newPasslongerpassword", "newPasslongerpassword");
         Assert.assertTrue(driver.getPageSource().contains("Invalid existing password."));
 
         // Change password is not possible as editMode is READ_ONLY
-        changePasswordPage.changePassword("theduke", "newPass", "newPass");
+        changePasswordPage.changePassword("thedukelongerpassword", "newPasslongerpassword", "newPasslongerpassword");
         Assert.assertTrue(
                 driver.getPageSource().contains("You can't update your password as your account is read-only"));
 
@@ -150,20 +150,20 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
         updateProviderEditMode(UserStorageProvider.EditMode.UNSYNCED);
 
         // Successfully change password now
-        changePasswordPage.changePassword("theduke", "newPass", "newPass");
+        changePasswordPage.changePassword("thedukelongerpassword", "newPasslongerpassword", "newPasslongerpassword");
         Assert.assertTrue(driver.getPageSource().contains("Your password has been updated."));
         changePasswordPage.logout();
 
         // Login with old password doesn't work, but with new password works
-        loginPage.login("jduke", "theduke");
+        loginPage.login("jduke", "thedukelongerpassword");
         loginPage.assertCurrent();
-        loginPage.login("jduke", "newPass");
+        loginPage.login("jduke", "newPasslongerpassword");
         changePasswordPage.assertCurrent();
         changePasswordPage.logout();
 
         // Assert SPNEGO login still with the old password as mode is unsynced
         events.clear();
-        Response spnegoResponse = spnegoLogin("jduke", "theduke");
+        Response spnegoResponse = spnegoLogin("jduke", "thedukelongerpassword");
         Assert.assertEquals(302, spnegoResponse.getStatus());
         List<UserRepresentation> users = testRealmResource().users().search("jduke", 0, 1);
         String userId = users.get(0).getId();
@@ -194,7 +194,7 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
         response.close();
 
         // SPNEGO login
-        AccessToken token = assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secret");
+        AccessToken token = assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secretlongerpassword");
 
         // Assert kerberos ticket in the accessToken can be re-used to authenticate against other 3rd party kerberos service (ApacheDS Server in this case)
         String serializedGssCredential = (String) token.getOtherClaims().get(KerberosConstants.GSS_DELEGATION_CREDENTIAL);
@@ -210,7 +210,7 @@ public abstract class AbstractKerberosSingleRealmTest extends AbstractKerberosTe
         clientResource.getProtocolMappers().delete(protocolMapperId);
 
         // Login and assert delegated credential not anymore
-        token = assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secret");
+        token = assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secretlongerpassword");
         Assert.assertFalse(token.getOtherClaims().containsKey(KerberosConstants.GSS_DELEGATION_CREDENTIAL));
 
         events.clear();

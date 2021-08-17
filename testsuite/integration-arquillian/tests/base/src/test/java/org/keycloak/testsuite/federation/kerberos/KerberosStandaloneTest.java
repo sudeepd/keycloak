@@ -72,7 +72,7 @@ public class KerberosStandaloneTest extends AbstractKerberosSingleRealmTest {
 
     @Test
     public void spnegoLoginTest() throws Exception {
-        assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secret");
+        assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secretlongerpassword");
 
         // Assert user was imported and hasn't any required action on him. Profile info is NOT synced from LDAP. Just username is filled and email is "guessed"
         assertUser("hnelson", "hnelson@" + kerberosRule.getConfig().get(KerberosConstants.KERBEROS_REALM).toLowerCase(), null, null, false);
@@ -89,7 +89,7 @@ public class KerberosStandaloneTest extends AbstractKerberosSingleRealmTest {
         testRealmResource().components().component(kerberosProvider.getId()).update(kerberosProvider);
 
         // Assert update profile page is displayed
-        Response spnegoResponse = spnegoLogin("hnelson", "secret");
+        Response spnegoResponse = spnegoLogin("hnelson", "secretlongerpassword");
         Assert.assertEquals(200, spnegoResponse.getStatus());
         String responseText = spnegoResponse.readEntity(String.class);
         Assert.assertTrue(responseText.contains("You need to update your user profile to activate your account."));
@@ -125,7 +125,7 @@ public class KerberosStandaloneTest extends AbstractKerberosSingleRealmTest {
          We do this through a JAX-RS client request.  We extract the action URL from the login page, and stuff it
          into selenium then just perform a regular login.
          */
-        Response spnegoResponse = spnegoLogin("hnelson", "secret");
+        Response spnegoResponse = spnegoLogin("hnelson", "secretlongerpassword");
         String context = spnegoResponse.readEntity(String.class);
         spnegoResponse.close();
 

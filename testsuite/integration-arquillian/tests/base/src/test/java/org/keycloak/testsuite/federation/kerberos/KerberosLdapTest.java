@@ -76,7 +76,7 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
 
     @Test
     public void spnegoLoginTest() throws Exception {
-        assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secret");
+        assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secretlongerpassword");
 
         // Assert user was imported and hasn't any required action on him. Profile info is synced from LDAP
         assertUser("hnelson", "hnelson@keycloak.org", "Horatio", "Nelson", false);
@@ -109,7 +109,7 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
 
         testRealmResource().clients().get(client.getId()).update(client);
 
-        assertSuccessfulSpnegoLogin(client.getClientId(),"hnelson", "hnelson", "secret");
+        assertSuccessfulSpnegoLogin(client.getClientId(),"hnelson", "hnelson", "secretlongerpassword");
     }
 
     @Test
@@ -117,10 +117,10 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
          updateProviderEditMode(UserStorageProvider.EditMode.WRITABLE);
 
          changePasswordPage.open();
-         loginPage.login("jduke", "theduke");
+         loginPage.login("jduke", "thedukelongerpassword");
 
          updateProviderValidatePasswordPolicy(true);
-         changePasswordPage.changePassword("theduke", "jduke", "jduke");
+         changePasswordPage.changePassword("thedukelongerpassword", "jduke", "jduke");
          Assert.assertTrue(driver.getPageSource().contains("Invalid"));
 
          updateProviderValidatePasswordPolicy(false);
@@ -129,7 +129,7 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
 
          // Change password back
          changePasswordPage.open();
-         changePasswordPage.changePassword("jduke", "theduke", "theduke");
+         changePasswordPage.changePassword("jduke", "thedukelongerpassword", "thedukelongerpassword");
     }
 
     @Test
@@ -144,11 +144,11 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
         //bypassPage.isCurrent();
         //bypassPage.clickContinue();
         loginPage.assertCurrent();
-        loginPage.login("jduke", "theduke");
+        loginPage.login("jduke", "thedukelongerpassword");
         Assert.assertTrue(changePasswordPage.isCurrent());
 
         // Successfully change password now
-        changePasswordPage.changePassword("theduke", "newPass", "newPass");
+        changePasswordPage.changePassword("thedukelongerpassword", "newPasslongerpassword", "newPasslongerpassword");
         Assert.assertTrue(driver.getPageSource().contains("Your password has been updated."));
         changePasswordPage.logout();
 
@@ -158,15 +158,15 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
         //bypassPage.clickContinue();
 
         // Login with old password doesn't work, but with new password works
-        loginPage.login("jduke", "theduke");
+        loginPage.login("jduke", "thedukelongerpassword");
         Assert.assertTrue(loginPage.isCurrent());
-        loginPage.login("jduke", "newPass");
+        loginPage.login("jduke", "newPasslongerpassword");
         changePasswordPage.assertCurrent();
         changePasswordPage.logout();
 
         // Assert SPNEGO login with the new password as mode is writable
         events.clear();
-        Response spnegoResponse = spnegoLogin("jduke", "newPass");
+        Response spnegoResponse = spnegoLogin("jduke", "newPasslongerpassword");
         org.keycloak.testsuite.Assert.assertEquals(302, spnegoResponse.getStatus());
         org.keycloak.testsuite.Assert.assertEquals(302, spnegoResponse.getStatus());
         List<UserRepresentation> users = testRealmResource().users().search("jduke", 0, 1);
@@ -183,8 +183,8 @@ public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
 
         // Change password back
         changePasswordPage.open();
-        loginPage.login("jduke", "newPass");
+        loginPage.login("jduke", "newPasslongerpassword");
         changePasswordPage.assertCurrent();
-        changePasswordPage.changePassword("newPass", "theduke", "theduke");
+        changePasswordPage.changePassword("newPasslongerpassword", "thedukelongerpassword", "thedukelongerpassword");
     }
 }

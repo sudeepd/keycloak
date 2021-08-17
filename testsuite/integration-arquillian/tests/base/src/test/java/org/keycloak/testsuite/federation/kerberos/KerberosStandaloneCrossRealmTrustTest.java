@@ -64,7 +64,7 @@ public class KerberosStandaloneCrossRealmTrustTest extends AbstractKerberosTest 
 
     @Test
     public void test01spnegoLoginSameRealmTest() throws Exception {
-        assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secret");
+        assertSuccessfulSpnegoLogin("hnelson", "hnelson", "secretlongerpassword");
         assertUser("hnelson", "hnelson@keycloak.org", null, null, false);
     }
 
@@ -73,7 +73,7 @@ public class KerberosStandaloneCrossRealmTrustTest extends AbstractKerberosTest 
     public void test02spnegoLoginDifferentRealmTest() throws Exception {
         // Cross-realm trust login. Realm KEYCLOAK.ORG trusts realm KC2.COM.
         // TODO: email hnelson2@keycloak.org is not very good. Will be better to have more flexibility for mapping of kerberos principals to Keycloak UserModel in KerberosFederationProvider (if needed)
-        assertSuccessfulSpnegoLogin("hnelson2@KC2.COM", "hnelson2", "secret");
+        assertSuccessfulSpnegoLogin("hnelson2@KC2.COM", "hnelson2", "secretlongerpassword");
         assertUser("hnelson2", "hnelson2@keycloak.org", null, null, false);
     }
 
