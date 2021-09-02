@@ -19,6 +19,7 @@ package org.keycloak.testsuite.actions;
 import java.util.Arrays;
 import java.util.List;
 
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Assert;
 import org.junit.Before;
@@ -222,7 +223,10 @@ public class AppInitiatedActionTotpSetupTest extends AbstractAppInitiatedActionT
         assertTrue(driver.findElement(By.id("kc-totp-secret-key")).getText().matches("[\\w]{4}( [\\w]{4}){7}"));
 
         assertEquals("Type: Time-based", driver.findElement(By.id("kc-totp-type")).getText());
-        assertEquals("Algorithm: SHA1", driver.findElement(By.id("kc-totp-algorithm")).getText());
+        if (CryptoServicesRegistrar.isInApprovedOnlyMode())
+            assertEquals("Algorithm: SHA256", driver.findElement(By.id("kc-totp-algorithm")).getText());
+        else
+            assertEquals("Algorithm: SHA1", driver.findElement(By.id("kc-totp-algorithm")).getText());
         assertEquals("Digits: 6", driver.findElement(By.id("kc-totp-digits")).getText());
         assertEquals("Interval: 30", driver.findElement(By.id("kc-totp-period")).getText());
 
@@ -332,7 +336,7 @@ public class AppInitiatedActionTotpSetupTest extends AbstractAppInitiatedActionT
         } finally {
             rep.setOtpPolicyDigits(6);
             rep.setOtpPolicyType("totp");
-            rep.setOtpPolicyAlgorithm("HmacSHA1");
+            rep.setOtpPolicyAlgorithm("HmacSHA256");
             realm.update(rep);
         }
     }

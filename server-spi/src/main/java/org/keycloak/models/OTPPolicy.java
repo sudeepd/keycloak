@@ -185,13 +185,18 @@ public class OTPPolicy implements Serializable {
             return "Google Authenticator";
         }
 
+        /**
+         * As per google authenticator setup documentation, it supports SHA 256
+         * We add sha256 as well to the supports list for FIPS
+         */
         @Override
         public boolean supports(OTPPolicy policy) {
             if (policy.digits != 6) {
                 return false;
             }
 
-            if (!policy.getAlgorithm().equals("HmacSHA1")) {
+            String algorithm = policy.getAlgorithm();
+            if (! (algorithm.equals("HmacSHA1") || algorithm.equals("HmacSHA256"))) {
                 return false;
             }
 

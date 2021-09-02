@@ -16,6 +16,7 @@
  */
 package org.keycloak.testsuite.account;
 
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.Assert;
@@ -1050,7 +1051,11 @@ public class AccountFormServiceTest extends AbstractTestRealmKeycloakTest {
         assertTrue(UIUtils.getTextFromElement(driver.findElement(By.id("kc-totp-secret-key"))).matches("[\\w]{4}( [\\w]{4}){7}"));
 
         assertEquals("Type: Time-based", driver.findElement(By.id("kc-totp-type")).getText());
-        assertEquals("Algorithm: SHA1", driver.findElement(By.id("kc-totp-algorithm")).getText());
+        if (CryptoServicesRegistrar.isInApprovedOnlyMode())
+            assertEquals("Algorithm: SHA256", driver.findElement(By.id("kc-totp-algorithm")).getText());
+        else
+            assertEquals("Algorithm: SHA1", driver.findElement(By.id("kc-totp-algorithm")).getText());
+
         assertEquals("Digits: 6", driver.findElement(By.id("kc-totp-digits")).getText());
         assertEquals("Interval: 30", driver.findElement(By.id("kc-totp-period")).getText());
 
