@@ -95,6 +95,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
+import org.apache.xml.security.stax.ext.XMLSecurityConstants;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
@@ -469,6 +470,13 @@ public class SAMLServletAdapterTest extends AbstractSAMLServletAdapterTest {
 
     private void assertSuccessfullyLoggedIn(AbstractPage page, String expectedText) {
         page.navigateTo();
+        try {
+            Thread.sleep(3000);
+        } catch (Exception ignored){
+
+        }
+        String pageSource = driver.getPageSource();
+        String ulr = driver.getCurrentUrl();
         waitUntilElement(By.xpath("//body")).text().contains(expectedText);
     }
 
@@ -540,7 +548,7 @@ public class SAMLServletAdapterTest extends AbstractSAMLServletAdapterTest {
     }
 
     @Test
-    public void singleLoginAndLogoutSAMLTest() {
+    public void singleLoginAndLogoutSAMLTest() throws Exception{
         assertSuccessfulLogin(salesPostServletPage, bburkeUser, testRealmSAMLPostLoginPage, "principal=bburke");
         assertSuccessfullyLoggedIn(salesPostSigServletPage, "principal=bburke");
         assertSuccessfullyLoggedIn(employee2ServletPage, "principal=bburke");

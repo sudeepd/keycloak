@@ -1,840 +1,705 @@
 {
-    "id": "demo",
-    "realm": "demo",
-    "enabled": true,
-    "sslRequired": "external",
-    "registrationAllowed": true,
-    "resetPasswordAllowed": true,
-    "privateKey": "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",
-    "publicKey": "MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAE=",
-    "requiredCredentials": [ "password" ],
-    "passwordPolicy": "hashIterations(1)",
-    "defaultRoles": [ "user" ],
-    "smtpServer": {
-        "from": "auto@keycloak.org",
-        "host": "localhost",
-        "port":"3025"
-    },
-    "eventsEnabled" : true,
-    "eventsListeners" : [ "jboss-logging" ],
-    "enabledEventTypes" : [ ],
-    "users" : [
-        {
-            "username" : "bburke",
-            "enabled": true,
-            "email" : "bburke@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
-            ],
-            "attributes" : {
-                "phone": "617"
-            },
-            "realmRoles": ["manager", "user"],
-            "applicationRoles": {
-                "http://localhost:8280/employee/": [ "employee" ],
-                "http://localhost:8280/employee2/": [ "empl.oyee", "employee" ],
-                "http://localhost:8280/employee-role-mapping/": ["employee"]
-            }
-        },
-        {
-            "username" : "bburke-additional-domain",
-            "enabled": true,
-            "email" : "bburke@redhat.com.additional.domain",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
-            ],
-            "attributes" : {
-                "phone": "617"
-            },
-            "realmRoles": ["manager", "user"],
-            "applicationRoles": {
-                "http://localhost:8280/employee/": [ "employee" ],
-                "http://localhost:8280/employee2/": [ "employee" ]
-            }
-        },
-        {
-            "username" : "unauthorized",
-            "enabled": true,
-            "email" : "unauthorized@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
-            ]
-        },
-        {
-            "username" : "topGroupUser",
-            "enabled": true,
-            "email" : "top@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
-            ],
-            "groups": [
-                "/top"
-            ]
-        },
-        {
-            "username" : "level2GroupUser",
-            "enabled": true,
-            "email" : "level2@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
-            ],
-            "groups": [
-                "/top/level2"
-            ]
-        },
-        {
-            "username" : "pedroigor",
-            "enabled": true,
-            "email" : "psilva@redhat.com",
-            "credentials" : [
-                { "type" : "password",
-                    "value" : "password" }
-            ],
-            "attributes" : {
-                "phone": "617"
-            },
-            "realmRoles": ["manager", "user"]
-        }
-    ],
-    "clients": [
-        {
-            "clientId": "http://localhost:8280/missing-assertion-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/missing-assertion-sig",
-            "redirectUris": [
-                "http://localhost:8080/missing-assertion-sig/*"
-            ],
-            "attributes": {
-                "saml_assertion_consumer_url_post": "http://localhost:8080/missing-assertion-sig/saml",
-                "saml_assertion_consumer_url_redirect": "http://localhost:8080/missing-assertion-sig/saml",
-                "saml_single_logout_service_url_post": "http://localhost:8080/missing-assertion-sig/saml",
-                "saml_single_logout_service_url_redirect": "http://localhost:8080/missing-assertion-sig/saml",
-                "saml.server.signature": "true",
-                "saml.assertion.signature": "false",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/bad-assertion-sales-post-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/bad-assertion-sales-post-sig/",
-            "adminUrl": "http://localhost:8080/bad-assertion-sales-post-sig/saml",
-            "redirectUris": [
-                "http://localhost:8080/bad-assertion-sales-post-sig/*"
-            ],
-            "attributes": {
-                "saml.assertion.signature": "true",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/input-portal/",
-            "enabled": true,
-            "fullScopeAllowed": true,
-            "protocol": "saml",
-            "baseUrl": "http://localhost:8080/input-portal",
-            "redirectUris": [
-                "http://localhost:8080/input-portal/*"
-            ],
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_assertion_consumer_url_post": "http://localhost:8080/input-portal/saml",
-                "saml_assertion_consumer_url_redirect": "http://localhost:8080/input-portal/saml",
-                "saml_single_logout_service_url_post": "http://localhost:8080/input-portal/saml",
-                "saml_single_logout_service_url_redirect": "http://localhost:8080/input-portal/saml"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-assertion-and-response-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-assertion-and-response-sig",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-assertion-and-response-sig/*"
-            ],
-            "attributes": {
-                "saml_assertion_consumer_url_post": "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
-                "saml_assertion_consumer_url_redirect": "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
-                "saml_single_logout_service_url_post": "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
-                "saml_single_logout_service_url_redirect": "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
-                "saml.server.signature": "true",
-                "saml.assertion.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post2/",
-            "enabled": true,
-            "fullScopeAllowed": true,
-            "protocol": "saml",
-            "baseUrl": "http://localhost:8080/sales-post2",
-            "redirectUris": [
-                "http://localhost:8080/sales-post2/*"
-            ],
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_assertion_consumer_url_post": "http://localhost:8080/sales-post2/saml",
-                "saml_single_logout_service_url_post": "http://localhost:8080/sales-post2/saml",
-                "saml_idp_initiated_sso_url_name": "sales-post2",
-                "saml_idp_initiated_sso_relay_state": "redirectTo=/foo"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/different-cookie-name/",
-            "enabled": true,
-            "fullScopeAllowed": true,
-            "protocol": "saml",
-            "baseUrl": "http://localhost:8080/different-cookie-name",
-            "redirectUris": [
-                "http://localhost:8080/different-cookie-name/*"
-            ],
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_assertion_consumer_url_post": "http://localhost:8080/different-cookie-name/saml",
-                "saml_single_logout_service_url_post": "http://localhost:8080/different-cookie-name/saml"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post/",
-            "enabled": true,
-            "fullScopeAllowed": true,
-            "protocol": "saml",
-            "baseUrl": "http://localhost:8080/sales-post",
-            "redirectUris": [
-                "http://localhost:8080/sales-post/*"
-            ],
-            "attributes": {
-                "saml_assertion_consumer_url_post": "http://localhost:8080/sales-post/saml",
-                "saml_single_logout_service_url_post": "http://localhost:8080/sales-post/saml",
-                "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name": "sales-post"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-clock-skew/",
-            "enabled": true,
-            "fullScopeAllowed": true,
-            "protocol": "saml",
-            "baseUrl": "http://localhost:8080/sales-post-clock-skew",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-clock-skew/*"
-            ],
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name": "sales-post-clock-skew"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-passive/",
-            "enabled": true,
-            "fullScopeAllowed": true,
-            "protocol": "saml",
-            "baseUrl": "http://localhost:8080/sales-post-passive",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-passive/*"
-            ],
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name": "sales-post-passive"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-sig",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-sig/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-sig-transient/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-sig-transient",
-            "adminUrl": "http://localhost:8080/sales-post-sig-transient",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-sig-transient/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-sig-persistent/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-sig-persistent",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-sig-persistent/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-sig-email/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-sig-email",
-            "adminUrl": "http://localhost:8080/sales-post-sig-email",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-sig-email/*"
-            ],
-            "attributes": {
-                "saml_force_name_id_format": "true",
-                "saml_name_id_format": "email",
-                "saml.server.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name" : "sales-post-sig-email",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/bad-realm-sales-post-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/bad-realm-sales-post-sig",
-            "adminUrl": "http://localhost:8080/bad-realm-sales-post-sig",
-            "redirectUris": [
-                "http://localhost:8080/bad-realm-sales-post-sig/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/bad-client-sales-post-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/bad-client-sales-post-sig",
-            "adminUrl": "http://localhost:8080/bad-client-sales-post-sig",
-            "redirectUris": [
-                "http://localhost:8080/bad-client-sales-post-sig/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkZVpwIMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wHhcNMTQxMDE2MTQyMDQ2WhcNMjQxMDE2MTQyMjI2WjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAAGTP0dnQXFoop50Jca/3NAtVB4AiVrLfR59Xe2M4FoYMnP+MB98ecmFwcr0nYQZuGdbAn0V59UT/vJqpcQ6GGnn3d4ymE9wEGFe0fgAaVRzcB8d1htAL/vsSmp0v/rZm+WdmKVjNk60UiO4jYvoR2bC8kydSqD/Nc3jzsjQOKXQhTgIcGNyKgSxx190A05Kh7myI7hZrqimfpDEPnI0ULq2UOu59bInyJs9j7mWWEm9JCtxJZuyjJjAVaZBpbbszJAM70rgCeMG1hJ3uuVigxla0ua9dRj8jITJ4SS2bMIxL6VppStZW3QEz24X6V4ClruDFgM9U+Ui5FVk4IYxc/W00+SXhhiXISnk4dEiimrG5CgZM/DmrtpdiIAzBWnS6YCaNUDC+ec0fMOyXEbHAD0zMc2PZp3PGtO4s+vU8amoAUgm51UnwoHEYQ5YvFEf0pq1RDT7u1hOs9X6KR93yBAkIBuCmfShSyKEU84gZ6S5sNRwXYgrnyMRh1aTgCUeNQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-enc/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-enc",
-            "redirectUris": [
-                "http://localhost:8080/sales-post-enc/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA512",
-                "saml.client.signature": "true",
-                "saml.encrypt": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkZVpwIMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wHhcNMTQxMDE2MTQyMDQ2WhcNMjQxMDE2MTQyMjI2WjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAAGTP0dnQXFoop50Jca/3NAtVB4AiVrLfR59Xe2M4FoYMnP+MB98ecmFwcr0nYQZuGdbAn0V59UT/vJqpcQ6GGnn3d4ymE9wEGFe0fgAaVRzcB8d1htAL/vsSmp0v/rZm+WdmKVjNk60UiO4jYvoR2bC8kydSqD/Nc3jzsjQOKXQhTgIcGNyKgSxx190A05Kh7myI7hZrqimfpDEPnI0ULq2UOu59bInyJs9j7mWWEm9JCtxJZuyjJjAVaZBpbbszJAM70rgCeMG1hJ3uuVigxla0ua9dRj8jITJ4SS2bMIxL6VppStZW3QEz24X6V4ClruDFgM9U+Ui5FVk4IYxc/W00+SXhhiXISnk4dEiimrG5CgZM/DmrtpdiIAzBWnS6YCaNUDC+ec0fMOyXEbHAD0zMc2PZp3PGtO4s+vU8amoAUgm51UnwoHEYQ5YvFEf0pq1RDT7u1hOs9X6KR93yBAkIBuCmfShSyKEU84gZ6S5sNRwXYgrnyMRh1aTgCUeNQ==",
-                "saml.encryption.certificate": "MIID8zCCAlugAwIBAgIGAUkZVpwIMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wHhcNMTQxMDE2MTQyMDQ2WhcNMjQxMDE2MTQyMjI2WjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAAGTP0dnQXFoop50Jca/3NAtVB4AiVrLfR59Xe2M4FoYMnP+MB98ecmFwcr0nYQZuGdbAn0V59UT/vJqpcQ6GGnn3d4ymE9wEGFe0fgAaVRzcB8d1htAL/vsSmp0v/rZm+WdmKVjNk60UiO4jYvoR2bC8kydSqD/Nc3jzsjQOKXQhTgIcGNyKgSxx190A05Kh7myI7hZrqimfpDEPnI0ULq2UOu59bInyJs9j7mWWEm9JCtxJZuyjJjAVaZBpbbszJAM70rgCeMG1hJ3uuVigxla0ua9dRj8jITJ4SS2bMIxL6VppStZW3QEz24X6V4ClruDFgM9U+Ui5FVk4IYxc/W00+SXhhiXISnk4dEiimrG5CgZM/DmrtpdiIAzBWnS6YCaNUDC+ec0fMOyXEbHAD0zMc2PZp3PGtO4s+vU8amoAUgm51UnwoHEYQ5YvFEf0pq1RDT7u1hOs9X6KR93yBAkIBuCmfShSyKEU84gZ6S5sNRwXYgrnyMRh1aTgCUeNQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/sales-post-enc-sign-assertions-only/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/sales-post-enc-sign-assertions-only",
-            "redirectUris": [
-            ],
-            "attributes": {
-                "saml.server.signature": "false",
-                "saml.assertion.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA512",
-                "saml.client.signature": "true",
-                "saml.encrypt": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkZVpwIMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wHhcNMTQxMDE2MTQyMDQ2WhcNMjQxMDE2MTQyMjI2WjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAAGTP0dnQXFoop50Jca/3NAtVB4AiVrLfR59Xe2M4FoYMnP+MB98ecmFwcr0nYQZuGdbAn0V59UT/vJqpcQ6GGnn3d4ymE9wEGFe0fgAaVRzcB8d1htAL/vsSmp0v/rZm+WdmKVjNk60UiO4jYvoR2bC8kydSqD/Nc3jzsjQOKXQhTgIcGNyKgSxx190A05Kh7myI7hZrqimfpDEPnI0ULq2UOu59bInyJs9j7mWWEm9JCtxJZuyjJjAVaZBpbbszJAM70rgCeMG1hJ3uuVigxla0ua9dRj8jITJ4SS2bMIxL6VppStZW3QEz24X6V4ClruDFgM9U+Ui5FVk4IYxc/W00+SXhhiXISnk4dEiimrG5CgZM/DmrtpdiIAzBWnS6YCaNUDC+ec0fMOyXEbHAD0zMc2PZp3PGtO4s+vU8amoAUgm51UnwoHEYQ5YvFEf0pq1RDT7u1hOs9X6KR93yBAkIBuCmfShSyKEU84gZ6S5sNRwXYgrnyMRh1aTgCUeNQ==",
-                "saml.encryption.certificate": "MIID8zCCAlugAwIBAgIGAUkZVpwIMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LWVuYy8wHhcNMTQxMDE2MTQyMDQ2WhcNMjQxMDE2MTQyMjI2WjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBAAGTP0dnQXFoop50Jca/3NAtVB4AiVrLfR59Xe2M4FoYMnP+MB98ecmFwcr0nYQZuGdbAn0V59UT/vJqpcQ6GGnn3d4ymE9wEGFe0fgAaVRzcB8d1htAL/vsSmp0v/rZm+WdmKVjNk60UiO4jYvoR2bC8kydSqD/Nc3jzsjQOKXQhTgIcGNyKgSxx190A05Kh7myI7hZrqimfpDEPnI0ULq2UOu59bInyJs9j7mWWEm9JCtxJZuyjJjAVaZBpbbszJAM70rgCeMG1hJ3uuVigxla0ua9dRj8jITJ4SS2bMIxL6VppStZW3QEz24X6V4ClruDFgM9U+Ui5FVk4IYxc/W00+SXhhiXISnk4dEiimrG5CgZM/DmrtpdiIAzBWnS6YCaNUDC+ec0fMOyXEbHAD0zMc2PZp3PGtO4s+vU8amoAUgm51UnwoHEYQ5YvFEf0pq1RDT7u1hOs9X6KR93yBAkIBuCmfShSyKEU84gZ6S5sNRwXYgrnyMRh1aTgCUeNQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/employee-sig/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-sig",
-            "redirectUris": [
-                "http://localhost:8080/employee-sig/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-sig",
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID7zCCAlegAwIBAgIGAUkfm7QQMA0GCSqGSIb3DQEBCwUAMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMB4XDTE0MTAxNzE5MzM1OFoXDTI0MTAxNzE5MzUzOFowLjEsMCoGA1UEAxMjaHR0cDovL2xvY2FsaG9zdDo4MDgwL2VtcGxveWVlLXNpZy8wggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCJAjodq1x7HsQw1OsKTN+qDGHkvY+EgjgjzOJmGZLkZYoxE2ziGfWiOaM9ZvlOqzB99gl1IPI/WI2cmiAZ1TPMXSvvnHgBsfB4KLdGcIieFcxdlmrPucFRnkOw1q1NJT6S9JnXKwpsYx3R/EdmW0Ltawe96bZchemjXn69O/FIFuqY45jvvMeaFaHPDP+2tH+XOiSfQ1ONbGQt4BmtoJiXfv/zNI5xyt9s7DVrc5XNcZgEt9hjyuY0/4TUsJEuQCjH0IaRAw+xPTTGWtXepqWjOJ+PGLQrVIWmZWKeniNgS+fkHI6LJ3t6Sdxb83VwBHoHPdClteBvtK2b90fJCox3gvRk+siFAYvBjkz8WNTO5bwFJ050R9LDZkTk424JxxvyeOCH9EYz91vxcWf8tGF+OO+ne9LME8ODvAsMJ+HHUuYv1tWrUcPHuZFST5jdwBV6WYi11PATc8z0Jy7udm/8DLFryTKvujO98afQFgrA1Bm+9dff+/BTS+pa9oOdFOMCAwEAAaMTMBEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAI4AhKxbjDc73+Uikwe4nThAg+cDSO36mHuqRphsyqi3DUEg9i6BpbOKaT6AvgK+wxTea/3S58c38oKPnoGsOzh4mcER55OLrCN6WAkCaawb3hXxNpY9TDreqRVy8TOCzoo8tlY+MfoPvmKYWEt8PKA8hExNufH+/Yt64Jq7rp2Jk4ctXQ/CZfc2b29k92u+THoRIGlrALfTNPIDox0D8XsGOXM7v3yTpFjq0FKJrQkjV+bMEE56VZ863a5d3svWE6/maSuYWgh6yQZJPBLBOXzGjrdLbRvvBarauPsv8w/lmtGtoMYPqC5p86/zfwtkDdHD4qkuUMp26zHZ4OIeThtZshKXA/nthB5vVvvigGu49drSBpD1RR8NwCHG3wBhPChvnyWo8cgju2uOngYP4yAiolcC2I6UyeK/ITs/E2I+cNdX/Q7gOztLmPHF0pJB2FbPkOi5rWz2CjlrOmYS9NRIgIu6mRdvgVBoYDspIV13qPp+lrv/ZDq4C+yHHEOEo"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/employee-sig-redir-noidpkey/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-sig-redir-noidpkey",
-            "redirectUris": [
-                "http://localhost:8080/employee-sig-redir-noidpkey/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-sig-redir-noidpkey",
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID7zCCAlegAwIBAgIGAUkfm7QQMA0GCSqGSIb3DQEBCwUAMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMB4XDTE0MTAxNzE5MzM1OFoXDTI0MTAxNzE5MzUzOFowLjEsMCoGA1UEAxMjaHR0cDovL2xvY2FsaG9zdDo4MDgwL2VtcGxveWVlLXNpZy8wggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCJAjodq1x7HsQw1OsKTN+qDGHkvY+EgjgjzOJmGZLkZYoxE2ziGfWiOaM9ZvlOqzB99gl1IPI/WI2cmiAZ1TPMXSvvnHgBsfB4KLdGcIieFcxdlmrPucFRnkOw1q1NJT6S9JnXKwpsYx3R/EdmW0Ltawe96bZchemjXn69O/FIFuqY45jvvMeaFaHPDP+2tH+XOiSfQ1ONbGQt4BmtoJiXfv/zNI5xyt9s7DVrc5XNcZgEt9hjyuY0/4TUsJEuQCjH0IaRAw+xPTTGWtXepqWjOJ+PGLQrVIWmZWKeniNgS+fkHI6LJ3t6Sdxb83VwBHoHPdClteBvtK2b90fJCox3gvRk+siFAYvBjkz8WNTO5bwFJ050R9LDZkTk424JxxvyeOCH9EYz91vxcWf8tGF+OO+ne9LME8ODvAsMJ+HHUuYv1tWrUcPHuZFST5jdwBV6WYi11PATc8z0Jy7udm/8DLFryTKvujO98afQFgrA1Bm+9dff+/BTS+pa9oOdFOMCAwEAAaMTMBEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAI4AhKxbjDc73+Uikwe4nThAg+cDSO36mHuqRphsyqi3DUEg9i6BpbOKaT6AvgK+wxTea/3S58c38oKPnoGsOzh4mcER55OLrCN6WAkCaawb3hXxNpY9TDreqRVy8TOCzoo8tlY+MfoPvmKYWEt8PKA8hExNufH+/Yt64Jq7rp2Jk4ctXQ/CZfc2b29k92u+THoRIGlrALfTNPIDox0D8XsGOXM7v3yTpFjq0FKJrQkjV+bMEE56VZ863a5d3svWE6/maSuYWgh6yQZJPBLBOXzGjrdLbRvvBarauPsv8w/lmtGtoMYPqC5p86/zfwtkDdHD4qkuUMp26zHZ4OIeThtZshKXA/nthB5vVvvigGu49drSBpD1RR8NwCHG3wBhPChvnyWo8cgju2uOngYP4yAiolcC2I6UyeK/ITs/E2I+cNdX/Q7gOztLmPHF0pJB2FbPkOi5rWz2CjlrOmYS9NRIgIu6mRdvgVBoYDspIV13qPp+lrv/ZDq4C+yHHEOEo"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/employee-sig-redir-opt-noidpkey/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-sig-redir-opt-noidpkey",
-            "redirectUris": [
-                "http://localhost:8080/employee-sig-redir-opt-noidpkey/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-sig-redir-opt-noidpkey",
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.server.signature.keyinfo.ext": "true",
-                "saml.client.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID7zCCAlegAwIBAgIGAUkfm7QQMA0GCSqGSIb3DQEBCwUAMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMB4XDTE0MTAxNzE5MzM1OFoXDTI0MTAxNzE5MzUzOFowLjEsMCoGA1UEAxMjaHR0cDovL2xvY2FsaG9zdDo4MDgwL2VtcGxveWVlLXNpZy8wggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCJAjodq1x7HsQw1OsKTN+qDGHkvY+EgjgjzOJmGZLkZYoxE2ziGfWiOaM9ZvlOqzB99gl1IPI/WI2cmiAZ1TPMXSvvnHgBsfB4KLdGcIieFcxdlmrPucFRnkOw1q1NJT6S9JnXKwpsYx3R/EdmW0Ltawe96bZchemjXn69O/FIFuqY45jvvMeaFaHPDP+2tH+XOiSfQ1ONbGQt4BmtoJiXfv/zNI5xyt9s7DVrc5XNcZgEt9hjyuY0/4TUsJEuQCjH0IaRAw+xPTTGWtXepqWjOJ+PGLQrVIWmZWKeniNgS+fkHI6LJ3t6Sdxb83VwBHoHPdClteBvtK2b90fJCox3gvRk+siFAYvBjkz8WNTO5bwFJ050R9LDZkTk424JxxvyeOCH9EYz91vxcWf8tGF+OO+ne9LME8ODvAsMJ+HHUuYv1tWrUcPHuZFST5jdwBV6WYi11PATc8z0Jy7udm/8DLFryTKvujO98afQFgrA1Bm+9dff+/BTS+pa9oOdFOMCAwEAAaMTMBEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAI4AhKxbjDc73+Uikwe4nThAg+cDSO36mHuqRphsyqi3DUEg9i6BpbOKaT6AvgK+wxTea/3S58c38oKPnoGsOzh4mcER55OLrCN6WAkCaawb3hXxNpY9TDreqRVy8TOCzoo8tlY+MfoPvmKYWEt8PKA8hExNufH+/Yt64Jq7rp2Jk4ctXQ/CZfc2b29k92u+THoRIGlrALfTNPIDox0D8XsGOXM7v3yTpFjq0FKJrQkjV+bMEE56VZ863a5d3svWE6/maSuYWgh6yQZJPBLBOXzGjrdLbRvvBarauPsv8w/lmtGtoMYPqC5p86/zfwtkDdHD4qkuUMp26zHZ4OIeThtZshKXA/nthB5vVvvigGu49drSBpD1RR8NwCHG3wBhPChvnyWo8cgju2uOngYP4yAiolcC2I6UyeK/ITs/E2I+cNdX/Q7gOztLmPHF0pJB2FbPkOi5rWz2CjlrOmYS9NRIgIu6mRdvgVBoYDspIV13qPp+lrv/ZDq4C+yHHEOEo"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/employee-sig-post-noidpkey/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-sig-post-noidpkey",
-            "redirectUris": [
-                "http://localhost:8080/employee-sig-post-noidpkey/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-sig-post-noidpkey",
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID7zCCAlegAwIBAgIGAUkfm7QQMA0GCSqGSIb3DQEBCwUAMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMB4XDTE0MTAxNzE5MzM1OFoXDTI0MTAxNzE5MzUzOFowLjEsMCoGA1UEAxMjaHR0cDovL2xvY2FsaG9zdDo4MDgwL2VtcGxveWVlLXNpZy8wggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCJAjodq1x7HsQw1OsKTN+qDGHkvY+EgjgjzOJmGZLkZYoxE2ziGfWiOaM9ZvlOqzB99gl1IPI/WI2cmiAZ1TPMXSvvnHgBsfB4KLdGcIieFcxdlmrPucFRnkOw1q1NJT6S9JnXKwpsYx3R/EdmW0Ltawe96bZchemjXn69O/FIFuqY45jvvMeaFaHPDP+2tH+XOiSfQ1ONbGQt4BmtoJiXfv/zNI5xyt9s7DVrc5XNcZgEt9hjyuY0/4TUsJEuQCjH0IaRAw+xPTTGWtXepqWjOJ+PGLQrVIWmZWKeniNgS+fkHI6LJ3t6Sdxb83VwBHoHPdClteBvtK2b90fJCox3gvRk+siFAYvBjkz8WNTO5bwFJ050R9LDZkTk424JxxvyeOCH9EYz91vxcWf8tGF+OO+ne9LME8ODvAsMJ+HHUuYv1tWrUcPHuZFST5jdwBV6WYi11PATc8z0Jy7udm/8DLFryTKvujO98afQFgrA1Bm+9dff+/BTS+pa9oOdFOMCAwEAAaMTMBEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAI4AhKxbjDc73+Uikwe4nThAg+cDSO36mHuqRphsyqi3DUEg9i6BpbOKaT6AvgK+wxTea/3S58c38oKPnoGsOzh4mcER55OLrCN6WAkCaawb3hXxNpY9TDreqRVy8TOCzoo8tlY+MfoPvmKYWEt8PKA8hExNufH+/Yt64Jq7rp2Jk4ctXQ/CZfc2b29k92u+THoRIGlrALfTNPIDox0D8XsGOXM7v3yTpFjq0FKJrQkjV+bMEE56VZ863a5d3svWE6/maSuYWgh6yQZJPBLBOXzGjrdLbRvvBarauPsv8w/lmtGtoMYPqC5p86/zfwtkDdHD4qkuUMp26zHZ4OIeThtZshKXA/nthB5vVvvigGu49drSBpD1RR8NwCHG3wBhPChvnyWo8cgju2uOngYP4yAiolcC2I6UyeK/ITs/E2I+cNdX/Q7gOztLmPHF0pJB2FbPkOi5rWz2CjlrOmYS9NRIgIu6mRdvgVBoYDspIV13qPp+lrv/ZDq4C+yHHEOEo"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/employee/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee",
-            "redirectUris": [
-                "http://localhost:8080/employee/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee",
-            "attributes": {
-                "saml.authnstatement": "true"
-            },
-            "protocolMappers": [
-                {
-                    "name": "email",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-property-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "email",
-                        "friendly.name": "email",
-                        "attribute.name": "urn:oid:1.2.840.113549.1.9.1",
-                        "attribute.nameformat": "URI Reference"
-                    }
-                },
-                {
-                    "name": "phone",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-attribute-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "phone",
-                        "attribute.name": "phone",
-                        "attribute.nameformat": "Basic"
-                    }
-                },
-                {
-                    "name": "role-list",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-role-list-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "attribute.name": "Role",
-                        "attribute.nameformat": "Basic",
-                        "single": "false"
-                    }
-                }
-            ]
-        },
-        {
-            "clientId": "http://localhost:8280/employee-acs/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-acs",
-            "redirectUris": [
-                "http://localhost:8080/employee-acs/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-acs",
-            "attributes": {
-                "saml.authnstatement": "true"
-            },
-            "protocolMappers": [
-                {
-                    "name": "email",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-property-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "email",
-                        "friendly.name": "email",
-                        "attribute.name": "urn:oid:1.2.840.113549.1.9.1",
-                        "attribute.nameformat": "URI Reference"
-                    }
-                },
-                {
-                    "name": "phone",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-attribute-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "phone",
-                        "attribute.name": "phone",
-                        "attribute.nameformat": "Basic"
-                    }
-                },
-                {
-                    "name": "role-list",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-role-list-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "attribute.name": "Role",
-                        "attribute.nameformat": "Basic",
-                        "single": "false"
-                    }
-                }
-            ]
-        },
-        {
-            "clientId": "http://localhost:8280/employee2/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee2",
-            "redirectUris": [
-                "http://localhost:8080/employee2/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee2",
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name" : "employee2"
-            },
-            "protocolMappers": [
-                {
-                    "name": "email",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-property-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "email",
-                        "friendly.name": "email",
-                        "attribute.name": "urn:oid:1.2.840.113549.1.9.1",
-                        "attribute.nameformat": "URI Reference"
-                    }
-                },
-                {
-                    "name": "phone",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-attribute-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "phone",
-                        "attribute.name": "phone",
-                        "attribute.nameformat": "Basic"
-                    }
-                },
-                {
-                    "name": "role-list",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-role-list-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "attribute.name": "Role",
-                        "attribute.nameformat": "Basic",
-                        "single": "false"
-                    }
-                }
-            ]
-        },
-        {
-            "clientId": "http://localhost:8280/employee-dom/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-dom",
-            "redirectUris": [
-                "http://localhost:8080/employee-dom/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-dom",
-            "attributes": {
-                "saml.assertion.signature": "true",
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID7TCCAlWgAwIBAgIEcFrChjANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtZG9tLzAeFw0xOTA3MDMwOTE1NDlaFw00NjExMTgwOTE1NDlaMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1kb20vMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADFATLmoM5Uye8tHsoKCad41aj9/zrYnoHU9k+UPWTuQWpUPed1fpObcT5IyApo+nULvlxpHvx9RrmS3Lfl2jStkd4Df1cNpWerPjux7Y9ePjYL4ItxUErX5IIpL7ShDRLgdfnJKZOwqZv3/aMmWTOZqYQN55r7F87XpIO578BGiWqrpJuDcSWgt+HT2prDuKYjeoGHMowmDCOqUUxgXXtmpPIkV4jDKHEzEtPDJjF1lS6ylOFx46KL43TMwHrn3zyPy2cumq0APAlRSuYZsDOHR+AQam97Hc65BAzwLVmQp4eG6XLdkdR4cVs86hisEiZOly0a/QYETMZHLmEf1qKQebycOTXgwTKxHnP6s670lw3ZquzO+qK8XwtE72weN+cRrhSCJGo9wC+9m7e2iR+/6CMha5qA/DuzbWJ9p6TkVFpsVR3yusW3q015GQkBBhibseU+x1qudPMdaCcKjm3ecehff4RnlD+iphtmLYRY74z2B3KUpHd3JdeVRnpyEiA=="
-            },
-            "protocolMappers": [
-                {
-                    "name": "email",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-property-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "email",
-                        "friendly.name": "email",
-                        "attribute.name": "urn:oid:1.2.840.113549.1.9.1",
-                        "attribute.nameformat": "URI Reference"
-                    }
-                },
-                {
-                    "name": "phone",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-attribute-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "phone",
-                        "attribute.name": "phone",
-                        "attribute.nameformat": "Basic"
-                    }
-                },
-                {
-                    "name": "role-list",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-role-list-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "attribute.name": "Role",
-                        "attribute.nameformat": "Basic",
-                        "single": "false"
-                    }
-                }
-            ]
-        },
-        {
-            "clientId": "http://localhost:8280/employee-sig-front/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "frontchannelLogout": true,
-            "baseUrl": "http://localhost:8080/employee-sig-front",
-            "redirectUris": [
-                "http://localhost:8080/employee-sig-front/*"
-            ],
-            "attributes": {
-                "saml.server.signature": "true",
-                "saml.client.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA1",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID7zCCAlegAwIBAgIGAUkfm7QQMA0GCSqGSIb3DQEBCwUAMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMB4XDTE0MTAxNzE5MzM1OFoXDTI0MTAxNzE5MzUzOFowLjEsMCoGA1UEAxMjaHR0cDovL2xvY2FsaG9zdDo4MDgwL2VtcGxveWVlLXNpZy8wggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCJAjodq1x7HsQw1OsKTN+qDGHkvY+EgjgjzOJmGZLkZYoxE2ziGfWiOaM9ZvlOqzB99gl1IPI/WI2cmiAZ1TPMXSvvnHgBsfB4KLdGcIieFcxdlmrPucFRnkOw1q1NJT6S9JnXKwpsYx3R/EdmW0Ltawe96bZchemjXn69O/FIFuqY45jvvMeaFaHPDP+2tH+XOiSfQ1ONbGQt4BmtoJiXfv/zNI5xyt9s7DVrc5XNcZgEt9hjyuY0/4TUsJEuQCjH0IaRAw+xPTTGWtXepqWjOJ+PGLQrVIWmZWKeniNgS+fkHI6LJ3t6Sdxb83VwBHoHPdClteBvtK2b90fJCox3gvRk+siFAYvBjkz8WNTO5bwFJ050R9LDZkTk424JxxvyeOCH9EYz91vxcWf8tGF+OO+ne9LME8ODvAsMJ+HHUuYv1tWrUcPHuZFST5jdwBV6WYi11PATc8z0Jy7udm/8DLFryTKvujO98afQFgrA1Bm+9dff+/BTS+pa9oOdFOMCAwEAAaMTMBEwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAYEAI4AhKxbjDc73+Uikwe4nThAg+cDSO36mHuqRphsyqi3DUEg9i6BpbOKaT6AvgK+wxTea/3S58c38oKPnoGsOzh4mcER55OLrCN6WAkCaawb3hXxNpY9TDreqRVy8TOCzoo8tlY+MfoPvmKYWEt8PKA8hExNufH+/Yt64Jq7rp2Jk4ctXQ/CZfc2b29k92u+THoRIGlrALfTNPIDox0D8XsGOXM7v3yTpFjq0FKJrQkjV+bMEE56VZ863a5d3svWE6/maSuYWgh6yQZJPBLBOXzGjrdLbRvvBarauPsv8w/lmtGtoMYPqC5p86/zfwtkDdHD4qkuUMp26zHZ4OIeThtZshKXA/nthB5vVvvigGu49drSBpD1RR8NwCHG3wBhPChvnyWo8cgju2uOngYP4yAiolcC2I6UyeK/ITs/E2I+cNdX/Q7gOztLmPHF0pJB2FbPkOi5rWz2CjlrOmYS9NRIgIu6mRdvgVBoYDspIV13qPp+lrv/ZDq4C+yHHEOEo"
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/ecp-sp/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/ecp-sp",
-            "redirectUris": [
-                "http://localhost:8080/ecp-sp/*"
-            ],
-            "attributes": {
-                "saml_assertion_consumer_url_post": "http://localhost:8080/ecp-sp/",
-                "saml_assertion_consumer_url_redirect": "http://localhost:8080/ecp-sp/",
-                "saml_single_logout_service_url_post": "http://localhost:8080/ecp-sp/",
-                "saml_single_logout_service_url_redirect": "http://localhost:8080/ecp-sp/",
-                "saml.server.signature": "true",
-                "saml.signature.algorithm": "RSA_SHA256",
-                "saml.client.signature": "true",
-                "saml.authnstatement": "true",
-                "saml.signing.certificate": "MIID8zCCAlugAwIBAgIGAUkY/l1kMA0GCSqGSIb3DQEBCwUAMDAxLjAsBgNVBAMTJWh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9zYWxlcy1wb3N0LXNpZy8wHhcNMTQxMDE2MTI0NDIzWhcNMjQxMDE2MTI0NjAzWjAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAiQI6Hatcex7EMNTrCkzfqgxh5L2PhII4I8ziZhmS5GWKMRNs4hn1ojmjPWb5TqswffYJdSDyP1iNnJogGdUzzF0r75x4AbHweCi3RnCInhXMXZZqz7nBUZ5DsNatTSU+kvSZ1ysKbGMd0fxHZltC7WsHvem2XIXpo15+vTvxSBbqmOOY77zHmhWhzwz/trR/lzokn0NTjWxkLeAZraCYl37/8zSOccrfbOw1a3OVzXGYBLfYY8rmNP+E1LCRLkAox9CGkQMPsT00xlrV3qalozifjxi0K1SFpmVinp4jYEvn5ByOiyd7ekncW/N1cAR6Bz3QpbXgb7Stm/dHyQqMd4L0ZPrIhQGLwY5M/FjUzuW8BSdOdEfSw2ZE5ONuCccb8njgh/RGM/db8XFn/LRhfjjvp3vSzBPDg7wLDCfhx1LmL9bVq1HDx7mRUk+Y3cAVelmItdTwE3PM9Ccu7nZv/Ayxa8kyr7ozvfGn0BYKwNQZvvXX3/vwU0vqWvaDnRTjAgMBAAGjEzARMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggGBADkzb3cN9PqP8cNasp4S4X4lrPrVO3uDHw4+JI9a8rHD6my2X/AdeGdu2QGwGk6TSj8epDPojCDDYQcfudhlG5y4BrnIHjlc7HJ+ExYOWk4jI6q57LNI0TDwUiJ0eLduarCUkCKGF6DrNEl1tVuIKZgdZtOkYWC1xWpesktm3D3xGJgrioMq7QId6TBqdXqpb8IUgXZZ3nNJVMwZ5dyL6GUpTdWvgK0GLh/CBw179e5b7rlInZHCN4xqI75/hrbTvYzeggxmt3YHaZ+EvuAtHgXtyKBDmj59OWUf+jx+CvmZm8QjHCV6hokrVL9f1ndvAKKMcyfjdtLRNrPYPLbhdtp5egKUCsZJc4mfIRONn8e/tEbSAhptEQSGA0OLfzeQHO+Xk36LyQ+TADEywpDlhrFSMs43btxy/D0PwZsHIgu4m7R5KFz+zEscwJphexXnBuhhPqxFaKgWHPVr4f2dYRnIoZtnAzdipTwQrc19V1OuIlLNDK5EjGtJrAAgnzwYQQ=="
-            }
-        },
-        {
-            "clientId": "http://localhost:8280/employee-role-mapping/",
-            "enabled": true,
-            "protocol": "saml",
-            "fullScopeAllowed": true,
-            "baseUrl": "http://localhost:8080/employee-role-mapping",
-            "redirectUris": [
-                "http://localhost:8080/employee-role-mapping/*"
-            ],
-            "adminUrl": "http://localhost:8080/employee-role-mapping",
-            "attributes": {
-                "saml.authnstatement": "true",
-                "saml_idp_initiated_sso_url_name" : "employee-role-mapping"
-            },
-            "protocolMappers": [
-                {
-                    "name": "email",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-property-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "email",
-                        "friendly.name": "email",
-                        "attribute.name": "urn:oid:1.2.840.113549.1.9.1",
-                        "attribute.nameformat": "URI Reference"
-                    }
-                },
-                {
-                    "name": "phone",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-user-attribute-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "user.attribute": "phone",
-                        "attribute.name": "phone",
-                        "attribute.nameformat": "Basic"
-                    }
-                },
-                {
-                    "name": "role-list",
-                    "protocol": "saml",
-                    "protocolMapper": "saml-role-list-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "attribute.name": "Role",
-                        "attribute.nameformat": "Basic",
-                        "single": "false"
-                    }
-                }
-            ]
-        }
-    ],
-    "groups" : [
-        {
-            "name": "top",
-            "attributes": {
-                "topAttribute": ["true"]
-
-            },
-            "realmRoles": ["manager"],
-            "subGroups": [
-                {
-                    "name": "level2",
-                    "realmRoles": ["user"],
-                    "attributes": {
-                        "level2Attribute": ["true"]
-
-                    }
-                }
-            ]
-        }
-    ],
-
-    "roles" : {
-        "realm" : [
-            {
-                "name": "manager",
-                "description": "Have Manager privileges"
-            },
-            {
-                "name": "user",
-                "description": "Have User privileges"
-            },
-            {
-                "name": "role.with.dots",
-                "description": "Role with dots in the name"
-            }
-        ],
-        "application" : {
-            "http://localhost:8280/employee/" : [
-                {
-                    "name": "employee",
-                    "description": "Have Employee privileges"
-                }
-            ],
-            "http://localhost:8280/employee2/" : [
-                {
-                    "name": "employee",
-                    "description": "Have Employee privileges"
-                },
-                {
-                    "name": "empl.oyee",
-                    "description": "Have Employee privileges with dots"
-                }
-            ],
-            "http://localhost:8280/employee-role-mapping/" : [
-                {
-                    "name": "employee",
-                    "description": "Have Employee privileges"
-                },
-                {
-                    "name": "supervisor",
-                    "description": "Have Supervisor privileges"
-                }
-            ]
-
-        }
+  "passwordPolicy" : "hashIterations(1)",
+  "clients" : [ {
+    "clientId" : "http://localhost:8280/missing-assertion-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/missing-assertion-sig",
+    "redirectUris" : [ "http://localhost:8080/missing-assertion-sig/*" ],
+    "attributes" : {
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/missing-assertion-sig/saml",
+      "saml_assertion_consumer_url_redirect" : "http://localhost:8080/missing-assertion-sig/saml",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/missing-assertion-sig/saml",
+      "saml_single_logout_service_url_redirect" : "http://localhost:8080/missing-assertion-sig/saml",
+      "saml.server.signature" : "true",
+      "saml.assertion.signature" : "false",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
     }
+  }, {
+    "clientId" : "http://localhost:8280/bad-assertion-sales-post-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/bad-assertion-sales-post-sig/",
+    "adminUrl" : "http://localhost:8080/bad-assertion-sales-post-sig/saml",
+    "redirectUris" : [ "http://localhost:8080/bad-assertion-sales-post-sig/*" ],
+    "attributes" : {
+      "saml.assertion.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/input-portal/",
+    "enabled" : true,
+    "fullScopeAllowed" : true,
+    "protocol" : "saml",
+    "baseUrl" : "http://localhost:8080/input-portal",
+    "redirectUris" : [ "http://localhost:8080/input-portal/*" ],
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/input-portal/saml",
+      "saml_assertion_consumer_url_redirect" : "http://localhost:8080/input-portal/saml",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/input-portal/saml",
+      "saml_single_logout_service_url_redirect" : "http://localhost:8080/input-portal/saml"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-assertion-and-response-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-assertion-and-response-sig",
+    "redirectUris" : [ "http://localhost:8080/sales-post-assertion-and-response-sig/*" ],
+    "attributes" : {
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
+      "saml_assertion_consumer_url_redirect" : "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
+      "saml_single_logout_service_url_redirect" : "http://localhost:8080/sales-post-assertion-and-response-sig/saml",
+      "saml.server.signature" : "true",
+      "saml.assertion.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post2/",
+    "enabled" : true,
+    "fullScopeAllowed" : true,
+    "protocol" : "saml",
+    "baseUrl" : "http://localhost:8080/sales-post2",
+    "redirectUris" : [ "http://localhost:8080/sales-post2/*" ],
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/sales-post2/saml",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/sales-post2/saml",
+      "saml_idp_initiated_sso_url_name" : "sales-post2",
+      "saml_idp_initiated_sso_relay_state" : "redirectTo=/foo"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/different-cookie-name/",
+    "enabled" : true,
+    "fullScopeAllowed" : true,
+    "protocol" : "saml",
+    "baseUrl" : "http://localhost:8080/different-cookie-name",
+    "redirectUris" : [ "http://localhost:8080/different-cookie-name/*" ],
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/different-cookie-name/saml",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/different-cookie-name/saml"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post/",
+    "enabled" : true,
+    "fullScopeAllowed" : true,
+    "protocol" : "saml",
+    "baseUrl" : "http://localhost:8080/sales-post",
+    "redirectUris" : [ "http://localhost:8080/sales-post/*" ],
+    "attributes" : {
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/sales-post/saml",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/sales-post/saml",
+      "saml.authnstatement" : "true",
+      "saml_idp_initiated_sso_url_name" : "sales-post"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-clock-skew/",
+    "enabled" : true,
+    "fullScopeAllowed" : true,
+    "protocol" : "saml",
+    "baseUrl" : "http://localhost:8080/sales-post-clock-skew",
+    "redirectUris" : [ "http://localhost:8080/sales-post-clock-skew/*" ],
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_idp_initiated_sso_url_name" : "sales-post-clock-skew"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-passive/",
+    "enabled" : true,
+    "fullScopeAllowed" : true,
+    "protocol" : "saml",
+    "baseUrl" : "http://localhost:8080/sales-post-passive",
+    "redirectUris" : [ "http://localhost:8080/sales-post-passive/*" ],
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_idp_initiated_sso_url_name" : "sales-post-passive"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-sig",
+    "redirectUris" : [ "http://localhost:8080/sales-post-sig/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-sig-transient/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-sig-transient",
+    "adminUrl" : "http://localhost:8080/sales-post-sig-transient",
+    "redirectUris" : [ "http://localhost:8080/sales-post-sig-transient/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-sig-persistent/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-sig-persistent",
+    "redirectUris" : [ "http://localhost:8080/sales-post-sig-persistent/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-sig-email/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-sig-email",
+    "adminUrl" : "http://localhost:8080/sales-post-sig-email",
+    "redirectUris" : [ "http://localhost:8080/sales-post-sig-email/*" ],
+    "attributes" : {
+      "saml_force_name_id_format" : "true",
+      "saml_name_id_format" : "email",
+      "saml.server.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml_idp_initiated_sso_url_name" : "sales-post-sig-email",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/bad-realm-sales-post-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/bad-realm-sales-post-sig",
+    "adminUrl" : "http://localhost:8080/bad-realm-sales-post-sig",
+    "redirectUris" : [ "http://localhost:8080/bad-realm-sales-post-sig/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/bad-client-sales-post-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/bad-client-sales-post-sig",
+    "adminUrl" : "http://localhost:8080/bad-client-sales-post-sig",
+    "redirectUris" : [ "http://localhost:8080/bad-client-sales-post-sig/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGVacCDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMB4XDTE0MTAxNjE0MjA0NloXDTI0MTAxNjE0MjIyNlowMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3QtZW5jLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOJamzrnnPtdVeh5Homr0unMlCA6P+QNOTxm7WhZoBuwj4V40vGyawHj7B/hkW06HwuD/IPfKWw+3Cr8u3Lkz2FQpemrPIc2Zh7GZv1WXqtqkyQ4B8DK0hvyJQj5tI9sxEPnVSniIvp1zfstun6LqfEm5HhgbeV6Z5Wbjc6N1ksArsyhA9kcPtJL77wvgp/DUhOVXc7H3t7hfo1iQTdu7rAQFRAOkTp0FB6mH45+70Vp3zKg3pbwNCeGoDSwA3pCv5kpQeVuyAn9M4g7qdeY7O/JzwexlA0xl7WAwenxpgebPjFxrFWkfo0Gzaj5ptuRn4sNDGXY8VHRLESqPH+1mGzld6W0sc6cpgt1ShGHCZ/D6KZAkbP7gqHRKHseT0cERBjoU010c0J+r6UaXKOqd88marUnBIwkusgeeenqxmNHnS2fS6bX45quALc22TNhSFMtPAYLUWEbxJ++UjTcop8GJmZIjSKxIrQ9025L77WCNYjY91qAOV7sysglulHYP5zY+1AUFQdRu+aNU4mYhp+bqJkwCVzqWry/3S3eR67xrX336OfATAY37XXSo2O8rs61RtBdPcB1cMIJHRwKM1THP7BGCC3dDBQ6hqlsoRVehG1QPgQONb5+cyWK6UdVBxukW3cibbuyA0rniW3yLJPbpR1Z2UIZ/EaafM3PAPlfAgMBAAEwDQYJKoZIhvcNAQELBQADggIBABIW6mVHWtLUwIQka1cL/XHL4lwBIyvk39z/yoQqRvA/aG7JrFf72FlyfYyewgEAVsXpGj1oCKg68YFuYka+UB3eqsqtjWUmPbh4nrqqasLqA90ZHDoyxVDy+lv1kBu9reliYrNVNeIqy1cUi16/JsW1wIWn3vioL0h/EAbag+5R9IU6JuGFkI6jc0F9ht47tDj7NxSnNnt77TdA2fD/0+9OjrEtZ1lFCEiJF6/QadpS+fBWl/WXv4qjcEoIzGM0jjaBHWYHMwNos0gbVtLsuJLRe89qym0yiOQMfttSr0cXRf+Jfn4z+ZB+hKFfeUCUqUnQMw+dtLAOIG09N8zY6bRr6wf7CRotR9Fk2TnwPdK4TfgJKb3iR2nxQlAniF/JyqW1ALWjhexum5pdhOfXWF0g2YhQXP16qJbk2AvzjzxYDDb74U7Jv0D39R2Tgud6MNITn6AjCBY5FM4ldt/Qxkem1uG+2snUsVeAmg+UzmceNygaX262JeTQR8SZTozD442DiMlUOo7/soI8C5CmkZAF01KJE4iTcfqYhD1N+4dGCXGgvntxhaPFtqoRDTT9sYBjIiRDPEQqe/0Q9HmZXPY3jjgKU4OStMouj5nwzzzhosm8n0myH0rC0VF7mB4tjJJJLxubaWXOZ/WN7QMWm/jFluHYyCxBArk5AYyh5GAD"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-enc/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-enc",
+    "redirectUris" : [ "http://localhost:8080/sales-post-enc/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA512",
+      "saml.client.signature" : "true",
+      "saml.encrypt" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGVacCDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMB4XDTE0MTAxNjE0MjA0NloXDTI0MTAxNjE0MjIyNlowMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3QtZW5jLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOJamzrnnPtdVeh5Homr0unMlCA6P+QNOTxm7WhZoBuwj4V40vGyawHj7B/hkW06HwuD/IPfKWw+3Cr8u3Lkz2FQpemrPIc2Zh7GZv1WXqtqkyQ4B8DK0hvyJQj5tI9sxEPnVSniIvp1zfstun6LqfEm5HhgbeV6Z5Wbjc6N1ksArsyhA9kcPtJL77wvgp/DUhOVXc7H3t7hfo1iQTdu7rAQFRAOkTp0FB6mH45+70Vp3zKg3pbwNCeGoDSwA3pCv5kpQeVuyAn9M4g7qdeY7O/JzwexlA0xl7WAwenxpgebPjFxrFWkfo0Gzaj5ptuRn4sNDGXY8VHRLESqPH+1mGzld6W0sc6cpgt1ShGHCZ/D6KZAkbP7gqHRKHseT0cERBjoU010c0J+r6UaXKOqd88marUnBIwkusgeeenqxmNHnS2fS6bX45quALc22TNhSFMtPAYLUWEbxJ++UjTcop8GJmZIjSKxIrQ9025L77WCNYjY91qAOV7sysglulHYP5zY+1AUFQdRu+aNU4mYhp+bqJkwCVzqWry/3S3eR67xrX336OfATAY37XXSo2O8rs61RtBdPcB1cMIJHRwKM1THP7BGCC3dDBQ6hqlsoRVehG1QPgQONb5+cyWK6UdVBxukW3cibbuyA0rniW3yLJPbpR1Z2UIZ/EaafM3PAPlfAgMBAAEwDQYJKoZIhvcNAQELBQADggIBABIW6mVHWtLUwIQka1cL/XHL4lwBIyvk39z/yoQqRvA/aG7JrFf72FlyfYyewgEAVsXpGj1oCKg68YFuYka+UB3eqsqtjWUmPbh4nrqqasLqA90ZHDoyxVDy+lv1kBu9reliYrNVNeIqy1cUi16/JsW1wIWn3vioL0h/EAbag+5R9IU6JuGFkI6jc0F9ht47tDj7NxSnNnt77TdA2fD/0+9OjrEtZ1lFCEiJF6/QadpS+fBWl/WXv4qjcEoIzGM0jjaBHWYHMwNos0gbVtLsuJLRe89qym0yiOQMfttSr0cXRf+Jfn4z+ZB+hKFfeUCUqUnQMw+dtLAOIG09N8zY6bRr6wf7CRotR9Fk2TnwPdK4TfgJKb3iR2nxQlAniF/JyqW1ALWjhexum5pdhOfXWF0g2YhQXP16qJbk2AvzjzxYDDb74U7Jv0D39R2Tgud6MNITn6AjCBY5FM4ldt/Qxkem1uG+2snUsVeAmg+UzmceNygaX262JeTQR8SZTozD442DiMlUOo7/soI8C5CmkZAF01KJE4iTcfqYhD1N+4dGCXGgvntxhaPFtqoRDTT9sYBjIiRDPEQqe/0Q9HmZXPY3jjgKU4OStMouj5nwzzzhosm8n0myH0rC0VF7mB4tjJJJLxubaWXOZ/WN7QMWm/jFluHYyCxBArk5AYyh5GAD",
+      "saml.encryption.certificate" : "MIIE2TCCAsECBgFJGVacCDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMB4XDTE0MTAxNjE0MjA0NloXDTI0MTAxNjE0MjIyNlowMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3QtZW5jLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOdEVIf3CPSAB8Efh5X+VmB5fILUsv/QONcanYJVpJSSKXKXqy18I8gy31YlhG4nW2t+y/bbYiX5nQqoIxcJZIOLKdJUTwsZoCn69ROnsxnfMOlAXJtUce9zelPDe6lHEz0Sr1EydWdOWfNv2ctSA2RvQvOOBm/7Imv8J4h/q4/RtEZlziIGCLXcpmyj9EmdBUCtnjbcvRPzgaA0Lbguex0jjGMTiTVQuLJCLYJJoDCPcrFzdciwLEROxowXPMgkxj0ZJKDTKevF6VRqsCLyEgO4Y8op7Bb2nQE9wkc8grmG7NxogT1Fi+906n7w55I0wQjYIh5ODZlyq5SkDxq9JN7cKonSA4AOEQCfZIp6nJDWyeMApbQB+H9MxXc9cUzRs+s3XBjaubUKH3sWKl/rZDouGbqCYJ5wnykpsk7P79pHtFKkR3vfsLCiswBGI+cjXFJLJlIFqg13MbkptGqFuCyvXUEl/KwcEdfghGOJTDXou/05hLX+7UvbrcYotL3uinVw5Wa6j5bPriBIlaHxjZoLo+NxGh0djRVXw1Jwe1Z6CkFe+Am7lpN6QOtFPsaf0KD6JFb+IRkrBgqJ1cYrkZr7+Gp/yTl86ZtdNK31qzyJcVAZU7Sa18FFuK3G6YmDMQwqGZnv0klzl+hcHwjdTFggENsSBJDiqtO8oKDRR9DvAgMBAAEwDQYJKoZIhvcNAQELBQADggIBAJ4BYkQvooM7k9+fx9WzEC3Xov948jdHjnvoBw+J8CaF2pnski795wKqa3c9YOxTesjlY6JjlFwb9o6T0uv1lm1Uhh55anXDn69fSIIVLEW2C70NpoYU1vIfYCC+O8Hahbu3GiVLuRrzdwpApMMqb2EAXoxUhInBjztOYfvzn6lVolE42HBmNWKrp2WOANA/d4tftAFaoCEtUIVl0/BLP2hRe2h/gJ2QYvW4JFNEBL4lq6tvB0mw1CjQJmPCVMBqKuTjC5gpcw7gHwu/A47TUPWxQwrGq7WMv7v3OqgBPIYVOtVRXisp4TSPCV170Kh4zyyvCmdEDvuJC676Netu9Xv9VFYHJPRk9jUuaVh7WPFYleCurUoZ4aMz/05cCqOw38j0wThQtLosY/EWCnpzifHhEdR+oGqPBUn4MhUSnINkhW5h4+ZNp2g6f3cfOxc8XecJ5PSEywYWo5++7RKnBnkDAsIMkpseyJtIQaXNKOIhnfiGSH/SiO7hDlfMsEY3/fFHisOLpcdY8JZ4ZOiZE450Hxw+PdXi/VavWqmvEVe+a17RJotGN9zJ9e2kFKHNDpISNhdCITWs/juddHjd6Fi717NIAXyvixjf0JVl8WXufQknUZJsIbc+BAdfiwPjwLqFzLLqAKntNseIxSGMheyd1WfNdMHiRRi4nA8Im1D2"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/sales-post-enc-sign-assertions-only/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/sales-post-enc-sign-assertions-only",
+    "redirectUris" : [ ],
+    "attributes" : {
+      "saml.server.signature" : "false",
+      "saml.assertion.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA512",
+      "saml.client.signature" : "true",
+      "saml.encrypt" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGVacCDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMB4XDTE0MTAxNjE0MjA0NloXDTI0MTAxNjE0MjIyNlowMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3QtZW5jLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOJamzrnnPtdVeh5Homr0unMlCA6P+QNOTxm7WhZoBuwj4V40vGyawHj7B/hkW06HwuD/IPfKWw+3Cr8u3Lkz2FQpemrPIc2Zh7GZv1WXqtqkyQ4B8DK0hvyJQj5tI9sxEPnVSniIvp1zfstun6LqfEm5HhgbeV6Z5Wbjc6N1ksArsyhA9kcPtJL77wvgp/DUhOVXc7H3t7hfo1iQTdu7rAQFRAOkTp0FB6mH45+70Vp3zKg3pbwNCeGoDSwA3pCv5kpQeVuyAn9M4g7qdeY7O/JzwexlA0xl7WAwenxpgebPjFxrFWkfo0Gzaj5ptuRn4sNDGXY8VHRLESqPH+1mGzld6W0sc6cpgt1ShGHCZ/D6KZAkbP7gqHRKHseT0cERBjoU010c0J+r6UaXKOqd88marUnBIwkusgeeenqxmNHnS2fS6bX45quALc22TNhSFMtPAYLUWEbxJ++UjTcop8GJmZIjSKxIrQ9025L77WCNYjY91qAOV7sysglulHYP5zY+1AUFQdRu+aNU4mYhp+bqJkwCVzqWry/3S3eR67xrX336OfATAY37XXSo2O8rs61RtBdPcB1cMIJHRwKM1THP7BGCC3dDBQ6hqlsoRVehG1QPgQONb5+cyWK6UdVBxukW3cibbuyA0rniW3yLJPbpR1Z2UIZ/EaafM3PAPlfAgMBAAEwDQYJKoZIhvcNAQELBQADggIBABIW6mVHWtLUwIQka1cL/XHL4lwBIyvk39z/yoQqRvA/aG7JrFf72FlyfYyewgEAVsXpGj1oCKg68YFuYka+UB3eqsqtjWUmPbh4nrqqasLqA90ZHDoyxVDy+lv1kBu9reliYrNVNeIqy1cUi16/JsW1wIWn3vioL0h/EAbag+5R9IU6JuGFkI6jc0F9ht47tDj7NxSnNnt77TdA2fD/0+9OjrEtZ1lFCEiJF6/QadpS+fBWl/WXv4qjcEoIzGM0jjaBHWYHMwNos0gbVtLsuJLRe89qym0yiOQMfttSr0cXRf+Jfn4z+ZB+hKFfeUCUqUnQMw+dtLAOIG09N8zY6bRr6wf7CRotR9Fk2TnwPdK4TfgJKb3iR2nxQlAniF/JyqW1ALWjhexum5pdhOfXWF0g2YhQXP16qJbk2AvzjzxYDDb74U7Jv0D39R2Tgud6MNITn6AjCBY5FM4ldt/Qxkem1uG+2snUsVeAmg+UzmceNygaX262JeTQR8SZTozD442DiMlUOo7/soI8C5CmkZAF01KJE4iTcfqYhD1N+4dGCXGgvntxhaPFtqoRDTT9sYBjIiRDPEQqe/0Q9HmZXPY3jjgKU4OStMouj5nwzzzhosm8n0myH0rC0VF7mB4tjJJJLxubaWXOZ/WN7QMWm/jFluHYyCxBArk5AYyh5GAD",
+      "saml.encryption.certificate" : "MIIE2TCCAsECBgFJGVacCDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1lbmMvMB4XDTE0MTAxNjE0MjA0NloXDTI0MTAxNjE0MjIyNlowMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3QtZW5jLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOdEVIf3CPSAB8Efh5X+VmB5fILUsv/QONcanYJVpJSSKXKXqy18I8gy31YlhG4nW2t+y/bbYiX5nQqoIxcJZIOLKdJUTwsZoCn69ROnsxnfMOlAXJtUce9zelPDe6lHEz0Sr1EydWdOWfNv2ctSA2RvQvOOBm/7Imv8J4h/q4/RtEZlziIGCLXcpmyj9EmdBUCtnjbcvRPzgaA0Lbguex0jjGMTiTVQuLJCLYJJoDCPcrFzdciwLEROxowXPMgkxj0ZJKDTKevF6VRqsCLyEgO4Y8op7Bb2nQE9wkc8grmG7NxogT1Fi+906n7w55I0wQjYIh5ODZlyq5SkDxq9JN7cKonSA4AOEQCfZIp6nJDWyeMApbQB+H9MxXc9cUzRs+s3XBjaubUKH3sWKl/rZDouGbqCYJ5wnykpsk7P79pHtFKkR3vfsLCiswBGI+cjXFJLJlIFqg13MbkptGqFuCyvXUEl/KwcEdfghGOJTDXou/05hLX+7UvbrcYotL3uinVw5Wa6j5bPriBIlaHxjZoLo+NxGh0djRVXw1Jwe1Z6CkFe+Am7lpN6QOtFPsaf0KD6JFb+IRkrBgqJ1cYrkZr7+Gp/yTl86ZtdNK31qzyJcVAZU7Sa18FFuK3G6YmDMQwqGZnv0klzl+hcHwjdTFggENsSBJDiqtO8oKDRR9DvAgMBAAEwDQYJKoZIhvcNAQELBQADggIBAJ4BYkQvooM7k9+fx9WzEC3Xov948jdHjnvoBw+J8CaF2pnski795wKqa3c9YOxTesjlY6JjlFwb9o6T0uv1lm1Uhh55anXDn69fSIIVLEW2C70NpoYU1vIfYCC+O8Hahbu3GiVLuRrzdwpApMMqb2EAXoxUhInBjztOYfvzn6lVolE42HBmNWKrp2WOANA/d4tftAFaoCEtUIVl0/BLP2hRe2h/gJ2QYvW4JFNEBL4lq6tvB0mw1CjQJmPCVMBqKuTjC5gpcw7gHwu/A47TUPWxQwrGq7WMv7v3OqgBPIYVOtVRXisp4TSPCV170Kh4zyyvCmdEDvuJC676Netu9Xv9VFYHJPRk9jUuaVh7WPFYleCurUoZ4aMz/05cCqOw38j0wThQtLosY/EWCnpzifHhEdR+oGqPBUn4MhUSnINkhW5h4+ZNp2g6f3cfOxc8XecJ5PSEywYWo5++7RKnBnkDAsIMkpseyJtIQaXNKOIhnfiGSH/SiO7hDlfMsEY3/fFHisOLpcdY8JZ4ZOiZE450Hxw+PdXi/VavWqmvEVe+a17RJotGN9zJ9e2kFKHNDpISNhdCITWs/juddHjd6Fi717NIAXyvixjf0JVl8WXufQknUZJsIbc+BAdfiwPjwLqFzLLqAKntNseIxSGMheyd1WfNdMHiRRi4nA8Im1D2"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/employee-sig/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-sig",
+    "redirectUris" : [ "http://localhost:8080/employee-sig/*" ],
+    "adminUrl" : "http://localhost:8080/employee-sig",
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE1TCCAr0CBgFJH5u0EDANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtc2lnLzAeFw0xNDEwMTcxOTMzNThaFw0yNDEwMTcxOTM1MzhaMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA58yzlZ5qvlX3KTUUNMpfgAwY667q4WOGEDc9mmj0yXESGVjuprPDfjRrm6g+ljKzGSJtG/jPgWJlBwYw5OgXSSBp/vUrOXdfhVUhPUu7IYPn+rJsRbwnHMRdawlPin2zWEkYGJKzYsBV+LysBYUOsSIVOkGhFUTtnb/jU70O9KUDUf9aHFsQiWifCnX6lJGIf9u3CIW2BdFEEAKNGbQZlo+SbIYgGjV3w3AYr8ZSgTYBFHMcHwV0J5fwQNAPqVF4hBiM0fwcu6cLWe5dP//wQCeDLnKamG7mltp/WNkjoCOSyM1OqmZfi7NRimIfJX4osssvDzTp4uuZI2UaWBIoGquugwauwq8A4vMG3OEvFhofLnKTJSl8WuC9CR5sAsHONlXGroMTnMAvwFFD1oUiGm+He9J4sVAgmXrReJU+BJMfFwNuNRrrao1G7tZQb2WIChmyNDg+b/cukx191VZXkRaKmdwZfpCdffEDq6zgh7kSnDN8A3PXnga2o6eIuQTbUAiQ9BhVYtBD2su0TGUSI/xgjad9oHf8YnP6uZyE12Qq8xWdauHwRJfZ/KpWVI2fWX7f5H/SafazzdSAvUd3Tfgw9LGDE0H7A41482n3sl6fAeqR3mxP/jyuePgdCx+9iidKuiYX/P9DIyKrcvlhludKKK2lBitj7uGbJnoDNYUCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEADYeo1E/1mHvKAs93GpjKswLoDZTREw7rxn4m0ODVx6r24oqibf6bUdPSqN310mqLvgdbcqQLTxPNEQXUzcZ2YpAn1aZw3KyHRWDA4miI3q56YN03dILS0YeHndIU8CdbcU9w7knfR6WbDaeLymHN4HEy/xhrsD4efJbWZsktyHAK6hcLjncDk1LrZ+NzSn2sY6hBi3xWL4Cfy4Q+vAbay5Xl8iIzxiVM9lssUwQcNh7Xo2wMT+u5CL46T3q+pH6AkxOs/0oBKk/Ma5CzD+DADtmD4HiDm1RNqxC6y6YWw8X8aaLgbGMmxlfkNW5ir6wdCBnYQPdnuLxi2dOpu3J0LKH/13fzuwlgQQwtGrIsAF/LAu2v/g97nuWYipKUGeTe1GOgyKqB7gZCJCdS6jTj6anXuJlGQJoqBALexrzAqSCuJWov/Cp3R7WnEY/k+DLCHCbwnmggz0pLuBeKYraWly+4gf+lvCHS940b1wKrxriyLucP3dpshW33xsK58F7Dyj1uUHPGEs9abBIKIc6auJZyiJ9ks2vIGTBvZIxR/zpOm4GIbW/N202mCIEpJVB8dMO8sN/TBGl1g+x1HXQzei6uZqEA2LH7juFnl6Ewtft+9OAIVR9kBIM1rDDYa3Usae6js0Oz0BOxMK8bWUyN7EXbWuObW166gMYODyeje8Q="
+    }
+  }, {
+    "clientId" : "http://localhost:8280/employee-sig-redir-noidpkey/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-sig-redir-noidpkey",
+    "redirectUris" : [ "http://localhost:8080/employee-sig-redir-noidpkey/*" ],
+    "adminUrl" : "http://localhost:8080/employee-sig-redir-noidpkey",
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE1TCCAr0CBgFJH5u0EDANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtc2lnLzAeFw0xNDEwMTcxOTMzNThaFw0yNDEwMTcxOTM1MzhaMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA58yzlZ5qvlX3KTUUNMpfgAwY667q4WOGEDc9mmj0yXESGVjuprPDfjRrm6g+ljKzGSJtG/jPgWJlBwYw5OgXSSBp/vUrOXdfhVUhPUu7IYPn+rJsRbwnHMRdawlPin2zWEkYGJKzYsBV+LysBYUOsSIVOkGhFUTtnb/jU70O9KUDUf9aHFsQiWifCnX6lJGIf9u3CIW2BdFEEAKNGbQZlo+SbIYgGjV3w3AYr8ZSgTYBFHMcHwV0J5fwQNAPqVF4hBiM0fwcu6cLWe5dP//wQCeDLnKamG7mltp/WNkjoCOSyM1OqmZfi7NRimIfJX4osssvDzTp4uuZI2UaWBIoGquugwauwq8A4vMG3OEvFhofLnKTJSl8WuC9CR5sAsHONlXGroMTnMAvwFFD1oUiGm+He9J4sVAgmXrReJU+BJMfFwNuNRrrao1G7tZQb2WIChmyNDg+b/cukx191VZXkRaKmdwZfpCdffEDq6zgh7kSnDN8A3PXnga2o6eIuQTbUAiQ9BhVYtBD2su0TGUSI/xgjad9oHf8YnP6uZyE12Qq8xWdauHwRJfZ/KpWVI2fWX7f5H/SafazzdSAvUd3Tfgw9LGDE0H7A41482n3sl6fAeqR3mxP/jyuePgdCx+9iidKuiYX/P9DIyKrcvlhludKKK2lBitj7uGbJnoDNYUCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEADYeo1E/1mHvKAs93GpjKswLoDZTREw7rxn4m0ODVx6r24oqibf6bUdPSqN310mqLvgdbcqQLTxPNEQXUzcZ2YpAn1aZw3KyHRWDA4miI3q56YN03dILS0YeHndIU8CdbcU9w7knfR6WbDaeLymHN4HEy/xhrsD4efJbWZsktyHAK6hcLjncDk1LrZ+NzSn2sY6hBi3xWL4Cfy4Q+vAbay5Xl8iIzxiVM9lssUwQcNh7Xo2wMT+u5CL46T3q+pH6AkxOs/0oBKk/Ma5CzD+DADtmD4HiDm1RNqxC6y6YWw8X8aaLgbGMmxlfkNW5ir6wdCBnYQPdnuLxi2dOpu3J0LKH/13fzuwlgQQwtGrIsAF/LAu2v/g97nuWYipKUGeTe1GOgyKqB7gZCJCdS6jTj6anXuJlGQJoqBALexrzAqSCuJWov/Cp3R7WnEY/k+DLCHCbwnmggz0pLuBeKYraWly+4gf+lvCHS940b1wKrxriyLucP3dpshW33xsK58F7Dyj1uUHPGEs9abBIKIc6auJZyiJ9ks2vIGTBvZIxR/zpOm4GIbW/N202mCIEpJVB8dMO8sN/TBGl1g+x1HXQzei6uZqEA2LH7juFnl6Ewtft+9OAIVR9kBIM1rDDYa3Usae6js0Oz0BOxMK8bWUyN7EXbWuObW166gMYODyeje8Q="
+    }
+  }, {
+    "clientId" : "http://localhost:8280/employee-sig-redir-opt-noidpkey/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-sig-redir-opt-noidpkey",
+    "redirectUris" : [ "http://localhost:8080/employee-sig-redir-opt-noidpkey/*" ],
+    "adminUrl" : "http://localhost:8080/employee-sig-redir-opt-noidpkey",
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.server.signature.keyinfo.ext" : "true",
+      "saml.client.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE1TCCAr0CBgFJH5u0EDANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtc2lnLzAeFw0xNDEwMTcxOTMzNThaFw0yNDEwMTcxOTM1MzhaMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA58yzlZ5qvlX3KTUUNMpfgAwY667q4WOGEDc9mmj0yXESGVjuprPDfjRrm6g+ljKzGSJtG/jPgWJlBwYw5OgXSSBp/vUrOXdfhVUhPUu7IYPn+rJsRbwnHMRdawlPin2zWEkYGJKzYsBV+LysBYUOsSIVOkGhFUTtnb/jU70O9KUDUf9aHFsQiWifCnX6lJGIf9u3CIW2BdFEEAKNGbQZlo+SbIYgGjV3w3AYr8ZSgTYBFHMcHwV0J5fwQNAPqVF4hBiM0fwcu6cLWe5dP//wQCeDLnKamG7mltp/WNkjoCOSyM1OqmZfi7NRimIfJX4osssvDzTp4uuZI2UaWBIoGquugwauwq8A4vMG3OEvFhofLnKTJSl8WuC9CR5sAsHONlXGroMTnMAvwFFD1oUiGm+He9J4sVAgmXrReJU+BJMfFwNuNRrrao1G7tZQb2WIChmyNDg+b/cukx191VZXkRaKmdwZfpCdffEDq6zgh7kSnDN8A3PXnga2o6eIuQTbUAiQ9BhVYtBD2su0TGUSI/xgjad9oHf8YnP6uZyE12Qq8xWdauHwRJfZ/KpWVI2fWX7f5H/SafazzdSAvUd3Tfgw9LGDE0H7A41482n3sl6fAeqR3mxP/jyuePgdCx+9iidKuiYX/P9DIyKrcvlhludKKK2lBitj7uGbJnoDNYUCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEADYeo1E/1mHvKAs93GpjKswLoDZTREw7rxn4m0ODVx6r24oqibf6bUdPSqN310mqLvgdbcqQLTxPNEQXUzcZ2YpAn1aZw3KyHRWDA4miI3q56YN03dILS0YeHndIU8CdbcU9w7knfR6WbDaeLymHN4HEy/xhrsD4efJbWZsktyHAK6hcLjncDk1LrZ+NzSn2sY6hBi3xWL4Cfy4Q+vAbay5Xl8iIzxiVM9lssUwQcNh7Xo2wMT+u5CL46T3q+pH6AkxOs/0oBKk/Ma5CzD+DADtmD4HiDm1RNqxC6y6YWw8X8aaLgbGMmxlfkNW5ir6wdCBnYQPdnuLxi2dOpu3J0LKH/13fzuwlgQQwtGrIsAF/LAu2v/g97nuWYipKUGeTe1GOgyKqB7gZCJCdS6jTj6anXuJlGQJoqBALexrzAqSCuJWov/Cp3R7WnEY/k+DLCHCbwnmggz0pLuBeKYraWly+4gf+lvCHS940b1wKrxriyLucP3dpshW33xsK58F7Dyj1uUHPGEs9abBIKIc6auJZyiJ9ks2vIGTBvZIxR/zpOm4GIbW/N202mCIEpJVB8dMO8sN/TBGl1g+x1HXQzei6uZqEA2LH7juFnl6Ewtft+9OAIVR9kBIM1rDDYa3Usae6js0Oz0BOxMK8bWUyN7EXbWuObW166gMYODyeje8Q="
+    }
+  }, {
+    "clientId" : "http://localhost:8280/employee-sig-post-noidpkey/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-sig-post-noidpkey",
+    "redirectUris" : [ "http://localhost:8080/employee-sig-post-noidpkey/*" ],
+    "adminUrl" : "http://localhost:8080/employee-sig-post-noidpkey",
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE1TCCAr0CBgFJH5u0EDANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtc2lnLzAeFw0xNDEwMTcxOTMzNThaFw0yNDEwMTcxOTM1MzhaMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA58yzlZ5qvlX3KTUUNMpfgAwY667q4WOGEDc9mmj0yXESGVjuprPDfjRrm6g+ljKzGSJtG/jPgWJlBwYw5OgXSSBp/vUrOXdfhVUhPUu7IYPn+rJsRbwnHMRdawlPin2zWEkYGJKzYsBV+LysBYUOsSIVOkGhFUTtnb/jU70O9KUDUf9aHFsQiWifCnX6lJGIf9u3CIW2BdFEEAKNGbQZlo+SbIYgGjV3w3AYr8ZSgTYBFHMcHwV0J5fwQNAPqVF4hBiM0fwcu6cLWe5dP//wQCeDLnKamG7mltp/WNkjoCOSyM1OqmZfi7NRimIfJX4osssvDzTp4uuZI2UaWBIoGquugwauwq8A4vMG3OEvFhofLnKTJSl8WuC9CR5sAsHONlXGroMTnMAvwFFD1oUiGm+He9J4sVAgmXrReJU+BJMfFwNuNRrrao1G7tZQb2WIChmyNDg+b/cukx191VZXkRaKmdwZfpCdffEDq6zgh7kSnDN8A3PXnga2o6eIuQTbUAiQ9BhVYtBD2su0TGUSI/xgjad9oHf8YnP6uZyE12Qq8xWdauHwRJfZ/KpWVI2fWX7f5H/SafazzdSAvUd3Tfgw9LGDE0H7A41482n3sl6fAeqR3mxP/jyuePgdCx+9iidKuiYX/P9DIyKrcvlhludKKK2lBitj7uGbJnoDNYUCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEADYeo1E/1mHvKAs93GpjKswLoDZTREw7rxn4m0ODVx6r24oqibf6bUdPSqN310mqLvgdbcqQLTxPNEQXUzcZ2YpAn1aZw3KyHRWDA4miI3q56YN03dILS0YeHndIU8CdbcU9w7knfR6WbDaeLymHN4HEy/xhrsD4efJbWZsktyHAK6hcLjncDk1LrZ+NzSn2sY6hBi3xWL4Cfy4Q+vAbay5Xl8iIzxiVM9lssUwQcNh7Xo2wMT+u5CL46T3q+pH6AkxOs/0oBKk/Ma5CzD+DADtmD4HiDm1RNqxC6y6YWw8X8aaLgbGMmxlfkNW5ir6wdCBnYQPdnuLxi2dOpu3J0LKH/13fzuwlgQQwtGrIsAF/LAu2v/g97nuWYipKUGeTe1GOgyKqB7gZCJCdS6jTj6anXuJlGQJoqBALexrzAqSCuJWov/Cp3R7WnEY/k+DLCHCbwnmggz0pLuBeKYraWly+4gf+lvCHS940b1wKrxriyLucP3dpshW33xsK58F7Dyj1uUHPGEs9abBIKIc6auJZyiJ9ks2vIGTBvZIxR/zpOm4GIbW/N202mCIEpJVB8dMO8sN/TBGl1g+x1HXQzei6uZqEA2LH7juFnl6Ewtft+9OAIVR9kBIM1rDDYa3Usae6js0Oz0BOxMK8bWUyN7EXbWuObW166gMYODyeje8Q="
+    }
+  }, {
+    "clientId" : "http://localhost:8280/employee/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee",
+    "redirectUris" : [ "http://localhost:8080/employee/*" ],
+    "adminUrl" : "http://localhost:8080/employee",
+    "attributes" : {
+      "saml.authnstatement" : "true"
+    },
+    "protocolMappers" : [ {
+      "name" : "email",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-property-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "email",
+        "friendly.name" : "email",
+        "attribute.name" : "urn:oid:1.2.840.113549.1.9.1",
+        "attribute.nameformat" : "URI Reference"
+      }
+    }, {
+      "name" : "phone",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "phone",
+        "attribute.name" : "phone",
+        "attribute.nameformat" : "Basic"
+      }
+    }, {
+      "name" : "role-list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "attribute.name" : "Role",
+        "attribute.nameformat" : "Basic",
+        "single" : "false"
+      }
+    } ]
+  }, {
+    "clientId" : "http://localhost:8280/employee-acs/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-acs",
+    "redirectUris" : [ "http://localhost:8080/employee-acs/*" ],
+    "adminUrl" : "http://localhost:8080/employee-acs",
+    "attributes" : {
+      "saml.authnstatement" : "true"
+    },
+    "protocolMappers" : [ {
+      "name" : "email",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-property-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "email",
+        "friendly.name" : "email",
+        "attribute.name" : "urn:oid:1.2.840.113549.1.9.1",
+        "attribute.nameformat" : "URI Reference"
+      }
+    }, {
+      "name" : "phone",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "phone",
+        "attribute.name" : "phone",
+        "attribute.nameformat" : "Basic"
+      }
+    }, {
+      "name" : "role-list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "attribute.name" : "Role",
+        "attribute.nameformat" : "Basic",
+        "single" : "false"
+      }
+    } ]
+  }, {
+    "clientId" : "http://localhost:8280/employee2/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee2",
+    "redirectUris" : [ "http://localhost:8080/employee2/*" ],
+    "adminUrl" : "http://localhost:8080/employee2",
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_idp_initiated_sso_url_name" : "employee2"
+    },
+    "protocolMappers" : [ {
+      "name" : "email",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-property-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "email",
+        "friendly.name" : "email",
+        "attribute.name" : "urn:oid:1.2.840.113549.1.9.1",
+        "attribute.nameformat" : "URI Reference"
+      }
+    }, {
+      "name" : "phone",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "phone",
+        "attribute.name" : "phone",
+        "attribute.nameformat" : "Basic"
+      }
+    }, {
+      "name" : "role-list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "attribute.name" : "Role",
+        "attribute.nameformat" : "Basic",
+        "single" : "false"
+      }
+    } ]
+  }, {
+    "clientId" : "http://localhost:8280/employee-dom/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-dom",
+    "redirectUris" : [ "http://localhost:8080/employee-dom/*" ],
+    "adminUrl" : "http://localhost:8080/employee-dom",
+    "attributes" : {
+      "saml.assertion.signature" : "true",
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE0zCCArsCBHBawoYwDQYJKoZIhvcNAQELBQAwLjEsMCoGA1UEAxMjaHR0cDovL2xvY2FsaG9zdDo4MDgwL2VtcGxveWVlLWRvbS8wHhcNMTkwNzAzMDkxNTQ5WhcNNDYxMTE4MDkxNTQ5WjAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtZG9tLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALib+4OFdfFvEF4tmv2E986fOo1TXeH2jUzEw8sK9KkyBE6LwHJz5j/8s9G7hBuWkLvC5gDVZiWo6KR++aXiWBSXKnckEnXBUcaFLDLCRVLCR1GIAT3MgLVwZAaaXRE97shAwFBOY/6GHW2gdvom9g3nq3Vka/3I0ycD8ZI6bosPcd03SBj0klqDrLXs6HaSenL4NILckMHWOmdGPdIZliAZt6aZVKva9KBmqLL3/C+zBpBDew9/CR+rL9iT40Hrnteau9BQg3+xjxV770elw693hcCsLTJw8R/3GDWwZPUkir1P/wKbhcdlMyV1h1PGVog1R+UQ36p3SScTzihKJF8fKAdxEEObB87DBQvjA8Lolp0uII+9fbxCIW2e+nNsF7PeQTkWv5FWmoE1I9GcA18r4aSAZVc+Fwvr3Y6IlbcyrPaD2hXP/1OYhIXy10k7sa2vkXKNEVxHecG24J3Xna7q/x0t4qTukQYF76thtk9rwm3xaBXBR4bXbSzfXYfu5TQYA6Y1iuvYTuj7vyFuH6vqR2hL4gdtvrHwog59Pu0A9DMpluAGkQcRXy1620CBxQpvXokgQN1irAf9gmPbbdN46eDyBSKuiUHYf1D2mfcQgFYwfszTFY/g6+pKJt19XZ7tX8m+Cw5kXR35yICbV2+loDjnTPpV5+t0jwBmud69AgMBAAEwDQYJKoZIhvcNAQELBQADggIBADDTKGbjZzBtvG9mS7fuaLM/b2/EzAtiS030G4SmqR0tOjEBSTyhmvrEZXeglthrNrNVoF/o3wfmRPhSSSOJC+FcXx3XXRtMuqVoJeJ0lbaLeRANoTt8fOHVTQWvAMYDOxvEZTWQkVTt7wMCW/PxpO2F24JAzbY/oO4B1g97HPg2U8lcdrRqw3rYw2d+XrYW23G/IwE2jTZozaT8VXZH5tFNDH125xRCCyv57uNSf/dd+ny6dI2s9Q8IK3FVhetIJsdREn0ar7p5i0SsXvi+tOdNxiMvncLB21J1Za0BhN3X/jlfszMHDMo4Mkp45L1jP4sgUmk4Gwrx9Hk9uFb9xtVU+LmtUwr1XwguRgneQPX54Ta3GZzaoLgx039g42+VQJ1lzEgzbEHTPKrCIaog6DQkizBcbxFV8g8Vp3Do9ukqbfPhi0iKDS7bbLFKhHDafaNJZw45DV4bhZqbHW2msrB5M/IIvG34reOS92/vOwxJHrd15ifJN090PMHcPUwlodZgJ5kso0fPWS5PWqUIUbwrXxTpBiRYqJrgjvkt7Tqc1GsKML1ehMdRMBC1Wkid19PBhyMZ6fCXhR+ezo3556gChdRfAjT45s+OAd7WmKmey05rGsududRMMicfP8H4tlgytHZaA62O37LoH6vMEIw9IbD1+Mw6HO4MaVWROdGX"
+    },
+    "protocolMappers" : [ {
+      "name" : "email",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-property-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "email",
+        "friendly.name" : "email",
+        "attribute.name" : "urn:oid:1.2.840.113549.1.9.1",
+        "attribute.nameformat" : "URI Reference"
+      }
+    }, {
+      "name" : "phone",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "phone",
+        "attribute.name" : "phone",
+        "attribute.nameformat" : "Basic"
+      }
+    }, {
+      "name" : "role-list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "attribute.name" : "Role",
+        "attribute.nameformat" : "Basic",
+        "single" : "false"
+      }
+    } ]
+  }, {
+    "clientId" : "http://localhost:8280/employee-sig-front/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "frontchannelLogout" : true,
+    "baseUrl" : "http://localhost:8080/employee-sig-front",
+    "redirectUris" : [ "http://localhost:8080/employee-sig-front/*" ],
+    "attributes" : {
+      "saml.server.signature" : "true",
+      "saml.client.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA1",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE1TCCAr0CBgFJH5u0EDANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNodHRwOi8vbG9jYWxob3N0OjgwODAvZW1wbG95ZWUtc2lnLzAeFw0xNDEwMTcxOTMzNThaFw0yNDEwMTcxOTM1MzhaMC4xLDAqBgNVBAMTI2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9lbXBsb3llZS1zaWcvMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA58yzlZ5qvlX3KTUUNMpfgAwY667q4WOGEDc9mmj0yXESGVjuprPDfjRrm6g+ljKzGSJtG/jPgWJlBwYw5OgXSSBp/vUrOXdfhVUhPUu7IYPn+rJsRbwnHMRdawlPin2zWEkYGJKzYsBV+LysBYUOsSIVOkGhFUTtnb/jU70O9KUDUf9aHFsQiWifCnX6lJGIf9u3CIW2BdFEEAKNGbQZlo+SbIYgGjV3w3AYr8ZSgTYBFHMcHwV0J5fwQNAPqVF4hBiM0fwcu6cLWe5dP//wQCeDLnKamG7mltp/WNkjoCOSyM1OqmZfi7NRimIfJX4osssvDzTp4uuZI2UaWBIoGquugwauwq8A4vMG3OEvFhofLnKTJSl8WuC9CR5sAsHONlXGroMTnMAvwFFD1oUiGm+He9J4sVAgmXrReJU+BJMfFwNuNRrrao1G7tZQb2WIChmyNDg+b/cukx191VZXkRaKmdwZfpCdffEDq6zgh7kSnDN8A3PXnga2o6eIuQTbUAiQ9BhVYtBD2su0TGUSI/xgjad9oHf8YnP6uZyE12Qq8xWdauHwRJfZ/KpWVI2fWX7f5H/SafazzdSAvUd3Tfgw9LGDE0H7A41482n3sl6fAeqR3mxP/jyuePgdCx+9iidKuiYX/P9DIyKrcvlhludKKK2lBitj7uGbJnoDNYUCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEADYeo1E/1mHvKAs93GpjKswLoDZTREw7rxn4m0ODVx6r24oqibf6bUdPSqN310mqLvgdbcqQLTxPNEQXUzcZ2YpAn1aZw3KyHRWDA4miI3q56YN03dILS0YeHndIU8CdbcU9w7knfR6WbDaeLymHN4HEy/xhrsD4efJbWZsktyHAK6hcLjncDk1LrZ+NzSn2sY6hBi3xWL4Cfy4Q+vAbay5Xl8iIzxiVM9lssUwQcNh7Xo2wMT+u5CL46T3q+pH6AkxOs/0oBKk/Ma5CzD+DADtmD4HiDm1RNqxC6y6YWw8X8aaLgbGMmxlfkNW5ir6wdCBnYQPdnuLxi2dOpu3J0LKH/13fzuwlgQQwtGrIsAF/LAu2v/g97nuWYipKUGeTe1GOgyKqB7gZCJCdS6jTj6anXuJlGQJoqBALexrzAqSCuJWov/Cp3R7WnEY/k+DLCHCbwnmggz0pLuBeKYraWly+4gf+lvCHS940b1wKrxriyLucP3dpshW33xsK58F7Dyj1uUHPGEs9abBIKIc6auJZyiJ9ks2vIGTBvZIxR/zpOm4GIbW/N202mCIEpJVB8dMO8sN/TBGl1g+x1HXQzei6uZqEA2LH7juFnl6Ewtft+9OAIVR9kBIM1rDDYa3Usae6js0Oz0BOxMK8bWUyN7EXbWuObW166gMYODyeje8Q="
+    }
+  }, {
+    "clientId" : "http://localhost:8280/ecp-sp/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/ecp-sp",
+    "redirectUris" : [ "http://localhost:8080/ecp-sp/*" ],
+    "attributes" : {
+      "saml_assertion_consumer_url_post" : "http://localhost:8080/ecp-sp/",
+      "saml_assertion_consumer_url_redirect" : "http://localhost:8080/ecp-sp/",
+      "saml_single_logout_service_url_post" : "http://localhost:8080/ecp-sp/",
+      "saml_single_logout_service_url_redirect" : "http://localhost:8080/ecp-sp/",
+      "saml.server.signature" : "true",
+      "saml.signature.algorithm" : "RSA_SHA256",
+      "saml.client.signature" : "true",
+      "saml.authnstatement" : "true",
+      "saml.signing.certificate" : "MIIE2TCCAsECBgFJGP5dZDANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVodHRwOi8vbG9jYWxob3N0OjgwODAvc2FsZXMtcG9zdC1zaWcvMB4XDTE0MTAxNjEyNDQyM1oXDTI0MTAxNjEyNDYwM1owMDEuMCwGA1UEAxMlaHR0cDovL2xvY2FsaG9zdDo4MDgwL3NhbGVzLXBvc3Qtc2lnLzCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAIxG7i2B9KZHWkbZIQaeNT4KS5fxjoHvbBe7uiKjqp/YlqI4PxoRc5O2H5WhiVGOSdpCImqB9aETcuz6pjCBmS1LJf81TyEC1R+8lTSwMy6Z8bUKonVXVZDvMXjWp+VkxPjYAH6FBC0kgV5/7RZ5k+DZ2oZzp4Mw/rx94erTmoXiOjl2wpZ+Dk3MP7SYMmliRNOby33ECm3XeLjwspA5gw6oBIE1B2fndZGaarENqv+EctOMK2IzMIJTU3XfMHPMUb4yTZGfQBjDnFkVdimnQej8KFSTZfX8adiVSA/sWSL4/Z0zVRPNveqVErVjVb09t1irdUmrJpKT2mUGtViwkhxfncmVUoC/lx/cNtjEGhoMsKd1Xn/R7LcNkl5xM9t9e7122778NyDwbeVUkzlSSPwDiBdchx78xpRMVD6weKJ36acD5bdTtmzm8c7/Oj8t9+Wl1TyP1rxZXgcvSKOWT2S8i/6/gHiw/YuHMBKB4PXKIMPzoKCVzfOUrlVaR/0lYLVZmx459YYgK2qKHNFlmv9crGJlLq1ZRJe0pyAmzYgauvrImweA+hsh0QObBHkVBHDQyXYPvD1kTsSDf88K0TglYPaYhh5EpBU4InS72PMNF55meaaWNKKXGx9D3w52sWSvmKt6LjBAeLzZNa8b5I6idvkFNNSqD7iDmVEq3hvnAgMBAAEwDQYJKoZIhvcNAQELBQADggIBACgku5kHvD23tduPniO2VzynwSOrzY325WkSVW+6xA4xksLI8eHakXPfdF4YxSilrUYtLgh5BB4MYaaR7gjcyZ94p+4K0GSWNnhJKMmX4Rkq7zfUxcmD+DPRJVoond2FUiz4hyV9+TQxeBKAc6G1uxB6brKLoMrriFeZLC/knWWNVqr0ru4erZPZfH+ov8ynRgD038zjht13Ggp2DM+w/4G6qOgmewHEohdLR6kGWUXN4E/G2EJSz9PEjmyuDVDDrGRo1rz1dyqyfx6p9FjGIfA4U/5H0TqUTd0TiOKBw4BAQ6YEddnt4afECni4CeJ0VdoztJLO5aWuiAueYhmV3g6wd3eemNQ9JTNUGJMt/gsBndSiozi0SsQmRptaLiuPbuFjb2f+SkK0vhsk4RnYyE2I5U5lzm7+owYVb3LdC6Ib4q8QtJGdFA9A3ryzcA7zD8pDVoQon5wGoRz4zygH5zB8LJIO+OReqMNCQW+3ATMtjVZeC5yq3ybdQxt9IY+EJVzQGt5a4x84kT9ejTlFaXeXo4QBgqv9MXWKt7I+JxI4f4sW8Hq9fx2+y1UfVpKgV+70UcoXnEJavy8u6qg7+KKQuG1Smhv1+OeLwnWPiksdtyClD40MwkS7gvGneQAg7p22Pl4CQyRzmO7SjHWpS27kV4cMN6j66GEOzN1Qh2NA"
+    }
+  }, {
+    "clientId" : "http://localhost:8280/employee-role-mapping/",
+    "enabled" : true,
+    "protocol" : "saml",
+    "fullScopeAllowed" : true,
+    "baseUrl" : "http://localhost:8080/employee-role-mapping",
+    "redirectUris" : [ "http://localhost:8080/employee-role-mapping/*" ],
+    "adminUrl" : "http://localhost:8080/employee-role-mapping",
+    "attributes" : {
+      "saml.authnstatement" : "true",
+      "saml_idp_initiated_sso_url_name" : "employee-role-mapping"
+    },
+    "protocolMappers" : [ {
+      "name" : "email",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-property-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "email",
+        "friendly.name" : "email",
+        "attribute.name" : "urn:oid:1.2.840.113549.1.9.1",
+        "attribute.nameformat" : "URI Reference"
+      }
+    }, {
+      "name" : "phone",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-user-attribute-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "user.attribute" : "phone",
+        "attribute.name" : "phone",
+        "attribute.nameformat" : "Basic"
+      }
+    }, {
+      "name" : "role-list",
+      "protocol" : "saml",
+      "protocolMapper" : "saml-role-list-mapper",
+      "consentRequired" : false,
+      "config" : {
+        "attribute.name" : "Role",
+        "attribute.nameformat" : "Basic",
+        "single" : "false"
+      }
+    } ]
+  } ],
+  "eventsEnabled" : true,
+  "roles" : {
+    "realm" : [ {
+      "name" : "manager",
+      "description" : "Have Manager privileges"
+    }, {
+      "name" : "user",
+      "description" : "Have User privileges"
+    }, {
+      "name" : "role.with.dots",
+      "description" : "Role with dots in the name"
+    } ],
+    "application" : {
+      "http://localhost:8280/employee/" : [ {
+        "name" : "employee",
+        "description" : "Have Employee privileges"
+      } ],
+      "http://localhost:8280/employee2/" : [ {
+        "name" : "employee",
+        "description" : "Have Employee privileges"
+      }, {
+        "name" : "empl.oyee",
+        "description" : "Have Employee privileges with dots"
+      } ],
+      "http://localhost:8280/employee-role-mapping/" : [ {
+        "name" : "employee",
+        "description" : "Have Employee privileges"
+      }, {
+        "name" : "supervisor",
+        "description" : "Have Supervisor privileges"
+      } ]
+    }
+  },
+  "registrationAllowed" : true,
+  "groups" : [ {
+    "name" : "top",
+    "attributes" : {
+      "topAttribute" : [ "true" ]
+    },
+    "realmRoles" : [ "manager" ],
+    "subGroups" : [ {
+      "name" : "level2",
+      "realmRoles" : [ "user" ],
+      "attributes" : {
+        "level2Attribute" : [ "true" ]
+      }
+    } ]
+  } ],
+  "publicKey" : "MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA1TQ+eqetMEggj6Z9svPM6G2UzIY+Buz5H1PMEa7DQy1EPiMHj4HyAQwuYwjE4tUppwVd6LuDgJe+dEWE5vz0rw08NuTYM/C5e/Qhb+X+Ipz8xQVsEWe9h3O3eWJyDMJinrB3i7arzygGArY8q1z+inivYWOKBQzxra+YK5fdgZ1pFIbBVDRFVkDKNZwcJwsmct5oBwvssu5Lj+kat9GPsTxqmlR05n6W//lGh40dQdxaLKLiV0/QMAcYfoHXUmXmS9/vG4GhibfBCAYamnum0ss6h9y3F6VBQNHg1SXID/vl/THPZsSzb+tdNBopIV8nYx7Gbvtnb/NIvT5TbPg1K2iGzFQOhBg7lmZpiFG4vG6WOs9Yxh2buK4zBBDOtG2ufnEgzFbrARQxdnOXxFptlJ3YxGAjHN4e/BMAt7QP24+wnmHVGfHieBLEqyJnuh3chX5ZKlEaiM5KLYuC5IY4XXl4N70IHQUTteIFZN+8fbHqd1saaDmPHDc/N8HT7FgSnpDCbqJv/6ya38OIiKzWywQxHGS0ZyGGWpACv7cqG0iXcoe/16scFTjuVXXKgBTwdE8O6WykcmYVKmLHobesiRmMfeZxLE/6heJJRp/6wH3pHaXWiSveb+RvePKBTiBBaGmr4+bzcU8P61CEFHADG0NIXkSNd3pnUW7bGO5p2xcCAwEAAQ==",
+  "enabled" : true,
+  "resetPasswordAllowed" : true,
+  "users" : [ {
+    "username" : "bburke",
+    "enabled" : true,
+    "email" : "bburke@redhat.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "attributes" : {
+      "phone" : "617"
+    },
+    "realmRoles" : [ "manager", "user" ],
+    "applicationRoles" : {
+      "http://localhost:8280/employee/" : [ "employee" ],
+      "http://localhost:8280/employee2/" : [ "empl.oyee", "employee" ],
+      "http://localhost:8280/employee-role-mapping/" : [ "employee" ]
+    }
+  }, {
+    "username" : "bburke-additional-domain",
+    "enabled" : true,
+    "email" : "bburke@redhat.com.additional.domain",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "attributes" : {
+      "phone" : "617"
+    },
+    "realmRoles" : [ "manager", "user" ],
+    "applicationRoles" : {
+      "http://localhost:8280/employee/" : [ "employee" ],
+      "http://localhost:8280/employee2/" : [ "employee" ]
+    }
+  }, {
+    "username" : "unauthorized",
+    "enabled" : true,
+    "email" : "unauthorized@redhat.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ]
+  }, {
+    "username" : "topGroupUser",
+    "enabled" : true,
+    "email" : "top@redhat.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "groups" : [ "/top" ]
+  }, {
+    "username" : "level2GroupUser",
+    "enabled" : true,
+    "email" : "level2@redhat.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "groups" : [ "/top/level2" ]
+  }, {
+    "username" : "pedroigor",
+    "enabled" : true,
+    "email" : "psilva@redhat.com",
+    "credentials" : [ {
+      "type" : "password",
+      "value" : "password"
+    } ],
+    "attributes" : {
+      "phone" : "617"
+    },
+    "realmRoles" : [ "manager", "user" ]
+  } ],
+  "sslRequired" : "external",
+  "privateKey" : "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",
+  "requiredCredentials" : [ "password" ],
+  "smtpServer" : {
+    "from" : "auto@keycloak.org",
+    "host" : "localhost",
+    "port" : "3025"
+  },
+  "enabledEventTypes" : [ ],
+  "defaultRoles" : [ "user" ],
+  "eventsListeners" : [ "jboss-logging" ],
+  "realm" : "demo",
+  "id" : "demo"
 }

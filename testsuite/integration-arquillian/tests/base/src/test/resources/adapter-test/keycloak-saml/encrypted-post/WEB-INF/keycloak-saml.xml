@@ -24,10 +24,16 @@
         logoutPage="/logout.jsp"
         forceAuthentication="false">
         <Keys>
-            <Key signing="true" encryption="true">
-                <KeyStore resource="/WEB-INF/keystore.new.bcfks" password="averylongpassword">
+            <Key signing="true" >
+                <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
                     <PrivateKey alias="http://localhost:8080/sales-post-enc/" password="averylongpassword"/>
                     <Certificate alias="http://localhost:8080/sales-post-enc/"/>
+                </KeyStore>
+            </Key>
+            <Key encryption="true">
+                <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
+                    <PrivateKey alias="http://localhost:8080/sales-post-enc/encryption" password="averylongpassword"/>
+                    <Certificate alias="http://localhost:8080/sales-post-enc/encryption"/>
                 </KeyStore>
             </Key>
         </Keys>
@@ -54,7 +60,7 @@
                     />
             <Keys>
                 <Key signing="true" >
-                    <KeyStore resource="/WEB-INF/keystore.new.bcfks" password="averylongpassword">
+                    <KeyStore resource="/WEB-INF/keystore.bcfks" password="averylongpassword">
                         <Certificate alias="demo"/>
                     </KeyStore>
                 </Key>
