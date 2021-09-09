@@ -846,8 +846,10 @@ public class SamlService extends AuthorizationEndpointBase {
                     .sorted(SamlService::compareKeys)
                     .map(key -> {
                         try {
+                            String pem = PemUtils.encodeCertificate(key.getCertificate());
+                            String embeddedCertificate = PemUtils.removeBeginEnd(pem);
                             return IDPMetadataDescriptor
-                                    .buildKeyInfoElement(key.getKid(), PemUtils.encodeCertificate(key.getCertificate()));
+                                    .buildKeyInfoElement(key.getKid(), embeddedCertificate);
                         } catch (ParserConfigurationException e) {
                             throw new RuntimeException(e);
                         }
