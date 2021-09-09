@@ -106,10 +106,10 @@ public class DefaultSamlArtifactResolver implements ArtifactResolver {
      */
     public String createArtifact(String entityId) throws ArtifactResolverProcessingException {
         try {
-            SecureRandom handleGenerator = SecureRandom.getInstance("SHA1PRNG");
+            SecureRandom handleGenerator = SecureRandom.getInstance("DEFAULT");
             byte[] trimmedIndex = new byte[2];
 
-            MessageDigest sha1Digester = MessageDigest.getInstance("SHA-1");
+            MessageDigest sha1Digester = MessageDigest.getInstance("SHA-256");
             byte[] source = sha1Digester.digest(entityId.getBytes(Charsets.UTF_8));
 
             byte[] assertionHandle = new byte[20];
@@ -125,7 +125,7 @@ public class DefaultSamlArtifactResolver implements ArtifactResolver {
 
             return Base64.getEncoder().encodeToString(artifact);
         } catch (NoSuchAlgorithmException e) {
-            throw new ArtifactResolverProcessingException("JVM does not support required cryptography algorithms: SHA-1/SHA1PRNG.", e);
+            throw new ArtifactResolverProcessingException("JVM does not support required cryptography algorithms: SHA-256/SHA256PRNG.", e);
         } catch (IOException e) {
             throw new ArtifactResolverProcessingException(e);
         }

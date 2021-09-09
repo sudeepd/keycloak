@@ -183,15 +183,15 @@ public class ArtifactBindingTest extends AbstractSamlTest {
         assertThat(artifactB64,not(isEmptyOrNullString()));
 
         byte[] artifact = Base64.getDecoder().decode(artifactB64);
-        assertThat(artifact.length, is(44));
+        assertThat(artifact.length, is(56));
         assertThat(artifact[0], is((byte)0));
         assertThat(artifact[1], is((byte)4));
         assertThat(artifact[2], is((byte)0));
         assertThat(artifact[3], is((byte)0));
 
-        MessageDigest sha1Digester = MessageDigest.getInstance("SHA-1");
-        byte[] source = sha1Digester.digest(getAuthServerRealmBase(REALM_NAME).toString().getBytes(Charsets.UTF_8));
-        for (int i = 0; i < 20; i++) {
+        MessageDigest shaDigester = MessageDigest.getInstance("SHA-256");
+        byte[] source = shaDigester.digest(getAuthServerRealmBase(REALM_NAME).toString().getBytes(Charsets.UTF_8));
+        for (int i = 0; i < 32; i++) {
             assertThat(source[i], is(artifact[i+4]));
         }
     }
@@ -443,15 +443,15 @@ public class ArtifactBindingTest extends AbstractSamlTest {
         assertThat(artifactB64, not(isEmptyOrNullString()));
 
         byte[] artifact = Base64.getDecoder().decode(artifactB64);
-        assertThat(artifact.length, is(44));
+        assertThat(artifact.length, is(56));
         assertThat(artifact[0], is((byte)0));
         assertThat(artifact[1], is((byte)4));
         assertThat(artifact[2], is((byte)0));
         assertThat(artifact[3], is((byte)0));
 
-        MessageDigest sha1Digester = MessageDigest.getInstance("SHA-1");
-        byte[] source = sha1Digester.digest(getAuthServerRealmBase(REALM_NAME).toString().getBytes(Charsets.UTF_8));
-        for (int i = 0; i < 20; i++) {
+        MessageDigest shaDigester = MessageDigest.getInstance("SHA-256");
+        byte[] source = shaDigester.digest(getAuthServerRealmBase(REALM_NAME).toString().getBytes(Charsets.UTF_8));
+        for (int i = 0; i < 32; i++) {
             assertThat(source[i], is(artifact[i+4]));
         }
     }
