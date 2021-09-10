@@ -66,6 +66,14 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 return;
             }
 
+            // The use of X500Principal.getName() is leads to unexpected results. As per the doc and the RFC
+            // https://datatracker.ietf.org/doc/html/rfc2253 page 3, any attributes other than the built in ones
+            // will be output as OID, and the values encoded as #prefixed hex.
+            // The use of subject DN in this use case is to build the challenge, and present the subject name to
+            // the user. As such , it makes more sense to present a readable name that comes from toString
+            // Hence , we are changing all instances of getSubjectDN() to X500Principal.toString()
+            String subjectDN = certs[0].getSubjectX500Principal().toString();
+
             saveX509CertificateAuditDataToAuthSession(context, certs[0]);
             recordX509CertificateAuditDataViaContextEvent(context);
 
@@ -93,7 +101,7 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 // TODO use specific locale to load error messages
                 String errorMessage = "Certificate validation's failed.";
                 // TODO is calling form().setErrors enough to show errors on login screen?
-                context.challenge(createErrorResponse(context, certs[0].getSubjectDN().getName(),
+                context.challenge(createErrorResponse(context, subjectDN,
                         errorMessage, e.getMessage()));
                 context.attempted();
                 return;
@@ -106,7 +114,7 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 // TODO use specific locale to load error messages
                 String errorMessage = "Unable to extract user identity from specified certificate";
                 // TODO is calling form().setErrors enough to show errors on login screen?
-                context.challenge(createErrorResponse(context, certs[0].getSubjectDN().getName(), errorMessage));
+                context.challenge(createErrorResponse(context, subjectDN, errorMessage));
                 context.attempted();
                 return;
             }
@@ -121,7 +129,7 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 logger.modelDuplicateException(e);
                 String errorMessage = "X509 certificate authentication's failed.";
                 // TODO is calling form().setErrors enough to show errors on login screen?
-                context.challenge(createErrorResponse(context, certs[0].getSubjectDN().getName(),
+                context.challenge(createErrorResponse(context, subjectDN,
                         errorMessage, e.getMessage()));
                 context.attempted();
                 return;
@@ -131,7 +139,7 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 // TODO use specific locale to load error messages
                 String errorMessage = "X509 certificate authentication's failed.";
                 // TODO is calling form().setErrors enough to show errors on login screen?
-                context.challenge(createErrorResponse(context, certs[0].getSubjectDN().getName(),
+                context.challenge(createErrorResponse(context, subjectDN,
                         errorMessage, "Invalid user"));
                 context.attempted();
                 return;
@@ -144,7 +152,7 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 // TODO use specific locale to load error messages
                 String errorMessage = "X509 certificate authentication's failed.";
                 // TODO is calling form().setErrors enough to show errors on login screen?
-                context.challenge(createErrorResponse(context, certs[0].getSubjectDN().getName(),
+                context.challenge(createErrorResponse(context, subjectDN,
                         errorMessage, "Invalid user"));
                 context.attempted();
                 return;
@@ -154,7 +162,7 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 // TODO use specific locale to load error messages
                 String errorMessage = "X509 certificate authentication's failed.";
                 // TODO is calling form().setErrors enough to show errors on login screen?
-                context.challenge(createErrorResponse(context, certs[0].getSubjectDN().getName(),
+                context.challenge(createErrorResponse(context, subjectDN,
                         errorMessage, "User is disabled"));
                 context.attempted();
                 return;
@@ -169,7 +177,9 @@ public class X509ClientCertificateAuthenticator extends AbstractX509ClientCertif
                 // to call the method "challenge" results in a wrong/unexpected behavior.
                 // The question is whether calling "forceChallenge" here is ok from
                 // the design viewpoint?
-                context.forceChallenge(createSuccessResponse(context, certs[0].getSubjectDN().getName()));
+
+                // getSubjectDN() was called on certs[0] previously. The call is deprecated and returns unexpected value with Bouncy Castle
+                context.forceChallenge(createSuccessResponse(context, subjectDN));
                 // Do not set the flow status yet, we want to display a form to let users
                 // choose whether to accept the identity from certificate or to specify username/password explicitly
             }
