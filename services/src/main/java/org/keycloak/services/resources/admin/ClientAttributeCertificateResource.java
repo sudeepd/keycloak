@@ -240,13 +240,18 @@ public class ClientAttributeCertificateResource {
             throw new RuntimeException(e);
         }
 
+        /**
+         * Interestingly KC uses PEM incorrectly at times, and calls the base64 stuff w/o the markers as PEM
+         * In this particular implementation, although it pretends to emit PEM, it actually doesnt intend to
+         * emit the begin end markers
+         */
         if (privateKey != null) {
-            String privateKeyPem = KeycloakModelUtils.getPemFromKey(privateKey);
+            String privateKeyPem = PemUtils.removeBeginEnd(KeycloakModelUtils.getPemFromKey(privateKey));
             info.setPrivateKey(privateKeyPem);
         }
 
         if (certificate != null) {
-            String certPem = KeycloakModelUtils.getPemFromCertificate(certificate);
+            String certPem = PemUtils.removeBeginEnd(KeycloakModelUtils.getPemFromCertificate(certificate));
             info.setCertificate(certPem);
         }
 
@@ -267,8 +272,8 @@ public class ClientAttributeCertificateResource {
     public byte[] getKeystore(final KeyStoreConfig config) {
         auth.clients().requireView(client);
 
-        if (config.getFormat() != null && !config.getFormat().equals("JKS") && !config.getFormat().equals("PKCS12")) {
-            throw new NotAcceptableException("Only support jks or pkcs12 format.");
+        if (config.getFormat() != null && !config.getFormat().equals("BCFKS") && !config.getFormat().equals("PKCS12")) {
+            throw new NotAcceptableException("Only support bcfks or pkcs12 format.");
         }
 
         CertificateRepresentation info = CertificateInfoHelper.getCertificateFromClient(client, attributePrefix);
@@ -279,10 +284,10 @@ public class ClientAttributeCertificateResource {
             throw new NotFoundException("keypair not generated for client");
         }
         if (privatePem != null && config.getKeyPassword() == null) {
-            throw new ErrorResponseException("password-missing", "Need to specify a key password for jks download", Response.Status.BAD_REQUEST);
+            throw new ErrorResponseException("password-missing", "Need to specify a key password for bcfks download", Response.Status.BAD_REQUEST);
         }
         if (config.getStorePassword() == null) {
-            throw new ErrorResponseException("password-missing", "Need to specify a store password for jks download", Response.Status.BAD_REQUEST);
+            throw new ErrorResponseException("password-missing", "Need to specify a store password for bcfks download", Response.Status.BAD_REQUEST);
         }
 
         byte[] rtn = getKeystore(config, privatePem, certPem);
@@ -306,8 +311,8 @@ public class ClientAttributeCertificateResource {
     public byte[] generateAndGetKeystore(final KeyStoreConfig config) {
         auth.clients().requireConfigure(client);
 
-        if (config.getFormat() != null && !config.getFormat().equals("JKS") && !config.getFormat().equals("PKCS12")) {
-            throw new NotAcceptableException("Only support jks or pkcs12 format.");
+        if (config.getFormat() != null && !config.getFormat().equals("BCFKS") && !config.getFormat().equals("PKCS12")) {
+            throw new NotAcceptableException("Only support bcfks or pkcs12 format.");
         }
         if (config.getKeyPassword() == null) {
             throw new ErrorResponseException("password-missing", "Need to specify a key password for jks generation and download", Response.Status.BAD_REQUEST);
@@ -330,9 +335,10 @@ public class ClientAttributeCertificateResource {
     private byte[] getKeystore(KeyStoreConfig config, String privatePem, String certPem) {
         try {
             String format = config.getFormat();
-            KeyStore keyStore;
-            if (format.equals("JKS")) keyStore = KeyStore.getInstance("JKS");
-            else keyStore = KeyStore.getInstance(format, "BCFIPS");
+            KeyStore keyStore = KeyStore.getInstance(format, "BCFIPS");
+            // No JKS support in FIPS mode
+            //            if (format.equals("JKS")) keyStore = KeyStore.getInstance("JKS");
+
             keyStore.load(null, null);
             String keyAlias = config.getKeyAlias();
             if (keyAlias == null) keyAlias = client.getClientId();
