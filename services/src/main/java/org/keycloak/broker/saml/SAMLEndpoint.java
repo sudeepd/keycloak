@@ -26,6 +26,7 @@ import org.keycloak.broker.provider.IdentityBrokerException;
 import org.keycloak.broker.provider.IdentityProvider;
 import org.keycloak.common.ClientConnection;
 import org.keycloak.common.VerificationException;
+import org.keycloak.common.util.PemUtils;
 import org.keycloak.dom.saml.v2.assertion.AssertionType;
 import org.keycloak.dom.saml.v2.assertion.AttributeStatementType;
 import org.keycloak.dom.saml.v2.assertion.AttributeType;
@@ -251,7 +252,9 @@ public class SAMLEndpoint {
             for (String signingCertificate : config.getSigningCertificates()) {
                 X509Certificate cert = null;
                 try {
-                    cert = XMLSignatureUtil.getX509CertificateFromKeyInfoString(signingCertificate.replaceAll("\\s", ""));
+                    cert = XMLSignatureUtil.getX509CertificateFromKeyInfoString(
+                        PemUtils.removeBeginEnd(signingCertificate).replaceAll("\\s", "")
+                    );
                     cert.checkValidity();
                     keys.add(cert.getPublicKey());
                 } catch (CertificateException e) {

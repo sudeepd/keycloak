@@ -1616,7 +1616,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <configuration>
                         <forkMode>once</forkMode>
-                        <argLine>-Djavax.net.debug=ssl,handshake -Djavax.net.ssl.trustStore=={root.dir}/keycloak.truststore.bcfks -Djavax.net.ssl.keyStorePassword=averylongpassword -Djava.security.properties==${root.dir}/kc.java.security -Dorg.bouncycastle.fips.approved_only=true -Dxmlsec.securerandom.algorithm=DEFAULT -Djava.awt.headless=true ${surefire.memory.settings} </argLine>
+                        <argLine>-Djavax.net.debug=ssl,handshake -Djavax.net.ssl.trustStore=={root.dir}/keycloak.truststore.bcfks -Djavax.net.ssl.keyStorePassword=averylongpassword -Djava.security.properties==${root.dir}/kc.java.security -Dorg.bouncycastle.fips.approved_only=true -Dxmlsec.securerandom.algorithm=DEFAULT -Djava.awt.headless=true -Dkeycloak.logging.level=debug ${surefire.memory.settings} </argLine>
 <!--                        <argLine>-Djava.awt.headless=true ${surefire.memory.settings}</argLine>-->
                         <runOrder>alphabetical</runOrder>
                     </configuration>

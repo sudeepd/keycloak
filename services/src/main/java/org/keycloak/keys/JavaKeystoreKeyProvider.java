@@ -62,7 +62,7 @@ public class JavaKeystoreKeyProvider extends AbstractRsaKeyProvider {
     @Override
     protected KeyWrapper loadKey(RealmModel realm, ComponentModel model) {
         try (FileInputStream is = new FileInputStream(model.get(JavaKeystoreKeyProviderFactory.KEYSTORE_KEY))) {
-            KeyStore keyStore = KeyStore.getInstance("JKS");
+            KeyStore keyStore = KeyStore.getInstance("BCFKS");
             keyStore.load(is, model.get(JavaKeystoreKeyProviderFactory.KEYSTORE_PASSWORD_KEY).toCharArray());
 
             String keyAlias = model.get(JavaKeystoreKeyProviderFactory.KEY_ALIAS_KEY);

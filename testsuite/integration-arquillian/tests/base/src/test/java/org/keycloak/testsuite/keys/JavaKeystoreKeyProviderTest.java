@@ -23,6 +23,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.keycloak.common.util.MultivaluedHashMap;
+import org.keycloak.common.util.PemUtils;
 import org.keycloak.jose.jws.AlgorithmType;
 import org.keycloak.keys.JavaKeystoreKeyProviderFactory;
 import org.keycloak.keys.KeyProvider;
@@ -81,7 +82,7 @@ public class JavaKeystoreKeyProviderTest extends AbstractKeycloakTest {
 
         file = folder.newFile("keystore.jsk");
 
-        InputStream resourceAsStream = JavaKeystoreKeyProviderTest.class.getResourceAsStream("keystore.jks");
+        InputStream resourceAsStream = JavaKeystoreKeyProviderTest.class.getResourceAsStream("keystore.bcfks");
         IOUtils.copy(resourceAsStream, new FileOutputStream(file));
     }
 
@@ -109,7 +110,7 @@ public class JavaKeystoreKeyProviderTest extends AbstractKeycloakTest {
         assertEquals(AlgorithmType.RSA.name(), key.getType());
         assertEquals(priority, key.getProviderPriority());
         assertEquals(PUBLIC_KEY, key.getPublicKey());
-        assertEquals(CERTIFICATE, key.getCertificate());
+        assertEquals(CERTIFICATE, PemUtils.removeBeginEnd(key.getCertificate()));
     }
 
     @Test
@@ -170,9 +171,9 @@ public class JavaKeystoreKeyProviderTest extends AbstractKeycloakTest {
         rep.setConfig(new MultivaluedHashMap<>());
         rep.getConfig().putSingle("priority", Long.toString(priority));
         rep.getConfig().putSingle("keystore", file.getAbsolutePath());
-        rep.getConfig().putSingle("keystorePassword", "password");
+        rep.getConfig().putSingle("keystorePassword", "averylongpassword");
         rep.getConfig().putSingle("keyAlias", "selfsigned");
-        rep.getConfig().putSingle("keyPassword", "password");
+        rep.getConfig().putSingle("keyPassword", "averylongpassword");
         return rep;
     }
 

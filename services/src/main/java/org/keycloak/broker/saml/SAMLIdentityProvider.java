@@ -350,7 +350,9 @@ public class SAMLIdentityProvider extends AbstractIdentityProvider<SAMLIdentityP
                     .forEach(key -> {
                         try {
                             Element element = SPMetadataDescriptor
-                                    .buildKeyInfoElement(key.getKid(), PemUtils.encodeCertificate(key.getCertificate()));
+                                    .buildKeyInfoElement(key.getKid(),
+                                            PemUtils.removeBeginEnd(PemUtils.encodeCertificate(key.getCertificate()))
+                                    );
                             signingKeys.add(element);
 
                             if (key.getStatus() == KeyStatus.ACTIVE) {
