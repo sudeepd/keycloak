@@ -268,7 +268,7 @@ public class KeyRotationTest extends AbstractKeycloakTest {
     }
 
     private Map<String, String> createKeys(String priority) throws Exception {
-        KeyPair keyPair = KeyUtils.generateRsaKeyPair(1024);
+        KeyPair keyPair = KeyUtils.generateRsaKeyPair(4096);
         String privateKeyPem = PemUtils.encodeKey(keyPair.getPrivate());
         PublicKey publicKey = keyPair.getPublic();
 
