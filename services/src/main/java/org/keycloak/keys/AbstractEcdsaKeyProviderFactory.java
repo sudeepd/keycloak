@@ -61,7 +61,7 @@ public abstract class AbstractEcdsaKeyProviderFactory implements KeyProviderFact
     public static KeyPair generateEcdsaKeyPair(String keySpecName) {
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("EC");
-            SecureRandom randomGen = SecureRandom.getInstance("SHA1PRNG");
+            SecureRandom randomGen = SecureRandom.getInstance("DEFAULT");
             ECGenParameterSpec ecSpec = new ECGenParameterSpec(keySpecName);
             keyGen.initialize(ecSpec, randomGen);
             return keyGen.generateKeyPair();
