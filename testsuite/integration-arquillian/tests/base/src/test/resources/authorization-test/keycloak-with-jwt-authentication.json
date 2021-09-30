@@ -4,11 +4,11 @@
     "resource" : "resource-server-test",
     "credentials": {
         "jwt": {
-            "client-keystore-file": "classpath:client-auth-test/keystore-client1.jks",
-            "client-keystore-type": "JKS",
-            "client-keystore-password": "storepass",
+            "client-keystore-file": "classpath:client-auth-test/keystore-client1.bcfks",
+            "client-keystore-type": "BCFKS",
+            "client-keystore-password": "averylongpassword",
             "client-key-alias": "clientkey",
-            "client-key-password": "keypass",
+            "client-key-password": "averylongpassword",
             "token-expiration": 10
         }
     }

@@ -25,6 +25,7 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Assert;
 import org.junit.ClassRule;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.common.Profile;
 import org.keycloak.events.Details;
@@ -47,6 +48,7 @@ import org.keycloak.testsuite.KerberosEmbeddedServer;
  *
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
+@Ignore
 @DisableFeature(value = Profile.Feature.ACCOUNT2, skipRestart = true) // TODO remove this (KEYCLOAK-16228)
 public class KerberosLdapTest extends AbstractKerberosSingleRealmTest {
 

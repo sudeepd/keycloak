@@ -27,6 +27,7 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Assert;
 import org.junit.ClassRule;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.common.constants.KerberosConstants;
 import org.keycloak.federation.kerberos.CommonKerberosConfig;
@@ -45,6 +46,7 @@ import org.keycloak.testsuite.KerberosEmbeddedServer;
  *
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
+@Ignore
 public class KerberosStandaloneTest extends AbstractKerberosSingleRealmTest {
 
     private static final String PROVIDER_CONFIG_LOCATION = "classpath:kerberos/kerberos-standalone-connection.properties";

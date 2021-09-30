@@ -19,6 +19,7 @@ package org.keycloak.testsuite.federation.kerberos;
 
 import org.junit.ClassRule;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.keycloak.federation.kerberos.CommonKerberosConfig;
@@ -31,6 +32,7 @@ import org.keycloak.testsuite.KerberosEmbeddedServer;
 /**
  * @author <a href="mailto:mposolda@redhat.com">Marek Posolda</a>
  */
+@Ignore
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class KerberosStandaloneCrossRealmTrustTest extends AbstractKerberosTest {
 
