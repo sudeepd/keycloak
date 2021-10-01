@@ -65,7 +65,7 @@ public class CreateArtifactMessageStepBuilder implements SamlClient.Step {
         URIBuilder builder = new URIBuilder(authServerSamlUrl)
                 .setParameter(GeneralConstants.SAML_ARTIFACT_KEY, lastArtifact);
 
-        LOG.infof("Sending GET request with artifact %s", lastArtifact);
+        LOG.infof(" GET request with artifact %s", lastArtifact);
         return new HttpGet(builder.build());
     }
 

@@ -2,6 +2,7 @@ package org.keycloak.protocol.saml;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.jboss.logging.Logger;
 import org.keycloak.models.AuthenticatedClientSessionModel;
 import org.keycloak.models.ClientModel;
@@ -24,8 +25,15 @@ import static org.keycloak.protocol.saml.DefaultSamlArtifactResolverFactory.TYPE
  * Artifact 04 is the only one specified in SAML2.0 specification.
  */
 public class DefaultSamlArtifactResolver implements ArtifactResolver {
+    private int ARTIFACT_LENGTH = 0;
+    private String DIGEST_ALGORITHM = "";
+    private int HASH_SIZE_IN_BYTES = 0;
 
-
+    public DefaultSamlArtifactResolver() {
+        ARTIFACT_LENGTH = CryptoServicesRegistrar.isInApprovedOnlyMode() ? 56 : 44;
+        DIGEST_ALGORITHM = CryptoServicesRegistrar.isInApprovedOnlyMode() ? "SHA-256" : "SHA-1";
+        HASH_SIZE_IN_BYTES = CryptoServicesRegistrar.isInApprovedOnlyMode() ? 32 : 20;
+    }
     protected static final Logger logger = Logger.getLogger(SamlService.class);
 
     @Override
@@ -47,9 +55,9 @@ public class DefaultSamlArtifactResolver implements ArtifactResolver {
         try {
             byte[] source = extractSourceFromArtifact(artifact);
 
-            MessageDigest sha1Digester = MessageDigest.getInstance("SHA-1");
+            MessageDigest digester = MessageDigest.getInstance(DIGEST_ALGORITHM);
             return clients.filter(clientModel -> Arrays.equals(source,
-                    sha1Digester.digest(clientModel.getClientId().getBytes(Charsets.UTF_8))))
+                    digester.digest(clientModel.getClientId().getBytes(Charsets.UTF_8))))
                     .findFirst()
                     .orElseThrow(() -> new ArtifactResolverProcessingException("No client matching the artifact source found"));
         } catch (NoSuchAlgorithmException e) {
@@ -68,9 +76,10 @@ public class DefaultSamlArtifactResolver implements ArtifactResolver {
 
     private void assertSupportedArtifactFormat(String artifactString) throws ArtifactResolverProcessingException {
         byte[] artifact = Base64.getDecoder().decode(artifactString);
+        // In fips mode, the length of artifact will be 56 because of sha2
 
-        if (artifact.length != 44) {
-            throw new ArtifactResolverProcessingException("Artifact " + artifactString + " has a length of " + artifact.length + ". It should be 44");
+        if (artifact.length != ARTIFACT_LENGTH) {
+            throw new ArtifactResolverProcessingException("Artifact " + artifactString + " has a length of " + artifact.length + ". It should be " + ARTIFACT_LENGTH);
         }
         if (artifact[0] != TYPE_CODE[0] || artifact[1] != TYPE_CODE[1]) {
             throw new ArtifactResolverProcessingException("Artifact " + artifactString + " does not start with 0x0004");
@@ -82,7 +91,8 @@ public class DefaultSamlArtifactResolver implements ArtifactResolver {
 
         byte[] artifact = Base64.getDecoder().decode(artifactString);
 
-        byte[] source = new byte[20];
+        // number of bytes depends on FIPS vs non fips
+        byte[] source = new byte[HASH_SIZE_IN_BYTES];
         System.arraycopy(artifact, 4, source, 0, source.length);
 
         return source;
@@ -109,8 +119,8 @@ public class DefaultSamlArtifactResolver implements ArtifactResolver {
             SecureRandom handleGenerator = SecureRandom.getInstance("DEFAULT");
             byte[] trimmedIndex = new byte[2];
 
-            MessageDigest sha1Digester = MessageDigest.getInstance("SHA-256");
-            byte[] source = sha1Digester.digest(entityId.getBytes(Charsets.UTF_8));
+            MessageDigest digester = MessageDigest.getInstance(DIGEST_ALGORITHM);
+            byte[] source = digester.digest(entityId.getBytes(Charsets.UTF_8));
 
             byte[] assertionHandle = new byte[20];
             handleGenerator.nextBytes(assertionHandle);

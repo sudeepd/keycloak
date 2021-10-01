@@ -17,6 +17,7 @@
 package org.keycloak.testsuite.migration;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.representations.idm.RealmRepresentation;
@@ -32,6 +33,7 @@ import static org.keycloak.testsuite.auth.page.AuthRealm.MASTER;
 /**
  * @author <a href="mailto:vramik@redhat.com">Vlastislav Ramik</a>
  */
+@Ignore
 @AuthServerContainerExclude(AuthServer.REMOTE)
 public class MigrationTest extends AbstractMigrationTest {
 
