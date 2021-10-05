@@ -16,6 +16,7 @@
  */
 package org.keycloak.client.admin.cli.util;
 
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.keycloak.client.admin.cli.config.ConfigData;
 import org.keycloak.client.admin.cli.config.RealmConfigData;
 import org.keycloak.common.util.KeystoreUtil;
@@ -44,6 +45,10 @@ import static org.keycloak.client.admin.cli.util.HttpUtil.urlencode;
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>
  */
 public class AuthUtil {
+    static KeystoreUtil.KeystoreFormat keystoreFormat = getKeystoreFormat();
+    private static KeystoreUtil.KeystoreFormat getKeystoreFormat() {
+        return CryptoServicesRegistrar.isInApprovedOnlyMode() ? KeystoreUtil.KeystoreFormat.BCFKS : KeystoreUtil.KeystoreFormat.JKS;
+    }
 
     public static String ensureToken(ConfigData config) {
         if (config.getExternalToken() != null) {
@@ -191,7 +196,7 @@ public class AuthUtil {
 
     public static String getSignedRequestToken(String keystore, String storePass, String keyPass, String alias, int sigLifetime, String clientId, String realmInfoUrl) {
 
-        KeyPair keypair = KeystoreUtil.loadKeyPairFromKeystore(keystore, storePass, keyPass, alias, KeystoreUtil.KeystoreFormat.JKS);
+        KeyPair keypair = KeystoreUtil.loadKeyPairFromKeystore(keystore, storePass, keyPass, alias, keystoreFormat);
 
         JsonWebToken reqToken = new JsonWebToken();
         reqToken.id(UUID.randomUUID().toString());

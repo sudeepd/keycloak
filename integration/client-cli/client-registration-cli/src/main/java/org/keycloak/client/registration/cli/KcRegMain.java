@@ -1,5 +1,6 @@
 package org.keycloak.client.registration.cli;
 
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 import org.jboss.aesh.console.AeshConsoleBuilder;
 import org.jboss.aesh.console.AeshConsoleImpl;
 import org.jboss.aesh.console.Prompt;
@@ -21,8 +22,8 @@ import java.util.Arrays;
 public class KcRegMain {
 
     public static void main(String [] args) {
-
         Globals.stdin = new ValveInputStream();
+        boolean isFips = CryptoServicesRegistrar.isInApprovedOnlyMode();
 
         Settings settings = new SettingsBuilder()
                 .logging(false)
@@ -66,7 +67,7 @@ public class KcRegMain {
                 b.append('\'');
             }
         }
-        console.setEcho(false);
+        console.setEcho(true);
 
         console.execute("kcreg" + b.toString());
 

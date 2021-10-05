@@ -88,15 +88,15 @@
                                 </filter>
                                 <filter>
                                     <artifact>org.bouncycastle:bc-fips</artifact>
-                                    <includes>
-                                        <include>**/**</include>
-                                    </includes>
+                                    <excludes>
+                                        <exclude>**/**</exclude>
+                                    </excludes>
 				</filter>
 		                <filter>
                                     <artifact>org.bouncycastle:bctls-fips</artifact>
-                                    <includes>
-                                        <include>**/**</include>
-                                    </includes>
+                                    <excludes>
+                                        <exclude>**/**</exclude>
+                                    </excludes>
                                 </filter>
                                 <filter>
                                     <artifact>org.bouncycastle:bcpkix-fips</artifact>
@@ -106,9 +106,9 @@
                                 </filter>
                                 <filter>
                                     <artifact>com.fasterxml.jackson.core:jackson-core</artifact>
-                                    <includes>
-                                        <include>**/**</include>
-                                    </includes>
+                                    <excludes>
+                                        <exclude>**/**</exclude>
+                                    </excludes>
                                 </filter>
                                 <filter>
                                     <artifact>com.fasterxml.jackson.core:jackson-databind</artifact>
