@@ -1,6 +1,7 @@
 package org.keycloak.testsuite.cli.registration;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.client.registration.cli.config.FileConfigHandler;
 import org.keycloak.testsuite.cli.KcRegExec;
@@ -15,6 +16,7 @@ import static org.keycloak.testsuite.cli.KcRegExec.execute;
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>
  */
+@Ignore
 public class KcRegConfigTest extends AbstractRegCliTest {
 
     @Test

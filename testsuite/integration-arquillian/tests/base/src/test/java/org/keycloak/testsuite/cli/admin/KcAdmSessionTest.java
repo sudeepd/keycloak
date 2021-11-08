@@ -2,6 +2,7 @@ package org.keycloak.testsuite.cli.admin;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.client.admin.cli.config.FileConfigHandler;
 import org.keycloak.testsuite.cli.KcAdmExec;
@@ -23,6 +24,7 @@ import static org.keycloak.testsuite.cli.KcAdmExec.execute;
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>
  */
+@Ignore
 @AuthServerContainerExclude({AuthServer.REMOTE, AuthServer.QUARKUS})
 public class KcAdmSessionTest extends AbstractAdmCliTest {
 

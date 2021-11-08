@@ -1,6 +1,7 @@
 package org.keycloak.testsuite.cli.admin;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.broker.saml.SAMLIdentityProviderConfig;
@@ -30,6 +31,7 @@ import static org.keycloak.testsuite.cli.KcAdmExec.execute;
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>
  */
+@Ignore
 @AuthServerContainerExclude(AuthServer.REMOTE)
 public class KcAdmCreateTest extends AbstractAdmCliTest {
 

@@ -1,6 +1,7 @@
 package org.keycloak.testsuite.cli.admin;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.keycloak.client.admin.cli.config.ConfigData;
 import org.keycloak.client.admin.cli.config.FileConfigHandler;
@@ -25,7 +26,7 @@ import static org.keycloak.testsuite.cli.KcAdmExec.execute;
 /**
  * @author <a href="mailto:mstrukel@redhat.com">Marko Strukelj</a>
  */
-@AuthServerContainerExclude(AuthServer.REMOTE)
+@Ignore
 public class KcAdmTest extends AbstractAdmCliTest {
 
     @Test
