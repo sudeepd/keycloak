@@ -394,14 +394,14 @@ public abstract class AbstractClientPoliciesTest extends AbstractKeycloakTest {
     private PrivateKey decodePrivateKey(byte[] der, String algorithm) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException {
         PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(der);
         String keyAlg = getKeyAlgorithmFromJwaAlgorithm(algorithm);
-        KeyFactory kf = KeyFactory.getInstance(keyAlg, "BC");
+        KeyFactory kf = KeyFactory.getInstance(keyAlg, "BCFIPS");
         return kf.generatePrivate(spec);
     }
 
     private PublicKey decodePublicKey(byte[] der, String algorithm) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException {
         X509EncodedKeySpec spec = new X509EncodedKeySpec(der);
         String keyAlg = getKeyAlgorithmFromJwaAlgorithm(algorithm);
-        KeyFactory kf = KeyFactory.getInstance(keyAlg, "BC");
+        KeyFactory kf = KeyFactory.getInstance(keyAlg, "BCFIPS");
         return kf.generatePublic(spec);
     }
 
