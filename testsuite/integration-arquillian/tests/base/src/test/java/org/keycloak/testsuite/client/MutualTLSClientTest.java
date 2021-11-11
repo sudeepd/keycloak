@@ -90,7 +90,7 @@ public class MutualTLSClientTest extends AbstractTestRealmKeycloakTest {
       Supplier<CloseableHttpClient> clientWithProperCertificate = MutualTLSUtils::newCloseableHttpClientWithDefaultKeyStoreAndTrustStore;
 
       //when
-      OAuthClient.AccessTokenResponse token = loginAndGetAccessTokenResponse(EXACT_SUBJECT_DN_CLIENT_ID, clientWithProperCertificate);
+      OAuthClient.AccessTokenResponse token = loginAndGetAccessTokenResponse(CLIENT_ID, clientWithProperCertificate);
 
       //then
       assertTokenObtained(token);
@@ -176,6 +176,8 @@ public class MutualTLSClientTest extends AbstractTestRealmKeycloakTest {
    }
 
    private void assertTokenObtained(OAuthClient.AccessTokenResponse token) {
+      System.out.println("token status code: " + token.getStatusCode());
+      System.out.println("token itself: " + token.getAccessToken());
       Assert.assertEquals(200, token.getStatusCode());
       Assert.assertNotNull(token.getAccessToken());
    }
