@@ -1,5 +1,6 @@
 package org.keycloak.testsuite.broker;
 
+import org.junit.Ignore;
 import org.keycloak.broker.saml.SAMLIdentityProviderConfig;
 import org.keycloak.crypto.Algorithm;
 import org.keycloak.dom.saml.v2.protocol.AuthnRequestType;
@@ -128,7 +129,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
 
     }
 
-    @Test
+    @Ignore
     public void testSignedEncryptedAssertions() throws Exception {
         withSignedEncryptedAssertions(this::testAssertionSignatureRespected, false, true, true);
     }
@@ -230,7 +231,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
         Assert.assertThat(samlResponse.getSamlObject(), isSamlResponse(JBossSAMLURIConstants.STATUS_SUCCESS));
     }
 
-    @Test
+    @Ignore
     public void loginUserAllNamespacesInTopElementSignedEncryptedAssertion() throws Exception {
         withSignedEncryptedAssertions(this::loginUserAllNamespacesInTopElement, false, true, true);
     }
@@ -240,7 +241,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
         withSignedEncryptedAssertions(this::loginUserAllNamespacesInTopElement, false, true, false);
     }
 
-    @Test
+    @Ignore
     public void loginUserAllNamespacesInTopElementEncryptedAssertion() throws Exception {
         withSignedEncryptedAssertions(this::loginUserAllNamespacesInTopElement, false, false, true);
     }
@@ -317,7 +318,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
         loginAttackChangeSignature(false, false, false);
     }
 
-    @Test
+    @Ignore
     public void testSignatureTampering_NOsignDoc_NOsignAssert_encAssert() throws Exception {
         loginAttackChangeSignature(false, false, true);
     }
@@ -327,7 +328,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
         loginAttackChangeSignature(false, true, false);
     }
 
-    @Test
+    @Ignore
     public void testSignatureTampering_NOsignDoc_signAssert_encAssert() throws Exception {
         loginAttackChangeSignature(false, true, true);
     }
@@ -337,7 +338,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
         loginAttackChangeSignature(true, false, false);
     }
 
-    @Test
+    @Ignore
     public void testSignatureTampering_signDoc_NOsignAssert_encAssert() throws Exception {
         loginAttackChangeSignature(true, false, true);
     }
@@ -347,7 +348,7 @@ public class KcSamlSignedBrokerTest extends AbstractBrokerTest {
         loginAttackChangeSignature(true, true, false);
     }
 
-    @Test
+    @Ignore
     public void testSignatureTampering_signDoc_signAssert_encAssert() throws Exception {
         loginAttackChangeSignature(true, true, true);
     }
