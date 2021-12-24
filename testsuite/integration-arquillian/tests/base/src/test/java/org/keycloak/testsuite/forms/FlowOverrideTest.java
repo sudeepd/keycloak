@@ -394,7 +394,7 @@ public class FlowOverrideTest extends AbstractTestRealmKeycloakTest {
     @Test
     public void testDirectGrantHttpChallengeOTP() {
         UserRepresentation user = adminClient.realm("test").users().search("test-user@localhost").get(0);
-        UserRepresentation userUpdate = UserBuilder.edit(user).totpSecret("totpSecret").otpEnabled().build();
+        UserRepresentation userUpdate = UserBuilder.edit(user).totpSecret("aVeryLongTotpSecret").otpEnabled().build();
         adminClient.realm("test").users().get(user.getId()).update(userUpdate);
 
         CredentialRepresentation totpCredential = adminClient.realm("test").users()
@@ -411,7 +411,7 @@ public class FlowOverrideTest extends AbstractTestRealmKeycloakTest {
         form.param(OAuth2Constants.CLIENT_ID, TEST_APP_HTTP_CHALLENGE_OTP);
 
         // correct password + totp
-        String totpCode = totp.generateTOTP("totpSecret");
+        String totpCode = totp.generateTOTP("aVeryLongTotpSecret");
         Response response = grantTarget.request()
                 .header(HttpHeaders.AUTHORIZATION, BasicAuthHelper.createHeader("test-user@localhost", "password" + totpCode))
                 .post(Entity.form(form));
@@ -429,7 +429,7 @@ public class FlowOverrideTest extends AbstractTestRealmKeycloakTest {
         assertEquals(401, response.getStatus());
 
         // correct password + totp but user is temporarily locked
-        totpCode = totp.generateTOTP("totpSecret");
+        totpCode = totp.generateTOTP("aVeryLongTotpSecret");
         response = grantTarget.request()
                 .header(HttpHeaders.AUTHORIZATION, BasicAuthHelper.createHeader("test-user@localhost", "password" + totpCode))
                 .post(Entity.form(form));
