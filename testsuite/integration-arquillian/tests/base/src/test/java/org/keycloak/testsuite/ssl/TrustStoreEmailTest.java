@@ -18,6 +18,7 @@ package org.keycloak.testsuite.ssl;
 
 import org.jboss.arquillian.graphene.page.Page;
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.keycloak.common.Profile;
@@ -95,7 +96,7 @@ public class TrustStoreEmailTest extends AbstractTestRealmKeycloakTest {
     }
 
 
-    @Test
+    @Ignore
     @AuthServerContainerExclude(AuthServer.REMOTE)
     public void verifyEmailWithSslEnabled() {
         UserRepresentation user = ApiUtil.findUserByUsername(testRealm(), "test-user@localhost");
