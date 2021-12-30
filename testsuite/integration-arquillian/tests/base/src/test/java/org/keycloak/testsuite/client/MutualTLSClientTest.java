@@ -90,7 +90,7 @@ public class MutualTLSClientTest extends AbstractTestRealmKeycloakTest {
       Supplier<CloseableHttpClient> clientWithProperCertificate = MutualTLSUtils::newCloseableHttpClientWithDefaultKeyStoreAndTrustStore;
 
       //when
-      OAuthClient.AccessTokenResponse token = loginAndGetAccessTokenResponse(EXACT_SUBJECT_DN_CLIENT_ID, clientWithProperCertificate);
+      OAuthClient.AccessTokenResponse token = loginAndGetAccessTokenResponse(CLIENT_ID, clientWithProperCertificate);
 
       //then
       assertTokenObtained(token);
