@@ -337,7 +337,6 @@ public class ClientTokenExchangeSAML2Test extends AbstractKeycloakTest {
 
             // Decrypt assertion
             Document assertionDoc = DocumentUtil.getDocument(assertionXML);
-            // TODO SEEMS TO FAIL ON privateKeyFromString(...)
             Element assertionElement = XMLEncryptionUtil.decryptElementInDocument(assertionDoc, privateKeyFromString(ENCRYPTION_PRIVATE_KEY));
             Assert.assertFalse(AssertionUtil.isSignedElement(assertionElement));
             AssertionType assertion = (AssertionType) SAMLParser.getInstance().parse(assertionElement);
