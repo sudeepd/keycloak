@@ -224,8 +224,8 @@
         <client.truststore.passphrase>averylongpassword</client.truststore.passphrase>
 
         <!-- KEYCLOAK-6771 Certificate Bound Token -->
-        <hok.client.certificate.keystore>${auth.server.config.dir}/other_client.jks</hok.client.certificate.keystore>
-        <hok.client.certificate.keystore.passphrase>secret</hok.client.certificate.keystore.passphrase>
+        <hok.client.certificate.keystore>${auth.server.config.dir}/other_client.bcfks</hok.client.certificate.keystore>
+        <hok.client.certificate.keystore.passphrase>averylongpassword</hok.client.certificate.keystore.passphrase>
 
         <auth.server.ocsp.responder.enabled>false</auth.server.ocsp.responder.enabled>
         <keycloak.x509cert.lookup.provider>default</keycloak.x509cert.lookup.provider>
