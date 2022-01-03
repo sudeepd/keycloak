@@ -12,7 +12,7 @@ public class BrokerTestConstants {
     public final static String IDP_SAML_PROVIDER_ID = "saml";
 
     public final static String CLIENT_ID = "brokerapp";
-    public final static String CLIENT_SECRET = "secret";
+    public final static String CLIENT_SECRET = "averylongsecret";
     public final static String VAULT_CLIENT_SECRET = "${vault.oidc_idp}";
 
     public final static String USER_LOGIN = "testuser";
