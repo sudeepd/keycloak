@@ -173,7 +173,7 @@ public class ClientAuthSecretSignedJWTTest extends AbstractKeycloakTest {
  
     private void testCodeToTokenRequestSuccess(String algorithm) throws Exception {
         oauth.clientId("test-app");
-        oauth.doLogin("test-user@localhost", "password");
+        oauth.doLogin("test-user@localhost", "averylongpassword");
         EventRepresentation loginEvent = events.expectLogin()
                 .client("test-app")
                 .assertEvent();
@@ -195,7 +195,7 @@ public class ClientAuthSecretSignedJWTTest extends AbstractKeycloakTest {
     @Test
     public void testAssertionInvalidSignature() throws Exception {
         oauth.clientId("test-app");
-        oauth.doLogin("test-user@localhost", "password");
+        oauth.doLogin("test-user@localhost", "averylongpassword");
         EventRepresentation loginEvent = events.expectLogin()
                 .client("test-app")
                 .assertEvent();
@@ -211,7 +211,7 @@ public class ClientAuthSecretSignedJWTTest extends AbstractKeycloakTest {
     @Test
     public void testAssertionReuse() throws Exception {
         oauth.clientId("test-app");
-        oauth.doLogin("test-user@localhost", "password");
+        oauth.doLogin("test-user@localhost", "averylongpassword");
         EventRepresentation loginEvent = events.expectLogin()
                 .client("test-app")
                 .assertEvent();
