@@ -105,7 +105,7 @@ public class X509OCSPResponderTest extends AbstractX509AuthenticationTest {
         Assert.assertNotNull(cfgId);
 
         String keyStorePath = Paths.get(System.getProperty("client.certificate.keystore"))
-                .getParent().resolve("client-ca.jks").toString();
+                .getParent().resolve("client-ca.bcfks").toString();
         String keyStorePassword = System.getProperty("client.certificate.keystore.passphrase");
         String trustStorePath = System.getProperty("client.truststore");
         String trustStorePassword = System.getProperty("client.truststore.passphrase");

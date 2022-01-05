@@ -316,7 +316,7 @@ public final class OCSPUtils {
                 for (X509CertificateHolder certHolder : certs) {
                     try {
                         X509Certificate tempCert = new JcaX509CertificateConverter()
-                                .setProvider("BC").getCertificate(certHolder);
+                                .setProvider("BCFIPS").getCertificate(certHolder);
                         X500Name respName = new X500Name(tempCert.getSubjectX500Principal().getName());
                         if (responderName.equals(respName)) {
                             signingCert = tempCert;
@@ -334,7 +334,7 @@ public final class OCSPUtils {
                 for (X509CertificateHolder certHolder : certs) {
                     try {
                         X509Certificate tempCert = new JcaX509CertificateConverter()
-                                .setProvider("BC").getCertificate(certHolder);
+                                .setProvider("BCFIPS").getCertificate(certHolder);
 
                         SubjectKeyIdentifier subjectKeyIdentifier = null;
                         if (certHolder.getExtensions() != null) {
@@ -454,7 +454,7 @@ public final class OCSPUtils {
     private static boolean verifySignature(BasicOCSPResp basicOcspResponse, X509Certificate cert) {
         try {
             ContentVerifierProvider contentVerifier = new JcaContentVerifierProviderBuilder()
-                    .setProvider("BC").build(cert.getPublicKey());
+                    .setProvider("BCFIPS").build(cert.getPublicKey());
             return basicOcspResponse.isSignatureValid(contentVerifier);
         } catch (OperatorCreationException e) {
             logger.log(Level.FINE, "Unable to construct OCSP content signature verifier\n{0}", e.getMessage());
