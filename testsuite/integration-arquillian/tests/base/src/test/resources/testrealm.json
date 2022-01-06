@@ -32,7 +32,7 @@
       "lastName": "Brady",
       "credentials" : [
         { "type" : "password",
-          "value" : "averylongpassword" }
+          "value" : "password" }
       ],
       "realmRoles": ["user", "offline_access"],
       "clientRoles": {
