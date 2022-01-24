@@ -6,8 +6,8 @@
         forceAuthentication="false">
         <Keys>
             <Key signing="true">
-                <KeyStore resource="/keystore-tenant1.new.bcfks" password="averylongpassword">
-                    <PrivateKey alias="multi-tenant" password="changeit"/>
+					<KeyStore resource="/keystore-tenant1.bcfks" password="averylongpassword">
+                    <PrivateKey alias="multi-tenant" password="averylongpassword"/>
                     <Certificate alias="multi-tenant"/>
                 </KeyStore>
             </Key>
@@ -31,7 +31,14 @@
                                  responseBinding="POST"
                                  postBindingUrl="http://localhost:8080/auth/realms/tenant1/protocol/saml"
                                  redirectBindingUrl="http://localhost:8080/auth/realms/tenant1/protocol/saml"/>
-            <HttpClient disableTrustManager="true"/>
+			<HttpClient disableTrustManager="true"/>
+          	<Keys>
+                 <Key signing="true">
+                     <KeyStore resource="/keystore-tenant1.bcfks" password="averylongpassword">
+                         <Certificate alias="tenant1"/>
+                     </KeyStore>
+                 </Key>
+          	</Keys>
         </IDP>
     </SP>
 </keycloak-saml-adapter>

@@ -450,7 +450,7 @@ public class SAMLServletAdapterTest extends AbstractSAMLServletAdapterTest {
     protected static WebArchive multiTenant() {
         return samlServletDeploymentMultiTenant(MultiTenant1Saml.DEPLOYMENT_NAME, "multi-tenant-saml/WEB-INF/web.xml",
                 "tenant1-keycloak-saml.xml", "tenant2-keycloak-saml.xml",
-                "keystore-tenant1.new.bcfks", "keystore-tenant2.new.bcfks",
+                "keystore-tenant1.bcfks", "keystore-tenant2.bcfks",
                 SendUsernameServlet.class, SamlMultiTenantResolver.class);
     }
 
